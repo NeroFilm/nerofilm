@@ -1,4 +1,3 @@
-import React from 'react';
 import CatFilmImage from '../assets/Catfilm.png';
 
 const AboutUs = () => {

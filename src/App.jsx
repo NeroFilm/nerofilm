@@ -1,31 +1,31 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";  // Import the Header component
 import AboutUs from "./pages/AboutUs";
+import Home from "./pages/Home";
 
-const TryIt = () => <h1>Try It Page</h1>;
-import Home from "./pages/Home"; 
+// import Home from "./pages/Home"; 
 import SelectFrame from "./pages/SelectFrame";
 import { FrameProvider } from "./hooks/FrameContext";
 import AddFilter from "./pages/AddFilter";
 import ChooseFrame from "./pages/ChooseFrame";
 import Download from "./pages/Download";
+import TryIt from "./pages/TryIt";
+import Instructions from "./pages/Instructions";
 
 const App = () => {
-  const AboutUs = () => <h1>About Us Page</h1>;
-  const TryIt = () => <h1>Try It Page</h1>;
-
   return (
     <FrameProvider>
       <Router>
         <Header /> {/* This will display the Header at the top */}
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/try-it" element={<TryIt />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/select-frame" element={<SelectFrame />} />
-            <Route path="/add-filter" element={<AddFilter />} />
-            <Route path="/choose-frame" element={<ChooseFrame />} />
-            <Route path="/download" element={<Download />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/try-it" element={<TryIt />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/select-frame" element={<SelectFrame />} />
+          <Route path="/add-filter" element={<AddFilter />} />
+          <Route path="/choose-frame" element={<ChooseFrame />} />
+          <Route path="/download" element={<Download />} />
+          <Route path="/instructions" element={<Instructions />} />
         </Routes>
       </Router>
     </FrameProvider>

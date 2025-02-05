@@ -36,7 +36,7 @@ const Home = () => {
             cursor: "pointer",
             marginTop: "10px"
           }}>
-            <Link to="/select-frame">Try it now</Link>
+            <Link to="/try-it">Try it now</Link>
           </button>
         </div>
 
