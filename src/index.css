@@ -59,3 +59,35 @@ h1 {
   height: auto;
   background-color: white;
 }
+
+.frame-options {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 120px;
+}
+
+.frame-selected {
+  outline: 2px solid pink;
+}
+
+.frame-black {
+  background-color: black;
+}
+
+.frame-white {
+  background-color: white;
+  outline: 1px solid black;
+}
+
+.frame-pink {
+  background-color: pink;
+}
+
+.frame-blue {
+  background-color: lightblue;
+}
+
+.option-selected {
+  outline: 2px solid pink;
+}
