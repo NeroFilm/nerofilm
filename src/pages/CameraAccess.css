@@ -1,0 +1,108 @@
+/* Fullscreen dark background */
+.camera-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  color: white;
+  position: relative;
+}
+
+/* Back Button */
+.back-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Camera Access Messages */
+.camera-access-message {
+  text-align: center;
+}
+
+.camera-image {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  color: #b0b0b0;
+}
+
+/* Camera Preview */
+.camera-preview-container {
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+
+.camera-instruction {
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-top: -30px;/* space between text and backarrow */
+  margin-bottom: 20px; /* pace between text and video */
+}
+
+.camera-preview {
+  width: 90vw;  /* wider screen */
+  height: auto;
+  max-height: 80vh; /* so it doesn't take the entire screen */
+  border-radius: 8px;
+  object-fit: cover; /* so the video fits nicely */
+}
+
+/* Style for the shutter button */
+.shutter-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.shutter-icon {
+  width: 80px;
+  height: 80px;
+}
+
+/* Photo preview */
+.photo-preview {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.captured-image {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.download-button {
+  display: block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #ff69b4;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}

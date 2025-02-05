@@ -1,8 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Import for navigation
+import { useNavigate } from "react-router-dom"; 
 import "./TryIt.css"; 
 import Catfilm from "../assets/Catfilm.png";
-import Header from "../components/Header"; // Import Header component
+import Header from "../components/Header"; 
 
 const TryIt = () => {
   const navigate = useNavigate(); // Hook for navigation

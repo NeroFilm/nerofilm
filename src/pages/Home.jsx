@@ -2,8 +2,6 @@ import Logo from "../assets/Logobig.png";
 import Catfilm from "../assets/Catfilm.png";
 
 const Home = () => {
-  const navigate = useNavigate(); // Hook to handle navigation
-
   return (
     <div style={{
       fontFamily: "'Itim', cursive",
