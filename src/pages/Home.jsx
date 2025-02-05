@@ -1,4 +1,3 @@
-import React from "react";
 import Logo from "../assets/Logobig.png";
 import Catfilm from "../assets/Catfilm.png";
 
