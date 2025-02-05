@@ -1,5 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";  // Import the Header component
+import AboutUs from "./pages/AboutUs";
+
+const TryIt = () => <h1>Try It Page</h1>;
 import Home from "./pages/Home"; 
 import SelectFrame from "./pages/SelectFrame";
 import { FrameProvider } from "./hooks/FrameContext";
