@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom"; 
 import "./TryIt.css"; 
 import Catfilm from "../assets/Catfilm.png";

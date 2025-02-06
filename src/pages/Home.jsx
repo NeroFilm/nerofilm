@@ -1,5 +1,6 @@
 import Logo from "../assets/Logobig.png";
 import Catfilm from "../assets/Catfilm.png";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -35,7 +36,7 @@ const Home = () => {
             cursor: "pointer",
             marginTop: "10px"
           }}>
-            Try It Now!
+            <Link to="/try-it">Try it now</Link>
           </button>
         </div>
 
