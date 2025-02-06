@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Instructions.css"; 
 import { useNavigate } from "react-router-dom"; 
 import SecondHeader from "../components/SecondHeader";
-import Close from "../assets/Close.png";
+import BlackBackArrrow from "../assets/BlackBackArrow.png";
 import WatchIcon from "../assets/WatchIcon.png";
 import CamIcon from "../assets/CamIcon.png";
 import GalleryIcon from "../assets/GalleryIcon.png";
@@ -23,9 +23,9 @@ const Instructions = ({ onClose }) => {
         <div className="instructions-container">
           {/* Popup Box */}
           <div className="instructions-popup">
-            {/* Close Button */}
-            <button className="close-button" onClick={onClose}>
-              <img src={Close} alt="Close" className="close-icon" />
+            {/* Back Button */}
+            <button className="back-button" onClick={() => navigate("/try-it")}>
+              <img src={BlackBackArrrow} alt="Back" className="back-icon" />
             </button>
 
             {/* Header */}
