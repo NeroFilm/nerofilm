@@ -42,7 +42,9 @@ const CameraAccess = ({ onBack }) => {
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
 
-      // Draw the video frame onto the canvas
+      // Flip the image horizontally before drawing
+      context.translate(canvas.width, 0);
+      context.scale(-1, 1);
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
       // Convert canvas to an image URL
@@ -50,6 +52,7 @@ const CameraAccess = ({ onBack }) => {
       setPhoto(imageDataURL); // Save the photo for preview or download
     }
   };
+
 
   return (
     <div className="camera-page">

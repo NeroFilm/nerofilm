@@ -66,6 +66,8 @@ p {
   max-height: 80vh; /* so it doesn't take the entire screen */
   border-radius: 8px;
   object-fit: cover; /* so the video fits nicely */
+  transform: scaleX(-1);  /* flip horizontally */
+  -webkit-transform: scaleX(-1); /* Ensure cross-browser support */
 }
 
 /* Style for the shutter button */
