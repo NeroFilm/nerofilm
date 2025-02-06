@@ -5,8 +5,7 @@ import Home from "./pages/Home";
 import TryIt from "./pages/TryIt";
 import Instructions from "./pages/Instructions"
 import CameraAccess from "./pages/CameraAccess";
-
-const AboutUs = () => <h1>About Us Page</h1>;
+import AboutUs from "./pages/AboutUs";
 
 const App = () => {
   return (
