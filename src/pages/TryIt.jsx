@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom"; 
 import "./TryIt.css"; 
 import Catfilm from "../assets/Catfilm.png";
@@ -9,7 +8,6 @@ const TryIt = () => {
 
   return (
     <>
-      <Header /> {/* Add the Header at the top */}
       <div className="tryit-container">
         <div className="try-it-screen">
           <img src={Catfilm} alt="Catfilm" className="catfilm-image" />
