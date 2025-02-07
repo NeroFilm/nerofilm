@@ -36,11 +36,11 @@
     justify-content: space-between;
 }
 
-/* Close Button */
-.close-button {
+/* Back Button */
+.back-button {
     position: absolute;
-    top: 30px; /* Ensures proper alignment at the top */
-    right: 30px; /* Ensures proper alignment at the right */
+    top: 30px;
+    right: 30px; 
     width: 40px;
     height: 40px;
     background: none;
@@ -49,22 +49,22 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    padding: 0; /* Removes extra space */
+    padding: 0; 
     outline: none;
     transition: background-color 0.2s ease-in-out;
 }
 
-/* Close Button on Hover */
-.close-button:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* Light hover effect */
-    border-radius: 8px; /* Ensures a smooth hover circle */
+/* Back Button on Hover */
+.back-button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* hover effect */
+    border-radius: 8px; 
 }
 
-/* Close Icon */
-.close-icon {
+/* Back Icon */
+.back-icon {
     width: 32px;
     height: 32px;
-    display: block;
+    display: block; 
 }
 
 /* Header Title */

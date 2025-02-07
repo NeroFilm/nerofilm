@@ -8,7 +8,6 @@ const TryIt = () => {
 
   return (
     <>
-      <Header /> {/* Add the Header at the top */}
       <div className="tryit-container">
         <div className="try-it-screen">
           <img src={Catfilm} alt="Catfilm" className="catfilm-image" />
