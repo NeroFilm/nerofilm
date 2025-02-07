@@ -44,6 +44,17 @@
   position: relative;
 }
 
+/* Camera display on screen */
+.camera-preview{
+  transform: scaleX(-1); /* mirrors camera display on screen */ 
+  -webkit-transform: scaleX(-1);
+  width: auto;
+  height: auto;
+  max-height: 80vh; /* prevents excessive stretching */
+  border-radius: none;
+  object-fit: cover; /* ensures the video fits nicely */
+}
+
 /* Photo Gallery */
 .photo-gallery {
   display: flex;
