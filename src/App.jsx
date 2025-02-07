@@ -10,13 +10,12 @@ import AddFilter from "./pages/AddFilter";
 import ChooseFrame from "./pages/ChooseFrame";
 import Download from "./pages/Download";
 import CameraAccess from "./pages/CameraAccess";  
-import Instructions from "./pages/Instructions"
 
 const App = () => {
   return (
     <FrameProvider>
       <Router>
-        <Header /> {/* This will display the Header at the top */}
+        <Header /> 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/try-it" element={<TryIt />} />
