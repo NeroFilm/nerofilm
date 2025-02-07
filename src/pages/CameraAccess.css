@@ -44,15 +44,39 @@
   position: relative;
 }
 
+/* Allows browser and camera display to stretch/shrink proportionally */
+.camera-preview-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw; 
+  max-width: 1000px; 
+  height: auto; /* Allow proportional resizing */
+}
+
 /* Camera display on screen */
-.camera-preview{
-  transform: scaleX(-1); /* mirrors camera display on screen */ 
-  -webkit-transform: scaleX(-1);
-  width: auto;
-  height: auto;
-  max-height: 80vh; /* prevents excessive stretching */
+.camera-preview {
+  width: 100%; 
+  height: auto; 
+  max-height: 80vh; 
+  object-fit: cover; 
   border-radius: none;
-  object-fit: cover; /* ensures the video fits nicely */
+  transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+}
+
+/* Photo Count Display */
+.photo-count-display {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 10px;
 }
 
 /* Photo Gallery */
