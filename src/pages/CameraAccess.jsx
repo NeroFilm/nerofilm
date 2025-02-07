@@ -6,17 +6,18 @@ import CameraDisabled from "../assets/CameraDisabled.png";
 import Shutter from "../assets/Shutter.png";
 import "../pages/CameraAccess.css";
 
-const CameraAccess = ({ onBack }) => {
+const CameraAccess = () => {
   const navigate = useNavigate();
   const [cameraPermission, setCameraPermission] = useState(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
-  const [photo, setPhoto] = useState(null); // Store captured photo
+  const [photos, setPhotos] = useState([]); // Store up to 8 photos
+  const [countdown, setCountdown] = useState(null); // Countdown state
+  const [isShooting, setIsShooting] = useState(false); // Track shooting state
 
   useEffect(() => {
-    // Show the "Allow Camera Access" screen first
+    // Request camera permission
     setTimeout(() => {
-      // Request camera permission
       navigator.mediaDevices
         .getUserMedia({ video: true })
         .then((stream) => {
@@ -31,7 +32,7 @@ const CameraAccess = ({ onBack }) => {
     }, 1000);
   }, []);
 
-  // Capture a photo
+  // Function to capture a photo
   const takePhoto = () => {
     if (videoRef.current && canvasRef.current) {
       const video = videoRef.current;
@@ -49,10 +50,46 @@ const CameraAccess = ({ onBack }) => {
 
       // Convert canvas to an image URL
       const imageDataURL = canvas.toDataURL("image/png");
-      setPhoto(imageDataURL); // Save the photo for preview or download
+
+      // Update state with the new photo, keeping only the last 8
+      setPhotos((prevPhotos) => {
+        const updatedPhotos = [...prevPhotos, imageDataURL];
+        return updatedPhotos.length > 8 ? updatedPhotos.slice(1) : updatedPhotos;
+      });
     }
   };
 
+  // Function to handle countdown before each photo
+  const startCountdown = (count, callback) => {
+    if (count === 0) {
+      callback(); // Take the photo
+      return;
+    }
+    setCountdown(count);
+    setTimeout(() => startCountdown(count - 1, callback), 1000);
+  };
+
+  // Function to start taking 8 photos automatically
+  const startPhotoSequence = () => {
+    if (isShooting) return; // Prevent multiple starts
+    setIsShooting(true);
+    let count = 8; // Total photos to take
+
+    const takeNextPhoto = () => {
+      if (count === 0) {
+        setIsShooting(false);
+        setCountdown(null); // Hide countdown
+        return;
+      }
+      startCountdown(3, () => {
+        takePhoto();
+        count--;
+        setTimeout(takeNextPhoto, 500); // Small delay before starting next countdown
+      });
+    };
+
+    takeNextPhoto();
+  };
 
   return (
     <div className="camera-page">
@@ -60,7 +97,7 @@ const CameraAccess = ({ onBack }) => {
       <button className="back-button" onClick={() => navigate("/instructions")}>
         <img src={WhiteBackArrow} alt="Back" className="back-arrow" />
       </button>
-  
+
       {/* UI when permission is still loading */}
       {cameraPermission === null && (
         <div className="camera-access-message">
@@ -69,7 +106,7 @@ const CameraAccess = ({ onBack }) => {
           <p>To take your photo, <strong>[app]</strong> needs to access your camera</p>
         </div>
       )}
-  
+
       {/* UI when permission is denied */}
       {cameraPermission === false && (
         <div className="camera-access-message">
@@ -78,39 +115,46 @@ const CameraAccess = ({ onBack }) => {
           <p>Please enable camera access in your browser settings.</p>
         </div>
       )}
-  
+
       {/* UI when permission is granted */}
       {cameraPermission === true && (
         <>
           <h2 className="camera-instruction">Click to start taking photos</h2>
-          
-          <div className="camera-preview-container">
-            <video ref={videoRef} autoPlay playsInline className="camera-preview"></video>
-  
-            {/* Shutter button */}
-            <button className="shutter-button" onClick={takePhoto}>
-              <img src={Shutter} alt="Shutter" className="shutter-icon" />
-            </button>
-  
-            {/* Hidden canvas for capturing photo */}
-            <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
-  
-            {/* Display captured photo */}
-            {photo && (
-              <div className="photo-preview">
-                <h3>Captured Photo</h3>
-                <img src={photo} alt="Captured" className="captured-image" />
-                <a href={photo} download="photo.png" className="download-button">
-                  Download Photo
-                </a>
-              </div>
-            )}
+
+          <div className="camera-container">
+            {/* Display Thumbnails */}
+            <div className="photo-gallery">
+              {photos.map((photo, index) => (
+                <img key={index} src={photo} alt={`Captured ${index + 1}`} className="thumbnail" />
+              ))}
+            </div>
+
+            {/* Camera Preview */}
+            <div className="camera-preview-container">
+              <video ref={videoRef} autoPlay playsInline className="camera-preview"></video>
+
+              {/* Countdown Display */}
+              {countdown !== null && (
+                <div className="countdown-timer">
+                  {
+                    countdown
+                  }
+                </div>
+              )}
+
+              {/* Shutter button */}
+              <button className="shutter-button" onClick={startPhotoSequence} disabled={isShooting}>
+                <img src={Shutter} alt="Shutter" className="shutter-icon" />
+              </button>
+
+              {/* Hidden canvas for capturing photo */}
+              <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
+            </div>
           </div>
         </>
       )}
     </div>
   );
-}; 
+};
 
 export default CameraAccess;
-  

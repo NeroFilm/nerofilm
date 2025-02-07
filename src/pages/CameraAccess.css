@@ -11,6 +11,12 @@
   position: relative;
 }
 
+/* Adjust styles when in full-screen */
+.camera-page.fullscreen-mode {
+  align-items: flex-start;
+  padding-top: 20px;
+}
+
 /* Back Button */
 .back-button {
   position: absolute;
@@ -21,53 +27,56 @@
   cursor: pointer;
 }
 
-/* Camera Access Messages */
-.camera-access-message {
-  text-align: center;
+.back-arrow {
+  width: 40px;
+  height: 40px;
 }
 
-.camera-image {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 20px;
+/* Camera Container */
+.camera-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  flex-wrap: wrap;
+  position: relative;
 }
 
-h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 16px;
-  color: #b0b0b0;
-}
-
-/* Camera Preview */
-.camera-preview-container {
-  display: flex;  
+/* Photo Gallery */
+.photo-gallery {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+  gap: 10px;
+  max-height: 80vh;
+  overflow-y: auto;
+  width: 100px;
+  flex-shrink: 0;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.camera-instruction {
-  font-size: 48px;
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  margin-top: -30px;/* space between text and backarrow */
-  margin-bottom: 20px; /* pace between text and video */
-}
-
-.camera-preview {
-  width: 90vw;  /* wider screen */
-  height: auto;
-  max-height: 80vh; /* so it doesn't take the entire screen */
+/* Ensure thumbnails are always visible */
+.thumbnail {
+  width: 80px;
+  height: 80px;
   border-radius: 8px;
-  object-fit: cover; /* so the video fits nicely */
-  transform: scaleX(-1);  /* flip horizontally */
-  -webkit-transform: scaleX(-1); /* Ensure cross-browser support */
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+/* Fix for Full-Screen Mode */
+@media screen and (min-width: 1024px) {
+  .photo-gallery {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 /* Style for the shutter button */
@@ -76,7 +85,7 @@ p {
   border: none;
   cursor: pointer;
   position: absolute;
-  bottom: 150px;
+  bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -86,25 +95,30 @@ p {
   height: 80px;
 }
 
-/* Photo preview */
-.photo-preview {
+/* Countdown Timer */
+.countdown-timer {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 38px; 
+  font-weight: bold;
+  color: black;
+  padding: 20px 40px;
+  border-radius: 20px;
   text-align: center;
-  margin-top: 20px;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-.captured-image {
-  width: 300px;
-  height: auto;
-  border-radius: 10px;
-  margin-top: 10px;
-}
-
-.download-button {
-  display: block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #ff69b4;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
+/* Countdown Fade-in Effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(1.2);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
 }
