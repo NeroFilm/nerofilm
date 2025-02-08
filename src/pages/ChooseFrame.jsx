@@ -1,16 +1,21 @@
 import { useFrame, useFrameUpdate } from "../hooks/FrameContext";
 import Frame from "../components/frame";
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 function ChooseFrame() {
-  const images = ["", "", "", ""];
   const frame = useFrame();
   const setFrame = useFrameUpdate();
-  
+  const location = useLocation();
+  const photos = location.state?.photos || []; // Retrieve photos from /camera
+
   return (
     <div>
-      <h1>Add color</h1>
-      <Frame images={images} layout={frame.layout} color={frame.color} />
+      <h1>Add Color</h1>
+      
+      {/* Display the taken photos inside the selected frame */}
+      <Frame images={photos} layout={frame.layout} color={frame.color} />
+
+      {/* Color selection options */}
       <ul>
         <li
           className={frame.color === "black" ? "option-selected" : ""}
@@ -37,7 +42,8 @@ function ChooseFrame() {
           Blue
         </li>
       </ul>
-      <Link to="/download">Download</Link>;
+
+      <Link to="/download">Download</Link>
     </div>
   );
 }
