@@ -11,6 +11,30 @@
   position: relative;
 }
 
+/* Flash overlay effect */
+.flash-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0.8;
+  animation: flashEffect 0.2s ease-in-out;
+  pointer-events: none;
+  z-index: 5; /* Ensures flash appears over video */
+}
+
+/* Flash animation */
+@keyframes flashEffect {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 /* Adjust styles when in full-screen */
 .camera-page.fullscreen-mode {
   align-items: flex-start;
@@ -35,6 +59,7 @@
 /* Camera Container */
 .camera-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
@@ -44,22 +69,36 @@
   position: relative;
 }
 
-/* Allows browser and camera display to stretch/shrink proportionally */
+/* Camera preview adjustments */
 .camera-preview-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90vw; 
-  max-width: 1000px; 
-  height: auto; /* Allow proportional resizing */
+  width: 90vw;
+  max-width: 1000px;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+}
+/* Ensures flash effect covers only the video */
+.camera-preview-container .flash-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  animation: flashEffect 0.2s ease-in-out;
 }
 
 /* Camera display on screen */
 .camera-preview {
-  width: 100%; 
-  height: auto; 
-  max-height: 80vh; 
-  object-fit: cover; 
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: cover;
   border-radius: none;
   transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
@@ -93,26 +132,19 @@
   border-radius: 10px;
 }
 
-/* Photo Gallery */
-.photo-gallery {
+/* Thumbnails and Captured Images */
+.saved-photos-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
-  max-height: 80vh;
-  overflow-y: auto;
-  width: 100px;
-  flex-shrink: 0;
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-top: 20px;
+  max-width: 1000px;
 }
 
-/* Ensure thumbnails are always visible */
-.thumbnail {
-  width: 80px;
-  height: 80px;
+.saved-photo {
+  width: 250px; /* Matches frame width */
+  height: auto;
   border-radius: 8px;
   object-fit: cover;
   border: 2px solid white;
@@ -120,11 +152,8 @@
 
 /* Fix for Full-Screen Mode */
 @media screen and (min-width: 1024px) {
-  .photo-gallery {
-    position: fixed;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+  .saved-photos-container {
+    justify-content: center;
   }
 }
 

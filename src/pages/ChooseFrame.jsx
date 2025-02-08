@@ -1,19 +1,17 @@
 import { useFrame, useFrameUpdate } from "../hooks/FrameContext";
 import Frame from "../components/frame";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function ChooseFrame() {
   const frame = useFrame();
   const setFrame = useFrameUpdate();
-  const location = useLocation();
-  const photos = location.state?.photos || []; // Retrieve photos from /camera
 
   return (
     <div>
       <h1>Add Color</h1>
       
-      {/* Display the taken photos inside the selected frame */}
-      <Frame images={photos} layout={frame.layout} color={frame.color} />
+      {/* Display the captured images from FrameContext */}
+      <Frame images={frame.images} layout={frame.layout} color={frame.color} />
 
       {/* Color selection options */}
       <ul>

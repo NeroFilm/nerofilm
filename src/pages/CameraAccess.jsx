@@ -19,7 +19,9 @@ const CameraAccess = () => {
   const [isShooting, setIsShooting] = useState(false);
   const [photoCount, setPhotoCount] = useState(0);
   const [showPhotoCount, setShowPhotoCount] = useState(false);
+  const [flash, setFlash] = useState(false); 
 
+  /* Request camera access */
   useEffect(() => {
     navigator.mediaDevices
       .getUserMedia({
@@ -36,35 +38,34 @@ const CameraAccess = () => {
       });
   }, [frame.layout]);
 
+  /* Captures and immediately saves a photo into FrameContext */
   const takePhoto = () => {
     if (videoRef.current && canvasRef.current) {
       const video = videoRef.current;
       const canvas = canvasRef.current;
       const context = canvas.getContext("2d");
 
-      // Adjust canvas size based on selected layout
-      if (frame.layout === "wide") {
-        canvas.width = video.videoHeight; // Swap width/height for vertical
-        canvas.height = video.videoWidth;
-        context.translate(canvas.width, 0);
-        context.rotate((90 * Math.PI) / 180);
-      } else {
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-      }
+      // Adjust canvas size (Wide mode stays vertical)
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
 
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
       const imageDataURL = canvas.toDataURL("image/png");
 
+      // Trigger flash effect
+      setFlash(true);
+      setTimeout(() => setFlash(false), 200); // Flash duration
+
       setFrame((prevFrame) => {
-        const updatedPhotos = [...prevFrame.images, imageDataURL];
-        return { ...prevFrame, images: updatedPhotos.slice(-8) };
+        const updatedPhotos = [...prevFrame.images, imageDataURL].slice(-8);
+        return { ...prevFrame, images: updatedPhotos };
       });
 
       setPhotoCount((prevCount) => prevCount + 1);
     }
   };
 
+  /* 3-second countdown before capturing each photo */
   const startCountdown = (count, callback) => {
     if (count === 0) {
       callback();
@@ -74,6 +75,7 @@ const CameraAccess = () => {
     setTimeout(() => startCountdown(count - 1, callback), 1000);
   };
 
+  /* Takes 8 photos and saves them directly to FrameContext */
   const startPhotoSequence = () => {
     if (isShooting) return;
     setIsShooting(true);
@@ -85,7 +87,7 @@ const CameraAccess = () => {
       if (count === 0) {
         setIsShooting(false);
         setCountdown(null);
-        navigate("/choose-frame"); // Navigate after 8 photos
+        navigate("/choose-frame"); 
         return;
       }
       startCountdown(3, () => {
@@ -100,7 +102,7 @@ const CameraAccess = () => {
 
   return (
     <div className={`camera-page ${frame.layout === "wide" ? "wide-mode" : "original-mode"}`}>
-      <button className="back-button" onClick={() => navigate("/instructions")}>
+      <button className="back-button" onClick={() => navigate("/select-frame")}>
         <img src={WhiteBackArrow} alt="Back" className="back-arrow" />
       </button>
 
@@ -130,6 +132,9 @@ const CameraAccess = () => {
 
           <div className="camera-container">
             <div className={`camera-preview-container ${frame.layout}`}>
+              {/* Flash effect inside camera preview */}
+              {flash && <div className="flash-overlay"></div>}
+
               <video ref={videoRef} autoPlay playsInline className={`camera-preview ${frame.layout}`} />
 
               {countdown !== null && <div className="countdown-timer">{countdown}</div>}

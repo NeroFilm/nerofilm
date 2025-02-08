@@ -16,13 +16,19 @@ function SelectFrame() {
     <div>
       <h1>Select Frame Layout</h1>
       <ul className="frame-options">
-        <li className={frame.layout === "original" ? "frame-selected" : ""} onClick={() => handleSelectLayout("original")}>
-          <Frame images={frame.images} layout="original" color={frame.color} />
+        <li
+          className={frame.layout === "original" ? "frame-selected" : ""}
+          onClick={() => handleSelectLayout("original")}
+        >
+         <Frame images={["/placeholder1.png", "/placeholder2.png", "/placeholder3.png", "/placeholder4.png"]} layout="original" color={frame.color} />
           <p>4 Cut Original</p>
         </li>
-        <li className={frame.layout === "wide" ? "frame-selected" : ""} onClick={() => handleSelectLayout("wide")}>
-          <Frame images={frame.images} layout="wide" color={frame.color} />
-          <p>4 Cut Wide</p>
+        <li
+          className={frame.layout === "wide" ? "frame-selected" : ""}
+          onClick={() => handleSelectLayout("wide")}
+        >
+        <Frame images={["/placeholder1.png", "/placeholder2.png", "/placeholder3.png", "/placeholder4.png"]} layout="wide" color={frame.color} />
+        <p>4 Cut Wide</p>
         </li>
       </ul>
     </div>
