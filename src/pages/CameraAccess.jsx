@@ -14,12 +14,17 @@ const CameraAccess = () => {
   const [photos, setPhotos] = useState([]); // Store up to 8 photos
   const [countdown, setCountdown] = useState(null); // Countdown state
   const [isShooting, setIsShooting] = useState(false); // Track shooting state
+  const [photoCount, setPhotoCount] = useState(0); // Tracks number of photos taken
+  const [showPhotoCount, setShowPhotoCount] = useState(false); // Controls visibility of text
 
   useEffect(() => {
-    // Request camera permission
     setTimeout(() => {
       navigator.mediaDevices
-        .getUserMedia({ video: true })
+        .getUserMedia({
+          video: { 
+            facingMode: "environment" // Ensures back camera (non-mirrored)
+          } 
+        })
         .then((stream) => {
           setCameraPermission(true);
           if (videoRef.current) {
@@ -31,6 +36,7 @@ const CameraAccess = () => {
         });
     }, 1000);
   }, []);
+  
 
   // Function to capture a photo
   const takePhoto = () => {
@@ -56,6 +62,9 @@ const CameraAccess = () => {
         const updatedPhotos = [...prevPhotos, imageDataURL];
         return updatedPhotos.length > 8 ? updatedPhotos.slice(1) : updatedPhotos;
       });
+
+      // Update photo count
+      setPhotoCount((prevCount) => prevCount + 1);
     }
   };
 
@@ -73,6 +82,8 @@ const CameraAccess = () => {
   const startPhotoSequence = () => {
     if (isShooting) return; // Prevent multiple starts
     setIsShooting(true);
+    setPhotoCount(0); // Reset count when starting new sequence
+    setShowPhotoCount(true); // Hide instruction text and show photo count
     let count = 8; // Total photos to take
 
     const takeNextPhoto = () => {
@@ -119,7 +130,14 @@ const CameraAccess = () => {
       {/* UI when permission is granted */}
       {cameraPermission === true && (
         <>
-          <h2 className="camera-instruction">Click to start taking photos</h2>
+          {/* Conditional Rendering: Show either instruction or photo count */}
+          {!showPhotoCount ? (
+            <h2 className="camera-instruction">Click to start taking photos</h2>
+          ) : (
+            <div className="photo-count-display">
+              {photoCount}/8
+            </div>
+          )}
 
           <div className="camera-container">
             {/* Display Thumbnails */}
@@ -136,9 +154,7 @@ const CameraAccess = () => {
               {/* Countdown Display */}
               {countdown !== null && (
                 <div className="countdown-timer">
-                  {
-                    countdown
-                  }
+                  {countdown}
                 </div>
               )}
 
