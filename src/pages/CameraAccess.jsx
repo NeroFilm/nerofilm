@@ -132,7 +132,7 @@ const CameraAccess = () => {
 
           <div className="camera-container">
             <div className={`camera-preview-container ${frame.layout}`}>
-              {/* Flash effect inside camera preview */}
+              {/*Flash effect inside camera preview */}
               {flash && <div className="flash-overlay"></div>}
 
               <video ref={videoRef} autoPlay playsInline className={`camera-preview ${frame.layout}`} />
