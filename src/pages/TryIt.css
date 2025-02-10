@@ -1,0 +1,42 @@
+.tryit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  padding: 80px 20px 20px; 
+}
+
+.try-it-screen {
+  background: white;
+  padding: 30px;
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+.catfilm-image{
+  width: 448px;
+  height: 549px;
+  padding: 10px;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.start-button {
+  background-color: #FFE8F8;
+  padding: 10px 20px;
+  width: 364px;
+  height: 88px;
+  border-radius: 24px;
+  border: none;
+  font-size: 32px;
+  color: #5A5858;
+  cursor: pointer;
+  margin-top: 20px;
+}

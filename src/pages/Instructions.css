@@ -1,0 +1,141 @@
+/* Overlay Background */
+.instructions-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+/* Container */
+.instructions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Popup Box */
+.instructions-popup {
+    background: #FFFBEB;
+    width: 719px;
+    height: 564px;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Back Button */
+.back-button {
+    position: absolute;
+    top: 30px;
+    right: 30px; 
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0; 
+    outline: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Back Button on Hover */
+.back-button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* hover effect */
+    border-radius: 8px; 
+}
+
+/* Back Icon */
+.back-icon {
+    width: 32px;
+    height: 32px;
+    display: block; 
+}
+
+/* Header Title */
+.instructions-popup h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Instructions List */
+.instructions-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+/* Individual list items */
+.instructions-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+}
+
+/* Icons */
+.icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+}
+
+/* Text column */
+.instructions-text {
+    flex: 1;
+    text-align: left;
+    font-size: 16px;
+}
+
+/* Checkbox Container */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 30px;
+    font-size: 16px;
+    gap: 10px;
+}
+
+/* "I'm Ready" Button */
+.ready-button {
+    background-color: #FFE8F8;
+    padding: 20px 40px;
+    width: 364px;
+    height: 88px;
+    border-radius: 24px;
+    border: none;
+    font-size: 24px;
+    color: #5A5858;
+    cursor: pointer;
+    margin-top: 50px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+.ready-button:hover {
+    background-color: #fbc8d2;
+}

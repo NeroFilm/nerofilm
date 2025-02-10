@@ -1,0 +1,159 @@
+/* Fullscreen dark background */
+.camera-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  color: white;
+  position: relative;
+}
+
+/* Adjust styles when in full-screen */
+.camera-page.fullscreen-mode {
+  align-items: flex-start;
+  padding-top: 20px;
+}
+
+/* Back Button */
+.back-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.back-arrow {
+  width: 40px;
+  height: 40px;
+}
+
+/* Camera Container */
+.camera-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* Allows browser and camera display to stretch/shrink proportionally */
+.camera-preview-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw; 
+  max-width: 1000px; 
+  height: auto; /* Allow proportional resizing */
+}
+
+/* Camera display on screen */
+.camera-preview {
+  width: 100%; 
+  height: auto; 
+  max-height: 80vh; 
+  object-fit: cover; 
+  border-radius: none;
+  transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+}
+
+/* Photo Count Display */
+.photo-count-display {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+/* Photo Gallery */
+.photo-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-height: 80vh;
+  overflow-y: auto;
+  width: 100px;
+  flex-shrink: 0;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Ensure thumbnails are always visible */
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+/* Fix for Full-Screen Mode */
+@media screen and (min-width: 1024px) {
+  .photo-gallery {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+/* Style for the shutter button */
+.shutter-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.shutter-icon {
+  width: 80px;
+  height: 80px;
+}
+
+/* Countdown Timer */
+.countdown-timer {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 38px; 
+  font-weight: bold;
+  color: black;
+  padding: 20px 40px;
+  border-radius: 20px;
+  text-align: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Countdown Fade-in Effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(1.2);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}

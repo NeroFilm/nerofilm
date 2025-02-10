@@ -9,7 +9,9 @@ import Photo from "../assets/PhotoSelection.png";
 import Filter from "../assets/AddFilter.png";
 import Frame from "../assets/FrameColor.png";
 import Download from "../assets/DownloadShare.png";
-
+import Logo from "../assets/Logobig.png";
+import Catfilm from "../assets/Catfilm.png";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate(); // Hook for navigation
@@ -54,6 +56,17 @@ const Home = () => {
               marginTop: "30px"
             }}>
             Try It Now!
+          <button style={{
+            padding: "10px 20px",
+            fontSize: "24px",
+            backgroundColor: "#f8d7e2",
+            border: "none",
+            borderRadius: "10px",
+            boxShadow: "3px 3px 10px rgba(0, 0, 0, 0.2)",
+            cursor: "pointer",
+            marginTop: "10px"
+          }}>
+            <Link to="/try-it">Try it now</Link>
           </button>
         </div>
 
