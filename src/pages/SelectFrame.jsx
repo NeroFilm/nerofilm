@@ -1,16 +1,16 @@
-import { useEffect } from "react";
-import Frame from "../components/frame"
 import { useFrame, useFrameUpdate } from "../hooks/FrameContext";
-import { Link } from "react-router-dom";
+import Frame from "../components/frame";
+import { useNavigate } from "react-router-dom";
 
 function SelectFrame() {
-  const images = ["", "", "", ""];
   const frame = useFrame();
   const setFrame = useFrameUpdate();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    console.log(frame)
-  }, [frame])
+  const handleSelectLayout = (layout) => {
+    setFrame({ ...frame, layout }); // Store selected layout in context
+    navigate("/instructions"); 
+  };
 
   return (
     <div>
@@ -18,22 +18,21 @@ function SelectFrame() {
       <ul className="frame-options">
         <li
           className={frame.layout === "original" ? "frame-selected" : ""}
-          onClick={() => setFrame({ ...frame, layout: "original" })}
+          onClick={() => handleSelectLayout("original")}
         >
-          <Frame images={images} layout="original" color={frame.color} />
-          <p>4 cut original</p>
+         <Frame images={["/placeholder1.png", "/placeholder2.png", "/placeholder3.png", "/placeholder4.png"]} layout="original" color={frame.color} />
+          <p>4 Cut Original</p>
         </li>
         <li
           className={frame.layout === "wide" ? "frame-selected" : ""}
-          onClick={() => setFrame({ ...frame, layout: "wide" })}
+          onClick={() => handleSelectLayout("wide")}
         >
-          <Frame images={images} layout="wide" color={frame.color} />
-          <p>4 cut wide</p>
+        <Frame images={["/placeholder1.png", "/placeholder2.png", "/placeholder3.png", "/placeholder4.png"]} layout="wide" color={frame.color} />
+        <p>4 Cut Wide</p>
         </li>
       </ul>
-      <Link to="/add-filter">Add Filter</Link>;
     </div>
   );
 }
 
-export default SelectFrame
+export default SelectFrame;

@@ -24,7 +24,7 @@ const Instructions = ({ onClose }) => {
           {/* Popup Box */}
           <div className="instructions-popup">
             {/* Back Button */}
-            <button className="back-button" onClick={() => navigate("/try-it")}>
+            <button className="back-button" onClick={() => navigate("/select-frame")}>
               <img src={BlackBackArrrow} alt="Back" className="back-icon" />
             </button>
 

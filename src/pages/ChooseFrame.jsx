@@ -3,14 +3,17 @@ import Frame from "../components/frame";
 import { Link } from "react-router-dom";
 
 function ChooseFrame() {
-  const images = ["", "", "", ""];
   const frame = useFrame();
   const setFrame = useFrameUpdate();
-  
+
   return (
     <div>
-      <h1>Add color</h1>
-      <Frame images={images} layout={frame.layout} color={frame.color} />
+      <h1>Add Color</h1>
+      
+      {/* Display the captured images from FrameContext */}
+      <Frame images={frame.images} layout={frame.layout} color={frame.color} />
+
+      {/* Color selection options */}
       <ul>
         <li
           className={frame.color === "black" ? "option-selected" : ""}
@@ -37,7 +40,8 @@ function ChooseFrame() {
           Blue
         </li>
       </ul>
-      <Link to="/download">Download</Link>;
+
+      <Link to="/download">Download</Link>
     </div>
   );
 }
