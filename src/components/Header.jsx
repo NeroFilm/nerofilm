@@ -14,20 +14,25 @@ const Header = () => {
       boxSizing: "border-box",
     }}>
       {/* Brand Name */}
-      <div style={{ fontSize: "24px", fontWeight: "bold" }}>NeroFilm</div>
+      <div style={{ 
+        fontSize: "32px", 
+        fontWeight: "bold" 
+        }}>
+          NeroFilm
+          </div>
       
       {/* Navigation */}
       <nav>
         <ul style={{
           listStyle: "none",
           display: "flex",
-          gap: "20px",
+          gap: "40px",
           margin: 0,
           padding: 0,
         }}>
-          <li><Link to="/" style={{ textDecoration: "none", color: "black", fontSize: "18px" }}>Home</Link></li>
-          <li><Link to="/try-it" style={{ textDecoration: "none", color: "black", fontSize: "18px" }}>Try It</Link></li>
-          <li><Link to="/about-us" style={{ textDecoration: "none", color: "black", fontSize: "18px" }}>About Us</Link></li>
+          <li><Link to="/" style={{ textDecoration: "none", color: "black", fontSize: "24px" }}>Home</Link></li>
+          <li><Link to="/try-it" style={{ textDecoration: "none", color: "black", fontSize: "24px" }}>Try It</Link></li>
+          <li><Link to="/about-us" style={{ textDecoration: "none", color: "black", fontSize: "24px" }}>About Us</Link></li>
         </ul>
       </nav>
     </header>
