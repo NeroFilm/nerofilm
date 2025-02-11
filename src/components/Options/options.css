@@ -1,0 +1,20 @@
+.options {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.option {
+  text-align: center;
+  cursor: pointer;
+}
+
+.option-img-selected {
+  border: 2px solid pink;
+  border-radius: 10px;
+}
+
+.option-img {
+  width: 64px;
+  height: 64px;
+}

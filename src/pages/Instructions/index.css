@@ -53,12 +53,6 @@
     transition: background-color 0.2s ease-in-out;
 }
 
-/* Back Button on Hover */
-.back-button:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* hover effect */
-    border-radius: 8px; 
-}
-
 /* Back Icon */
 .back-icon {
     width: 32px;
@@ -133,8 +127,4 @@
     margin-top: 50px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     font-weight: bold;
-}
-
-.ready-button:hover {
-    background-color: #fbc8d2;
 }

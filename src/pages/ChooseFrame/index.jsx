@@ -1,47 +1,45 @@
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import Frame from "../../components/Frame/Frame";
 import { Link } from "react-router-dom";
+import BackHeader from "../../components/BackHeader/BackHeader";
+import Options from "../../components/Options/Options";
+import black from "../../assets/options/black.svg";
+import white from "../../assets/options/white.svg";
+import pink from "../../assets/options/pink.svg";
+import blue from "../../assets/options/blue.svg";
 
 function ChooseFrame() {
   const frame = useFrame();
   const setFrame = useFrameUpdate();
 
+  const options = [
+    { name: "black", image: black },
+    { name: "white", image: white },
+    { name: "pink", image: pink },
+    { name: "blue", image: blue },
+  ];
+
   return (
     <div>
-      <h1>Add Color</h1>
-      
-      {/* Display the captured images from FrameContext */}
-      <Frame images={frame.images} layout={frame.layout} color={frame.color} />
+      <BackHeader />
+      <section className="options-c">
+        <h1>Choose frame</h1>
 
-      {/* Color selection options */}
-      <ul>
-        <li
-          className={frame.color === "black" ? "option-selected" : ""}
-          onClick={() => setFrame({ ...frame, color: "black" })}
-        >
-          Black
-        </li>
-        <li
-          className={frame.color === "white" ? "option-selected" : ""}
-          onClick={() => setFrame({ ...frame, color: "white" })}
-        >
-          White
-        </li>
-        <li
-          className={frame.color === "pink" ? "option-selected" : ""}
-          onClick={() => setFrame({ ...frame, color: "pink" })}
-        >
-          Pink
-        </li>
-        <li
-          className={frame.color === "blue" ? "option-selected" : ""}
-          onClick={() => setFrame({ ...frame, color: "blue" })}
-        >
-          Blue
-        </li>
-      </ul>
-
-      <Link to="/download">Download</Link>
+        <section className="options-r">
+          <Frame
+            images={frame.images}
+            filter={frame.filter}
+            layout={frame.layout}
+            color={frame.color}
+          />
+          <Options
+            options={options}
+            onClick={(option)=>setFrame({...frame, color: option})}
+            selected={frame.color}
+          />
+        </section>
+        <Link className="btn" to="/download" role="btn">Download</Link>
+      </section>
     </div>
   );
 }

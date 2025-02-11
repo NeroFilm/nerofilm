@@ -1,31 +1,42 @@
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import Frame from "../../components/Frame/Frame";
 import { Link } from "react-router-dom";
+import BackHeader from "../../components/BackHeader/BackHeader";
+import dft from "../../assets/options/default.svg"
+import bw from "../../assets/options/bw.svg"
+import Options from "../../components/Options/Options";
 
 function AddFilter() {
-  const images = ["", "", "", ""];
   const frame = useFrame();
   const setFrame = useFrameUpdate();
-  
+
+  const options = [
+    { name: "default", image: dft },
+    { name: "bw", image: bw },
+  ];
+
   return (
     <div>
-      <h1>Add Filter</h1>
-      <Frame color={frame.color} images={images} layout={frame.layout} />
-      <ul>
-        <li
-          className={frame.filter === "default" ? "option-selected" : ""}
-          onClick={() => setFrame({ ...frame, filter: "default" })}
-        >
-          Default
-        </li>
-        <li
-          className={frame.filter === "b&w" ? "option-selected" : ""}
-          onClick={() => setFrame({ ...frame, filter: "b&w" })}
-        >
-          B&W
-        </li>
-      </ul>
-      <Link to="/choose-frame">Choose frame</Link>;
+      <BackHeader />
+      <section className="options-c">
+        <h1>Add filter</h1>
+        <section className="options-r">
+          <Frame
+            layout={frame.layout}
+            filter={frame.filter}
+            images={frame.images}
+            color={frame.color}
+          />
+          <Options
+            options={options}
+            onClick={(option) => setFrame({...frame, filter: option})}
+            selected={frame.filter}
+          />
+        </section>
+        <Link className="btn" to="/choose-frame" role="button">
+          Choose frame
+        </Link>
+      </section>
     </div>
   );
 }

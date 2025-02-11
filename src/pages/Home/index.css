@@ -8,7 +8,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 350px;
+  margin-top: 80px;
 }
 
 .navbar
@@ -25,39 +25,9 @@
   color: #555;
 }
 
-/* Buttons container */
-.home-buttons {
-  margin-top: 20px;
-  display: flex;
-  gap: 20px;
-}
-
-/* Home Buttons */
-.home-button {
-  background-color: #213547;
-  color: white;
-  font-size: 1.2rem;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  padding: 10px 20px;
-  font-size: 28px;
-  background-color: #ffe8f8;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  color: #5a5858;
-  margin-top: 30px;
-}
-
-.home-button:hover {
-  background-color: #425c77;
-}
-
 .home-main-content {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 80%;
@@ -71,7 +41,6 @@
 
 .home-logo {
   width: 540px;
-  margin-top: -300px;
 }
 
 .home-subtitle {
@@ -84,7 +53,6 @@
   flex: 1;
   display: flex;
   justify-content: center;
-  margin-top: -150px;
 }
 
 .home-catfilm {
@@ -131,5 +99,5 @@
 
 .home-button {
   margin-top: 50px;
-  margin-bottom: 100px;
+  margin-bottom: 24px;
 }

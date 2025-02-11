@@ -9,6 +9,7 @@ import AddFilter from "./pages/AddFilter";
 import ChooseFrame from "./pages/ChooseFrame";
 import Download from "./pages/Download";
 import CameraAccess from "./pages/CameraAccess";
+import SelectPhotos from "./pages/SelectPhotos"
 import "./styles/global.css" 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/select-frame" element={<SelectFrame />} />
           <Route path="/add-filter" element={<AddFilter />} />
+          <Route path="/select-photos" element={<SelectPhotos />} />
           <Route path="/choose-frame" element={<ChooseFrame />} />
           <Route path="/download" element={<Download />} />
           <Route path="/instructions" element={<Instructions />} />

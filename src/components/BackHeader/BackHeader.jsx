@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import BlackBackArrow from "../../assets/BlackBackArrow.png"; 
-import "./second-header.css"; // Import the CSS file
+import "./back-header.css"; // Import the CSS file
 
-const SecondHeader = () => {
+const BackHeader = () => {
   const navigate = useNavigate(); 
 
   return (
@@ -26,4 +26,4 @@ const SecondHeader = () => {
   );
 };
 
-export default SecondHeader;
+export default BackHeader;

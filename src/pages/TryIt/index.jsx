@@ -13,7 +13,7 @@ const TryIt = () => {
         <div className="try-it-screen">
           <img src={Catfilm} alt="Catfilm" className="catfilm-image" />
           <p><br /></p>
-          <button className="start-button" onClick={() => navigate("/select-frame")}>
+          <button className="btn" onClick={() => navigate("/select-frame")}>
             Start Now
           </button>
         </div>

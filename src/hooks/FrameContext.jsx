@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import PropTypes from "prop-types"; // Import PropTypes
 
 const FrameContext = createContext();
 const FrameUpdateContext = createContext();
@@ -13,8 +14,8 @@ export function useFrameUpdate() {
 
 export function FrameProvider({ children }) {
   let defaultFrame = {
-    layout: "original", // Default to original
-    images: [], // Store captured images
+    layout: "original",
+    images: [],
     filter: "default",
     color: "black",
   };
@@ -32,4 +33,8 @@ export function FrameProvider({ children }) {
       </FrameUpdateContext.Provider>
     </FrameContext.Provider>
   );
+}
+
+FrameProvider.propTypes = {
+  children: PropTypes.node
 }
