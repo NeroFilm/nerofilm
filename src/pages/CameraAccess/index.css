@@ -175,3 +175,8 @@
     transform: translateX(-50%) scale(1);
   }
 }
+
+.camera-image {
+  width: 40px;
+  height: 40px;
+}

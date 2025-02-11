@@ -1,70 +1,37 @@
-.frame-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .frame-image {
-    width: 250px;
-    height: auto;
-    border-radius: 5px;
-  }
-  
-  .frame-description {
-    margin-top: 10px;
-    font-size: 14px;
-    color: gray;
-  }
-  
-
 .frame {
   background-color: black;
-  display: flex;
+  display: grid;
+  box-sizing: border-box;
 }
 
 .frame-original {
-  /* update later */
   height: 360px;
   width: 120px;
   padding: 16px 8px 8px;
-  flex-direction: column;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
   gap: 8px;
-}
-
-.frame-original img {
-  width: auto;
-  height: 72px;
-  background-color: white;
 }
 
 .frame-wide {
   height: 360px;
   width: 240px;
   padding: 24px 12px 12px;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 8px;
 }
 
-.frame-wide img {
-  flex: 1 0 40%;
-  box-sizing: border-box;
-  height: auto;
-  background-color: white;
+.img-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-.frame-options {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  gap: 120px;
-}
-
-.frame-selected {
-  outline: 2px solid pink;
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .frame-black {
@@ -82,4 +49,9 @@
 
 .frame-blue {
   background-color: lightblue;
+}
+
+.frame-bw img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }

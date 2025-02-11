@@ -87,7 +87,7 @@ const CameraAccess = () => {
       if (count === 0) {
         setIsShooting(false);
         setCountdown(null);
-        navigate("/choose-frame"); 
+        navigate("/select-photos"); 
         return;
       }
       startCountdown(3, () => {

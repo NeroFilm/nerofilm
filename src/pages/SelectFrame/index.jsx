@@ -1,38 +1,49 @@
+import { Link } from "react-router-dom";
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import Frame from "../../components/Frame/Frame";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import BackHeader from "../../components/BackHeader/BackHeader";
+import "./index.css"
 
 function SelectFrame() {
+  const options = ["original", "wide"];
+
   const frame = useFrame();
   const setFrame = useFrameUpdate();
-  const navigate = useNavigate();
 
   const handleSelectLayout = (layout) => {
-    setFrame({ ...frame, layout }); // Store selected layout in context
-    navigate("/instructions"); 
+    setFrame({ ...frame, layout });
   };
 
   return (
     <div>
-      <h1>Select Frame Layout</h1>
-      <ul className="frame-options">
-        <li
-          className={frame.layout === "original" ? "frame-selected" : ""}
-          onClick={() => handleSelectLayout("original")}
-        >
-         <Frame images={["/placeholder1.png", "/placeholder2.png", "/placeholder3.png", "/placeholder4.png"]} layout="original" color={frame.color} />
-          <p>4 Cut Original</p>
-        </li>
-        <li
-          className={frame.layout === "wide" ? "frame-selected" : ""}
-          onClick={() => handleSelectLayout("wide")}
-        >
-        <Frame images={["/placeholder1.png", "/placeholder2.png", "/placeholder3.png", "/placeholder4.png"]} layout="wide" color={frame.color} />
-        <p>4 Cut Wide</p>
-        </li>
-      </ul>
-      <Link to="/camera">Camera</Link>
+      <BackHeader />
+      <section className="options-c">
+        <h1>Select Frame Layout</h1>
+        <div className="options-r">
+          <ul className="frame-options">
+            {options.map((option, key) => (
+              <li key={key} onClick={() => handleSelectLayout(option)}>
+                <div
+                  className={
+                    frame.layout == option ? "frame-selected" : "frame"
+                  }
+                >
+                  <Frame
+                    images={frame.images}
+                    filter={frame.filter}
+                    layout={option}
+                    color={frame.color}
+                  />
+                </div>
+                <p className="frame-desc">4 Cut Original</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <Link className="btn" to="/camera" role="button">
+          Camera
+        </Link>
+      </section>
     </div>
   );
 }
