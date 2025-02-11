@@ -1,14 +1,14 @@
 import { useState } from "react";
-import "./Instructions.css"; 
+import "./index.css"; 
 import { useNavigate } from "react-router-dom"; 
-import SecondHeader from "../components/SecondHeader";
-import BlackBackArrrow from "../assets/BlackBackArrow.png";
-import WatchIcon from "../assets/WatchIcon.png";
-import CamIcon from "../assets/CamIcon.png";
-import GalleryIcon from "../assets/GalleryIcon.png";
-import SettingsIcon from "../assets/SettingsIcon.png";
-import CheckboxUnchecked from "../assets/Checkbox.png";
-import CheckboxChecked from "../assets/CheckboxChecked.png";
+import SecondHeader from "../../components/SecondHeader/SecondHeader";
+import BlackBackArrrow from "../../assets/BlackBackArrow.png";
+import WatchIcon from "../../assets/WatchIcon.png";
+import CamIcon from "../../assets/CamIcon.png";
+import GalleryIcon from "../../assets/GalleryIcon.png";
+import SettingsIcon from "../../assets/SettingsIcon.png";
+import CheckboxUnchecked from "../../assets/Checkbox.png";
+import CheckboxChecked from "../../assets/CheckboxChecked.png";
 
 const Instructions = ({ onClose }) => {
   const [dontShowAgain, setDontShowAgain] = useState(false);

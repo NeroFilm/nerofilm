@@ -1,6 +1,7 @@
-import { useFrame, useFrameUpdate } from "../hooks/FrameContext";
-import Frame from "../components/frame";
+import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
+import Frame from "../../components/Frame/Frame";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function SelectFrame() {
   const frame = useFrame();
@@ -31,6 +32,7 @@ function SelectFrame() {
         <p>4 Cut Wide</p>
         </li>
       </ul>
+      <Link to="/camera">Camera</Link>
     </div>
   );
 }

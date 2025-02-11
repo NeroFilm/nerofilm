@@ -1,5 +1,5 @@
-import Frame from "../components/frame"
-import { useFrame } from "../hooks/FrameContext"
+import Frame from "../../components/Frame/Frame"
+import { useFrame } from "../../hooks/FrameContext"
 
 function Download() {
   const frame = useFrame();

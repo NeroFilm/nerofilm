@@ -1,5 +1,5 @@
-import { useFrame, useFrameUpdate } from "../hooks/FrameContext";
-import Frame from "../components/frame";
+import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
+import Frame from "../../components/Frame/Frame";
 import { Link } from "react-router-dom";
 
 function ChooseFrame() {
