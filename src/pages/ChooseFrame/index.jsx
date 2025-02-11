@@ -38,7 +38,7 @@ function ChooseFrame() {
             selected={frame.color}
           />
         </section>
-        <Link className="btn" to="/download" role="btn">Download</Link>
+        <Link className="btn" to="/download" role="btn">Continue</Link>
       </section>
     </div>
   );

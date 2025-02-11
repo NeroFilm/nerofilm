@@ -40,7 +40,7 @@ function Download() {
         </section>
         <sections className="btns">
           <button onClick={() => downloadImage()}>Download image</button>
-          <Link to={"/"}>Return home</Link>
+          <Link className="btn" role="button" to={"/"}>Return home</Link>
           {/* <button>Print image</button> */}
         </sections>
       </section>

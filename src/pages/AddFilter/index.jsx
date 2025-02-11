@@ -34,7 +34,7 @@ function AddFilter() {
           />
         </section>
         <Link className="btn" to="/choose-frame" role="button">
-          Choose frame
+          Continue
         </Link>
       </section>
     </div>
