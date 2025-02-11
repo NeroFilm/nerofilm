@@ -1,3 +1,5 @@
+import "./frame.css"
+
 function Frame({images, layout, color}) {
   return (
     <div className={`frame frame-${layout} frame-${color}`}>

@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { useFrame, useFrameUpdate } from "../hooks/FrameContext"; // Import frame context
-import WhiteBackArrow from "../assets/WhiteBackArrow.png";
-import Camera from "../assets/Camera.png";
-import CameraDisabled from "../assets/CameraDisabled.png";
-import Shutter from "../assets/Shutter.png";
-import "../pages/CameraAccess.css";
+import { useFrame, useFrameUpdate } from "../../hooks/FrameContext"; // Import frame context
+import WhiteBackArrow from "../../assets/WhiteBackArrow.png";
+import Camera from "../../assets/Camera.png";
+import CameraDisabled from "../../assets/CameraDisabled.png";
+import Shutter from "../../assets/Shutter.png";
+import "./index.css"
 
 const CameraAccess = () => {
   const navigate = useNavigate();

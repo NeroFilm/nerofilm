@@ -1,0 +1,135 @@
+/* Home Page Styles */
+.home-container {
+  text-align: center;
+  padding: 40px;
+  color: black;
+  font-family: 'Itim', cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 350px;
+}
+
+.navbar
+/* Style the heading */
+.home-container h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #213547;
+}
+
+/* Style the paragraph */
+.home-container p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Buttons container */
+.home-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+/* Home Buttons */
+.home-button {
+  background-color: #213547;
+  color: white;
+  font-size: 1.2rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 28px;
+  background-color: #ffe8f8;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  color: #5a5858;
+  margin-top: 30px;
+}
+
+.home-button:hover {
+  background-color: #425c77;
+}
+
+.home-main-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 1200px;
+}
+
+.home-left-content {
+  text-align: center;
+  flex: 1;
+}
+
+.home-logo {
+  width: 540px;
+  margin-top: -300px;
+}
+
+.home-subtitle {
+  font-size: 32px;
+  color: #5a5858;
+  margin-bottom: 20px;
+}
+
+.home-right-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: -150px;
+}
+
+.home-catfilm {
+  width: 100%;
+  max-width: 320px;
+}
+
+.home-paw {
+  width: 1200px;
+  opacity: 0.8;
+  margin-top: 90px;
+}
+
+.home-cherish-memories {
+  font-size: 56px;
+  color: #8096c3;
+  margin-top: 70px;
+}
+
+.home-select-frame,
+.home-capture-moment,
+.home-select-photos,
+.home-add-filter,
+.home-frame-color,
+.home-download-share {
+  font-size: 48px;
+  color: #5a5858;
+  margin-top: 70px;
+}
+
+.home-cut-selection,
+.home-computer-view,
+.home-photo-selection,
+.home-filter,
+.home-frame,
+.home-download {
+  width: 1000px;
+  margin-top: 30px;
+}
+
+.home-download-share {
+  text-align: center;
+}
+
+.home-button {
+  margin-top: 50px;
+  margin-bottom: 100px;
+}

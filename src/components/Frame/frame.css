@@ -1,29 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
-
-:root {
-  font-family: 'Itim', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  font-family: 'Itim', cursive;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+.frame-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .frame-image {
+    width: 250px;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .frame-description {
+    margin-top: 10px;
+    font-size: 14px;
+    color: gray;
+  }
+  
 
 .frame {
   background-color: black;
@@ -86,8 +82,4 @@ h1 {
 
 .frame-blue {
   background-color: lightblue;
-}
-
-.option-selected {
-  outline: 2px solid pink;
 }

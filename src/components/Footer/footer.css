@@ -1,0 +1,25 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.footer-logo img {
+  height: 60px;
+}
+
+.footer-contact {
+  text-align: right;
+}
+
+.footer-contact h3 {
+  font-size: 20px;
+  color: #5a5858;
+  margin-bottom: 5px;
+}
+
+.footer-contact p {
+  font-size: 16px;
+  color: #5a5858;
+}
