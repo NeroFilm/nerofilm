@@ -9,8 +9,11 @@ import GalleryIcon from "../../assets/GalleryIcon.png";
 import SettingsIcon from "../../assets/SettingsIcon.png";
 import CheckboxUnchecked from "../../assets/Checkbox.png";
 import CheckboxChecked from "../../assets/CheckboxChecked.png";
+import useRefreshWarning from "../../hooks/useRefreshWarning";
 
 const Instructions = ({ onClose }) => {
+  useRefreshWarning();
+  
   const [dontShowAgain, setDontShowAgain] = useState(false);
   const navigate = useNavigate();
 

@@ -3,12 +3,14 @@ import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import Frame from "../../components/Frame/Frame";
 import BackHeader from "../../components/BackHeader/BackHeader";
 import "./index.css"
+import useRefreshWarning from "../../hooks/useRefreshWarning";
 
 function SelectFrame() {
   const options = ["original", "wide"];
 
   const frame = useFrame();
   const setFrame = useFrameUpdate();
+  useRefreshWarning();
 
   const handleSelectLayout = (layout) => {
     setFrame({ ...frame, layout });

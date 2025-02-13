@@ -5,8 +5,11 @@ import "./index.css"
 import { toPng } from "html-to-image";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+import useRefreshWarning from "../../hooks/useRefreshWarning";
 
 function Download() {
+  useRefreshWarning();
+  
   const frame = useFrame();
   const frameRef = useRef(null);
 

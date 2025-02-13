@@ -7,8 +7,11 @@ import black from "../../assets/options/black.svg";
 import white from "../../assets/options/white.svg";
 import pink from "../../assets/options/pink.svg";
 import blue from "../../assets/options/blue.svg";
+import useRefreshWarning from "../../hooks/useRefreshWarning";
 
 function ChooseFrame() {
+  useRefreshWarning();
+
   const frame = useFrame();
   const setFrame = useFrameUpdate();
 
@@ -38,7 +41,7 @@ function ChooseFrame() {
             selected={frame.color}
           />
         </section>
-        <Link className="btn" to="/download" role="btn">Continue</Link>
+        <Link className="btn" to="/add-filter" role="btn">Continue</Link>
       </section>
     </div>
   );

@@ -5,10 +5,12 @@ import { useState } from "react";
 import "./index.css"
 import { useNavigate } from "react-router-dom";
 import BackHeader from "../../components/BackHeader/BackHeader";
+import useRefreshWarning from "../../hooks/useRefreshWarning";
 
 // add validation -> four images selected
 
 function SelectPhotos() {
+  useRefreshWarning();
 
   const navigate = useNavigate();
   const frame = useFrame();
@@ -28,7 +30,7 @@ function SelectPhotos() {
   function onClick(){
     if (selected.length == 4){
       setFrame({ ...frame, images: selected });
-      navigate("/add-filter");
+      navigate("/choose-frame");
     }
   }
 

@@ -5,8 +5,11 @@ import BackHeader from "../../components/BackHeader/BackHeader";
 import dft from "../../assets/options/default.svg"
 import bw from "../../assets/options/bw.svg"
 import Options from "../../components/Options/Options";
+import useRefreshWarning from "../../hooks/useRefreshWarning";
 
 function AddFilter() {
+  useRefreshWarning();
+
   const frame = useFrame();
   const setFrame = useFrameUpdate();
 
@@ -33,7 +36,7 @@ function AddFilter() {
             selected={frame.filter}
           />
         </section>
-        <Link className="btn" to="/choose-frame" role="button">
+        <Link className="btn" to="/download" role="button">
           Continue
         </Link>
       </section>
