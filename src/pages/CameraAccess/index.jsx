@@ -6,8 +6,11 @@ import Camera from "../../assets/Camera.png";
 import CameraDisabled from "../../assets/CameraDisabled.png";
 import Shutter from "../../assets/Shutter.png";
 import "./index.css"
+import useRefreshWarning from "../../hooks/useRefreshWarning";
 
 const CameraAccess = () => {
+  useRefreshWarning();
+  
   const navigate = useNavigate();
   const frame = useFrame();
   const setFrame = useFrameUpdate();

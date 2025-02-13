@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home"; 
 import { FrameProvider } from "./hooks/FrameContext";
 import TryIt from "./pages/TryIt"
@@ -15,20 +15,20 @@ import "./styles/global.css"
 const App = () => {
   return (
     <FrameProvider>
-      <Router>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/try-it" element={<TryIt />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/try-it" element={<TryIt />} />
           <Route path="/select-frame" element={<SelectFrame />} />
-          <Route path="/add-filter" element={<AddFilter />} />
+          <Route path="/camera" element={<CameraAccess />} /> 
+          <Route path="/instructions" element={<Instructions />} />
           <Route path="/select-photos" element={<SelectPhotos />} />
           <Route path="/choose-frame" element={<ChooseFrame />} />
+          <Route path="/add-filter" element={<AddFilter />} />
           <Route path="/download" element={<Download />} />
-          <Route path="/instructions" element={<Instructions />} />
-          <Route path="/camera" element={<CameraAccess />} /> 
         </Routes>
-      </Router>
+      </HashRouter>
     </FrameProvider>
   );
 };
