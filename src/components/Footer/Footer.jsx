@@ -12,7 +12,7 @@ const Footer = () => {
       {/* Right Side - Contact Info */}
       <div className="footer-contact">
         <h3>Contact</h3>
-        <p>nerofilm.official@gmail.com</p>
+        <p>contact.nerofilm@gmail.com</p>
       </div>
     </footer>
   );
