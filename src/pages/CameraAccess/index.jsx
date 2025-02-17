@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { useFrame, useFrameUpdate } from "../../hooks/FrameContext"; // Import frame context
+import { useFrame, useFrameUpdate } from "../../hooks/FrameContext"; 
 import WhiteBackArrow from "../../assets/WhiteBackArrow.png";
 import Camera from "../../assets/Camera.png";
 import CameraDisabled from "../../assets/CameraDisabled.png";
@@ -24,50 +24,65 @@ const CameraAccess = () => {
   const [showPhotoCount, setShowPhotoCount] = useState(false);
   const [flash, setFlash] = useState(false); 
 
-  /* Request camera access */
+  /* request cam access */
   useEffect(() => {
+    let stream;
+  
     navigator.mediaDevices
       .getUserMedia({
         video: { facingMode: "user", aspectRatio: frame.layout === "wide" ? 9 / 16 : 16 / 9 },
       })
-      .then((stream) => {
+      .then((videoStream) => {
+        stream = videoStream;
         setCameraPermission(true);
         if (videoRef.current) {
-          videoRef.current.srcObject = stream;
+          videoRef.current.srcObject = videoStream;
         }
       })
       .catch(() => {
         setCameraPermission(false);
       });
-  }, [frame.layout]);
 
-  /* Captures and immediately saves a photo into FrameContext */
+    return () => {
+      if (stream) {
+        stream.getTracks().forEach(track => track.stop()); 
+      }
+    };
+  }, [frame.layout]);
+  
   const takePhoto = () => {
     if (videoRef.current && canvasRef.current) {
       const video = videoRef.current;
       const canvas = canvasRef.current;
       const context = canvas.getContext("2d");
-
-      // Adjust canvas size (Wide mode stays vertical)
+  
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
-
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  
       const imageDataURL = canvas.toDataURL("image/png");
-
-      // Trigger flash effect
+  
       setFlash(true);
-      setTimeout(() => setFlash(false), 200); // Flash duration
-
+      setTimeout(() => setFlash(false), 200); // flash duration
+  
       setFrame((prevFrame) => {
         const updatedPhotos = [...prevFrame.images, imageDataURL].slice(-8);
         return { ...prevFrame, images: updatedPhotos };
       });
-
-      setPhotoCount((prevCount) => prevCount + 1);
+  
+      setPhotoCount((prevCount) => {
+        const newCount = prevCount + 1;
+  
+        // stop cam access if all photos have been taken
+        if (newCount >= 8 && videoRef.current.srcObject) {
+          videoRef.current.srcObject.getTracks().forEach(track => track.stop());
+        }
+  
+        return newCount;
+      });
     }
   };
-
+  
   /* 3-second countdown before capturing each photo */
   const startCountdown = (count, callback) => {
     if (count === 0) {
@@ -78,7 +93,7 @@ const CameraAccess = () => {
     setTimeout(() => startCountdown(count - 1, callback), 1000);
   };
 
-  /* Takes 8 photos and saves them directly to FrameContext */
+  /* takes 8 photos and saves them directly to FrameContext */
   const startPhotoSequence = () => {
     if (isShooting) return;
     setIsShooting(true);
@@ -135,7 +150,7 @@ const CameraAccess = () => {
 
           <div className="camera-container">
             <div className={`camera-preview-container ${frame.layout}`}>
-              {/*Flash effect inside camera preview */}
+              {/* flash effect inside camera preview */}
               {flash && <div className="flash-overlay"></div>}
 
               <video ref={videoRef} autoPlay playsInline className={`camera-preview ${frame.layout}`} />
