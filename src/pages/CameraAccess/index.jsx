@@ -58,6 +58,10 @@ const CameraAccess = () => {
   
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
+      
+      // mirror the image 
+      context.translate(canvas.width, 0);
+      context.scale(-1, 1);
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
   
       const imageDataURL = canvas.toDataURL("image/png");
