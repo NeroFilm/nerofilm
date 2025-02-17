@@ -87,19 +87,19 @@
 }
 
 .original-mode .camera-preview-container {
-  width: 80vw;  /* Dynamically scales for larger screens */
-  height: calc(80vw * (78 / 104)); /* Maintain 104:78 aspect ratio */
-  max-width: 1000px;  /* Ensures it doesn’t exceed 1000px */
-  max-height: calc(1000px * (78 / 104)); /* Ensures max height follows proportion */
+  width: 80vw;  
+  height: calc(80vw * (78 / 104)); 
+  max-width: 1000px;
+  max-height: calc(1000px * (78 / 104)); 
 }
 
 
 /* Wide Mode: Vertical */
 .wide-mode .camera-preview-container {
-  width: 40vw;  /* Dynamically scales with screen size */
-  height: calc(40vw * 1.52); /* Maintain 104:158 aspect ratio */
-  max-width: 1000px;  /* Ensures it doesn't exceed 1000px width */
-  max-height: 1520px; /* Ensures it doesn't exceed 1000px * 1.52 */
+  width: 40vw;  
+  height: calc(40vw * 1.52); 
+  max-width: 1000px; 
+  max-height: 1520px; 
 }
 
 
