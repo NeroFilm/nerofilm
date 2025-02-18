@@ -112,7 +112,7 @@ const CameraAccess = () => {
         navigate("/select-photos"); 
         return;
       }
-      startCountdown(3, () => {
+      startCountdown(1, () => {
         takePhoto();
         count--;
         setTimeout(takeNextPhoto, 500);
