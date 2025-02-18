@@ -67,7 +67,7 @@ const CameraAccess = () => {
       const imageDataURL = canvas.toDataURL("image/png");
   
       setFlash(true);
-      setTimeout(() => setFlash(false), 200); // flash duration
+      setTimeout(() => setFlash(false), 200); 
   
       setFrame((prevFrame) => {
         const updatedPhotos = [...prevFrame.images, imageDataURL].slice(-8);
@@ -94,7 +94,7 @@ const CameraAccess = () => {
       return;
     }
     setCountdown(count);
-    setTimeout(() => startCountdown(count - 1, callback), 1000);
+    setTimeout(() => startCountdown(count - 1, callback), 1000); // flash duration
   };
 
   /* takes 8 photos and saves them directly to FrameContext */
@@ -154,6 +154,7 @@ const CameraAccess = () => {
 
           <div className="camera-container">
             <div className={`camera-preview-container ${frame.layout}`}>
+
               {/* flash effect inside camera preview */}
               {flash && <div className="flash-overlay"></div>}
 
