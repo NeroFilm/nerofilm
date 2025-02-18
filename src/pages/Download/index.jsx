@@ -41,11 +41,11 @@ function Download() {
             />
           </div>
         </section>
-        <sections className="btns">
+        <section className="btns">
           <button onClick={() => downloadImage()}>Download image</button>
           <Link className="btn" role="button" to={"/"}>Return home</Link>
           {/* <button>Print image</button> */}
-        </sections>
+        </section>
       </section>
     </div>
   );
