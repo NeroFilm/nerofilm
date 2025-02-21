@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import BackHeader from "../../components/BackHeader/BackHeader";
 import dft from "../../assets/options/default.svg"
 import bw from "../../assets/options/bw.svg"
+import vintage from "../../assets/options/bw.svg" // needs .svg 
+import beauty from "../../assets/options/bw.svg"  // needs .svg
 import Options from "../../components/Options/Options";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 
@@ -16,6 +18,8 @@ function AddFilter() {
   const options = [
     { name: "default", image: dft },
     { name: "bw", image: bw },
+    { name: "vintage", image: vintage },
+    { name: "beauty", image: beauty }
   ];
 
   return (
