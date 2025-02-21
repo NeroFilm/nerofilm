@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 import placeholder from "../../assets/default-image.png"
 import "./frame.css"
 
-function Frame({layout, images, filter, color}) {
-
+function Frame({ layout, images = [], filter, color }) {
   const [imgArr, setImgArr] = useState([]);
 
   useEffect(() => {
@@ -25,10 +24,6 @@ function Frame({layout, images, filter, color}) {
     </div>
   );
 }
-
-Frame.defaultProps = {
-  images: [],
-};
 
 Frame.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string).isRequired,

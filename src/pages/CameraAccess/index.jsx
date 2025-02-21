@@ -16,14 +16,15 @@ const CameraAccess = () => {
   const setFrame = useFrameUpdate();
 
   const [cameraPermission, setCameraPermission] = useState(null);
-  const videoRef = useRef(null);
-  const canvasRef = useRef(null);
-  const [countdown, setCountdown] = useState(null);
   const [isShooting, setIsShooting] = useState(false);
   const [photoCount, setPhotoCount] = useState(0);
   const [showPhotoCount, setShowPhotoCount] = useState(false);
   const [flash, setFlash] = useState(false); 
+  const [countdown, setCountdown] = useState(null);
 
+  const videoRef = useRef(null);
+  const canvasRef = useRef(null);
+  
   /* request cam access */
   useEffect(() => {
     let stream;
