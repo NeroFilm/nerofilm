@@ -8,6 +8,9 @@ import Photo from "../../assets/PhotoSelection.png";
 import Filter from "../../assets/AddFilter.png";
 import Frame from "../../assets/FrameColor.png";
 import Download from "../../assets/DownloadShare.png";
+import Iva from "../../assets/IvaPics.png";
+import HomePic1 from "../../assets/homepic1.png";
+import HomePic2 from "../../assets/homepic2.png";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { useEffect } from "react";
@@ -28,7 +31,7 @@ const Home = () => {
         <div className="home-main-content">
           {/* Left Side Content */}
           <div className="home-left-content">
-            <img src={Logo} alt="NeroFilm Logo" className="home-logo" />
+          <h1 className="home-logo-text">NeroFilm</h1>
             <h3 className="home-subtitle">
               No photobooth nearby? <br /> Your camera is all you need
             </h3>
@@ -39,7 +42,8 @@ const Home = () => {
 
           {/* Right Side Image */}
           <div className="home-right-content">
-            <img src={Catfilm} alt="Cat Film" className="home-catfilm" />
+            <img src={HomePic1} alt="HomePic1" className="home-picture1" />
+            <img src={HomePic2} alt="HomePic2" className="home-picture2" />
           </div>
         </div>
 

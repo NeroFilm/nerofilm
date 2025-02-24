@@ -1,4 +1,3 @@
-import Logo from "../../assets/Logoimage.png"; // Import the logo image
 import "./footer.css"
 
 const Footer = () => {
@@ -6,7 +5,7 @@ const Footer = () => {
     <footer className="footer">
       {/* Left Side - Logo */}
       <div className="footer-logo">
-        <img src={Logo} alt="NeroFilm Logo" />
+        <h1 className="footer-logo-text">NeroFilm</h1>
       </div>
 
       {/* Right Side - Contact Info */}
