@@ -5,7 +5,8 @@ import WhiteBackArrow from "../../assets/WhiteBackArrow.png";
 import Camera from "../../assets/Camera.png";
 import CameraDisabled from "../../assets/CameraDisabled.png";
 import Shutter from "../../assets/Shutter.png";
-import "./index.css"
+import ShutterSound from "../../assets/sounds/CamShutter.wav";  
+import "./index.css";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 
 const CameraAccess = () => {
@@ -14,6 +15,8 @@ const CameraAccess = () => {
   const navigate = useNavigate();
   const frame = useFrame();
   const setFrame = useFrameUpdate();
+  
+  const shutterAudio = useRef(new Audio(ShutterSound)); 
 
   const [cameraPermission, setCameraPermission] = useState(null);
   const [isShooting, setIsShooting] = useState(false);
@@ -25,7 +28,7 @@ const CameraAccess = () => {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   
-  /* request cam access */
+  /* Request camera access */
   useEffect(() => {
     let stream;
   
@@ -66,7 +69,11 @@ const CameraAccess = () => {
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
   
       const imageDataURL = canvas.toDataURL("image/png");
-  
+
+      // play the shutter sound
+      shutterAudio.current.currentTime = 0;
+      shutterAudio.current.play().catch(error => console.log("Audio play failed:", error));
+
       setFlash(true);
       setTimeout(() => setFlash(false), 200); 
   
@@ -78,7 +85,7 @@ const CameraAccess = () => {
       setPhotoCount((prevCount) => {
         const newCount = prevCount + 1;
   
-        // stop cam access if all photos have been taken
+        // Stop camera access if all photos have been taken
         if (newCount >= 8 && videoRef.current.srcObject) {
           videoRef.current.srcObject.getTracks().forEach(track => track.stop());
         }
@@ -95,10 +102,10 @@ const CameraAccess = () => {
       return;
     }
     setCountdown(count);
-    setTimeout(() => startCountdown(count - 1, callback), 1000); // flash duration
+    setTimeout(() => startCountdown(count - 1, callback), 1000);
   };
 
-  /* takes 8 photos and saves them directly to FrameContext */
+  /* Takes 8 photos and saves them directly to FrameContext */
   const startPhotoSequence = () => {
     if (isShooting) return;
     setIsShooting(true);
@@ -154,14 +161,14 @@ const CameraAccess = () => {
           )}
 
           <div className="camera-container">
-            { /* Camera preview*/ }
+            {/* Camera preview */}
             <div className={`camera-preview-container ${frame.layout}`}>
               {flash && <div className="flash-overlay"></div>}
               <video ref={videoRef} autoPlay playsInline className={`camera-preview ${frame.layout}`} />
               <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
             </div>
             
-            { /* Shutter & countdown */ }
+            {/* Shutter & countdown */}
             <div className="shutter-container">
               {countdown !== null && <div className="countdown-timer">{countdown}</div>}
               <button className="shutter-button" onClick={startPhotoSequence} disabled={isShooting}>
