@@ -4,8 +4,8 @@
   align-items: center;
   padding: 20px 50px;
   width: 100%;
-  background-color: white;
-  color: black;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   box-sizing: border-box;
 }
 
@@ -16,7 +16,7 @@
 
 .header-brand a {
   text-decoration: none;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .header-nav {
@@ -29,6 +29,21 @@
 
 .header-nav li a {
   text-decoration: none;
-  color: black;
+  color: rgb(255, 255, 255);
   font-size: 24px;
 }
+
+/* Mobile View (up to 600px) */
+@media (max-width: 600px) {
+  /* Adjust Brand Name */
+  .header-brand {
+    font-size: 16px;  /* Smaller brand name */
+  }
+
+  /* Adjust Navigation Links */
+  .header-nav li a {
+    font-size: 12px;  /* Smaller navigation links */
+  }
+}
+
+

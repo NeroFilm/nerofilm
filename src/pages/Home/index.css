@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+
+
 /* Home Page Styles */
 .home-container {
   text-align: center;
@@ -8,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 .navbar
@@ -22,7 +25,7 @@
 /* Style the paragraph */
 .home-container p {
   font-size: 1.2rem;
-  color: #555;
+  color: rgb(255, 255, 255);
 }
 
 .home-main-content {
@@ -30,7 +33,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 80%;
+  width: 100%;
   max-width: 1200px;
 }
 
@@ -39,25 +42,46 @@
   flex: 1;
 }
 
+.home-logo-text {
+  font-size: 9rem;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: 'Italiana', serif;
+  text-align: center;
+  margin-top: -70px;
+  margin-bottom: 20px;
+}
+
 .home-logo {
   width: 540px;
 }
 
 .home-subtitle {
-  font-size: 32px;
-  color: #5a5858;
+  font-size: 28px;
+  color: #ffffff;
   margin-bottom: 20px;
+  color: #ffffff;
 }
 
 .home-right-content {
   flex: 1;
   display: flex;
   justify-content: center;
+  gap: 20px;
+
 }
 
-.home-catfilm {
+.home-picture1 {
   width: 100%;
-  max-width: 320px;
+  max-width: 240px;
+  margin-top: 80px;
+  border: 0.3px solid #ffffff; 
+}
+
+.home-picture2 {
+  width: 100%;
+  max-width: 240px;
+  border: 0.3px solid #ffffff; 
 }
 
 .home-paw {
@@ -68,7 +92,7 @@
 
 .home-cherish-memories {
   font-size: 56px;
-  color: #8096c3;
+  color: #ffffff;
   margin-top: 70px;
 }
 
@@ -79,7 +103,7 @@
 .home-frame-color,
 .home-download-share {
   font-size: 48px;
-  color: #5a5858;
+  color: #fffefe;
   margin-top: 70px;
 }
 
@@ -101,3 +125,178 @@
   margin-top: 50px;
   margin-bottom: 24px;
 }
+
+/* Media Queries */
+
+/* Phone View (up to 600px) */
+@media (max-width: 600px) {
+  /* Main Container */
+  .home-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .home-main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .home-left-content,
+  .home-right-content {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .home-logo-text {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .home-subtitle {
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  /* Centering Images */
+  .home-picture1,
+  .home-picture2 {
+    width: 80%;
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .home-cut-selection,
+  .home-computer-view,
+  .home-photo-selection,
+  .home-filter,
+  .home-frame,
+  .home-download {
+    width: 80%;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Centering Text */
+  .home-cherish-memories,
+  .home-select-frame,
+  .home-capture-moment,
+  .home-select-photos,
+  .home-add-filter,
+  .home-frame-color,
+  .home-download-share {
+    font-size: 22px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  /* Centering Button */
+  .home-button {
+    display: block;
+    margin: 20px auto;
+  }
+}
+
+
+
+/* Tablet View (600px - 1024px) */
+@media (min-width: 600px) and (max-width: 1024px) {
+  /* Main Content */
+  .home-main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 20px;
+  }
+
+  /* Left and Right Content */
+  .home-left-content,
+  .home-right-content {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  /* Logo Text */
+  .home-logo-text {
+    font-size: 3.5rem;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  /* Subtitle Adjustments */
+  .home-subtitle {
+    font-size: 20px;
+    text-align: center;
+    margin: 10px auto;
+  }
+
+  /* Centering Images */
+  .home-picture1,
+  .home-picture2 {
+    width: 80%;
+    max-width: 300px;
+    display: block;
+    margin: 10px auto;
+    box-sizing: border-box;
+    border: 2px solid #ffffff; /* White Border */
+  }
+
+  .home-cut-selection,
+  .home-computer-view,
+  .home-photo-selection,
+  .home-filter,
+  .home-frame,
+  .home-download {
+    width: 80%;
+    max-width: 400px;
+    display: block;
+    margin: 20px auto;
+  }
+
+  /* Headings */
+  .home-cherish-memories,
+  .home-select-frame,
+  .home-capture-moment,
+  .home-select-photos,
+  .home-add-filter,
+  .home-frame-color,
+  .home-download-share {
+    font-size: 28px;
+    text-align: center;
+    margin: 20px auto;
+  }
+
+  /* Buttons */
+  .home-button {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #D7D7D7;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .home-button:hover {
+    background-color: #1a2b3a;
+  }
+}
+
+
+
+
