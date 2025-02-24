@@ -154,20 +154,19 @@ const CameraAccess = () => {
           )}
 
           <div className="camera-container">
+            { /* Camera preview*/ }
             <div className={`camera-preview-container ${frame.layout}`}>
-
-              {/* flash effect inside camera preview */}
               {flash && <div className="flash-overlay"></div>}
-
               <video ref={videoRef} autoPlay playsInline className={`camera-preview ${frame.layout}`} />
-
+              <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
+            </div>
+            
+            { /* Shutter & countdown */ }
+            <div className="shutter-container">
               {countdown !== null && <div className="countdown-timer">{countdown}</div>}
-
               <button className="shutter-button" onClick={startPhotoSequence} disabled={isShooting}>
                 <img src={Shutter} alt="Shutter" className="shutter-icon" />
               </button>
-
-              <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
             </div>
           </div>
         </>

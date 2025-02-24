@@ -4,12 +4,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100vh; 
+  width: 100vw; 
+  overflow: hidden;
   background-color: black;
   color: white;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   padding: 1rem;
+  box-sizing: border-box; 
 }
+
 
 /* Flash animation */
 @keyframes flashEffect {
@@ -34,25 +40,25 @@
 /* Camera container */
 .camera-container {
   display: flex;
+  margin-top: 10px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
   width: 100%;
   max-width: 1000px;
   flex-wrap: wrap;
   position: relative;
 }
 
-/* Camera preview adjustments */
 .camera-preview-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 90vw;
   max-width: 1000px;
-  height: auto;
+  height: 80vh;
   position: relative;
+  overflow: hidden;
 }
 
 /* Flash effect inside camera preview */
@@ -93,6 +99,10 @@
   max-height: 1520px;
 }
 
+.camera-instruction{
+  margin-top: 0px;
+}
+
 /* Photo count display */
 .photo-count-display {
   position: absolute;
@@ -107,16 +117,22 @@
   z-index: 10;
 }
 
-/* Shutter button */
-.shutter-button {
+/* Shutter & countdown timer */
+.shutter-container{
   position: absolute;
+  bottom: 0; 
+  left: 50%;
+  transform: translateX(-50%); 
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.shutter-button {
   background: none;
   border: none;
   cursor: pointer;
-  position: absolute;
-  bottom: 5vh;
-  left: 50%;
-  transform: translate(-50%,30%);
+  z-index: 1;
 }
 
 .shutter-icon {
@@ -124,18 +140,16 @@
   height: 80px;
 }
 
-/* Countdown timer */
 .countdown-timer {
   position: absolute;
-  bottom: 12vh;
-  left: 50%;
-  transform: translate(-50%,50%);
+  margin-top: 15px;
+  transform: translate (-50%, -50%);
   font-size: 38px; 
   font-weight: bold;
   color: black;
-  padding: 20px 40px;
+  padding: 10px 20px;
   text-align: center;
-  z-index: 15;
+  z-index: 2;
   animation: fadeIn 0.5s ease-in-out;
 }
 
@@ -189,16 +203,21 @@
 
   .countdown-timer {
     bottom: auto;
-    margin-top: 15px;
+    margin-top: 32px;
     font-size: 28px;
   }
 }
 
-/* Responsive: tablets - 600-1024px */
-@media (min-width: 600px) and (max-width: 1024px) {
+/* Responsive: Tablet - iPad */
+@media (min-width: 769px) and (max-width:1024px) {
   .camera-preview-container {
     width: 80vw;
     height: auto;
+  }
+
+  .camera-instruction{
+    margin-top: 0px;
+    font-size: 30px;
   }
 
   .shutter-button {
@@ -210,14 +229,33 @@
   }
 }
 
-/* Responsive: larger screens - desktops, >= 1024px) */
-@media (min-width: 1024px) {
+/* Responsive: Phones - iPhone */
+@media (max-width: 768px) {
   .camera-preview-container {
-    width: 60vw;
-    max-width: 800px;
+    width: 80vw;
+    height: auto;
+  }
+
+  .camera-instruction{
+    margin-top: 0px;
+    font-size: 20px;
+  }
+
+  .photo-count-display{
+    margin-top: 30px;
+    font-size: 25px;
+  }
+  
+  .countdown-timer {
+    font-size: 19px;
+  }
+
+  .shutter-button {
+    bottom: 8vh;
   }
 
   .shutter-icon {
-    width: 90px;
+    width: 40px;
+    height: 40px;
   }
 }

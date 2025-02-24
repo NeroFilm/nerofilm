@@ -7,7 +7,7 @@
   background-color: white;
   padding: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -19,11 +19,21 @@
 }
 
 .catfilm-image{
-  margin-top: 10px;
   margin-bottom: 30px;
-  
+  max-width: 80%;
+  height: auto;
 }
-.title {
-  font-size: 2.5rem;
-  font-weight: bold;
+
+/* Responsive: Tablet - iPad */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .catfilm-image{
+    width: 400px;
+  }
+}
+
+/* Responsive: Phones - iPhone */
+@media (max-width: 768px) {
+  .catfilm-image{
+    width: 300px;
+  }
 }
