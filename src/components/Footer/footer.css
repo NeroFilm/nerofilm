@@ -3,14 +3,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: black;
+  background-color: white; /* Changed to white */
 }
 
 .footer-logo-text {
   font-size: 2rem;
   font-weight: bold;
-  color: #ffffff;
-  font-family: 'Italiana', serif;
+  color: black; /* Changed to black */
+  font-family: "Italiana", serif;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -21,12 +21,11 @@
 
 .footer-contact h3 {
   font-size: 20px;
-  color: #ffffff;
+  color: black; /* Changed to black */
   margin-bottom: 5px;
 }
 
 .footer-contact p {
   font-size: 16px;
-  color: #ffffff;
+  color: black; /* Changed to black */
 }
-

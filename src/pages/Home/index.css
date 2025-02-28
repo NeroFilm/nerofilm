@@ -4,8 +4,8 @@
 .home-container {
   text-align: center;
   padding: 40px;
-  background-color: black;
-  color: black;
+  background-color: white; /* Changed to white */
+  color: black; /* Changed to black */
   font-family: "Itim", cursive;
   display: flex;
   flex-direction: column;
@@ -19,13 +19,13 @@
 .home-container h1 {
   font-size: 3rem;
   font-weight: bold;
-  color: #213547;
+  color: black; /* Changed to black */
 }
 
 /* Style the paragraph */
 .home-container p {
   font-size: 1.2rem;
-  color: rgb(255, 255, 255);
+  color: black; /* Changed to black */
 }
 
 .home-main-content {
@@ -45,7 +45,7 @@
 .home-logo-text {
   font-size: 9rem;
   font-weight: bold;
-  color: #ffffff;
+  color: black; /* Changed to black */
   font-family: "Italiana", serif;
   text-align: center;
   margin-top: -70px;
@@ -58,9 +58,8 @@
 
 .home-subtitle {
   font-size: 28px;
-  color: #ffffff;
+  color: black; /* Changed to black */
   margin-bottom: 20px;
-  color: #ffffff;
 }
 
 .home-right-content {
@@ -91,7 +90,7 @@
 
 .home-cherish-memories {
   font-size: 56px;
-  color: #ffffff;
+  color: black;
   margin-top: 70px;
 }
 
@@ -102,7 +101,7 @@
 .home-frame-color,
 .home-download-share {
   font-size: 48px;
-  color: #fffefe;
+  color: black;
   margin-top: 70px;
 }
 
@@ -121,9 +120,9 @@
 }
 
 .home-button,
-btn {
-  background-color: #d7d7d7;
-  color: black;
+.btn {
+  background-color: black; /* Changed to black */
+  color: white; /* Changed to white */
   margin-top: 50px;
   margin-bottom: 24px;
 }
@@ -198,6 +197,7 @@ btn {
     font-size: 22px;
     text-align: center;
     margin: 0 auto;
+    color: black;
   }
 
   /* Centering Button */
@@ -284,8 +284,8 @@ btn {
     display: inline-block;
     margin: 20px auto;
     padding: 10px 20px;
-    background-color: #d7d7d7;
-    color: rgb(0, 0, 0);
+    background-color: black; /* Changed to black */
+    color: white; /* Changed to white */
     border: none;
     border-radius: 5px;
     cursor: pointer;
