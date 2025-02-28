@@ -2,10 +2,11 @@
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import Frame from "../../components/Frame/Frame";
 import { useState } from "react";
-import "./index.css"
+import "./index.css";
 import { useNavigate } from "react-router-dom";
 import BackHeader from "../../components/BackHeader/BackHeader";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
+import { playClickSound } from "../../utils/soundUtils";
 
 // add validation -> four images selected
 
@@ -18,17 +19,17 @@ function SelectPhotos() {
 
   const [selected, setSelected] = useState([]);
 
-  function toggleSelect(image){
-    if (selected.includes(image)){
-      setSelected(selected.filter(selectedImages => selectedImages != image));
-    }
-    else if (selected.length < 4) {
-      setSelected([...selected, image])
+  function toggleSelect(image) {
+    playClickSound();
+    if (selected.includes(image)) {
+      setSelected(selected.filter((selectedImages) => selectedImages != image));
+    } else if (selected.length < 4) {
+      setSelected([...selected, image]);
     }
   }
 
-  function onClick(){
-    if (selected.length == 4){
+  function onClick() {
+    if (selected.length == 4) {
       setFrame({ ...frame, images: selected });
       navigate("/choose-frame");
     }
