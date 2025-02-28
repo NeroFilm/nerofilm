@@ -1,6 +1,4 @@
 import { useNavigate } from "react-router-dom"; // Import navigation hook
-import Logo from "../../assets/LogoImage.png";
-import Catfilm from "../../assets/Catfilm.png";
 import Paw from "../../assets/Paw.png";
 import Cut from "../../assets/Cutselection.png";
 import Computer from "../../assets/ComputerView.png";
@@ -8,7 +6,6 @@ import Photo from "../../assets/PhotoSelection.png";
 import Filter from "../../assets/AddFilter.png";
 import Frame from "../../assets/FrameColor.png";
 import Download from "../../assets/DownloadShare.png";
-import Iva from "../../assets/IvaPics.png";
 import HomePic1 from "../../assets/homepic1.png";
 import HomePic2 from "../../assets/homepic2.png";
 import Header from "../../components/Header/Header";
