@@ -22,6 +22,9 @@ const Home = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.body.style.backgroundColor = "#000000";
+    return () => {
+      document.body.style.backgroundColor = "#ffffff";
+    };
   }, []);
 
   return (
