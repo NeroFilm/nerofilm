@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Italiana&display=swap");
 
 /* Home Page Styles */
 .home-container {
   text-align: center;
   padding: 40px;
+  background-color: black;
   color: black;
-  font-family: 'Itim', cursive;
+  font-family: "Itim", cursive;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +46,7 @@
   font-size: 9rem;
   font-weight: bold;
   color: #ffffff;
-  font-family: 'Italiana', serif;
+  font-family: "Italiana", serif;
   text-align: center;
   margin-top: -70px;
   margin-bottom: 20px;
@@ -68,20 +68,19 @@
   display: flex;
   justify-content: center;
   gap: 20px;
-
 }
 
 .home-picture1 {
   width: 100%;
   max-width: 240px;
   margin-top: 80px;
-  border: 0.3px solid #ffffff; 
+  border: 0.3px solid #ffffff;
 }
 
 .home-picture2 {
   width: 100%;
   max-width: 240px;
-  border: 0.3px solid #ffffff; 
+  border: 0.3px solid #ffffff;
 }
 
 .home-paw {
@@ -121,7 +120,10 @@
   text-align: center;
 }
 
-.home-button {
+.home-button,
+btn {
+  background-color: #d7d7d7;
+  color: black;
   margin-top: 50px;
   margin-bottom: 24px;
 }
@@ -205,8 +207,6 @@
   }
 }
 
-
-
 /* Tablet View (600px - 1024px) */
 @media (min-width: 600px) and (max-width: 1024px) {
   /* Main Content */
@@ -284,7 +284,7 @@
     display: inline-block;
     margin: 20px auto;
     padding: 10px 20px;
-    background-color: #D7D7D7;
+    background-color: #d7d7d7;
     color: rgb(0, 0, 0);
     border: none;
     border-radius: 5px;
@@ -296,7 +296,3 @@
     background-color: #1a2b3a;
   }
 }
-
-
-
-

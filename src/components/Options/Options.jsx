@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
-import "./options.css"
+import "./options.css";
+import { playClickSound } from "../../utils/soundUtils";
 
 function Options({ options, onClick, selected }) {
   return (
@@ -8,10 +9,17 @@ function Options({ options, onClick, selected }) {
         <li
           key={index}
           className="option"
-          onClick={() => onClick(option.name)}
+          onClick={() => {
+            onClick(option.name);
+            playClickSound();
+          }}
         >
           <img
-            className={selected === option.name ? "option-img-selected option-img" : "option-img"}
+            className={
+              selected === option.name
+                ? "option-img-selected option-img"
+                : "option-img"
+            }
             src={option.image}
             alt={option.name}
           />

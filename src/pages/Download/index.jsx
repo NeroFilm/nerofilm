@@ -1,7 +1,7 @@
-import Frame from "../../components/Frame/Frame"
-import { useFrame } from "../../hooks/FrameContext"
+import Frame from "../../components/Frame/Frame";
+import { useFrame } from "../../hooks/FrameContext";
 import BackHeader from "../../components/BackHeader/BackHeader";
-import "./index.css"
+import "./index.css";
 import { toPng } from "html-to-image";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
@@ -9,12 +9,20 @@ import useRefreshWarning from "../../hooks/useRefreshWarning";
 
 function Download() {
   useRefreshWarning();
-  
+
   const frame = useFrame();
   const frameRef = useRef(null);
 
   const downloadImage = () => {
-    toPng(frameRef.current, { cacheBust: false })
+    toPng(frameRef.current, {
+      cacheBust: false,
+      width: frameRef.current.offsetWidth * 4,
+      height: frameRef.current.offsetHeight * 4,
+      style: {
+        transform: "scale(4)",
+        transformOrigin: "top left",
+      },
+    })
       .then((dataUrl) => {
         const link = document.createElement("a");
         link.download = "nerofilm.png";
@@ -43,7 +51,9 @@ function Download() {
         </section>
         <section className="btns">
           <button onClick={() => downloadImage()}>Download image</button>
-          <Link className="btn" role="button" to={"/"}>Return home</Link>
+          <Link className="btn" role="button" to={"/"}>
+            Return home
+          </Link>
           {/* <button>Print image</button> */}
         </section>
       </section>
@@ -51,4 +61,4 @@ function Download() {
   );
 }
 
-export default Download
+export default Download;

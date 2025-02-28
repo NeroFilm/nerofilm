@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Lustria&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lustria&display=swap");
 
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Lustria', sans-serif;
+  font-family: "Lustria", sans-serif;
 }
 
 h1 {
@@ -12,7 +12,7 @@ h1 {
 }
 
 :root {
-  --primary-font: 'Lustria', sans-serif;
+  --primary-font: "Lustria", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -24,9 +24,8 @@ h1 {
 
 body {
   min-height: 100vh;
-  font-family: 'Lustria', sans-serif;
-  background-color: black;
-
+  font-family: "Lustria", sans-serif;
+  background-color: white;
 }
 
 h1 {
@@ -53,14 +52,81 @@ ul {
   align-items: center;
 }
 
-button, .btn {
+button,
+.btn {
   padding: 16px 32px;
   border-radius: 8px;
   font-size: 28px;
-  background-color: #D7D7D7;
+  background-color: #000000;
   text-decoration: none;
-  color: black;
+  color: rgb(255, 255, 255);
   border: none;
   cursor: pointer;
-  font-family: 'Lustria', sans-serif;
+  font-family: "Lustria", sans-serif;
+}
+
+.options-c h1 {
+  font-size: 36px;
+}
+
+/* Responsive: Tablet - iPad */
+@media (max-width: 1024px) {
+  .options-c {
+    gap: 32px;
+  }
+  .options-c h1 {
+    font-size: 32px;
+  }
+  .options-r {
+    gap: 48px;
+  }
+  .image-options {
+    width: 240px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  button,
+  .btn,
+  a {
+    padding: 12px 24px;
+  }
+  .frame-options {
+    gap: 48px;
+    flex-direction: row;
+  }
+}
+
+/* Responsive: Phones - iPhone */
+@media (max-width: 768px) {
+  .options-c {
+    gap: 24px;
+  }
+  .options-c h1 {
+    font-size: 28px;
+  }
+  .options-r {
+    gap: 32px;
+    flex-direction: column;
+  }
+  .image-options {
+    /* fix */
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 80vw;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1px;
+  }
+  button,
+  .btn,
+  a {
+    padding: 8px 12px;
+    font-size: 24px;
+  }
+  .frame-options {
+    gap: 48px;
+    flex-direction: row;
+  }
 }

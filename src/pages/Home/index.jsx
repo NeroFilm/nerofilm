@@ -21,6 +21,10 @@ const Home = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.body.style.backgroundColor = "#000000";
+    return () => {
+      document.body.style.backgroundColor = "#ffffff";
+    };
   }, []);
 
   return (
@@ -31,11 +35,14 @@ const Home = () => {
         <div className="home-main-content">
           {/* Left Side Content */}
           <div className="home-left-content">
-          <h1 className="home-logo-text">NeroFilm</h1>
+            <h1 className="home-logo-text">NeroFilm</h1>
             <h3 className="home-subtitle">
               No photobooth nearby? <br /> Your camera is all you need
             </h3>
-            <button className="home-button" onClick={() => navigate("/try-it")}>
+            <button
+              className="home-button"
+              onClick={() => navigate("/select-frame")}
+            >
               Try It Now!
             </button>
           </div>
@@ -65,7 +72,11 @@ const Home = () => {
         <h3 className="home-capture-moment">Capture the Moment</h3>
 
         {/* Computer View Image */}
-        <img src={Computer} alt="Computer Icon" className="home-computer-view" />
+        <img
+          src={Computer}
+          alt="Computer Icon"
+          className="home-computer-view"
+        />
 
         {/* Select Photos */}
         <h3 className="home-select-photos">Select Photos</h3>
@@ -94,7 +105,10 @@ const Home = () => {
         {/* Download Image */}
         <img src={Download} alt="Download Icon" className="home-download" />
 
-        <button className="home-button" onClick={() => navigate("/try-it")}>
+        <button
+          className="home-button"
+          onClick={() => navigate("/select-frame")}
+        >
           Try It Now!
         </button>
       </div>

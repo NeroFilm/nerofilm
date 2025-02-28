@@ -2,8 +2,12 @@ import { Link } from "react-router-dom";
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import Frame from "../../components/Frame/Frame";
 import BackHeader from "../../components/BackHeader/BackHeader";
-import "./index.css"
+import "./index.css";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
+import { playClickSound } from "../../utils/soundUtils";
+import { useEffect } from "react";
+import { defaultFrame } from "../../constants/frames";
+import { useRef } from "react";
 
 function SelectFrame() {
   const options = ["original", "wide"];
@@ -11,10 +15,19 @@ function SelectFrame() {
   const frame = useFrame();
   const setFrame = useFrameUpdate();
   useRefreshWarning();
+  const frameMounted = useRef(false);
 
   const handleSelectLayout = (layout) => {
+    playClickSound();
     setFrame({ ...frame, layout });
   };
+
+  useEffect(() => {
+    if (!frameMounted.current) {
+      setFrame(defaultFrame);
+      frameMounted.current = true;
+    }
+  }, [setFrame]);
 
   return (
     <div>

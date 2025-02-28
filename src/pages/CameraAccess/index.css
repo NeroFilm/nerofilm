@@ -4,8 +4,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; 
-  width: 100vw; 
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
   background-color: black;
   color: white;
@@ -13,13 +13,17 @@
   top: 0;
   left: 0;
   padding: 1rem;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 /* Flash animation */
 @keyframes flashEffect {
-  0% { opacity: 0.8; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Back button */
@@ -98,8 +102,9 @@
   max-height: 1520px;
 }
 
-.camera-instruction{
-  margin-top: 0px;
+.camera-instruction {
+  position: absolute;
+  top: 48px;
 }
 
 /* Photo count display */
@@ -117,11 +122,11 @@
 }
 
 /* Shutter & countdown timer */
-.shutter-container{
+.shutter-container {
   position: absolute;
-  bottom: 0; 
+  bottom: 32px;
   left: 50%;
-  transform: translateX(-50%); 
+  transform: translateX(-50%);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -143,7 +148,7 @@
   position: absolute;
   margin-top: 15px;
   transform: translate (-50%, -50%);
-  font-size: 38px; 
+  font-size: 38px;
   font-weight: bold;
   color: black;
   padding: 10px 20px;
@@ -187,7 +192,7 @@
 
   .camera-preview-container {
     width: 95vw;
-    aspect-ratio: 3 / 4; 
+    aspect-ratio: 3 / 4;
   }
 
   .shutter-icon {
@@ -208,13 +213,13 @@
 }
 
 /* Responsive: Tablet - iPad */
-@media (min-width: 769px) and (max-width:1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .camera-preview-container {
     width: 80vw;
     height: auto;
   }
 
-  .camera-instruction{
+  .camera-instruction {
     margin-top: 0px;
     font-size: 30px;
   }
@@ -235,16 +240,16 @@
     height: auto;
   }
 
-  .camera-instruction{
+  .camera-instruction {
     margin-top: 0px;
     font-size: 20px;
   }
 
-  .photo-count-display{
+  .photo-count-display {
     margin-top: 30px;
     font-size: 25px;
   }
-  
+
   .countdown-timer {
     font-size: 19px;
   }
