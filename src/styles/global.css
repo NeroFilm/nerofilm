@@ -25,7 +25,7 @@ h1 {
 body {
   min-height: 100vh;
   font-family: "Lustria", sans-serif;
-  background-color: black;
+  background-color: white;
 }
 
 h1 {
@@ -57,9 +57,9 @@ button,
   padding: 16px 32px;
   border-radius: 8px;
   font-size: 28px;
-  background-color: #d7d7d7;
+  background-color: #000000;
   text-decoration: none;
-  color: black;
+  color: rgb(255, 255, 255);
   border: none;
   cursor: pointer;
   font-family: "Lustria", sans-serif;
