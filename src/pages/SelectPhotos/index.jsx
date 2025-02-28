@@ -41,6 +41,12 @@ function SelectPhotos() {
       <section className="options-c">
         <h1>Select photos</h1>
         <div className="options-r">
+          <Frame
+            filter={frame.filter}
+            images={selected}
+            layout={frame.layout}
+            color={frame.color}
+          />
           <ul className="image-options">
             {frame.images.map((image, key) => {
               return (
@@ -65,12 +71,6 @@ function SelectPhotos() {
               );
             })}
           </ul>
-          <Frame
-            filter={frame.filter}
-            images={selected}
-            layout={frame.layout}
-            color={frame.color}
-          />
         </div>
         <button className="btn" onClick={() => onClick()}>
           Continue
