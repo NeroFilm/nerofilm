@@ -16,7 +16,6 @@
   box-sizing: border-box; 
 }
 
-
 /* Flash animation */
 @keyframes flashEffect {
   0% { opacity: 0.8; }
