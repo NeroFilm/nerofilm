@@ -9,6 +9,7 @@ import ChooseFrame from "./pages/ChooseFrame";
 import Download from "./pages/Download";
 import CameraAccess from "./pages/CameraAccess";
 import SelectPhotos from "./pages/SelectPhotos";
+import TryIt from "./pages/TryIt";
 import "./styles/global.css";
 import AddSticker from "./pages/AddSticker";
 
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/add-filter" element={<AddFilter />} />
           <Route path="/add-sticker" element={<AddSticker />} />
           <Route path="/download" element={<Download />} />
+          <Route path="/try-it" element={<TryIt />} />
         </Routes>
       </HashRouter>
     </FrameProvider>

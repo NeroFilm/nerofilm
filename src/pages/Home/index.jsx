@@ -34,7 +34,7 @@ const Home = () => {
             </h3>
             <button
               className="home-button"
-              onClick={() => navigate("/select-frame")}
+              onClick={() => navigate("/try-it")}
             >
               Try It Now!
             </button>
