@@ -1,18 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Lustria&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "Lustria", sans-serif;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+@import url("https://fonts.googleapis.com/css2?family=Italiana&display=swap");
 
 :root {
   --primary-font: "Lustria", sans-serif;
+  --white: #ffffff;
+  --black: #000000;
+  --gray-light: #f0f0f0;
+  --gray-dark: #333333;
+  --text-color: rgb(255, 255, 255);
+
   line-height: 1.5;
   font-weight: 400;
 
@@ -22,10 +18,16 @@ h1 {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  font-family: var(--primary-font);
+}
+
 body {
   min-height: 100vh;
-  font-family: "Lustria", sans-serif;
-  background-color: white;
+  font-family: var(--primary-font);
+  background-color: var(--white);
 }
 
 h1 {
@@ -33,6 +35,197 @@ h1 {
   line-height: 1.1;
 }
 
+/* Home Page Styles */
+.home-container {
+  text-align: center;
+  padding: 40px;
+  background-color: var(--white); /* Changed to white */
+  color: var(--black); /* Changed to black */
+  font-family: "Itim", cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.home-container h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--black); /* Changed to black */
+}
+
+.home-container p {
+  font-size: 1.2rem;
+  color: var(--black); /* Changed to black */
+}
+
+.home-main-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.home-left-content {
+  text-align: center;
+  flex: 1;
+}
+
+.home-logo-text {
+  font-size: 9rem;
+  font-weight: bold;
+  color: var(--black); /* Changed to black */
+  font-family: "Italiana", serif;
+  text-align: center;
+  margin-top: -70px;
+  margin-bottom: 20px;
+}
+
+.home-logo {
+  width: 540px;
+}
+
+.home-subtitle {
+  font-size: 28px;
+  color: var(--black); /* Changed to black */
+  margin-bottom: 20px;
+}
+
+.home-right-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.home-picture1 {
+  width: 100%;
+  max-width: 240px;
+  margin-top: 80px;
+  border: 0.3px solid var(--white);
+}
+
+.home-picture2 {
+  width: 100%;
+  max-width: 240px;
+  border: 0.3px solid var(--white);
+}
+
+.home-paw {
+  width: 1200px;
+  opacity: 0.8;
+  margin-top: 90px;
+}
+
+.home-cherish-memories {
+  font-size: 56px;
+  color: var(--black);
+  margin-top: 70px;
+}
+
+.home-select-frame,
+.home-capture-moment,
+.home-select-photos,
+.home-add-filter,
+.home-frame-color,
+.home-download-share {
+  font-size: 48px;
+  color: var(--black);
+  margin-top: 70px;
+}
+
+.home-cut-selection,
+.home-computer-view,
+.home-photo-selection,
+.home-filter,
+.home-frame,
+.home-download {
+  width: 1000px;
+  margin-top: 30px;
+}
+
+.home-download-share {
+  text-align: center;
+}
+
+.home-button,
+.btn {
+  background-color: var(--black); /* Changed to black */
+  color: var(--white); /* Changed to white */
+  margin-top: 50px;
+  margin-bottom: 24px;
+}
+
+/* Media Queries */
+
+/* Phone View (up to 600px) */
+@media (max-width: 600px) {
+  /* Main Container */
+  .home-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .home-main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .home-left-content,
+  .home-right-content {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .home-logo-text {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .home-subtitle {
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  /* Centering Images */
+  .home-picture1,
+  .home-picture2 {
+    width: 80%;
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .home-cut-selection,
+  .home-computer-view,
+  .home-photo-selection,
+  .home-filter,
+  .home-frame,
+  .home-download {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  /* Centering Text */
+  .home-cherish-memories,
+  .home-select-frame,
+  .home-capture-moment,
+  .home-select-photos {
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
 ul {
   list-style: none;
 }
@@ -57,12 +250,12 @@ button,
   padding: 16px 32px;
   border-radius: 8px;
   font-size: 28px;
-  background-color: #000000;
+  background-color: var(--black);
   text-decoration: none;
-  color: rgb(255, 255, 255);
+  color: var(--text-color);
   border: none;
   cursor: pointer;
-  font-family: "Lustria", sans-serif;
+  font-family: var(--primary-font);
 }
 
 .options-c h1 {
@@ -109,7 +302,6 @@ button,
     flex-direction: column;
   }
   .image-options {
-    /* fix */
     display: none;
     position: absolute;
     left: 0;

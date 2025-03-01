@@ -4,8 +4,8 @@
   align-items: center;
   padding: 20px 50px;
   width: 100%;
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
+  background-color: var(--white); /* Changed to white */
+  color: var(--black); /* Changed to black */
   box-sizing: border-box;
   position: fixed;
   top: 0;
@@ -20,7 +20,7 @@
 
 .header-brand a {
   text-decoration: none;
-  color: rgb(255, 255, 255);
+  color: var(--black); /* Changed to black */
 }
 
 .header-nav {
@@ -34,7 +34,7 @@
 
 .header-nav li a {
   text-decoration: none;
-  color: rgb(255, 255, 255);
+  color: var(--black); /* Changed to black */
   font-size: 24px;
 }
 
@@ -45,7 +45,7 @@
   }
 
   .header-brand {
-    font-size: 28px; 
+    font-size: 28px;
   }
 
   .header-nav {
@@ -65,7 +65,7 @@
   }
 
   .header-brand {
-    font-size: 16px; 
+    font-size: 16px;
   }
 
   .header-nav {
