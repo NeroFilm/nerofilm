@@ -135,7 +135,7 @@
 
 .countdown-timer {
   position: absolute;
-  margin-top: 70px;
+  margin-top: 12px;
   transform: translate (-50%, -50%);
   font-size: 35px;
   font-weight: bold;
@@ -180,7 +180,7 @@
 
   .countdown-timer {
     font-size: 22px;
-    margin-top: 180px;
+    margin-bottom: 5px;
   }
 
   .shutter {
