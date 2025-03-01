@@ -47,7 +47,7 @@
   position: relative;
 }
 
-.camera-preview-container {
+.camera-preview-screen {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,16 +77,16 @@
   z-index: 10;
 }
 
-/* 4-cut original */
-.wide-mode .camera-preview-container {
+/* 4-cut wide */
+.wide-mode .camera-preview-screen {
   width: 40vw;
   height: calc(40vw * 1.52);
   max-width: 1000px;
   max-height: 1520px;
 }
 
-/* 4-cut wide */
-.original-mode .camera-preview-container {
+/* 4-cut original */
+.original-mode .camera-preview-screen {
   width: 80vw;
   height: calc(80vw * (78 / 104));
   max-width: 1000px;
@@ -160,57 +160,20 @@
   height: 40px;
 }
 
-/* Responsive: phones - upto 600px */
-@media (max-width: 600px) {
-  .camera-page {
-    padding: 0.5rem;
-  }
-
-  .back-button {
-    top: 10px;
-    left: 10px;
-  }
-
-  .back-arrow {
-    width: 30px;
-  }
-
-  .camera-preview-screen {
-    width: 95vw;
-    aspect-ratio: 3 / 4;
-  }
-
-  .shutter-icon {
-    width: 60px;
-    height: 60px;
-  }
-
-  .shutter-button {
-    bottom: auto;
-    margin-top: 20px;
-  }
-
-  .countdown-timer {
-    bottom: auto;
-    margin-top: 32px;
-    font-size: 28px;
-  }
-}
-
 /* Responsive: Phones - iPhone */
 @media (max-width: 430px) {
-  .camera-preview-container {
+  .camera-preview-screen {
     width: 90vw;
     height: auto;
     bottom: 50px;
   }
 
-  .camera-instruction {
+  .instructions {
     margin-top: 0px;
-    font-size: 20px;
+    font-size: 40px;
   }
 
-  .photo-count-display {
+  .count-display {
     margin-top: 30px;
     font-size: 25px;
   }
@@ -220,8 +183,8 @@
     margin-bottom: 5px;
   }
 
-  .shutter-container {
-    top: 250px;
+  .shutter {
+    top: 500px;
   }
 
   .shutter-icon {
