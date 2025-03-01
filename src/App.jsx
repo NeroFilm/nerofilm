@@ -10,6 +10,7 @@ import Download from "./pages/Download";
 import CameraAccess from "./pages/CameraAccess";
 import SelectPhotos from "./pages/SelectPhotos";
 import "./styles/global.css";
+import AddSticker from "./pages/AddSticker";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/select-photos" element={<SelectPhotos />} />
           <Route path="/choose-frame" element={<ChooseFrame />} />
           <Route path="/add-filter" element={<AddFilter />} />
+          <Route path="/add-sticker" element={<AddSticker />} />
           <Route path="/download" element={<Download />} />
         </Routes>
       </HashRouter>
