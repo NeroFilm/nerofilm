@@ -33,10 +33,6 @@ const Home = () => {
               No photobooth nearby? <br /> Your camera is all you need
             </h3>
             <button className="global-button" onClick={() => navigate("/select-frame")}>
-            <button
-              className="home-button"
-              onClick={() => navigate("/select-frame")}
-            >
               Try It Now!
             </button>
           </div>
@@ -90,6 +86,7 @@ const Home = () => {
           </div>
         </div>
 
+        {/* Call to Action Button */}
         <div className="home-button-container">
           <button className="global-button" onClick={() => navigate("/select-frame")}>
             Try It Now!
