@@ -1,30 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&display=swap");
+
+/* === Global Variables === */
+:root {
+  --font-primary: "Itim", cursive;
+  --font-heading: "Italiana", serif;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --heading-1: 54px;
+  --heading-2: 48px;
+  --heading-3: 28px;
+  --paragraph: 18px;
+}
+
+/* === General Styles === */
 /* Home Page Styles */
 .home-container {
   text-align: center;
   padding: 40px;
-  background-color: var(--white); /* Changed to white */
+  background-color: var(--gray-light); /* Changed to gray */
   color: var(--black); /* Changed to black */
   font-family: "Itim", cursive;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 40px;  
+  min-height: 100vh;
+  height: auto;
+  overflow-y: auto;
+}
+
+
+/* === Typography === */
+.home-heading-1 {
+  font-size: var(--heading-1);
+  font-weight: bold;
   margin-top: 60px;
 }
 
-.navbar
-/* Style the heading */
-.home-container h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: var(--black); /* Changed to black */
+.home-heading-2 {
+  font-size: var(--heading-2);
+  margin-top: 60px;
 }
 
-/* Style the paragraph */
-.home-container p {
-  font-size: 1.2rem;
-  color: var(--black); /* Changed to black */
+.home-heading-3 {
+  font-size: var(--heading-3);
+  margin-top: 60px;
 }
+
+.home-paragraph {
+  font-size: var(--paragraph);
+  color: var(--color-black);
+  margin-top: 60px;
+}
+
 
 .home-main-content {
   display: flex;
@@ -40,26 +71,6 @@
   flex: 1;
 }
 
-.home-logo-text {
-  font-size: 9rem;
-  font-weight: bold;
-  color: var(--black); /* Changed to black */
-  font-family: "Italiana", serif;
-  text-align: center;
-  margin-top: -70px;
-  margin-bottom: 20px;
-}
-
-.home-logo {
-  width: 540px;
-}
-
-.home-subtitle {
-  font-size: 28px;
-  color: var(--black); /* Changed to black */
-  margin-bottom: 20px;
-}
-
 .home-right-content {
   flex: 1;
   display: flex;
@@ -67,138 +78,77 @@
   gap: 20px;
 }
 
-.home-picture1 {
+
+/* === Logo & Text === */
+.home-logo-text {
+  font-size: 160px; 
+  font-weight: bold;
+  color: var(--color-black);
+  font-family: var(--font-heading);
+  text-align: center;
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+
+.home-subtitle {
+  font-size: var(--heading-3);
+  margin-bottom: 20px;
+}
+
+/* === Image Styling === */
+.home-image1 {
+  width: 100%;
+  max-width: 240px;
+  margin-top: 240px;
+  border: 0.3px solid var(--color-white);
+}
+
+.home-image2 {
   width: 100%;
   max-width: 240px;
   margin-top: 80px;
-  border: 0.3px solid var(--white);
+  border: 0.3px solid var(--color-white);
 }
 
-.home-picture2 {
-  width: 100%;
-  max-width: 240px;
-  border: 0.3px solid var(--white);
+.home-large-image {
+  width: 1000px;
+  margin-top: 30px;
 }
 
 .home-paw {
   width: 1200px;
   opacity: 0.8;
-  margin-top: 90px;
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
 
-.home-cherish-memories {
-  font-size: 56px;
-  color: var(--black);
-  margin-top: 70px;
-}
 
-.home-select-frame,
-.home-capture-moment,
-.home-select-photos,
-.home-add-filter,
-.home-frame-color,
-.home-download-share {
-  font-size: 48px;
-  color: var(--black);
-  margin-top: 70px;
-}
-
-.home-cut-selection,
-.home-computer-view,
-.home-photo-selection,
-.home-filter,
-.home-frame,
-.home-download {
-  width: 1000px;
-  margin-top: 30px;
-}
-
-.home-download-share {
-  text-align: center;
-}
-
-.home-button,
-.btn {
-  background-color: var(--black); /* Changed to black */
-  color: var(--white); /* Changed to white */
-  margin-top: 50px;
-  margin-bottom: 24px;
-}
-
-/* Media Queries */
+/* === Media Queries === */
 
 /* Phone View (up to 600px) */
 @media (max-width: 600px) {
-  /* Main Container */
   .home-container {
     width: 100%;
     max-width: 100%;
     padding: 0 10px;
   }
 
-  .home-main-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .home-left-content,
-  .home-right-content {
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  .home-logo-text {
+  .home-heading-1 {
     font-size: 2.5rem;
-    text-align: center;
-    margin: 0 auto;
   }
 
   .home-subtitle {
     font-size: 16px;
-    text-align: center;
-    margin: 0 auto;
   }
 
-  /* Centering Images */
-  .home-picture1,
-  .home-picture2 {
-    width: 80%;
+  .home-image {
     max-width: 200px;
-    display: block;
-    margin: 0 auto;
   }
 
-  .home-cut-selection,
-  .home-computer-view,
-  .home-photo-selection,
-  .home-filter,
-  .home-frame,
-  .home-download {
-    width: 80%;
+  .home-large-image {
     max-width: 300px;
-    display: block;
-    margin: 0 auto;
   }
 
-  /* Centering Text */
-  .home-cherish-memories,
-  .home-select-frame,
-  .home-capture-moment,
-  .home-select-photos,
-  .home-add-filter,
-  .home-frame-color,
-  .home-download-share {
-    font-size: 22px;
-    text-align: center;
-    margin: 0 auto;
-    color: black;
-  }
-
-  /* Centering Button */
   .home-button {
     display: block;
     margin: 20px auto;
@@ -207,90 +157,24 @@
 
 /* Tablet View (600px - 1024px) */
 @media (min-width: 600px) and (max-width: 1024px) {
-  /* Main Content */
-  .home-main-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    gap: 20px;
-  }
-
-  /* Left and Right Content */
-  .home-left-content,
-  .home-right-content {
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  /* Logo Text */
-  .home-logo-text {
+  .home-heading-1 {
     font-size: 3.5rem;
-    text-align: center;
-    margin: 0 auto;
   }
 
-  /* Subtitle Adjustments */
   .home-subtitle {
     font-size: 20px;
-    text-align: center;
-    margin: 10px auto;
   }
 
-  /* Centering Images */
-  .home-picture1,
-  .home-picture2 {
-    width: 80%;
+  .home-image {
     max-width: 300px;
-    display: block;
-    margin: 10px auto;
-    box-sizing: border-box;
-    border: 2px solid var(--white); /* White Border */
+    border: 2px solid var(--color-white);
   }
 
-  .home-cut-selection,
-  .home-computer-view,
-  .home-photo-selection,
-  .home-filter,
-  .home-frame,
-  .home-download {
-    width: 80%;
+  .home-large-image {
     max-width: 400px;
-    display: block;
-    margin: 20px auto;
   }
 
-  /* Headings */
-  .home-cherish-memories,
-  .home-select-frame,
-  .home-capture-moment,
-  .home-select-photos,
-  .home-add-filter,
-  .home-frame-color,
-  .home-download-share {
-    font-size: 28px;
-    text-align: center;
-    margin: 20px auto;
-  }
-
-  /* Buttons */
   .home-button {
-    display: inline-block;
-    margin: 20px auto;
     padding: 10px 20px;
-    background-color: var(--black); /* Changed to black */
-    color: var(--white); /* Changed to white */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .home-button:hover {
-    background-color: var(--black);
   }
 }
