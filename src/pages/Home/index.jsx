@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"; // Import navigation hook
+import { useNavigate } from "react-router-dom";
 import Paw from "../../assets/Paw.png";
 import Cut from "../../assets/Cutselection.png";
 import Computer from "../../assets/ComputerView.png";
@@ -11,10 +11,10 @@ import HomePic2 from "../../assets/homepic2.png";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { useEffect } from "react";
-import "./index.css"; // Import the CSS file
+import "./index.css";
 
 const Home = () => {
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,9 +29,10 @@ const Home = () => {
           {/* Left Side Content */}
           <div className="home-left-content">
             <h1 className="home-logo-text">NeroFilm</h1>
-            <h3 className="home-subtitle">
+            <h3 className="home-heading-3">
               No photobooth nearby? <br /> Your camera is all you need
             </h3>
+            <button className="global-button" onClick={() => navigate("/select-frame")}>
             <button
               className="home-button"
               onClick={() => navigate("/select-frame")}
@@ -40,70 +41,60 @@ const Home = () => {
             </button>
           </div>
 
-          {/* Right Side Image */}
+          {/* Right Side Images */}
           <div className="home-right-content">
-            <img src={HomePic1} alt="HomePic1" className="home-picture1" />
-            <img src={HomePic2} alt="HomePic2" className="home-picture2" />
+            <img src={HomePic1} alt="HomePic1" className="home-image1" />
+            <img src={HomePic2} alt="HomePic2" className="home-image2" />
           </div>
         </div>
 
-        {/* Paw Image Below Everything */}
-        <img src={Paw} alt="Paw Icon" className="home-paw" />
+        {/* Decorative Paw Image */}
+        <div className="home-paw-container">
+          <img src={Paw} alt="Paw Icon" className="home-paw" />
+        </div>
 
-        {/* Cherish Memories, Relive Moments - Placed Below Everything */}
-        <h3 className="home-cherish-memories">
-          Cherish Memories <br /> Relive Moments
-        </h3>
+        {/* Sections */}
+        <div className="home-sections">
+          <h3 className="home-heading-1">Cherish Memories <br /> Relive Moments</h3>
+          
+          <div className="home-section">
+            <h3 className="home-heading-2">Select Frame Layout</h3>
+            <img src={Cut} alt="Cut Icon" className="home-large-image" />
+          </div>
 
-        {/* Select Frame Layout */}
-        <h3 className="home-select-frame">Select Frame Layout</h3>
+          <div className="home-section">
+            <h3 className="home-heading-2">Capture the Moment</h3>
+            <img src={Computer} alt="Computer Icon" className="home-large-image" />
+          </div>
 
-        {/* Cut Selection Image */}
-        <img src={Cut} alt="Cut Icon" className="home-cut-selection" />
+          <div className="home-section">
+            <h3 className="home-heading-2">Select Photos</h3>
+            <img src={Photo} alt="Photo Icon" className="home-large-image" />
+          </div>
 
-        {/* Capture the Moment */}
-        <h3 className="home-capture-moment">Capture the Moment</h3>
+          <div className="home-section">
+            <h3 className="home-heading-2">Add Filter</h3>
+            <img src={Filter} alt="Filter Icon" className="home-large-image" />
+          </div>
 
-        {/* Computer View Image */}
-        <img
-          src={Computer}
-          alt="Computer Icon"
-          className="home-computer-view"
-        />
+          <div className="home-section">
+            <h3 className="home-heading-2">Add Frame Color</h3>
+            <img src={Frame} alt="Frame Icon" className="home-large-image" />
+          </div>
 
-        {/* Select Photos */}
-        <h3 className="home-select-photos">Select Photos</h3>
+          <div className="home-section">
+            <h3 className="home-heading-2">
+              Download & Share <br /> with Friends!
+            </h3>
+            <img src={Download} alt="Download Icon" className="home-large-image" />
+          </div>
+        </div>
 
-        {/* Photo Selection Image */}
-        <img src={Photo} alt="Photo Icon" className="home-photo-selection" />
-
-        {/* Add Filter */}
-        <h3 className="home-add-filter">Add Filter</h3>
-
-        {/* Add Filter Image */}
-        <img src={Filter} alt="Filter Icon" className="home-filter" />
-
-        {/* Frame Color */}
-        <h3 className="home-frame-color">Add Frame Color</h3>
-
-        {/* Frame Color Image */}
-        <img src={Frame} alt="Frame Icon" className="home-frame" />
-
-        {/* Download and Share */}
-        <h3 className="home-download-share">
-          Download & Share
-          <br /> with Friends!
-        </h3>
-
-        {/* Download Image */}
-        <img src={Download} alt="Download Icon" className="home-download" />
-
-        <button
-          className="home-button"
-          onClick={() => navigate("/select-frame")}
-        >
-          Try It Now!
-        </button>
+        <div className="home-button-container">
+          <button className="global-button" onClick={() => navigate("/select-frame")}>
+            Try It Now!
+          </button>
+        </div>
       </div>
       <Footer />
     </div>

@@ -57,8 +57,10 @@
 }
 
 .frame-vintage img {
-  -webkit-filter: grayscale(100%) hue-rotate(10deg) contrast(110%) brightness(110%) sepia(20%) blur(0.1px);
-  filter: grayscale(100%) hue-rotate(10deg) contrast(110%) brightness(110%) sepia(20%) blur(0.1px);
+  -webkit-filter: grayscale(100%) hue-rotate(10deg) contrast(110%)
+    brightness(110%) sepia(20%) blur(0.1px);
+  filter: grayscale(100%) hue-rotate(10deg) contrast(110%) brightness(110%)
+    sepia(20%) blur(0.1px);
 }
 
 .frame-beauty img {
