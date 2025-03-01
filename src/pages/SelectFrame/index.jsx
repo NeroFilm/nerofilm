@@ -8,6 +8,7 @@ import { playClickSound } from "../../utils/soundUtils";
 import { useEffect } from "react";
 import { defaultFrame } from "../../constants/frames";
 import { useRef } from "react";
+import Unsplash from "../../components/Unsplash/Unsplash";
 
 function SelectFrame() {
   const options = ["original", "wide"];
@@ -32,6 +33,7 @@ function SelectFrame() {
   return (
     <div>
       <BackHeader />
+      <Unsplash />
       <section className="options-c">
         <h1>Select Frame Layout</h1>
         <div className="options-r">
