@@ -14,7 +14,7 @@ import "./styles/global.css";
 const App = () => {
   return (
     <FrameProvider>
-      <HashRouter>
+      <HashRouter basename="/nerofilm">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
