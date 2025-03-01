@@ -40,7 +40,7 @@ const Home = () => {
             </button>
           </div>
 
-          {/* Right Side Images */}
+        {/* Right Side Images */}
           <div className="home-right-content">
             <img src={HomePic1} alt="HomePic1" className="home-image1" />
             <img src={HomePic2} alt="HomePic2" className="home-image2" />

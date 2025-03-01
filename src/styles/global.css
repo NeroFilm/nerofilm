@@ -53,5 +53,3 @@ button, .global-button {
 button:hover, .global-button:hover {
   transform: translateY(-2px) !important; /* Subtle lift effect */
 }
-
-
