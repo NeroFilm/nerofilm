@@ -35,8 +35,6 @@ const Home = () => {
             <button className="global-button" onClick={() => navigate("/select-frame")}>
               Try It Now!
             </button>
-
-
           </div>
 
           {/* Right Side Images */}
@@ -47,33 +45,52 @@ const Home = () => {
         </div>
 
         {/* Decorative Paw Image */}
-        <img src={Paw} alt="Paw Icon" className="home-paw" />
+        <div className="home-paw-container">
+          <img src={Paw} alt="Paw Icon" className="home-paw" />
+        </div>
 
         {/* Sections */}
-        <h3 className="home-heading-1">Cherish Memories <br /> Relive Moments</h3>
-        <h3 className="home-heading-2">Select Frame Layout</h3>
-        <img src={Cut} alt="Cut Icon" className="home-large-image" />
+        <div className="home-sections">
+          <h3 className="home-heading-1">Cherish Memories <br /> Relive Moments</h3>
+          
+          <div className="home-section">
+            <h3 className="home-heading-2">Select Frame Layout</h3>
+            <img src={Cut} alt="Cut Icon" className="home-large-image" />
+          </div>
 
-        <h3 className="home-heading-2">Capture the Moment</h3>
-        <img src={Computer} alt="Computer Icon" className="home-large-image" />
+          <div className="home-section">
+            <h3 className="home-heading-2">Capture the Moment</h3>
+            <img src={Computer} alt="Computer Icon" className="home-large-image" />
+          </div>
 
-        <h3 className="home-heading-2">Select Photos</h3>
-        <img src={Photo} alt="Photo Icon" className="home-large-image" />
+          <div className="home-section">
+            <h3 className="home-heading-2">Select Photos</h3>
+            <img src={Photo} alt="Photo Icon" className="home-large-image" />
+          </div>
 
-        <h3 className="home-heading-2">Add Filter</h3>
-        <img src={Filter} alt="Filter Icon" className="home-large-image" />
+          <div className="home-section">
+            <h3 className="home-heading-2">Add Filter</h3>
+            <img src={Filter} alt="Filter Icon" className="home-large-image" />
+          </div>
 
-        <h3 className="home-heading-2">Add Frame Color</h3>
-        <img src={Frame} alt="Frame Icon" className="home-large-image" />
+          <div className="home-section">
+            <h3 className="home-heading-2">Add Frame Color</h3>
+            <img src={Frame} alt="Frame Icon" className="home-large-image" />
+          </div>
 
-        <h3 className="home-heading-2">
-          Download & Share <br /> with Friends!
-        </h3>
-        <img src={Download} alt="Download Icon" className="home-large-image" />
+          <div className="home-section">
+            <h3 className="home-heading-2">
+              Download & Share <br /> with Friends!
+            </h3>
+            <img src={Download} alt="Download Icon" className="home-large-image" />
+          </div>
+        </div>
 
-        <button className="global-button" onClick={() => navigate("/select-frame")}>
-              Try It Now!
-        </button>
+        <div className="home-button-container">
+          <button className="global-button" onClick={() => navigate("/select-frame")}>
+            Try It Now!
+          </button>
+        </div>
       </div>
       <Footer />
     </div>
