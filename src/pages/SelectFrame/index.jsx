@@ -55,7 +55,7 @@ function SelectFrame() {
             ))}
           </ul>
         </div>
-        <Link className="btn" to="/camera" role="button">
+        <Link className="btn" to="/try-it" role="button">
           Camera
         </Link>
       </section>
