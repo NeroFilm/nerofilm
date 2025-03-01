@@ -9,6 +9,7 @@ import ChooseFrame from "./pages/ChooseFrame";
 import Download from "./pages/Download";
 import CameraAccess from "./pages/CameraAccess";
 import SelectPhotos from "./pages/SelectPhotos";
+import TryIt from "./pages/TryIt";
 import "./styles/global.css";
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/choose-frame" element={<ChooseFrame />} />
           <Route path="/add-filter" element={<AddFilter />} />
           <Route path="/download" element={<Download />} />
+          <Route path="/try-it" element={<TryIt />} />
         </Routes>
       </HashRouter>
     </FrameProvider>

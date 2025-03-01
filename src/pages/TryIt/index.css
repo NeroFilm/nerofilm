@@ -1,0 +1,136 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+}
+
+.instruction-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: white; 
+    width: 100vw;
+}
+
+/* Center the content box */
+.texts {
+    background: black;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 600px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 150px;
+    color: white;
+}
+
+.texts h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+/* Style the instructions */
+.instructions {
+    list-style: none;
+    padding: 12px;
+    text-align: left;
+    font-size: 17px;
+    margin: 8px 0;
+    margin-bottom: 20px;
+}
+
+.instructions li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icons {
+    height: 25px;
+    width: 25px;
+}
+
+/* Align checkbox and label */
+.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.checkbox input {
+    margin-right: 8px;
+}
+
+/* Style the button */
+.ready-btn {
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 65px;
+    background: white;
+    border-radius: 8px;
+    color: black;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ready-btn:hover {
+    background: lightgray;
+}
+
+/* Responsive: Phones - iPhone */
+@media (max-width: 430px) {
+    .texts {
+        padding: 20px;
+        width: 300px;
+        height: 300px;
+        margin-bottom: 210px;
+    }
+
+    .texts h2 {
+        font-size: 20.5px;
+        margin-bottom: 8px;
+    }
+
+    .instructions {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    
+    .instructions li {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .icons {
+        height: 17px;
+        width: 17px;
+    }
+
+    .checkbox {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .ready-btn {
+        padding: 12px 35px;
+        border-radius: 7px;
+        font-size: 12px;
+        transition: 0.3s;
+    }
+
+}
