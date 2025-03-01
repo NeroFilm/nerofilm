@@ -125,8 +125,7 @@
 .shutter-button {
   cursor: pointer;
   z-index: 1;
-  border: none;
-  outline: none;
+  background: none;
 }
 
 .shutter-icon {
@@ -170,19 +169,18 @@
   }
 
   .instructions {
-    margin-top: 10px;
-    font-size: 70px;
+    margin-top: 0px;
+    font-size: 40px;
   }
 
   .count-display {
     margin-top: 30px;
-    font-size: 23px;
+    font-size: 25px;
   }
 
   .countdown-timer {
-    font-size: 23px;
+    font-size: 22px;
     margin-top: 180px;
-    color: black;
   }
 
   .shutter {
