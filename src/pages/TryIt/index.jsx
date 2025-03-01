@@ -48,7 +48,7 @@ const TryIt = () => {
             />
             <label htmlFor="dont-show-again">Do not show this page again</label>
           </div>
-          <Link className="ready-btn" to="/select-frame">I’m Ready!</Link>
+          <Link className="ready-btn" to="/camera">I’m Ready!</Link>
         </div>
       </div>
     </div>

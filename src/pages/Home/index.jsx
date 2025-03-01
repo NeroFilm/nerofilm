@@ -35,7 +35,7 @@ const Home = () => {
             <button className="global-button" onClick={() => navigate("/select-frame")}>
             <button
               className="home-button"
-              onClick={() => navigate("/try-it")}
+              onClick={() => navigate("/select-frame")}
             >
               Try It Now!
             </button>

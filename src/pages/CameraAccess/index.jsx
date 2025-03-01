@@ -123,6 +123,11 @@ const CameraAccess = () => {
                 ref={webcamRef}
                 audio={false}
                 screenshotFormat="image/png"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover"
+                }}
                 mirrored={true}
                 videoConstraints={{
                   facingMode: "user",

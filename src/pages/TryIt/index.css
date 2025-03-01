@@ -23,13 +23,19 @@ html, body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     width: 600px;
     height: 450px;
+    max-width: 600px; 
+    max-height: 450px; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 150px;
     color: white;
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
 
 .texts-box h2 {
     font-size: 28px;
@@ -43,7 +49,7 @@ html, body {
     text-align: left;
     font-size: 17px;
     margin: 8px 0;
-    margin-top: 300px;
+    margin-top: 70px;
 }
 
 .instructions li {
@@ -107,7 +113,7 @@ html, body {
 
     .instructions {
         font-size: 12px;
-        margin-top: 280px;
+        margin-top: 70px;
     }
     
     .instructions li {
