@@ -32,16 +32,15 @@ const Home = () => {
             <h3 className="home-heading-3">
               No photobooth nearby? <br /> Your camera is all you need
             </h3>
-            <button className="global-button" onClick={() => navigate("/select-frame")}>
             <button
-              className="home-button"
+              className="global-button"
               onClick={() => navigate("/select-frame")}
             >
               Try It Now!
             </button>
           </div>
 
-          {/* Right Side Images */}
+        {/* Right Side Images */}
           <div className="home-right-content">
             <img src={HomePic1} alt="HomePic1" className="home-image1" />
             <img src={HomePic2} alt="HomePic2" className="home-image2" />
@@ -90,6 +89,7 @@ const Home = () => {
           </div>
         </div>
 
+        {/* Call to Action Button */}
         <div className="home-button-container">
           <button className="global-button" onClick={() => navigate("/select-frame")}>
             Try It Now!
