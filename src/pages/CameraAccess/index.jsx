@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import Webcam from "react-webcam"; 
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext"; 
 import WhiteBackArrow from "../../assets/WhiteBackArrow.png";
 import Camera from "../../assets/Camera.png";
@@ -25,52 +26,16 @@ const CameraAccess = () => {
   const [flash, setFlash] = useState(false); 
   const [countdown, setCountdown] = useState(null);
 
-  const videoRef = useRef(null);
-  const canvasRef = useRef(null);
-  
-  /* Request camera access */
+  const webcamRef = useRef(null); 
+
   useEffect(() => {
-    let stream;
-  
-    navigator.mediaDevices
-      .getUserMedia({
-        video: { facingMode: "user", aspectRatio: frame.layout === "wide" ? 9 / 16 : 16 / 9 },
-      })
-      .then((videoStream) => {
-        stream = videoStream;
-        setCameraPermission(true);
-        if (videoRef.current) {
-          videoRef.current.srcObject = videoStream;
-        }
-      })
-      .catch(() => {
-        setCameraPermission(false);
-      });
+    setCameraPermission(true); 
+  }, []);
 
-    return () => {
-      if (stream) {
-        stream.getTracks().forEach(track => track.stop()); 
-      }
-    };
-  }, [frame.layout]);
-  
   const takePhoto = () => {
-    if (videoRef.current && canvasRef.current) {
-      const video = videoRef.current;
-      const canvas = canvasRef.current;
-      const context = canvas.getContext("2d");
-  
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      
-      // mirror the image 
-      context.translate(canvas.width, 0);
-      context.scale(-1, 1);
-      context.drawImage(video, 0, 0, canvas.width, canvas.height);
-  
-      const imageDataURL = canvas.toDataURL("image/png");
+    if (webcamRef.current) {
+      const imageSrc = webcamRef.current.getScreenshot();
 
-      // play the shutter sound
       shutterAudio.current.currentTime = 0;
       shutterAudio.current.play().catch(error => console.log("Audio play failed:", error));
 
@@ -78,24 +43,14 @@ const CameraAccess = () => {
       setTimeout(() => setFlash(false), 200); 
   
       setFrame((prevFrame) => {
-        const updatedPhotos = [...prevFrame.images, imageDataURL].slice(-8);
+        const updatedPhotos = [...prevFrame.images, imageSrc].slice(-8);
         return { ...prevFrame, images: updatedPhotos };
       });
   
-      setPhotoCount((prevCount) => {
-        const newCount = prevCount + 1;
-  
-        // Stop camera access if all photos have been taken
-        if (newCount >= 8 && videoRef.current.srcObject) {
-          videoRef.current.srcObject.getTracks().forEach(track => track.stop());
-        }
-  
-        return newCount;
-      });
+      setPhotoCount((prevCount) => prevCount + 1);
     }
   };
-  
-  /* 3-second countdown before capturing each photo */
+
   const startCountdown = (count, callback) => {
     if (count === 0) {
       callback();
@@ -105,7 +60,6 @@ const CameraAccess = () => {
     setTimeout(() => startCountdown(count - 1, callback), 1000);
   };
 
-  /* Takes 8 photos and saves them directly to FrameContext */
   const startPhotoSequence = () => {
     if (isShooting) return;
     setIsShooting(true);
@@ -155,26 +109,40 @@ const CameraAccess = () => {
       {cameraPermission === true && (
         <>
           {!showPhotoCount ? (
-            <h2 className="camera-instruction">Click to start taking photos</h2>
+            <h2 className="instructions">Click to start taking photos</h2>
           ) : (
-            <div className="photo-count-display">{photoCount}/8</div>
+            <div className="count-display">{photoCount}/8</div>
           )}
 
           <div className="camera-container">
-            {/* Camera preview */}
-            <div className={`camera-preview-container ${frame.layout}`}>
+
+            <div className={`camera-preview-screen ${frame.layout}`}>
               {flash && <div className="flash-overlay"></div>}
-              <video ref={videoRef} autoPlay playsInline className={`camera-preview ${frame.layout}`} />
-              <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
+              <Webcam
+                className="webcam"
+                ref={webcamRef}
+                audio={false}
+                screenshotFormat="image/png"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover"
+                }}
+                mirrored={true}
+                videoConstraints={{
+                  facingMode: "user",
+                  aspectRatio: frame.layout === "wide" ? 9 / 16 : 16 / 9,
+                }}
+              />
             </div>
-            
-            {/* Shutter & countdown */}
-            <div className="shutter-container">
-              {countdown !== null && <div className="countdown-timer">{countdown}</div>}
-              <button className="shutter-button" onClick={startPhotoSequence} disabled={isShooting}>
-                <img src={Shutter} alt="Shutter" className="shutter-icon" />
-              </button>
-            </div>
+          </div>
+
+          {/* shutter & countdown */}
+          <div className="shutter">
+            {countdown !== null && <div className="countdown-timer">{countdown}</div>}
+            <button className="shutter-button" onClick={startPhotoSequence} disabled={isShooting}>
+              <img src={Shutter} alt="Shutter" className="shutter-icon" />
+            </button>
           </div>
         </>
       )}
