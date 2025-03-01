@@ -4,7 +4,7 @@
   align-items: center;
   padding: 20px 50px;
   width: 100%;
-  background-color: var(--white); /* Changed to white */
+  background-color: var(--gray-light); /* Changed to gray */
   color: var(--black); /* Changed to black */
   box-sizing: border-box;
   position: fixed;
