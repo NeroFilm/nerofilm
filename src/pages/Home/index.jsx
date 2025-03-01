@@ -89,6 +89,7 @@ const Home = () => {
           </div>
         </div>
 
+        {/* Call to Action Button */}
         <div className="home-button-container">
           <button className="global-button" onClick={() => navigate("/select-frame")}>
             Try It Now!

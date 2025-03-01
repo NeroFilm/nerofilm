@@ -26,6 +26,7 @@
 
 body {
   min-height: 100vh;
+  height: auto;
   font-family: var(--primary-font);
   background-color: var(--white);
 }
@@ -53,3 +54,4 @@ button, .global-button {
 button:hover, .global-button:hover {
   transform: translateY(-2px) !important; /* Subtle lift effect */
 }
+
