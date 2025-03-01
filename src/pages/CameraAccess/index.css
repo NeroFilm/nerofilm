@@ -1,4 +1,3 @@
-/* Fullscreen dark background */
 .camera-page {
   display: flex;
   flex-direction: column;
@@ -10,13 +9,9 @@
   background-color: black;
   color: white;
   position: fixed;
-  top: 0;
-  left: 0;
   padding: 1rem;
   box-sizing: border-box;
 }
-
-/* Flash animation */
 @keyframes flashEffect {
   0% {
     opacity: 0.8;
@@ -26,7 +21,6 @@
   }
 }
 
-/* Back button */
 .back-button {
   position: absolute;
   top: 2vh;
@@ -40,7 +34,7 @@
   height: auto;
 }
 
-/* Camera container */
+/* Camera */
 .camera-container {
   display: flex;
   margin-top: 10px;
@@ -64,8 +58,14 @@
   overflow: hidden;
 }
 
-/* Flash effect inside camera preview */
-.camera-preview-container .flash-overlay {
+.webcam {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  position: absolute;
+}
+
+.flash-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -74,27 +74,10 @@
   background: white;
   opacity: 0;
   animation: flashEffect 0.2s ease-in-out;
-  z-index: 5;
+  z-index: 10;
 }
 
-/* Video preview */
-.camera-preview {
-  width: 100%;
-  height: 100%;
-  max-height: 80vh;
-  object-fit: cover;
-  transform: scaleX(-1);
-}
-
-/* Standard mode (Portrait) */
-.original-mode .camera-preview-container {
-  width: 80vw;
-  height: calc(80vw * (78 / 104));
-  max-width: 1000px;
-  max-height: calc(1000px * (78 / 104));
-}
-
-/* Wide mode (Landscape) */
+/* 4-cut original */
 .wide-mode .camera-preview-container {
   width: 40vw;
   height: calc(40vw * 1.52);
@@ -102,13 +85,20 @@
   max-height: 1520px;
 }
 
-.camera-instruction {
+/* 4-cut wide */
+.original-mode .camera-preview-container {
+  width: 80vw;
+  height: calc(80vw * (78 / 104));
+  max-width: 1000px;
+  max-height: calc(1000px * (78 / 104));
+}
+
+.instructions {
   position: absolute;
   top: 48px;
 }
 
-/* Photo count display */
-.photo-count-display {
+.count-display {
   position: absolute;
   top: 40px;
   left: 50%;
@@ -121,8 +111,8 @@
   z-index: 10;
 }
 
-/* Shutter & countdown timer */
-.shutter-container {
+/* shutter & countdown */
+.shutter {
   position: absolute;
   bottom: 32px;
   left: 50%;
@@ -133,10 +123,9 @@
 }
 
 .shutter-button {
-  background: none;
-  border: none;
   cursor: pointer;
   z-index: 1;
+  background: none;
 }
 
 .shutter-icon {
@@ -146,7 +135,7 @@
 
 .countdown-timer {
   position: absolute;
-  margin-top: 15px;
+  margin-top: 12px;
   transform: translate (-50%, -50%);
   font-size: 35px;
   font-weight: bold;
@@ -156,16 +145,12 @@
   z-index: 2;
   animation: fadeIn 0.5s ease-in-out;
 }
-
-/* Countdown fade-in Effect */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateX(-50%) scale(1.2);
   }
   to {
     opacity: 1;
-    transform: translateX(-50%) scale(1);
   }
 }
 
@@ -190,7 +175,7 @@
     width: 30px;
   }
 
-  .camera-preview-container {
+  .camera-preview-screen {
     width: 95vw;
     aspect-ratio: 3 / 4;
   }
@@ -232,7 +217,7 @@
 
   .countdown-timer {
     font-size: 22px;
-    margin-top: 38px; 
+    margin-bottom: 5px;
   }
 
   .shutter-container {
