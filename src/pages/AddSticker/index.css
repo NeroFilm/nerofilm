@@ -1,0 +1,15 @@
+.frame-wrapper {
+  position: relative;
+}
+
+.frame-wrapper canvas,
+.frame-wrapper .frame {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+canvas {
+  background-color: none;
+  z-index: 1000;
+}
