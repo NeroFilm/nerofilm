@@ -120,13 +120,11 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  background: none;
 }
 
 .shutter-button {
   cursor: pointer;
   z-index: 1;
-  background: none;
   border: none;
   outline: none;
 }
@@ -172,8 +170,8 @@
   }
 
   .instructions {
-    margin-top: 0px;
-    font-size: 40px;
+    margin-top: 10px;
+    font-size: 70px;
   }
 
   .count-display {
