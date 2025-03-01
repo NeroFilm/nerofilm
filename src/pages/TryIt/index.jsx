@@ -14,8 +14,7 @@ const TryIt = () => {
     <div>
       <BackHeader />
       <div className="instruction-box">
-        
-        <div className="texts">
+        <div className="texts-box">
           <h2>Before Taking Your Photos</h2>
 
           <ul className="instructions">

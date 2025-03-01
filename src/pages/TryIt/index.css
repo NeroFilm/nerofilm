@@ -16,7 +16,7 @@ html, body {
 }
 
 /* Center the content box */
-.texts {
+.texts-box {
     background: black;
     padding: 20px;
     border-radius: 12px;
@@ -31,19 +31,19 @@ html, body {
     color: white;
 }
 
-.texts h2 {
+.texts-box h2 {
     font-size: 28px;
-    margin-bottom: 15px;
+    margin-bottom: 250px;
 }
 
-/* Style the instructions */
+/* instructions */
 .instructions {
     list-style: none;
     padding: 12px;
     text-align: left;
     font-size: 17px;
     margin: 8px 0;
-    margin-bottom: 20px;
+    margin-top: 300px;
 }
 
 .instructions li {
@@ -51,6 +51,7 @@ html, body {
     display: flex;
     align-items: center;
     gap: 20px;
+    color: white;
 }
 
 .icons {
@@ -58,7 +59,7 @@ html, body {
     width: 25px;
 }
 
-/* Align checkbox and label */
+/* checkbox */
 .checkbox {
     display: flex;
     align-items: center;
@@ -71,7 +72,7 @@ html, body {
     margin-right: 8px;
 }
 
-/* Style the button */
+/* ready button */
 .ready-btn {
     text-align: center;
     text-decoration: none;
@@ -92,21 +93,21 @@ html, body {
 
 /* Responsive: Phones - iPhone */
 @media (max-width: 430px) {
-    .texts {
+    .texts-box {
         padding: 20px;
         width: 300px;
-        height: 300px;
+        height: 400px;
         margin-bottom: 210px;
     }
 
-    .texts h2 {
+    .texts-box h2 {
         font-size: 20.5px;
-        margin-bottom: 8px;
+        margin-bottom: 180px;
     }
 
     .instructions {
         font-size: 12px;
-        margin-bottom: 10px;
+        margin-top: 280px;
     }
     
     .instructions li {
@@ -123,7 +124,6 @@ html, body {
 
     .checkbox {
         font-size: 12px;
-        margin-bottom: 10px;
     }
 
     .ready-btn {
