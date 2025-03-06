@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import placeholder from "../../assets/default-image.png"
-import "./frame.css"
+import placeholder from "../../assets/default-image.png";
+import "./frame.css";
 
 function Frame({ layout, images = [], filter, color }) {
   const [imgArr, setImgArr] = useState([]);
@@ -15,7 +15,14 @@ function Frame({ layout, images = [], filter, color }) {
   }, [images]);
 
   return (
-    <div className={`frame frame-${layout} frame-${color} frame-${filter}`}>
+    <div
+      className={`frame frame-${layout} frame-${color} frame-${filter}`}
+      style={{
+        backgroundImage: `url(${color})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       {imgArr.map((img, index) => (
         <div key={index} className="img-wrapper">
           <img className="img" src={img} alt={`image ${index + 1}`} />

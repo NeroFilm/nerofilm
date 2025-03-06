@@ -9,7 +9,7 @@ import pink from "../../assets/options/pink.svg";
 import blue from "../../assets/options/blue.svg";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 import Unsplash from "../../components/Unsplash/Unsplash";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function ChooseFrame() {
   useRefreshWarning();
@@ -25,6 +25,12 @@ function ChooseFrame() {
     { name: "pink", image: pink },
     { name: "blue", image: blue },
   ];
+
+  useEffect(() => {
+    if (unsplashBg) {
+      setFrame({ ...frame, color: unsplashBg });
+    }
+  }, [unsplashBg, frame, setFrame]);
 
   return (
     <div>
