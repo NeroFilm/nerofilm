@@ -1,17 +1,16 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import { FrameProvider } from "./hooks/FrameContext";
-import Instructions from "./pages/Instructions";
-import AboutUs from "./pages/AboutUs";
-import SelectFrame from "./pages/SelectFrame";
-import AddFilter from "./pages/AddFilter";
-import ChooseFrame from "./pages/ChooseFrame";
+import About from "./pages/About";
+import FrameLayout from "./pages/FrameLayout";
+import Filter from "./pages/Filter";
+import FrameDesign from "./pages/FrameDesign";
 import Download from "./pages/Download";
-import CameraAccess from "./pages/CameraAccess";
-import SelectPhotos from "./pages/SelectPhotos";
-import TryIt from "./pages/TryIt";
+import Camera from "./pages/Camera";
+import PhotoSelection from "./pages/PhotoSelection";
+import Instructions from "./pages/Instructions";
 import "./styles/global.css";
-import AddSticker from "./pages/AddSticker";
+import Sticker from "./pages/Sticker";
 
 const App = () => {
   return (
@@ -19,16 +18,15 @@ const App = () => {
       <HashRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/select-frame" element={<SelectFrame />} />
-          <Route path="/camera" element={<CameraAccess />} />
+          <Route path="/about" element={<About />} />
           <Route path="/instructions" element={<Instructions />} />
-          <Route path="/select-photos" element={<SelectPhotos />} />
-          <Route path="/choose-frame" element={<ChooseFrame />} />
-          <Route path="/add-filter" element={<AddFilter />} />
-          <Route path="/add-sticker" element={<AddSticker />} />
+          <Route path="/frame-layout" element={<FrameLayout />} />
+          <Route path="/camera" element={<Camera />} />
+          <Route path="/photo-selection" element={<PhotoSelection />} />
+          <Route path="/frame-design" element={<FrameDesign />} />
+          <Route path="/filter" element={<Filter />} />
+          <Route path="/sticker" element={<Sticker />} />
           <Route path="/download" element={<Download />} />
-          <Route path="/try-it" element={<TryIt />} />
         </Routes>
       </HashRouter>
     </FrameProvider>

@@ -1,14 +1,14 @@
-import CatFilmImage from '../../assets/Catfilm.png';
-import './index.css';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
-import { useEffect } from 'react';
+import CatFilmImage from "../../assets/Catfilm.png";
+import "./index.css";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import { useEffect } from "react";
 
-const AboutUs = () => {
-  useEffect(()=> {
-    window.scrollTo(0, 0)
+const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, []);
-  
+
   return (
     <div>
       <Header />
@@ -53,4 +53,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default About;

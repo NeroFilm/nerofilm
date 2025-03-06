@@ -34,13 +34,13 @@ const Home = () => {
             </h3>
             <button
               className="global-button"
-              onClick={() => navigate("/select-frame")}
+              onClick={() => navigate("/frame-layout")}
             >
               Try It Now!
             </button>
           </div>
 
-        {/* Right Side Images */}
+          {/* Right Side Images */}
           <div className="home-right-content">
             <img src={HomePic1} alt="HomePic1" className="home-image1" />
             <img src={HomePic2} alt="HomePic2" className="home-image2" />
@@ -54,8 +54,10 @@ const Home = () => {
 
         {/* Sections */}
         <div className="home-sections">
-          <h3 className="home-heading-1">Cherish Memories <br /> Relive Moments</h3>
-          
+          <h3 className="home-heading-1">
+            Cherish Memories <br /> Relive Moments
+          </h3>
+
           <div className="home-section">
             <h3 className="home-heading-2">Select Frame Layout</h3>
             <img src={Cut} alt="Cut Icon" className="home-large-image" />
@@ -63,7 +65,11 @@ const Home = () => {
 
           <div className="home-section">
             <h3 className="home-heading-2">Capture the Moment</h3>
-            <img src={Computer} alt="Computer Icon" className="home-large-image" />
+            <img
+              src={Computer}
+              alt="Computer Icon"
+              className="home-large-image"
+            />
           </div>
 
           <div className="home-section">
@@ -85,13 +91,20 @@ const Home = () => {
             <h3 className="home-heading-2">
               Download & Share <br /> with Friends!
             </h3>
-            <img src={Download} alt="Download Icon" className="home-large-image" />
+            <img
+              src={Download}
+              alt="Download Icon"
+              className="home-large-image"
+            />
           </div>
         </div>
 
         {/* Call to Action Button */}
         <div className="home-button-container">
-          <button className="global-button" onClick={() => navigate("/select-frame")}>
+          <button
+            className="global-button"
+            onClick={() => navigate("/select-frame")}
+          >
             Try It Now!
           </button>
         </div>

@@ -3,14 +3,14 @@ import Frame from "../../components/Frame/Frame";
 import BackHeader from "../../components/BackHeader/BackHeader";
 import { Link } from "react-router-dom";
 import * as fabric from "fabric";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 
 // TODO -> make image scale to specified width x auto height
 // TODO -> save canvas image in state (to be overlayed onto final frame)
 
 import "./index.css";
 
-function AddSticker() {
+function Sticker() {
   const frame = useFrame();
   const setFrame = useFrameUpdate();
 
@@ -94,4 +94,4 @@ function AddSticker() {
   );
 }
 
-export default AddSticker;
+export default Sticker;

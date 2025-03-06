@@ -10,7 +10,7 @@ import { playClickSound } from "../../utils/soundUtils";
 
 // add validation -> four images selected
 
-function SelectPhotos() {
+function PhotoSelection() {
   useRefreshWarning();
 
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ function SelectPhotos() {
   function onClick() {
     if (selected.length == 4) {
       setFrame({ ...frame, images: selected });
-      navigate("/choose-frame");
+      navigate("/frame-design");
     }
   }
 
@@ -80,4 +80,4 @@ function SelectPhotos() {
   );
 }
 
-export default SelectPhotos;
+export default PhotoSelection;

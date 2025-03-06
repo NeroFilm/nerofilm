@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { defaultFrame } from "../../constants/frames";
 import { useRef } from "react";
 
-function SelectFrame() {
+function FrameLayout() {
   const options = ["original", "wide"];
 
   const frame = useFrame();
@@ -55,7 +55,7 @@ function SelectFrame() {
             ))}
           </ul>
         </div>
-        <Link className="btn" to="/try-it" role="button">
+        <Link className="btn" to="/instructions" role="button">
           Camera
         </Link>
       </section>
@@ -63,4 +63,4 @@ function SelectFrame() {
   );
 }
 
-export default SelectFrame;
+export default FrameLayout;

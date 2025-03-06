@@ -9,7 +9,7 @@ import beauty from "../../assets/options/bw.svg"; // needs .svg
 import Options from "../../components/Options/Options";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 
-function AddFilter() {
+function Filter() {
   useRefreshWarning();
 
   const frame = useFrame();
@@ -40,7 +40,7 @@ function AddFilter() {
             selected={frame.filter}
           />
         </section>
-        <Link className="btn" to="/add-sticker" role="button">
+        <Link className="btn" to="/sticker" role="button">
           Continue
         </Link>
       </section>
@@ -48,4 +48,4 @@ function AddFilter() {
   );
 }
 
-export default AddFilter;
+export default Filter;

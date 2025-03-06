@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import WhiteBackArrow from "../../assets/WhiteBackArrow.png";
-import Camera from "../../assets/Camera.png";
+import CameraDefault from "../../assets/Camera.png";
 import CameraDisabled from "../../assets/CameraDisabled.png";
 import Shutter from "../../assets/Shutter.png";
 import ShutterSound from "../../assets/sounds/CamShutter.wav";
 import "./index.css";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 
-const CameraAccess = () => {
+const Camera = () => {
   useRefreshWarning();
 
   const navigate = useNavigate();
@@ -73,7 +73,7 @@ const CameraAccess = () => {
       if (count === 0) {
         setIsShooting(false);
         setCountdown(null);
-        navigate("/select-photos");
+        navigate("/photo-selection");
         return;
       }
       startCountdown(3, () => {
@@ -92,13 +92,13 @@ const CameraAccess = () => {
         frame.layout === "wide" ? "wide-mode" : "original-mode"
       }`}
     >
-      <button className="back-button" onClick={() => navigate("/select-frame")}>
+      <button className="back-button" onClick={() => navigate("/frame-layout")}>
         <img src={WhiteBackArrow} alt="Back" className="back-arrow" />
       </button>
 
       {cameraPermission === null && (
         <div className="camera-access-message">
-          <img src={Camera} alt="Camera" className="camera-image" />
+          <img src={CameraDefault} alt="Camera" className="camera-image" />
           <h2>Allow Camera Access</h2>
           <p>To take your photo, allow camera access.</p>
         </div>
@@ -165,4 +165,4 @@ const CameraAccess = () => {
   );
 };
 
-export default CameraAccess;
+export default Camera;

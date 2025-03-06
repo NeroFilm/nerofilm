@@ -11,7 +11,7 @@ import useRefreshWarning from "../../hooks/useRefreshWarning";
 import Unsplash from "../../components/Unsplash/Unsplash";
 import { useEffect, useState } from "react";
 
-function ChooseFrame() {
+function FrameDesign() {
   useRefreshWarning();
 
   const [unsplashBg, setUnsplashBg] = useState("");
@@ -51,7 +51,7 @@ function ChooseFrame() {
           />
           <Unsplash setSelected={setUnsplashBg} />
         </section>
-        <Link className="btn" to="/add-filter" role="btn">
+        <Link className="btn" to="/filter" role="btn">
           Continue
         </Link>
       </section>
@@ -59,4 +59,4 @@ function ChooseFrame() {
   );
 }
 
-export default ChooseFrame;
+export default FrameDesign;
