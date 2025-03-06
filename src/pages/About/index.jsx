@@ -1,4 +1,3 @@
-import CatFilmImage from "../../assets/Catfilm.png";
 import "./index.css";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -36,15 +35,6 @@ const About = () => {
                 capture the fun anytime, anywhere.
               </p>
             </div>
-          </div>
-
-          {/* Right image section */}
-          <div className="about-image-section">
-            <img
-              src={CatFilmImage}
-              alt="Cat Film Frame"
-              className="about-image"
-            />
           </div>
         </div>
       </div>
