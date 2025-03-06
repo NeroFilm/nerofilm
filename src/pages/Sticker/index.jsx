@@ -91,7 +91,7 @@ function Sticker() {
     console.log("setting to" + dataUrl);
     setFrame((prevFrame) => ({
       ...prevFrame,
-      stickers: [...prevFrame.images, dataUrl], // Add the saved image URL to the frame's images
+      stickers: dataUrl,
     }));
     navigate("/download");
   };

@@ -13,6 +13,8 @@ function Download() {
   const frame = useFrame();
   const frameRef = useRef(null);
 
+  console.log(frame);
+
   const downloadImage = () => {
     toPng(frameRef.current, {
       cacheBust: false,

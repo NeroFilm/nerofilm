@@ -42,22 +42,6 @@
   text-align: left;
 }
 
-.about-image-section {
-  width: 400px;
-  height: 450px;
-  border: 1px solid var(--black);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: black;
-}
-
-.about-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
 /* Media query for tablets (iPad) */
 @media screen and (max-width: 1024px) {
   .about-container {

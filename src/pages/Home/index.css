@@ -148,7 +148,6 @@
 
   .home-image {
     max-width: 300px;
-    border: 2px solid var(--color-white);
   }
 
   .home-large-image {
