@@ -9,30 +9,28 @@ import test1 from "../../assets/stickers/1.png";
 import test2 from "../../assets/stickers/2.webp";
 import test3 from "../../assets/stickers/3.webp";
 
-// TODO -> make image scale to specified width x auto height
-// TODO -> save canvas image in state (to be overlayed onto final frame)
-
 import "./index.css";
+
+// Predefined stickers
+const stickers = [test1, test2, test3];
 
 function Sticker() {
   const frame = useFrame();
   const setFrame = useFrameUpdate();
 
-  const test = [test1, test2, test3];
-
   const canvasRef = useRef(null);
   const fabricCanvasRef = useRef(null);
 
-  // Make sure fabric canvas is only created once
+  // Initialize fabric canvas
   useEffect(() => {
     fabricCanvasRef.current = new fabric.Canvas(canvasRef.current);
-
     return () => fabricCanvasRef.current.dispose();
   }, []);
 
+  // Handle delete object from canvas with backspace or delete key
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === "Delete" || e.key === "Backspace") {
+      if (["Delete", "Backspace"].includes(e.key)) {
         const canvas = fabricCanvasRef.current;
         const activeObject = canvas.getActiveObject();
         if (activeObject) {
@@ -42,37 +40,24 @@ function Sticker() {
     };
 
     document.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown); // Clean up the event listener
-    };
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   // Add custom image to fabric canvas (from file input)
   const handleAddImage = (e) => {
     const canvas = fabricCanvasRef.current;
-
-    // Read inputted image as URL
-    let imgObj = e.target.files[0];
-    let reader = new FileReader();
+    const imgObj = e.target.files[0];
+    const reader = new FileReader();
     reader.readAsDataURL(imgObj);
 
     reader.onload = (e) => {
-      // Create image element
-      let imageUrl = e.target.result;
-      let imageElement = document.createElement("img");
-      imageElement.src = imageUrl;
+      const imageElement = document.createElement("img");
+      imageElement.src = e.target.result;
       imageElement.alt = imgObj.name;
 
-      // Create fabric image and add to canvas
-      imageElement.onload = function () {
-        let image = new fabric.Image(imageElement);
-        image.set({
-          left: 0,
-          top: 0,
-          scaleY: 0.05,
-          scaleX: 0.05,
-        });
+      imageElement.onload = () => {
+        const image = new fabric.Image(imageElement);
+        image.set({ left: 0, top: 0, scaleY: 0.05, scaleX: 0.05 });
         canvas.add(image);
         canvas.centerObject(image);
         canvas.setActiveObject(image);
@@ -80,24 +65,16 @@ function Sticker() {
     };
   };
 
-  // Add sticker image (from predefined stickers) to fabric canvas
+  // Add sticker to canvas
   const handleAddSticker = (stickerUrl) => {
     const canvas = fabricCanvasRef.current;
-
-    // Create image element for the sticker
-    let imageElement = document.createElement("img");
+    const imageElement = document.createElement("img");
     imageElement.src = stickerUrl;
     imageElement.alt = stickerUrl;
 
-    // Create fabric image and add to canvas
-    imageElement.onload = function () {
-      let image = new fabric.Image(imageElement);
-      image.set({
-        left: 0,
-        top: 0,
-        scaleY: 0.05,
-        scaleX: 0.05,
-      });
+    imageElement.onload = () => {
+      const image = new fabric.Image(imageElement);
+      image.set({ left: 0, top: 0, scaleY: 0.05, scaleX: 0.05 });
       canvas.add(image);
       canvas.centerObject(image);
       canvas.setActiveObject(image);
@@ -114,9 +91,7 @@ function Sticker() {
             <canvas
               width="120"
               height="360"
-              style={{
-                border: "1px dotted black",
-              }}
+              style={{ border: "1px dotted black" }}
               ref={canvasRef}
             />
             <Frame
@@ -127,22 +102,18 @@ function Sticker() {
             />
           </div>
 
-          {/* File input for adding custom stickers */}
-          <input
-            type="file"
-            accept="image/*"
-            label="Add Sticker"
-            onChange={handleAddImage}
-          />
+          {/* File input for custom stickers */}
+          <input type="file" accept="image/*" onChange={handleAddImage} />
 
           <div>
-            {/* Display predefined stickers and allow clicking to add them */}
-            {test.map((sticker, idx) => (
+            {/* Predefined stickers */}
+            {stickers.map((sticker, idx) => (
               <img
-                className="sticker"
                 key={idx}
+                className="sticker"
                 src={sticker}
-                onClick={() => handleAddSticker(sticker)} // Add sticker on click
+                alt={`Sticker ${idx + 1}`}
+                onClick={() => handleAddSticker(sticker)}
               />
             ))}
           </div>
