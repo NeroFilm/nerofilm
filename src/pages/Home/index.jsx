@@ -103,7 +103,7 @@ const Home = () => {
         <div className="home-button-container">
           <button
             className="global-button"
-            onClick={() => navigate("/select-frame")}
+            onClick={() => navigate("/frame-layout")}
           >
             Try It Now!
           </button>

@@ -50,7 +50,9 @@ function Download() {
           </div>
         </section>
         <section className="btns">
-          <button onClick={() => downloadImage()}>Download image</button>
+          <button className="btn" onClick={() => downloadImage()}>
+            Download image
+          </button>
           <Link className="btn" role="button" to={"/"}>
             Return home
           </Link>

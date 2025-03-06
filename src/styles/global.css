@@ -58,25 +58,26 @@ h1 {
   line-height: 1.1;
 }
 
-.button,
+.btn,
 .global-button {
-  background-color: var(--black) !important;
-  color: var(--white) !important;
-  padding: 16px 64px !important; /* Increased size */
-  font-size: 26px !important; /* Ensure text size is applied */
-  font-weight: bold !important;
-  border: none !important;
-  border-radius: 40px !important; /* Creates rounded edges */
-  cursor: pointer !important;
-  transition: all 0.3s ease-in-out !important;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2) !important;
+  background-color: var(--black);
+  color: var(--white);
+  padding: 16px 64px; /* Increased size */
+  font-size: 26px; /* Ensure text size is applied */
+  font-weight: bold;
+  border: none;
+  border-radius: 40px; /* Creates rounded edges */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
   margin-top: 50px;
   margin-bottom: 24px;
+  text-decoration: none;
 }
 
 button:hover,
 .global-button:hover {
-  transform: translateY(-2px) !important; /* Subtle lift effect */
+  transform: translateY(-2px); /* Subtle lift effect */
 }
 
 .search-bar {
