@@ -8,9 +8,13 @@ import white from "../../assets/options/white.svg";
 import pink from "../../assets/options/pink.svg";
 import blue from "../../assets/options/blue.svg";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
+import Unsplash from "../../components/Unsplash/Unsplash";
+import { useState } from "react";
 
 function ChooseFrame() {
   useRefreshWarning();
+
+  const [unsplashBg, setUnsplashBg] = useState("");
 
   const frame = useFrame();
   const setFrame = useFrameUpdate();
@@ -27,7 +31,6 @@ function ChooseFrame() {
       <BackHeader />
       <section className="options-c">
         <h1>Choose frame</h1>
-
         <section className="options-r">
           <Frame
             images={frame.images}
@@ -37,11 +40,14 @@ function ChooseFrame() {
           />
           <Options
             options={options}
-            onClick={(option)=>setFrame({...frame, color: option})}
+            onClick={(option) => setFrame({ ...frame, color: option })}
             selected={frame.color}
           />
+          <Unsplash setSelected={setUnsplashBg} />
         </section>
-        <Link className="btn" to="/add-filter" role="btn">Continue</Link>
+        <Link className="btn" to="/add-filter" role="btn">
+          Continue
+        </Link>
       </section>
     </div>
   );

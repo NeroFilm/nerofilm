@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import "./index.css";
 import unsplashLogo from "../../assets/logos/Unsplash.svg";
 import UnsplashGrid from "./UnsplashGrid";
+import PropTypes from "prop-types";
 
-function Unsplash() {
+function Unsplash({ setSelected }) {
   const [randomPhotos, setRandomPhotos] = useState([]);
   const [searchPhotos, setSearchPhotos] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -48,12 +49,16 @@ function Unsplash() {
         />
       </form>
       {searchPhotos.length == 0 ? (
-        <UnsplashGrid images={randomPhotos} />
+        <UnsplashGrid images={randomPhotos} setSelected={setSelected} />
       ) : (
-        <UnsplashGrid images={searchPhotos} />
+        <UnsplashGrid images={searchPhotos} setSelected={setSelected} />
       )}
     </div>
   );
 }
+
+Unsplash.propTypes = {
+  setSelected: PropTypes.func.isRequired,
+};
 
 export default Unsplash;

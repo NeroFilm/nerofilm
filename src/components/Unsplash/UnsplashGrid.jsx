@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useEffect } from "react";
 
-function UnsplashGrid({ images }) {
+function UnsplashGrid({ images, setSelected }) {
   useEffect(() => {
     console.log(images);
   });
@@ -9,7 +9,7 @@ function UnsplashGrid({ images }) {
     <ul className="unsplash-grid">
       {images.map((photo) => {
         return (
-          <li key={photo.id}>
+          <li key={photo.id} onClick={() => setSelected(photo.urls.thumb)}>
             <img
               className="unsplash-img"
               alt={photo.alt_description}
@@ -46,6 +46,7 @@ UnsplashGrid.propTypes = {
       }).isRequired,
     })
   ).isRequired,
+  setSelected: PropTypes.func.isRequired,
 };
 
 export default UnsplashGrid;
