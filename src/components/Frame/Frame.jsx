@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import placeholder from "../../assets/default-image.png";
 import "./frame.css";
 
-function Frame({ layout, images = [], filter, color }) {
+function Frame({ layout, images = [], filter, color, stickers }) {
   const [imgArr, setImgArr] = useState([]);
 
   useEffect(() => {
@@ -28,6 +28,7 @@ function Frame({ layout, images = [], filter, color }) {
           <img className="img" src={img} alt={`image ${index + 1}`} />
         </div>
       ))}
+      {stickers && <img className="frame-stickers" src={stickers} />}
     </div>
   );
 }
@@ -37,6 +38,7 @@ Frame.propTypes = {
   filter: PropTypes.string.isRequired,
   layout: PropTypes.oneOf(["original", "wide"]).isRequired,
   color: PropTypes.string.isRequired,
+  stickers: PropTypes.string,
 };
 
 export default Frame;

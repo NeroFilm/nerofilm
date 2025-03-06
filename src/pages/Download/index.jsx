@@ -46,6 +46,7 @@ function Download() {
               filter={frame.filter}
               layout={frame.layout}
               color={frame.color}
+              stickers={frame.stickers}
             />
           </div>
         </section>

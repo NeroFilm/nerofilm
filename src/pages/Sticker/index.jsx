@@ -1,10 +1,10 @@
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import Frame from "../../components/Frame/Frame";
 import BackHeader from "../../components/BackHeader/BackHeader";
-import { Link } from "react-router-dom";
 import * as fabric from "fabric";
 import { useRef, useEffect } from "react";
 import { frameSize } from "../../constants/frames";
+import { useNavigate } from "react-router-dom";
 
 import test1 from "../../assets/stickers/1.png";
 import test2 from "../../assets/stickers/2.webp";
@@ -16,6 +16,8 @@ import "./index.css";
 const stickers = [test1, test2, test3];
 
 function Sticker() {
+  const navigate = useNavigate();
+
   const frame = useFrame();
   const setFrame = useFrameUpdate();
 
@@ -82,6 +84,18 @@ function Sticker() {
     };
   };
 
+  const handleSaveStickers = () => {
+    console.log("saving stickers");
+    const canvas = fabricCanvasRef.current;
+    const dataUrl = canvas.toDataURL({ format: "png" });
+    console.log("setting to" + dataUrl);
+    setFrame((prevFrame) => ({
+      ...prevFrame,
+      stickers: [...prevFrame.images, dataUrl], // Add the saved image URL to the frame's images
+    }));
+    navigate("/download");
+  };
+
   return (
     <div>
       <BackHeader />
@@ -118,10 +132,14 @@ function Sticker() {
             ))}
           </div>
         </section>
-
-        <Link className="btn" to="/download" role="button">
+        <button
+          className="btn"
+          onClick={() => {
+            handleSaveStickers();
+          }}
+        >
           Continue
-        </Link>
+        </button>
       </section>
     </div>
   );
