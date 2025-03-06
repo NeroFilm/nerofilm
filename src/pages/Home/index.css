@@ -1,19 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Italiana&display=swap");
 
-/* === Global Variables === */
-:root {
-  --font-primary: "Itim", cursive;
-  --font-heading: "Italiana", serif;
-
-  --color-white: #ffffff;
-  --color-black: #000000;
-
-  --heading-1: 54px;
-  --heading-2: 48px;
-  --heading-3: 28px;
-  --paragraph: 18px;
-}
-
 /* === General Styles === */
 /* Home Page Styles */
 .home-container {
@@ -26,28 +12,28 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 40px;  
+  margin-top: 40px;
   min-height: 100vh;
   height: auto;
   overflow-y: auto;
 }
 
-
 /* === Typography === */
 .home-heading-1 {
   font-size: var(--heading-1);
   font-weight: bold;
-  margin-top: 60px;
+  margin-top: 24px;
 }
 
 .home-heading-2 {
   font-size: var(--heading-2);
-  margin-top: 60px;
+  margin-top: 24px;
 }
 
 .home-heading-3 {
   font-size: var(--heading-3);
-  margin-top: 60px;
+  margin-top: 24px;
+  margin-bottom: 32px;
 }
 
 .home-paragraph {
@@ -55,7 +41,6 @@
   color: var(--color-black);
   margin-top: 60px;
 }
-
 
 .home-main-content {
   display: flex;
@@ -78,10 +63,9 @@
   gap: 20px;
 }
 
-
 /* === Logo & Text === */
 .home-logo-text {
-  font-size: 160px; 
+  font-size: 160px;
   font-weight: bold;
   color: var(--color-black);
   font-family: var(--font-heading);
@@ -98,16 +82,14 @@
 /* === Image Styling === */
 .home-image1 {
   width: 100%;
-  max-width: 240px;
-  margin-top: 240px;
-  border: 0.3px solid var(--color-white);
+  max-width: 200px;
+  margin-top: 120px;
 }
 
 .home-image2 {
   width: 100%;
-  max-width: 240px;
-  margin-top: 80px;
-  border: 0.3px solid var(--color-white);
+  max-width: 200px;
+  margin-top: 40px;
 }
 
 .home-large-image {
@@ -121,7 +103,6 @@
   margin-top: 60px;
   margin-bottom: 60px;
 }
-
 
 /* === Media Queries === */
 

@@ -13,3 +13,8 @@ canvas {
   background-color: none;
   z-index: 1000;
 }
+
+.sticker {
+  width: 80px;
+  height: 80px;
+}

@@ -17,6 +17,17 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --font-primary: "Itim", cursive;
+  --font-heading: "Italiana", serif;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --heading-1: 54px;
+  --heading-2: 48px;
+  --heading-3: 28px;
+  --paragraph: 18px;
 }
 
 * {
