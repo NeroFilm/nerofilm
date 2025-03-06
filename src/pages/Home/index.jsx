@@ -29,9 +29,9 @@ const Home = () => {
           {/* Left Side Content */}
           <div className="home-left-content">
             <h1 className="home-logo-text">NeroFilm</h1>
-            <h3 className="home-heading-3">
+            <p className="home-slogan">
               No photobooth nearby? <br /> Your camera is all you need
-            </h3>
+            </p>
             <button
               className="global-button"
               onClick={() => navigate("/frame-layout")}

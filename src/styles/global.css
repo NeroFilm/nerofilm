@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lustria&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Italiana&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 :root {
   --primary-font: "Lustria", sans-serif;
@@ -18,9 +18,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  --font-primary: "Itim", cursive;
-  --font-heading: "Italiana", serif;
 
   --color-white: #ffffff;
   --color-black: #000000;
@@ -52,13 +49,10 @@ ul {
   list-style: none;
 }
 
-.logo {
-  font-size: 32px;
-  font-weight: bold;
-}
-
 .logo a {
   text-decoration: none;
+  font-size: 32px;
+  font-family: var(--primary-font);
 }
 
 .logo-small {
