@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./index.css";
-import unsplashLogo from "../../assets/logos/Unsplash.svg";
 import UnsplashGrid from "./UnsplashGrid";
 import PropTypes from "prop-types";
 
@@ -35,7 +34,6 @@ function Unsplash({ setSelected }) {
 
   return (
     <div className="unsplash">
-      <img className="unsplash-logo" src={unsplashLogo} alt="Unsplash" />
       <form onSubmit={handleSearch}>
         <input
           className="search-bar"

@@ -1,11 +1,29 @@
 import PropTypes from "prop-types";
 
 function UnsplashGrid({ images, setSelected }) {
+  const handlePhotoUse = async (photoId) => {
+    try {
+      const res = await fetch(
+        `https://nerofilm-backend.vercel.app/api/unsplash/download?photoId=${photoId}`
+      );
+      console.log("Download triggered for photoId:", photoId);
+      console.log(res);
+    } catch (error) {
+      console.error("Error triggering download:", error);
+    }
+  };
+
   return (
     <ul className="unsplash-grid">
       {images.map((photo) => {
         return (
-          <li key={photo.id} onClick={() => setSelected(photo.urls.thumb)}>
+          <li
+            key={photo.id}
+            onClick={() => {
+              setSelected(photo.urls.thumb);
+              handlePhotoUse(photo.id);
+            }}
+          >
             <img
               className="unsplash-img"
               alt={photo.alt_description}

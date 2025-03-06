@@ -10,6 +10,7 @@ import blue from "../../assets/options/blue.svg";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 import Unsplash from "../../components/Unsplash/Unsplash";
 import { useEffect, useState } from "react";
+import unsplashLogo from "../../assets/logos/Unsplash.svg";
 
 function FrameDesign() {
   useRefreshWarning();
@@ -61,23 +62,21 @@ function FrameDesign() {
                   setTab("unsplash");
                 }}
               >
-                Unsplash
+                <img
+                  className="unsplash-logo"
+                  src={unsplashLogo}
+                  alt="Unsplash"
+                />
               </li>
             </ul>
             {tab == "gallery" ? (
-              <section>
-                <p>Choose frame from gallery</p>
-                <Options
-                  options={options}
-                  onClick={(option) => setFrame({ ...frame, color: option })}
-                  selected={frame.color}
-                />
-              </section>
+              <Options
+                options={options}
+                onClick={(option) => setFrame({ ...frame, color: option })}
+                selected={frame.color}
+              />
             ) : (
-              <section>
-                <p>Choose frame from Unsplash</p>
-                <Unsplash setSelected={setUnsplashBg} />
-              </section>
+              <Unsplash setSelected={setUnsplashBg} />
             )}
           </div>
         </section>

@@ -1,16 +1,12 @@
 .unsplash {
   width: 480px;
   height: 320px;
-  background-color: var(--white);
   z-index: 10;
-  border-radius: 8px;
-  padding: 16px;
 }
 
 .unsplash-logo {
   width: auto;
-  height: 24px;
-  margin-bottom: 8px;
+  height: 20px;
 }
 
 .unsplash-grid {
