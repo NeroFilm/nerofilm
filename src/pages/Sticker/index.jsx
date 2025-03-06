@@ -2,9 +2,11 @@ import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import Frame from "../../components/Frame/Frame";
 import BackHeader from "../../components/BackHeader/BackHeader";
 import * as fabric from "fabric";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import { frameSize } from "../../constants/frames";
 import { useNavigate } from "react-router-dom";
+import useRefreshWarning from "../../hooks/useRefreshWarning";
+import { useDropzone } from "react-dropzone";
 
 import test1 from "../../assets/stickers/1.png";
 import test2 from "../../assets/stickers/2.webp";
@@ -16,6 +18,7 @@ import "./index.css";
 const stickers = [test1, test2, test3];
 
 function Sticker() {
+  useRefreshWarning();
   const navigate = useNavigate();
 
   const frame = useFrame();
@@ -23,6 +26,20 @@ function Sticker() {
 
   const canvasRef = useRef(null);
   const fabricCanvasRef = useRef(null);
+
+  // drop zone
+
+  const onDrop = useCallback((acceptedFiles) => {
+    for (const file of acceptedFiles) {
+      handleAddSticker(URL.createObjectURL(file));
+    }
+  }, []);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    accept: "image/*",
+    maxFiles: 1,
+    onDrop,
+  });
 
   // Initialize fabric canvas
   useEffect(() => {
@@ -45,28 +62,6 @@ function Sticker() {
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
-
-  // Add custom image to fabric canvas (from file input)
-  const handleAddImage = (e) => {
-    const canvas = fabricCanvasRef.current;
-    const imgObj = e.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(imgObj);
-
-    reader.onload = (e) => {
-      const imageElement = document.createElement("img");
-      imageElement.src = e.target.result;
-      imageElement.alt = imgObj.name;
-
-      imageElement.onload = () => {
-        const image = new fabric.Image(imageElement);
-        image.set({ left: 0, top: 0, scaleY: 0.05, scaleX: 0.05 });
-        canvas.add(image);
-        canvas.centerObject(image);
-        canvas.setActiveObject(image);
-      };
-    };
-  };
 
   // Add sticker to canvas
   const handleAddSticker = (stickerUrl) => {
@@ -117,20 +112,34 @@ function Sticker() {
           </div>
 
           {/* File input for custom stickers */}
-          <input type="file" accept="image/*" onChange={handleAddImage} />
-
-          <div>
-            {/* Predefined stickers */}
-            {stickers.map((sticker, idx) => (
-              <img
-                key={idx}
-                className="sticker"
-                src={sticker}
-                alt={`Sticker ${idx + 1}`}
-                onClick={() => handleAddSticker(sticker)}
-              />
-            ))}
-          </div>
+          <section className="options-box">
+            <section>
+              <p className="dropzone-label">Gallery</p>
+              {stickers.map((sticker, idx) => (
+                <img
+                  key={idx}
+                  className="sticker"
+                  src={sticker}
+                  alt={`Sticker ${idx + 1}`}
+                  onClick={() => handleAddSticker(sticker)}
+                />
+              ))}
+            </section>
+            <section>
+              <p className="dropzone-label">Upload</p>
+              <div className="dropzone" {...getRootProps()}>
+                <input {...getInputProps()} />
+                {isDragActive ? (
+                  <p>Drop your file here</p>
+                ) : (
+                  <p>
+                    Drag and drop or{" "}
+                    <span className="underline">click to upload</span>
+                  </p>
+                )}
+              </div>
+            </section>
+          </section>
         </section>
         <button
           className="btn"

@@ -48,7 +48,7 @@ const Instructions = () => {
             />
             <label htmlFor="dont-show-again">Do not show this page again</label>
           </div>
-          <Link className="ready-btn" to="/camera">
+          <Link className="btn btn-inverted" to="/camera">
             I’m Ready!
           </Link>
         </div>

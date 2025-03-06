@@ -15,6 +15,7 @@ function FrameDesign() {
   useRefreshWarning();
 
   const [unsplashBg, setUnsplashBg] = useState("");
+  const [tab, setTab] = useState("gallery");
 
   const frame = useFrame();
   const setFrame = useFrameUpdate();
@@ -44,12 +45,41 @@ function FrameDesign() {
             layout={frame.layout}
             color={frame.color}
           />
-          <Options
-            options={options}
-            onClick={(option) => setFrame({ ...frame, color: option })}
-            selected={frame.color}
-          />
-          <Unsplash setSelected={setUnsplashBg} />
+          <div className="options-box">
+            <ul className="tabs">
+              <li
+                className={tab == "gallery" && "selected-tab"}
+                onClick={() => {
+                  setTab("gallery");
+                }}
+              >
+                Gallery
+              </li>
+              <li
+                className={tab == "unsplash" && "selected-tab"}
+                onClick={() => {
+                  setTab("unsplash");
+                }}
+              >
+                Unsplash
+              </li>
+            </ul>
+            {tab == "gallery" ? (
+              <section>
+                <p>Choose frame from gallery</p>
+                <Options
+                  options={options}
+                  onClick={(option) => setFrame({ ...frame, color: option })}
+                  selected={frame.color}
+                />
+              </section>
+            ) : (
+              <section>
+                <p>Choose frame from Unsplash</p>
+                <Unsplash setSelected={setUnsplashBg} />
+              </section>
+            )}
+          </div>
         </section>
         <Link className="btn" to="/filter" role="btn">
           Continue

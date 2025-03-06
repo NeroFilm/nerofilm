@@ -1,5 +1,5 @@
 .about-container {
-  background-color: var(--gray-light);
+  background-color: var(--gray-lightest);
   font-family: "Itim", cursive;
   display: flex;
   align-items: center;
