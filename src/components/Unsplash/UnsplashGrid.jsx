@@ -1,10 +1,6 @@
 import PropTypes from "prop-types";
-import { useEffect } from "react";
 
 function UnsplashGrid({ images, setSelected }) {
-  useEffect(() => {
-    console.log(images);
-  });
   return (
     <ul className="unsplash-grid">
       {images.map((photo) => {

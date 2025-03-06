@@ -27,10 +27,10 @@ function ChooseFrame() {
   ];
 
   useEffect(() => {
-    if (unsplashBg) {
-      setFrame({ ...frame, color: unsplashBg });
+    if (unsplashBg && unsplashBg !== frame.color) {
+      setFrame((prevFrame) => ({ ...prevFrame, color: unsplashBg }));
     }
-  }, [unsplashBg, frame, setFrame]);
+  }, [unsplashBg, setFrame, frame.color]);
 
   return (
     <div>
