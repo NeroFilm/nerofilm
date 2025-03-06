@@ -4,6 +4,7 @@ import BackHeader from "../../components/BackHeader/BackHeader";
 import { Link } from "react-router-dom";
 import * as fabric from "fabric";
 import { useRef, useEffect } from "react";
+import { frameSize } from "../../constants/frames";
 
 import test1 from "../../assets/stickers/1.png";
 import test2 from "../../assets/stickers/2.webp";
@@ -89,9 +90,8 @@ function Sticker() {
         <section className="options-r">
           <div className="frame-wrapper">
             <canvas
-              width="120"
-              height="360"
-              style={{ border: "1px dotted black" }}
+              width={frameSize[frame.layout].width}
+              height={frameSize[frame.layout].height}
               ref={canvasRef}
             />
             <Frame
