@@ -1,23 +1,14 @@
-.second-header {
+.back-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 30px;
+  padding: 32px 48px;
   background-color: var(--gray-light);
   color: black;
   box-sizing: border-box;
 }
 
-.second-header-brand {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 24px;
-  font-weight: bold;
-  color: black;
-}
-
-.second-header-back {
+.back-header-back {
   background: none;
   border: none;
   cursor: pointer;

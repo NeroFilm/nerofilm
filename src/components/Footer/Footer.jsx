@@ -1,18 +1,10 @@
-import "./footer.css"
+import "./footer.css";
 
 const Footer = () => {
   return (
     <footer className="footer">
-      {/* Left Side - Logo */}
-      <div className="footer-logo">
-        <h1 className="footer-logo-text">NeroFilm</h1>
-      </div>
-
-      {/* Right Side - Contact Info */}
-      <div className="footer-contact">
-        <h3>Contact</h3>
-        <p>contact.nerofilm@gmail.com</p>
-      </div>
+      <h1 className="logo logo-small">NeroFilm</h1>
+      <a href="mailto:contact.nerofilm@gmail.com">contact.nerofilm@gmail.com</a>
     </footer>
   );
 };

@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className="header">
       {/* Brand Name */}
-      <div className="header-brand">
+      <div className="logo">
         <Link to="/">NeroFilm</Link>
       </div>
 

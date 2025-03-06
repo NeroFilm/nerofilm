@@ -40,12 +40,25 @@ ul {
   list-style: none;
 }
 
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+.logo-small {
+  font-size: 24px;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
 
-button,
+.button,
 .global-button {
   background-color: var(--black) !important;
   color: var(--white) !important;
