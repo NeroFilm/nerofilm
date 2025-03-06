@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import "./index.css";
+import unsplashLogo from "../../assets/logos/Unsplash.svg";
+import UnsplashGrid from "./UnsplashGrid";
 
 function Unsplash() {
   const [randomPhotos, setRandomPhotos] = useState([]);
@@ -31,9 +33,11 @@ function Unsplash() {
   }
 
   return (
-    <div>
+    <div className="unsplash">
+      <img className="unsplash-logo" src={unsplashLogo} alt="Unsplash" />
       <form onSubmit={handleSearch}>
         <input
+          className="search-bar"
           type="text"
           placeholder="Search for an image"
           value={searchQuery}
@@ -42,50 +46,11 @@ function Unsplash() {
           }}
           onSubmit={(e) => handleSearch(e)}
         />
-        <button type="submit">Search</button>
       </form>
       {searchPhotos.length == 0 ? (
-        <ul className="unsplash-grid">
-          {randomPhotos.map((photo) => {
-            return (
-              <li key={photo.id}>
-                <img
-                  className="unsplash-img"
-                  alt={photo.alt_description}
-                  src={photo.urls.thumb}
-                />
-                <p>
-                  by{" "}
-                  <a
-                    target="_blank"
-                    href={photo.links.html}
-                  >{`${photo.user.first_name} ${photo.user.last_name}`}</a>
-                </p>
-              </li>
-            );
-          })}
-        </ul>
+        <UnsplashGrid images={randomPhotos} />
       ) : (
-        <ul className="unsplash-grid">
-          {searchPhotos.map((photo) => {
-            return (
-              <li key={photo.id}>
-                <img
-                  className="unsplash-img"
-                  alt={photo.alt_description}
-                  src={photo.urls.thumb}
-                />
-                <p>
-                  by{" "}
-                  <a
-                    target="_blank"
-                    href={photo.links.html}
-                  >{`${photo.user.first_name} ${photo.user.last_name}`}</a>
-                </p>
-              </li>
-            );
-          })}
-        </ul>
+        <UnsplashGrid images={searchPhotos} />
       )}
     </div>
   );

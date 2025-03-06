@@ -5,7 +5,8 @@
   --primary-font: "Lustria", sans-serif;
   --white: #ffffff;
   --black: #000000;
-  --gray-light: #F7F7F7;
+  --gray-light: #f7f7f7;
+  --gray: #a5a5a5;
   --gray-dark: #333333;
   --text-color: rgb(255, 255, 255);
 
@@ -28,7 +29,15 @@ body {
   min-height: 100vh;
   height: auto;
   font-family: var(--primary-font);
-  background-color: var(--white);
+  background-color: var(--gray-light);
+}
+
+a {
+  color: var(--gray-dark);
+}
+
+ul {
+  list-style: none;
 }
 
 h1 {
@@ -36,11 +45,12 @@ h1 {
   line-height: 1.1;
 }
 
-button, .global-button {
+button,
+.global-button {
   background-color: var(--black) !important;
   color: var(--white) !important;
-  padding: 16px 64px !important;  /* Increased size */
-  font-size: 26px !important;     /* Ensure text size is applied */
+  padding: 16px 64px !important; /* Increased size */
+  font-size: 26px !important; /* Ensure text size is applied */
   font-weight: bold !important;
   border: none !important;
   border-radius: 40px !important; /* Creates rounded edges */
@@ -51,7 +61,17 @@ button, .global-button {
   margin-bottom: 24px;
 }
 
-button:hover, .global-button:hover {
+button:hover,
+.global-button:hover {
   transform: translateY(-2px) !important; /* Subtle lift effect */
 }
 
+.search-bar {
+  display: flex;
+  width: 100%;
+  border: 1px solid var(--gray);
+  padding: 4px 8px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+}
