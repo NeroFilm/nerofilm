@@ -36,6 +36,64 @@ function Download() {
       });
   };
 
+  const printImage = () => {
+    toPng(frameRef.current, {
+      cacheBust: false,
+      width: frameRef.current.offsetWidth * 4,
+      height: frameRef.current.offsetHeight * 4,
+      style: {
+        transform: "scale(4)",
+        transformOrigin: "top left",
+      },
+    })
+      .then((dataUrl) => {
+        // hidden iframe to inject print content
+        const iframe = document.createElement("iframe");
+        iframe.style.position = "absolute";
+        iframe.style.width = "0";
+        iframe.style.height = "0";
+        iframe.style.border = "none";
+        document.body.appendChild(iframe);
+
+        const doc = iframe.contentWindow.document;
+        doc.open();
+        doc.write(`
+        <html>
+          <head>
+            <title>Print Image</title>
+            <style>
+              @page {
+                size: letter;
+                margin: 0;
+              }
+              body {
+                margin: 0;
+                padding: 0;
+              }
+              img {
+                width: 2in;
+                height: 6in;
+                position: absolute;
+                top: 0;
+                left: 0;
+              }
+            </style>
+          </head>
+          <body>
+            <img src="${dataUrl}" alt="Printable" />
+          </body>
+        </html>
+      `);
+        doc.close();
+
+        iframe.contentWindow.focus();
+        iframe.contentWindow.print();
+      })
+      .catch((err) => {
+        console.error("Error generating image:", err);
+      });
+  };
+
   return (
     <div>
       <BackHeader />
@@ -59,6 +117,9 @@ function Download() {
           <Link className="btn" role="button" to={"/"}>
             Return home
           </Link>
+          <button className="btn" onClick={() => printImage()}>
+            Print Image
+          </button>
           {/* <button>Print image</button> */}
         </section>
       </section>
