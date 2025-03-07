@@ -92,9 +92,9 @@
 /* 4-cut original */
 .original-mode .camera-preview-screen {
   width: 80vw;
-  height: calc(80vw * (78 / 104));
+  height: calc(80vw * (76 / 104));
   max-width: 1000px;
-  max-height: calc(1000px * (78 / 104));
+  max-height: calc(1000px * (76 / 104));
 }
 
 .instructions {
@@ -197,8 +197,7 @@
     margin-top: 180px;
     color: black;
   }
-  
-  
+
   .shutter {
     top: 500px;
   }

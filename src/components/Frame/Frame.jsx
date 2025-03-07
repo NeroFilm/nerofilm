@@ -23,6 +23,7 @@ function Frame({ layout, images = [], filter, design, stickers }) {
         backgroundPosition: "center",
       }}
     >
+      <p className="frame-logo">NeroFilm</p>
       {imgArr.map((img, index) => (
         <div key={index} className="img-wrapper">
           <img

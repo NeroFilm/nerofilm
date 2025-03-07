@@ -1,4 +1,5 @@
 .frame {
+  position: relative;
   background-color: var(--gray-lightest);
   display: grid;
   box-sizing: border-box;
@@ -6,10 +7,18 @@
   place-items: center;
 }
 
+.frame-logo {
+  position: absolute;
+  z-index: 10;
+  color: var(--white);
+  top: 8px;
+  font-size: 8px;
+}
+
 .frame-original {
   height: 360px;
   width: 120px;
-  padding: 16px 8px 8px;
+  padding: 24px 8px 8px;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, 1fr);
   gap: 8px;
@@ -45,12 +54,18 @@
   outline: 1px solid var(--gray-dark);
 }
 
+.frame-white .frame-logo,
+.frame-blue .frame-logo,
+.frame-pink .frame-logo {
+  color: var(--black);
+}
+
 .frame-pink {
-  background-color: pink;
+  background-color: rgb(251, 208, 215);
 }
 
 .frame-blue {
-  background-color: lightblue;
+  background-color: rgb(193, 233, 246);
 }
 
 .frame-bw {
@@ -85,7 +100,7 @@
 
   .frame-original {
     height: 240px;
-    width: 78px;
+    width: 76px;
     padding: 12px 8px 8px;
     justify-content: center; /* Centers horizontally */
     grid-template-columns: 1fr;
