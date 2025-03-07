@@ -20,14 +20,14 @@ function UnsplashGrid({ images, setSelected }) {
           <li
             key={photo.id}
             onClick={() => {
-              setSelected(photo.urls.thumb);
+              setSelected(photo.urls.regular);
               handlePhotoUse(photo.id);
             }}
           >
             <img
               className="unsplash-img"
               alt={photo.alt_description}
-              src={photo.urls.thumb}
+              src={photo.urls.regular}
             />
             <p className="unsplash-attr">
               by{" "}

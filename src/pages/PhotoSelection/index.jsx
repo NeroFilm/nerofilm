@@ -48,7 +48,7 @@ function PhotoSelection() {
             design={frame.design}
           />
           <ul className="image-options">
-            {frame.images.map((image, key) => {
+            {frame.allImages.map((image, key) => {
               return (
                 <li
                   key={key}
