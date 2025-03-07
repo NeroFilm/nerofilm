@@ -35,6 +35,7 @@
 
 .home-slogan {
   font-size: var(--heading-3);
+  color: var(--gray-dark);
   margin-bottom: 32px;
 }
 

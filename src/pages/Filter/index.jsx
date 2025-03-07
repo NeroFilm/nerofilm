@@ -34,11 +34,13 @@ function Filter() {
             images={frame.images}
             color={frame.color}
           />
-          <Options
-            options={options}
-            onClick={(option) => setFrame({ ...frame, filter: option })}
-            selected={frame.filter}
-          />
+          <div className="options-box">
+            <Options
+              options={options}
+              onClick={(option) => setFrame({ ...frame, filter: option })}
+              selected={frame.filter}
+            />
+          </div>
         </section>
         <Link className="btn" to="/sticker" role="button">
           Continue

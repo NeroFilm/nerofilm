@@ -2,13 +2,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 :root {
-  --primary-font: "Lustria", sans-serif;
+  --heading-font: "Lustria", serif;
+  --default-font: "Open-Sans", sans-serif;
   --white: #ffffff;
   --black: #000000;
   --gray-lightest: #f7f7f7;
   --gray-light: #ececec;
   --gray: #d9d9d9;
-  --gray-dark: #333333;
+  --gray-dark: #4a4a4a;
   --text-color: rgb(255, 255, 255);
 
   line-height: 1.5;
@@ -31,14 +32,22 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: var(--primary-font);
+  font-family: var(--heading-font);
 }
 
 body {
   min-height: 100vh;
   height: auto;
-  font-family: var(--primary-font);
+  font-family: var(--heading-font);
   background-color: var(--gray-lightest);
+}
+
+p,
+a,
+li,
+button,
+label {
+  font-family: var(--default-font);
 }
 
 a {
@@ -51,8 +60,8 @@ ul {
 
 .logo a {
   text-decoration: none;
-  font-size: 32px;
-  font-family: var(--primary-font);
+  font-size: 24px;
+  font-family: var(--heading-font);
 }
 
 .logo-small {
@@ -68,11 +77,10 @@ h1 {
 .global-button {
   background-color: var(--black);
   color: var(--white);
-  padding: 16px 64px; /* Increased size */
-  font-size: 26px; /* Ensure text size is applied */
+  padding: 16px 48px; /* Increased size */
+  font-size: 20px; /* Ensure text size is applied */
   font-weight: bold;
-  border: none;
-  border-radius: 40px; /* Creates rounded edges */
+  border-radius: 8px; /* Creates rounded edges */
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
