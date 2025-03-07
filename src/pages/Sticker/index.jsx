@@ -92,7 +92,7 @@ function Sticker() {
 
   const handleSaveStickers = () => {
     const canvas = fabricCanvasRef.current;
-    const scaleFactor = 4;
+    const scaleFactor = 8;
 
     const originalWidth = canvas.width;
     const originalHeight = canvas.height;
