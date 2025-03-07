@@ -117,8 +117,8 @@
 
 /* shutter & countdown */
 .shutter {
-  position: absolute;
-  bottom: 32px;
+  position: relative;
+  bottom: 120px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -142,7 +142,6 @@
 
 .countdown-timer {
   position: absolute;
-  margin-top: 70px;
   transform: translate (-50%, -50%);
   font-size: 35px;
   font-weight: bold;
