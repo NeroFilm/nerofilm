@@ -1,6 +1,7 @@
 export const defaultFrame = {
   layout: "original",
   images: [],
+  allImages: [],
   filter: "default",
   design: "black",
 };
