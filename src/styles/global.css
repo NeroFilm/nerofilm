@@ -49,7 +49,7 @@ a,
 li,
 button,
 label {
-  font-family: var(--heading-font);
+  font-family: var(--default-font);
 }
 
 a {
@@ -82,7 +82,6 @@ h1 {
   color: var(--white);
   padding: 16px 48px; /* Increased size */
   font-size: 20px; /* Ensure text size is applied */
-  font-weight: bold;
   border-radius: 8px; /* Creates rounded edges */
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -99,8 +98,9 @@ h1 {
 .btn-inverted {
   background-color: var(--white);
   color: var(--black);
-  padding: 8px 24px;
+  padding: 12px 28px;
   font-size: 20px;
+  margin-top: 8px;
 }
 
 button:hover,
@@ -166,4 +166,11 @@ button:hover,
 .selected-tab {
   color: var(--black);
   border-bottom: 1px solid var(--black);
+}
+
+@media (max-width: 600px) {
+  .options-r {
+    gap: 24px;
+    flex-direction: column;
+  }
 }

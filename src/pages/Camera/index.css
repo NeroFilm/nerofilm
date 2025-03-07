@@ -83,8 +83,8 @@
 
 /* 4-cut original */
 .original-mode .camera-preview-screen {
-  width: 80vw;
-  height: calc(80vw * (76 / 104));
+  width: 60vw; 
+  height: calc(60vw * (78 / 104)); 
   max-width: 1000px;
   max-height: calc(1000px * (76 / 104));
 }
@@ -115,11 +115,9 @@
 
 /* shutter */
 .shutter {
-  position: absolute;
-  bottom: 10%; /* Keep it within view */
-  left: 50%;
-  transform: translateX(-50%);
-  width: auto;
+  bottom: 120px;
+  transform: translateX(-50%,50%);
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -142,14 +140,11 @@
 }
 
 .countdown-timer {
-  position: absolute;
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Center the text */
-  font-size: 35px;
-  font-weight: bold;
-  color: black;
-  padding: 4px 4px;
+  top: 15%;
+  margin-bottom: 20px;
+  transform: translate(-50%);
+  font-size: var(--heading-2);
+  color: white;
   text-align: center;
   background: white; /* Ensure it's visible */
   border-radius: 10px;
@@ -162,16 +157,9 @@
   align-items: center;
   justify-content: center;
 }
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.countdown-timer.hidden {
+  opacity: 0;
 }
-
 
 /* Camera image icon */
 .camera-image {
