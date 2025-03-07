@@ -49,7 +49,7 @@ a,
 li,
 button,
 label {
-  font-family: var(--default-font);
+  font-family: var(--heading-font);
 }
 
 a {
