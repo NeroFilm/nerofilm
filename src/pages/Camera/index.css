@@ -23,8 +23,8 @@
 
 .back-button {
   position: absolute;
-  top: 2vh;
-  left: 2vw;
+  top: 32px;
+  right: 48px;
   cursor: pointer;
   z-index: 10;
   background-color: transparent;

@@ -15,6 +15,7 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-rows: repeat(4, minmax(0, 1fr));
   gap: 8px;
+  padding-bottom: 16px;
 }
 
 .unsplash-img {
@@ -31,4 +32,10 @@
   font-size: 12px;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.unsplash-empty-state {
+  text-align: center;
+  padding: 32px;
+  box-sizing: border-box;
 }

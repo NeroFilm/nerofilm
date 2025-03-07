@@ -46,10 +46,21 @@ function Unsplash({ setSelected }) {
           onSubmit={(e) => handleSearch(e)}
         />
       </form>
-      {searchPhotos.length == 0 ? (
-        <UnsplashGrid images={randomPhotos} setSelected={setSelected} />
+      {searchPhotos.length > 0 ? (
+        <div>
+          <UnsplashGrid images={searchPhotos} setSelected={setSelected} />
+        </div>
       ) : (
-        <UnsplashGrid images={searchPhotos} setSelected={setSelected} />
+        <div>
+          {randomPhotos.length > 0 ? (
+            <UnsplashGrid images={randomPhotos} setSelected={setSelected} />
+          ) : (
+            <div className="unsplash-empty-state">
+              <b>Failed to fetch photos from Unsplash</b>
+              <p>Please try again later</p>
+            </div>
+          )}
+        </div>
       )}
     </div>
   );
