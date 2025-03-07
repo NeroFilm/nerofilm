@@ -107,7 +107,7 @@ function Sticker() {
               layout={frame.layout}
               filter={frame.filter}
               images={frame.images}
-              color={frame.color}
+              design={frame.design}
             />
           </div>
 

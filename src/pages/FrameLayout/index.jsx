@@ -35,23 +35,27 @@ function FrameLayout() {
       <section className="options-c">
         <h1>Select Frame Layout</h1>
         <div className="options-r">
-        <ul className="frame-options">
-          {options.map((option, key) => (
-            <li key={key} onClick={() => handleSelectLayout(option)}>
-              <div className={frame.layout === option ? "frame-selected" : "frame"}>
-                <Frame
-                  images={frame.images}
-                  filter={frame.filter}
-                  layout={option}
-                  color={frame.color}
-                />
-              </div>
-              <p className="frame-desc">
-                {option === "original" ? "4 Cut Original" : "4 Cut Wide"}
-              </p>
-            </li>
-          ))}
-        </ul>
+          <ul className="frame-options">
+            {options.map((option, key) => (
+              <li key={key} onClick={() => handleSelectLayout(option)}>
+                <div
+                  className={
+                    frame.layout === option ? "frame-selected" : "frame"
+                  }
+                >
+                  <Frame
+                    images={frame.images}
+                    filter={frame.filter}
+                    layout={option}
+                    design={frame.design}
+                  />
+                </div>
+                <p className="frame-desc">
+                  {option === "original" ? "4 Cut Original" : "4 Cut Wide"}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
         <Link className="btn" to="/instructions" role="button">
           Continue

@@ -15,7 +15,7 @@ import unsplashLogo from "../../assets/logos/Unsplash.svg";
 function FrameDesign() {
   useRefreshWarning();
 
-  const [unsplashBg, setUnsplashBg] = useState("");
+  const [frameDesign, setFrameDesign] = useState("");
   const [tab, setTab] = useState("gallery");
 
   const frame = useFrame();
@@ -29,10 +29,11 @@ function FrameDesign() {
   ];
 
   useEffect(() => {
-    if (unsplashBg && unsplashBg !== frame.color) {
-      setFrame((prevFrame) => ({ ...prevFrame, color: unsplashBg }));
+    if (frameDesign !== frame.design) {
+      console.log("updating frame");
+      setFrame((prevFrame) => ({ ...prevFrame, design: frameDesign }));
     }
-  }, [unsplashBg, setFrame, frame.color]);
+  }, [setFrame, frame.design, frameDesign]);
 
   return (
     <div>
@@ -44,7 +45,7 @@ function FrameDesign() {
             images={frame.images}
             filter={frame.filter}
             layout={frame.layout}
-            color={frame.color}
+            design={frame.design}
           />
           <div className="options-box">
             <ul className="tabs">
@@ -72,11 +73,11 @@ function FrameDesign() {
             {tab == "gallery" ? (
               <Options
                 options={options}
-                onClick={(option) => setFrame({ ...frame, color: option })}
-                selected={frame.color}
+                onClick={(option) => setFrameDesign(option)}
+                selected={frame.design}
               />
             ) : (
-              <Unsplash setSelected={setUnsplashBg} />
+              <Unsplash setSelected={setFrameDesign} />
             )}
           </div>
         </section>

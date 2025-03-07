@@ -32,7 +32,7 @@ function Filter() {
             layout={frame.layout}
             filter={frame.filter}
             images={frame.images}
-            color={frame.color}
+            design={frame.design}
           />
           <div className="options-box">
             <Options

@@ -59,7 +59,7 @@ const Camera = () => {
       return;
     }
     setCountdown(count);
-    setTimeout(() => startCountdown(count - 1, callback), 1000);
+    setTimeout(() => startCountdown(count - 1, callback), 1);
   };
 
   const startPhotoSequence = () => {
