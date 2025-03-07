@@ -41,7 +41,6 @@
 /* Camera */
 .camera-container {
   display: flex;
-  margin-top: 10px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -55,7 +54,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90vw;
+  width: 80vw;
   max-width: 1000px;
   height: 80vh;
   position: relative;
@@ -146,7 +145,6 @@
   font-size: var(--heading-2);
   color: white;
   text-align: center;
-  background: white; /* Ensure it's visible */
   border-radius: 10px;
   z-index: 100; /* Ensure it's above other elements */
   animation: fadeIn 0.5s ease-in-out;
@@ -170,9 +168,7 @@
 /* Responsive: Phones - iPhone */
 @media (max-width: 430px) {
   .camera-preview-screen {
-    width: 90vw;
-    height: auto;
-    bottom: 50px;
+    top: 50%;
   }
 
   .original-mode .camera-preview-screen {
