@@ -12,6 +12,7 @@
 .frame-selected {
   outline: 4px solid pink;
   cursor: pointer;
+  place-items: center;
 }
 
 .frame-desc {
