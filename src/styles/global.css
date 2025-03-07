@@ -90,6 +90,12 @@ h1 {
   text-decoration: none;
 }
 
+.btn-secondary {
+  background-color: var(--white);
+  border: 1px solid var(--gray-dark);
+  color: var(--black);
+}
+
 .btn-inverted {
   background-color: var(--white);
   color: var(--black);
@@ -98,6 +104,7 @@ h1 {
 }
 
 button:hover,
+.btn:hover,
 .global-button:hover {
   transform: translateY(-2px); /* Subtle lift effect */
 }
