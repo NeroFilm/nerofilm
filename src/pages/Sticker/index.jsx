@@ -8,14 +8,14 @@ import { useNavigate } from "react-router-dom";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 import { useDropzone } from "react-dropzone";
 
-import test1 from "../../assets/stickers/1.png";
-import test2 from "../../assets/stickers/2.webp";
-import test3 from "../../assets/stickers/3.webp";
+import flower from "../../assets/stickers/flower.svg";
+import diamond from "../../assets/stickers/diamond.svg";
+import diamondWide from "../../assets/stickers/diamond-wide.svg";
 
 import "./index.css";
 
 // Predefined stickers
-const stickers = [test1, test2, test3];
+const stickers = [flower, diamond, diamondWide];
 
 function Sticker() {
   useRefreshWarning();
@@ -72,7 +72,18 @@ function Sticker() {
 
     imageElement.onload = () => {
       const image = new fabric.Image(imageElement);
-      image.set({ left: 0, top: 0, scaleY: 0.05, scaleX: 0.05 });
+
+      const aspectRatio = image.height / image.width;
+      const newWidth = 50;
+      const scaleX = newWidth / image.width;
+      const scaleY = scaleX * aspectRatio;
+
+      image.set({
+        left: 0,
+        top: 0,
+        scaleX: scaleX,
+        scaleY: scaleY,
+      });
       canvas.add(image);
       canvas.centerObject(image);
       canvas.setActiveObject(image);
@@ -80,10 +91,35 @@ function Sticker() {
   };
 
   const handleSaveStickers = () => {
-    console.log("saving stickers");
     const canvas = fabricCanvasRef.current;
-    const dataUrl = canvas.toDataURL({ format: "png" });
-    console.log("setting to" + dataUrl);
+    const scaleFactor = 8;
+
+    const originalWidth = canvas.width;
+    const originalHeight = canvas.height;
+
+    // set higher resolution
+    canvas.setWidth(originalWidth * scaleFactor);
+    canvas.setHeight(originalHeight * scaleFactor);
+
+    // scale objects to match new resolution
+    canvas.getObjects().forEach((object) => {
+      object.set({
+        scaleX: object.scaleX * scaleFactor,
+        scaleY: object.scaleY * scaleFactor,
+        left: object.left * scaleFactor,
+        top: object.top * scaleFactor,
+      });
+      object.setCoords();
+    });
+
+    // generate the PNG with higher quality
+    const dataUrl = canvas.toDataURL({ format: "png", quality: 1 });
+
+    // reset the canvas resolution back to the original
+    canvas.setWidth(originalWidth);
+    canvas.setHeight(originalHeight);
+
+    // set the sticker data in the frame and navigate
     setFrame((prevFrame) => ({
       ...prevFrame,
       stickers: dataUrl,
@@ -107,7 +143,7 @@ function Sticker() {
               layout={frame.layout}
               filter={frame.filter}
               images={frame.images}
-              color={frame.color}
+              design={frame.design}
             />
           </div>
 

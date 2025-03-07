@@ -11,6 +11,7 @@
   --gray: #d9d9d9;
   --gray-dark: #4a4a4a;
   --text-color: rgb(255, 255, 255);
+  --accent: pink;
 
   line-height: 1.5;
   font-weight: 400;
@@ -37,7 +38,6 @@
 
 body {
   min-height: 100vh;
-  height: auto;
   font-family: var(--heading-font);
   background-color: var(--gray-lightest);
 }
@@ -64,6 +64,7 @@ ul {
   text-decoration: none;
   font-size: 24px;
   font-family: var(--heading-font);
+  color: var(--black);
 }
 
 .logo-small {
@@ -81,7 +82,6 @@ h1 {
   color: var(--white);
   padding: 16px 48px; /* Increased size */
   font-size: 20px; /* Ensure text size is applied */
-  font-weight: bold;
   border-radius: 8px; /* Creates rounded edges */
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -89,14 +89,22 @@ h1 {
   text-decoration: none;
 }
 
+.btn-secondary {
+  background-color: var(--white);
+  border: 1px solid var(--gray-dark);
+  color: var(--black);
+}
+
 .btn-inverted {
   background-color: var(--white);
   color: var(--black);
-  padding: 8px 24px;
+  padding: 12px 28px;
   font-size: 20px;
+  margin-top: 8px;
 }
 
 button:hover,
+.btn:hover,
 .global-button:hover {
   transform: translateY(-2px); /* Subtle lift effect */
 }
@@ -109,6 +117,7 @@ button:hover,
   border-radius: 4px;
   box-sizing: border-box;
   margin-bottom: 16px;
+  font-size: 14px;
 }
 
 .options-c {
@@ -130,7 +139,10 @@ button:hover,
   border: 1px solid var(--gray);
   padding: 16px;
   border-radius: 8px;
-  overflow: scroll;
+}
+
+.options-heading {
+  margin-bottom: 12px;
 }
 
 .underline {
@@ -142,7 +154,7 @@ button:hover,
   display: flex;
   flex-direction: row;
   gap: 16px;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 }
 
 .tabs li {
@@ -154,4 +166,11 @@ button:hover,
 .selected-tab {
   color: var(--black);
   border-bottom: 1px solid var(--black);
+}
+
+@media (max-width: 600px) {
+  .options-r {
+    gap: 24px;
+    flex-direction: column;
+  }
 }

@@ -10,8 +10,9 @@
 }
 
 .frame-selected {
-  outline: 4px solid pink;
+  outline: 4px solid var(--accent);
   cursor: pointer;
+  place-items: center;
 }
 
 .frame-desc {

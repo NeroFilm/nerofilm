@@ -7,15 +7,24 @@ function Unsplash({ setSelected }) {
   const [randomPhotos, setRandomPhotos] = useState([]);
   const [searchPhotos, setSearchPhotos] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     async function fetchRandom() {
-      const res = await fetch(
-        "https://nerofilm-backend.vercel.app/api/unsplash/random"
-      );
-      const data = await res.json();
-      console.log(data);
-      setRandomPhotos(data);
+      try {
+        const res = await fetch(
+          "https://nerofilm-backend.vercel.app/api/unsplash/random"
+        );
+        if (!res.ok) {
+          throw new Error("Failed to fetch random photos");
+        }
+        const data = await res.json();
+        console.log(data);
+        setRandomPhotos(data);
+      } catch (error) {
+        console.error(error);
+        setError(true);
+      }
     }
     fetchRandom();
   }, []);
@@ -23,13 +32,21 @@ function Unsplash({ setSelected }) {
   async function handleSearch(e) {
     e.preventDefault();
     console.log("handling search for", searchQuery);
-    const res = await fetch(
-      `https://nerofilm-backend.vercel.app/api/unsplash/search?query=${searchQuery}`
-    );
-    const data = await res.json();
-    console.log("search photos");
-    console.log(data);
-    setSearchPhotos(data.results);
+    try {
+      const res = await fetch(
+        `https://nerofilm-backend.vercel.app/api/unsplash/search?query=${searchQuery}`
+      );
+      if (!res.ok) {
+        throw new Error("Failed to fetch search photos");
+      }
+      const data = await res.json();
+      console.log("search photos");
+      console.log(data);
+      setSearchPhotos(data.results);
+    } catch (error) {
+      console.error(error);
+      setError(true);
+    }
   }
 
   return (
@@ -46,7 +63,12 @@ function Unsplash({ setSelected }) {
           onSubmit={(e) => handleSearch(e)}
         />
       </form>
-      {searchPhotos.length > 0 ? (
+      {error ? (
+        <div className="unsplash-empty-state">
+          <b>Failed to fetch photos from Unsplash</b>
+          <p>Please try again later</p>
+        </div>
+      ) : searchPhotos.length > 0 ? (
         <div>
           <UnsplashGrid images={searchPhotos} setSelected={setSelected} />
         </div>
@@ -56,8 +78,7 @@ function Unsplash({ setSelected }) {
             <UnsplashGrid images={randomPhotos} setSelected={setSelected} />
           ) : (
             <div className="unsplash-empty-state">
-              <b>Failed to fetch photos from Unsplash</b>
-              <p>Please try again later</p>
+              <p>Loading photos...</p>
             </div>
           )}
         </div>

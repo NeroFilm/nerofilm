@@ -86,7 +86,7 @@
   width: 60vw; 
   height: calc(60vw * (78 / 104)); 
   max-width: 1000px;
-  max-height: calc(1000px * (78 / 104));
+  max-height: calc(1000px * (76 / 104));
 }
 
 /* 4-cut wide */
@@ -120,15 +120,18 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  z-index: 10; /* Ensure it's above other elements */
 }
 
 .shutter-button {
   cursor: pointer;
-  z-index: 1;
   background: none;
   outline: none;
   border: none;
   box-shadow: none;
+  z-index: 15; /* Make sure it stays clickable */
+  position: relative;
 }
 
 .shutter-icon {
@@ -143,7 +146,9 @@
   font-size: var(--heading-2);
   color: white;
   text-align: center;
-  z-index: 2;
+  background: white; /* Ensure it's visible */
+  border-radius: 10px;
+  z-index: 100; /* Ensure it's above other elements */
   animation: fadeIn 0.5s ease-in-out;
   opacity: 1;  
   transition: opacity 0.2s ease-in-out;
@@ -154,8 +159,6 @@
 }
 .countdown-timer.hidden {
   opacity: 0;
-}
-
 
 /* Camera image icon */
 .camera-image {

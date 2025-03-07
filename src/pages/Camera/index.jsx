@@ -45,8 +45,8 @@ const Camera = () => {
       setTimeout(() => setFlash(false), 200);
 
       setFrame((prevFrame) => {
-        const updatedPhotos = [...prevFrame.images, imageSrc].slice(-8);
-        return { ...prevFrame, images: updatedPhotos };
+        const updatedPhotos = [...prevFrame.allImages, imageSrc].slice(-8);
+        return { ...prevFrame, allImages: updatedPhotos };
       });
 
       setPhotoCount((prevCount) => prevCount + 1);

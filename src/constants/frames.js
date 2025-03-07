@@ -1,8 +1,9 @@
 export const defaultFrame = {
   layout: "original",
   images: [],
+  allImages: [],
   filter: "default",
-  color: "black",
+  design: "black",
 };
 
 export const frameSize = {

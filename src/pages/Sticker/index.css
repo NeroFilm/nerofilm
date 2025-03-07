@@ -15,8 +15,9 @@ canvas {
 }
 
 .sticker {
-  width: 80px;
-  height: 80px;
+  width: 64px;
+  height: 64px;
+  padding: 8px;
 }
 
 .dropzone-label {
@@ -31,7 +32,7 @@ canvas {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--gray-light);
+  background-color: var(--gray-lightest);
   border: 1px solid var(--gray);
   border-radius: 4px;
 }

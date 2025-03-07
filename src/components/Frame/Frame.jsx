@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import placeholder from "../../assets/default-image.png";
 import "./frame.css";
 
-function Frame({ layout, images = [], filter, color, stickers }) {
+function Frame({ layout, images = [], filter, design, stickers }) {
   const [imgArr, setImgArr] = useState([]);
 
   useEffect(() => {
@@ -16,13 +16,14 @@ function Frame({ layout, images = [], filter, color, stickers }) {
 
   return (
     <div
-      className={`frame frame-${layout} frame-${color}`}
+      className={`frame frame-${layout} frame-${design}`}
       style={{
-        backgroundImage: `url(${color})`,
+        backgroundImage: `url(${design})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
+      <p className="frame-logo">NeroFilm</p>
       {imgArr.map((img, index) => (
         <div key={index} className="img-wrapper">
           <img
@@ -41,7 +42,7 @@ Frame.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string).isRequired,
   filter: PropTypes.string.isRequired,
   layout: PropTypes.oneOf(["original", "wide"]).isRequired,
-  color: PropTypes.string.isRequired,
+  design: PropTypes.string.isRequired,
   stickers: PropTypes.string,
 };
 

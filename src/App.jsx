@@ -11,6 +11,7 @@ import PhotoSelection from "./pages/PhotoSelection";
 import Instructions from "./pages/Instructions";
 import "./styles/global.css";
 import Sticker from "./pages/Sticker";
+import PrivacyPolicy from "./pages/PrivacyPolicy"
 
 const App = () => {
   return (
@@ -27,6 +28,8 @@ const App = () => {
           <Route path="/filter" element={<Filter />} />
           <Route path="/sticker" element={<Sticker />} />
           <Route path="/download" element={<Download />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
         </Routes>
       </HashRouter>
     </FrameProvider>
