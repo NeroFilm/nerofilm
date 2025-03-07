@@ -54,13 +54,15 @@ const Camera = () => {
   };
 
   const startCountdown = (count, callback) => {
-    if (count === 0) {
-      callback();
-      return;
+    if (count > 0) {
+      setCountdown(count); // Set countdown value
+      setTimeout(() => startCountdown(count - 1, callback), 1000);
+    } else {
+      setCountdown(null); // Hide countdown when it reaches 0
+      callback(); // Take the photo on 0
     }
-    setCountdown(count);
-    setTimeout(() => startCountdown(count - 1, callback), 1);
   };
+  
 
   const startPhotoSequence = () => {
     if (isShooting) return;
@@ -96,6 +98,7 @@ const Camera = () => {
         <img src={WhiteBackArrow} alt="Back" className="back-arrow" />
       </button>
 
+      {/* camera permissions */}
       {cameraPermission === null && (
         <div className="camera-access-message">
           <img src={CameraDefault} alt="Camera" className="camera-image" />
@@ -118,12 +121,19 @@ const Camera = () => {
 
       {cameraPermission === true && (
         <>
-          {!showPhotoCount ? (
-            <h2 className="instructions">Click to start taking photos</h2>
-          ) : (
-            <div className="count-display">{photoCount}/8</div>
+          {/* instructions */}
+          {!showPhotoCount && (
+            <h2 className="instructions" style={{ fontSize: "28px", textAlign: "center" }}>Click to start taking photos</h2>
           )}
 
+        {/* Countdown Timer - Ensures Space is Reserved */}
+        <div className={`countdown-timer ${countdown === null ? "hidden" : ""}`}>
+          {countdown !== null ? countdown : <span>&nbsp;</span>}
+        </div>
+
+
+
+          {/* camera container */}
           <div className="camera-container">
             <div className={`camera-preview-screen ${frame.layout}`}>
               {flash && <div className="flash-overlay"></div>}
@@ -144,13 +154,13 @@ const Camera = () => {
                 }}
               />
             </div>
+
+            {/* n/8 */}
+            <div className="count-display">{photoCount}/8</div>
           </div>
 
-          {/* shutter & countdown */}
+          {/* shutter */}
           <div className="shutter">
-            {countdown !== null && (
-              <div className="countdown-timer">{countdown}</div>
-            )}
             <button
               className="shutter-button"
               onClick={startPhotoSequence}
