@@ -10,8 +10,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background: white;
+  background: var(--gray-lightest);
   width: 100vw;
 }
 
