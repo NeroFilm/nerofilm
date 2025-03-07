@@ -61,6 +61,8 @@ const Camera = () => {
       setCountdown(null); // Hide countdown when it reaches 0
       callback(); // Take the photo on 0
     }
+    setCountdown(count);
+    setTimeout(() => startCountdown(count - 1, callback), 1);
   };
   
 

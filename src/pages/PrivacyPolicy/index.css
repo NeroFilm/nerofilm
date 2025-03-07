@@ -1,60 +1,67 @@
-.about-container {
+.privacy-container {
   background-color: var(--gray-lightest);
   display: flex;
   align-items: center;
   justify-content: center;
   height: calc(100vh - 100px);
-  margin-top: 100px;
+
+
 }
 
-.about-content-wrapper {
+.privacy-content-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 80%;
   max-width: 1200px;
+
 }
 
-.about-text-section {
+.privacy-text-section {
   flex: 1;
   max-width: 600px;
+
 }
 
-.about-heading {
+.privacy-heading {
   font-size: 48px;
   font-weight: bold;
   margin-bottom: 30px;
   color: var(--black);
   text-align: left;
+  
+  
+
 }
 
-.about-text-container {
+.privacy-text-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.about-paragraph {
+.privacy-paragraph {
   font-size: 20px;
   line-height: 1.8;
   color: var(--black);
   margin: 0;
   text-align: left;
+
 }
 
 /* Media query for tablets (iPad) */
 @media screen and (max-width: 1024px) {
-  .about-container {
+  .privacy-container {
     height: auto;
     padding: 40px 0;
   }
 
-  .about-content-wrapper {
+  .privacy-content-wrapper {
     flex-direction: column;
     width: 90%;
   }
 
-  .about-image-section {
+  .privacy-image-section {
     order: -1; /* Move image to top */
     margin-bottom: 30px;
     width: 100%;
@@ -62,12 +69,12 @@
     height: 400px;
   }
 
-  .about-text-section {
+  .privacy-text-section {
     width: 100%;
     max-width: 100%;
   }
 
-  .about-heading {
+  .privacy-heading {
     text-align: center;
     font-size: 40px;
   }
@@ -75,27 +82,35 @@
 
 /* Media query for mobile phones */
 @media screen and (max-width: 768px) {
-  .about-container {
+  .privacy-container {
     padding: 30px 0;
+    margin-top: 100px;
+
+
   }
 
-  .about-content-wrapper {
+  .privacy-content-wrapper {
     width: 90%;
+
   }
 
-  .about-image-section {
+  .privacy-image-section {
     margin-top: 70px;
     height: 300px;
   }
 
-  .about-heading {
+  .privacy-heading {
     font-size: 36px;
     margin-bottom: 20px;
+
   }
 
-  .about-paragraph {
+  .privacy-paragraph {
     font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+
+
+
   }
 }

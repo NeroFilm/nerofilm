@@ -40,17 +40,19 @@ function FrameLayout() {
               <li key={key} onClick={() => handleSelectLayout(option)}>
                 <div
                   className={
-                    frame.layout == option ? "frame-selected" : "frame"
+                    frame.layout === option ? "frame-selected" : "frame"
                   }
                 >
                   <Frame
                     images={frame.images}
                     filter={frame.filter}
                     layout={option}
-                    color={frame.color}
+                    design={frame.design}
                   />
                 </div>
-                <p className="frame-desc">4 Cut Original</p>
+                <p className="frame-desc">
+                  {option === "original" ? "4 Cut Original" : "4 Cut Wide"}
+                </p>
               </li>
             ))}
           </ul>

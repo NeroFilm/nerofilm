@@ -1,7 +1,38 @@
 .footer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; /* Space out brand and right content */
+  align-items: flex-start; /* Align items to the top */
   padding: 48px;
   background-color: var(--gray-lightest);
+}
+
+.logo-small {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: -4px; /* Ensures no extra spacing */
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-email {
+  color: black;
+  text-decoration: none;
+}
+
+.footer-email:hover {
+  text-decoration: underline;
+}
+
+.privacy-policy-link {
+  color: black;
+  text-decoration: none;
+}
+
+.privacy-policy-link:hover {
+  text-decoration: underline;
 }
