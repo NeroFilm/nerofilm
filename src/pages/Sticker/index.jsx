@@ -91,10 +91,35 @@ function Sticker() {
   };
 
   const handleSaveStickers = () => {
-    console.log("saving stickers");
     const canvas = fabricCanvasRef.current;
-    const dataUrl = canvas.toDataURL({ format: "png" });
-    console.log("setting to" + dataUrl);
+    const scaleFactor = 4;
+
+    const originalWidth = canvas.width;
+    const originalHeight = canvas.height;
+
+    // set higher resolution
+    canvas.setWidth(originalWidth * scaleFactor);
+    canvas.setHeight(originalHeight * scaleFactor);
+
+    // scale objects to match new resolution
+    canvas.getObjects().forEach((object) => {
+      object.set({
+        scaleX: object.scaleX * scaleFactor,
+        scaleY: object.scaleY * scaleFactor,
+        left: object.left * scaleFactor,
+        top: object.top * scaleFactor,
+      });
+      object.setCoords();
+    });
+
+    // generate the PNG with higher quality
+    const dataUrl = canvas.toDataURL({ format: "png", quality: 1 });
+
+    // reset the canvas resolution back to the original
+    canvas.setWidth(originalWidth);
+    canvas.setHeight(originalHeight);
+
+    // set the sticker data in the frame and navigate
     setFrame((prevFrame) => ({
       ...prevFrame,
       stickers: dataUrl,
