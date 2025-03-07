@@ -35,6 +35,7 @@ function Filter() {
             design={frame.design}
           />
           <div className="options-box">
+            <p className="options-heading">Filters</p>
             <Options
               options={options}
               onClick={(option) => setFrame({ ...frame, filter: option })}

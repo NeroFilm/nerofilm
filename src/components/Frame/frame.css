@@ -3,7 +3,7 @@
   display: grid;
   box-sizing: border-box;
   position: relative;
-  place-items: center; 
+  place-items: center;
 }
 
 .frame-original {
@@ -13,7 +13,6 @@
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, 1fr);
   gap: 8px;
-
 }
 
 .frame-wide {
@@ -29,14 +28,12 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  
 }
 
 .img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  
 }
 
 .frame-black {
@@ -45,7 +42,7 @@
 
 .frame-white {
   background-color: white;
-  outline: 1px solid black;
+  outline: 1px solid var(--gray-dark);
 }
 
 .frame-pink {
@@ -81,7 +78,6 @@
   right: 0;
 }
 
-
 @media (max-width: 600px) {
   .frame-options {
     gap: 10px; /* Reduce spacing on smaller screens */
@@ -96,7 +92,7 @@
     grid-template-rows: repeat(4, 1fr);
     gap: 4px;
   }
-  
+
   .frame-wide {
     height: 240px;
     width: 160px;
@@ -105,17 +101,16 @@
     grid-template-rows: repeat(2, 1fr);
     gap: 4px;
   }
-  
+
   .img-wrapper {
     width: 100%;
     height: 100%;
     overflow: hidden;
   }
-  
+
   .img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 }
-

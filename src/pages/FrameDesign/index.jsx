@@ -29,7 +29,7 @@ function FrameDesign() {
   ];
 
   useEffect(() => {
-    if (frameDesign !== frame.design) {
+    if (frameDesign && frameDesign !== frame.design) {
       console.log("updating frame");
       setFrame((prevFrame) => ({ ...prevFrame, design: frameDesign }));
     }

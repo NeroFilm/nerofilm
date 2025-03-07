@@ -31,7 +31,7 @@ canvas {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--gray-light);
+  background-color: var(--gray-lightest);
   border: 1px solid var(--gray);
   border-radius: 4px;
 }

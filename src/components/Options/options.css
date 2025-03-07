@@ -10,7 +10,7 @@
 }
 
 .option-img-selected {
-  border: 2px solid pink;
+  border: 2px solid var(--accent);
   border-radius: 10px;
 }
 

@@ -11,6 +11,7 @@
   --gray: #d9d9d9;
   --gray-dark: #4a4a4a;
   --text-color: rgb(255, 255, 255);
+  --accent: pink;
 
   line-height: 1.5;
   font-weight: 400;
@@ -63,6 +64,7 @@ ul {
   text-decoration: none;
   font-size: 24px;
   font-family: var(--heading-font);
+  color: var(--black);
 }
 
 .logo-small {
@@ -108,6 +110,7 @@ button:hover,
   border-radius: 4px;
   box-sizing: border-box;
   margin-bottom: 16px;
+  font-size: 14px;
 }
 
 .options-c {
@@ -129,7 +132,10 @@ button:hover,
   border: 1px solid var(--gray);
   padding: 16px;
   border-radius: 8px;
-  overflow: scroll;
+}
+
+.options-heading {
+  margin-bottom: 12px;
 }
 
 .underline {
@@ -141,7 +147,7 @@ button:hover,
   display: flex;
   flex-direction: row;
   gap: 16px;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 }
 
 .tabs li {
