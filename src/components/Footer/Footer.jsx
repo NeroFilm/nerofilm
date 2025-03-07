@@ -9,12 +9,12 @@ const Footer = () => {
 
       {/* Right Side Content (Email & Privacy Policy) */}
       <div className="footer-right">
-        <a href="mailto:contact.nerofilm@gmail.com" className="footer-email">
-          contact.nerofilm@gmail.com
-        </a>
         <Link to="/privacy-policy" className="privacy-policy-link">
           Privacy Policy
         </Link>
+        <a href="mailto:contact.nerofilm@gmail.com" className="footer-email">
+          contact.nerofilm@gmail.com
+        </a>
       </div>
     </footer>
   );

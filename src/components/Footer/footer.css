@@ -14,8 +14,9 @@
 
 .footer-right {
   display: flex;
-  flex-direction: column; /* Stack email and Privacy Policy */
-  align-items: flex-start; /* Keep text left-aligned */
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
 }
 
 .footer-email {
@@ -30,8 +31,6 @@
 .privacy-policy-link {
   color: black;
   text-decoration: none;
-  margin-top: 4px; /* Space between email and privacy policy */
-
 }
 
 .privacy-policy-link:hover {
