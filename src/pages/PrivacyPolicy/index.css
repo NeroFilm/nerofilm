@@ -4,6 +4,8 @@
   align-items: center;
   justify-content: center;
   height: calc(100vh - 100px);
+
+
 }
 
 .privacy-content-wrapper {
@@ -18,7 +20,6 @@
 .privacy-text-section {
   flex: 1;
   max-width: 600px;
-  margin-top: -108px;
 
 }
 
@@ -28,7 +29,8 @@
   margin-bottom: 30px;
   color: var(--black);
   text-align: left;
-  margin-top: -108px;
+  
+  
 
 }
 
@@ -82,10 +84,14 @@
 @media screen and (max-width: 768px) {
   .privacy-container {
     padding: 30px 0;
+    margin-top: 100px;
+
+
   }
 
   .privacy-content-wrapper {
     width: 90%;
+
   }
 
   .privacy-image-section {
@@ -96,11 +102,15 @@
   .privacy-heading {
     font-size: 36px;
     margin-bottom: 20px;
+
   }
 
   .privacy-paragraph {
     font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+
+
+
   }
 }
