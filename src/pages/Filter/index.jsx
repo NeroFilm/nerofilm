@@ -1,7 +1,7 @@
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import Frame from "../../components/Frame/Frame";
 import { Link } from "react-router-dom";
-import BackHeader from "../../components/BackHeader/BackHeader";
+import WhiteBackHeader from "../../components/WhiteBackHeader/BackHeader";
 import dft from "../../assets/options/default.svg";
 import bw from "../../assets/options/bw.svg";
 import vintage from "../../assets/options/bw.svg"; // needs .svg
@@ -24,7 +24,7 @@ function Filter() {
 
   return (
     <div>
-      <BackHeader />
+      <WhiteBackHeader />
       <section className="options-c">
         <h1>Add filter</h1>
         <section className="options-r">
