@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       {/* Brand Name */}
-      <div className="logo logo-small">NeroFilm</div>
+      <div className="logo-small">NeroFilm</div>
 
       {/* Right Side Content (Email & Privacy Policy) */}
       <div className="footer-right">
