@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import BlackBackArrow from "../../assets/BlackBackArrow.png";
+import { ArrowUturnLeftIcon } from "@heroicons/react/24/outline";
 import "./whiteback-header.css"; // Import the CSS file
 
 const WhiteBackHeader = () => {
@@ -14,7 +14,7 @@ const WhiteBackHeader = () => {
         onClick={() => navigate(-1)} // nav back one step in history
         className="white-back-header-back"
       >
-        <img src={BlackBackArrow} alt="Back Arrow" className="white-icon" />
+        <ArrowUturnLeftIcon className="white-icon" />
       </button>
     </header>
   );
