@@ -13,7 +13,6 @@
   color: var(--white);
   top: 8px;
   font-size: 8px;
-  font-family: var(--heading-font);
 }
 
 .frame-original {
@@ -96,26 +95,26 @@
 
 @media (max-width: 600px) {
   .frame-options {
-    gap: 10px; /* Reduce spacing on smaller screens */
+    gap: 30px; /* Reduce spacing on smaller screens */
   }
 
   .frame-original {
-    height: 240px;
-    width: 76px;
-    padding: 12px 8px 8px;
+    height: 300px;
+    width: 100px;
+    padding: 22px 6.6px 6.6px;
     justify-content: center; /* Centers horizontally */
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);
-    gap: 4px;
+    gap: 6.6px;
   }
 
   .frame-wide {
-    height: 240px;
-    width: 160px;
-    padding: 24px 12px 12px;
+    height: 300px;
+    width: 200px;
+    padding: 22px 10px 10px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 4px;
+    gap: 6.6px;
   }
 
   .img-wrapper {
