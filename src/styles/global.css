@@ -1,13 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Lustria&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Italiana&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 :root {
-  --primary-font: "Lustria", sans-serif;
+  --heading-font: "Lustria", serif;
+  --default-font: "Lato", sans-serif;
   --white: #ffffff;
   --black: #000000;
-  --gray-light: #F7F7F7;
-  --gray-dark: #333333;
+  --gray-lightest: #f7f7f7;
+  --gray-light: #ececec;
+  --gray: #d9d9d9;
+  --gray-dark: #4a4a4a;
   --text-color: rgb(255, 255, 255);
+  --accent: pink;
 
   line-height: 1.5;
   font-weight: 400;
@@ -16,207 +20,157 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --heading-1: 54px;
+  --heading-2: 48px;
+  --heading-3: 28px;
+  --paragraph: 18px;
 }
 
 * {
   margin: 0;
   padding: 0;
-  font-family: var(--primary-font);
+  font-family: var(--heading-font);
 }
 
 body {
   min-height: 100vh;
-  font-family: var(--primary-font);
-  background-color: var(--white);
+  font-family: var(--heading-font);
+  background-color: var(--gray-lightest);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+p,
+b,
+input,
+a,
+li,
+button,
+label {
+  font-family: var(--default-font);
 }
 
-button, .global-button {
-  background-color: var(--black) !important;
-  color: var(--white) !important;
-  padding: 16px 64px !important;  /* Increased size */
-  font-size: 26px !important;     /* Ensure text size is applied */
-  font-weight: bold !important;
-  border: none !important;
-  border-radius: 40px !important; /* Creates rounded edges */
-  cursor: pointer !important;
-  transition: all 0.3s ease-in-out !important;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2) !important;
-  margin-top: 50px;
-  margin-bottom: 24px;
+a {
+  color: var(--gray-dark);
 }
 
-button:hover, .global-button:hover {
-  transform: translateY(-2px) !important; /* Subtle lift effect */
-}
-
-
-
-
-/* Media Queries */
-
-/* Phone View (up to 600px) */
-@media (max-width: 600px) {
-  /* Main Container */
-  .home-container {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 10px;
-  }
-
-  .home-main-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .home-left-content,
-  .home-right-content {
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  .home-logo-text {
-    font-size: 2.5rem;
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  .home-subtitle {
-    font-size: 16px;
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  /* Centering Images */
-  .home-picture1,
-  .home-picture2 {
-    width: 80%;
-    max-width: 200px;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .home-cut-selection,
-  .home-computer-view,
-  .home-photo-selection,
-  .home-filter,
-  .home-frame,
-  .home-download {
-    width: 80%;
-    max-width: 300px;
-  }
-
-  /* Centering Text */
-  .home-cherish-memories,
-  .home-select-frame,
-  .home-capture-moment,
-  .home-select-photos {
-    font-size: 16px;
-    text-align: center;
-    margin: 0 auto;
-  }
-}
 ul {
   list-style: none;
 }
 
+.logo a {
+  text-decoration: none;
+  font-size: 24px;
+  font-family: var(--heading-font);
+  color: var(--black);
+}
+
+.logo-small {
+  font-size: 24px;
+}
+
+h1 {
+  font-size: 2.4em;
+  line-height: 1.1;
+}
+
+.btn,
+.global-button {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 16px 48px; /* Increased size */
+  font-size: 20px; /* Ensure text size is applied */
+  border-radius: 8px; /* Creates rounded edges */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background-color: var(--white);
+  border: 1px solid var(--gray-dark);
+  color: var(--black);
+}
+
+.btn-inverted {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 12px 28px;
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+button:hover,
+.btn:hover,
+.global-button:hover {
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.search-bar {
+  display: flex;
+  width: 100%;
+  border: 1px solid var(--gray);
+  padding: 4px 8px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
 .options-c {
-  margin-top: 24px;
   display: flex;
   flex-direction: column;
-  gap: 48px;
   align-items: center;
+  gap: 48px;
 }
 
 .options-r {
   display: flex;
   flex-direction: row;
-  gap: 120px;
   align-items: center;
+  gap: 48px;
 }
 
-button,
-.btn {
-  padding: 16px 32px;
+.options-box {
+  background-color: var(--white);
+  border: 1px solid var(--gray);
+  padding: 16px;
   border-radius: 8px;
-  font-size: 28px;
-  background-color: var(--black);
-  text-decoration: none;
-  color: var(--text-color);
-  border: none;
+}
+
+.options-heading {
+  margin-bottom: 12px;
+}
+
+.underline {
+  text-decoration: underline;
   cursor: pointer;
-  font-family: var(--primary-font);
 }
 
-.options-c h1 {
-  font-size: 36px;
+.tabs {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
-/* Responsive: Tablet - iPad */
-@media (max-width: 1024px) {
-  .options-c {
-    gap: 32px;
-  }
-  .options-c h1 {
-    font-size: 32px;
-  }
+.tabs li {
+  cursor: pointer;
+  color: var(--gray-dark);
+  padding: 8px 0px;
+}
+
+.selected-tab {
+  color: var(--black);
+  border-bottom: 1px solid var(--black);
+}
+
+@media (max-width: 600px) {
   .options-r {
-    gap: 48px;
-  }
-  .image-options {
-    width: 240px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-  }
-  button,
-  .btn,
-  a {
-    padding: 12px 24px;
-  }
-  .frame-options {
-    gap: 48px;
-    flex-direction: row;
-  }
-}
-
-/* Responsive: Phones - iPhone */
-@media (max-width: 768px) {
-  .options-c {
     gap: 24px;
-  }
-  .options-c h1 {
-    font-size: 28px;
-  }
-  .options-r {
-    gap: 32px;
     flex-direction: column;
-  }
-  .image-options {
-    display: none;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 80vw;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 1px;
-  }
-  button,
-  .btn,
-  a {
-    padding: 8px 12px;
-    font-size: 24px;
-  }
-  .frame-options {
-    gap: 48px;
-    flex-direction: row;
   }
 }

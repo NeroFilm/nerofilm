@@ -1,17 +1,20 @@
-import "./footer.css"
+import { Link } from "react-router-dom";
+import "./Footer.css"; // Import the CSS file
 
 const Footer = () => {
   return (
     <footer className="footer">
-      {/* Left Side - Logo */}
-      <div className="footer-logo">
-        <h1 className="footer-logo-text">NeroFilm</h1>
-      </div>
+      {/* Brand Name */}
+      <div className="logo logo-small">NeroFilm</div>
 
-      {/* Right Side - Contact Info */}
-      <div className="footer-contact">
-        <h3>Contact</h3>
-        <p>contact.nerofilm@gmail.com</p>
+      {/* Right Side Content (Email & Privacy Policy) */}
+      <div className="footer-right">
+        <Link to="/privacy-policy" className="privacy-policy-link">
+          Privacy Policy
+        </Link>
+        <a href="mailto:contact.nerofilm@gmail.com" className="footer-email">
+          contact.nerofilm@gmail.com
+        </a>
       </div>
     </footer>
   );

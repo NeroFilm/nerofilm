@@ -1,0 +1,42 @@
+.unsplash {
+  width: 480px;
+  height: 280px;
+  overflow: scroll;
+}
+
+.unsplash-logo {
+  width: auto;
+  height: 20px;
+}
+
+.unsplash-grid {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  padding-bottom: 16px;
+  height: 100%;
+}
+
+.unsplash-img {
+  height: 64px;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.unsplash-attr {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.unsplash-empty-state {
+  text-align: center;
+  padding: 32px;
+  box-sizing: border-box;
+}

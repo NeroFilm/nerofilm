@@ -1,28 +1,27 @@
-.header {
+.white-back-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 32px 48px;
   height: 100px;
-  width: 100%;
   background-color: var(--gray-lightest);
-  color: var(--black);
   box-sizing: border-box;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
 }
 
-.header-nav {
-  list-style: none;
-  display: flex;
-  gap: 32px;
+.white-back-header-back {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-.header-nav li a {
-  text-decoration: none;
+.white-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.white-logo a {
   color: var(--black);
+  text-decoration: none;
   font-size: 20px;
 }

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import placeholder from "../../assets/default-image.png"
-import "./frame.css"
+import placeholder from "../../assets/default-image.png";
+import "./frame.css";
 
-function Frame({ layout, images = [], filter, color }) {
+function Frame({ layout, images = [], filter, design, stickers }) {
   const [imgArr, setImgArr] = useState([]);
 
   useEffect(() => {
@@ -15,12 +15,25 @@ function Frame({ layout, images = [], filter, color }) {
   }, [images]);
 
   return (
-    <div className={`frame frame-${layout} frame-${color} frame-${filter}`}>
+    <div
+      className={`frame frame-${layout} frame-${design}`}
+      style={{
+        backgroundImage: `url(${design})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <p className="frame-logo">NeroFilm</p>
       {imgArr.map((img, index) => (
         <div key={index} className="img-wrapper">
-          <img className="img" src={img} alt={`image ${index + 1}`} />
+          <img
+            className={`img frame-${filter}`}
+            src={img}
+            alt={`image ${index + 1}`}
+          />
         </div>
       ))}
+      {stickers && <img className="frame-stickers" src={stickers} />}
     </div>
   );
 }
@@ -29,7 +42,8 @@ Frame.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string).isRequired,
   filter: PropTypes.string.isRequired,
   layout: PropTypes.oneOf(["original", "wide"]).isRequired,
-  color: PropTypes.string.isRequired,
+  design: PropTypes.string.isRequired,
+  stickers: PropTypes.string,
 };
 
 export default Frame;

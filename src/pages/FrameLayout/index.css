@@ -1,0 +1,28 @@
+.frame-options {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  text-align: center;
+}
+
+.frame {
+  cursor: pointer;
+}
+
+.frame-selected {
+  outline: 4px solid var(--accent);
+  cursor: pointer;
+  place-items: center;
+}
+
+.frame-desc {
+  margin-top: 16px;
+}
+
+/* Responsive: Phones - iPhone */
+@media (max-width: 430px) {
+  .frame-options {
+    
+    gap: 50px;
+  }
+}

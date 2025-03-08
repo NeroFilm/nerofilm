@@ -1,0 +1,59 @@
+.image-options {
+  display: grid;
+  width: 100%; /* Makes it responsive */
+  max-width: 480px; /* Limits width for larger screens */
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Adjusts dynamically */
+  grid-auto-rows: auto;
+  gap: 10px;
+  justify-content: center;
+}
+
+.image-option {
+  position: relative;
+  width: 100%;
+  height: auto; /* Allow height to be flexible */
+  overflow: hidden;
+  cursor: pointer;
+}
+
+img {
+  width: 100%; /* Ensures images scale properly */
+  height: auto; /* Maintains aspect ratio */
+  object-fit: contain;
+}
+
+.num {
+  position: absolute;
+  top: 12px;
+  left: 8px;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  line-height: 16px;
+  border-radius: 100%;
+  background-color: gray;
+  color: gray;
+}
+
+.selected-num {
+  background-color: white;
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 1600px) {
+  .image-options {
+    grid-template-columns: repeat(4, 1fr); /* Reduces columns on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .image-options {
+    grid-template-columns: repeat(4, 1fr); /* Reduces columns on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .image-options {
+    grid-template-columns: repeat(4, 1fr); /* Further adjusts for very small screens */
+  }
+}
