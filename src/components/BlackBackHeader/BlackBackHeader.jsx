@@ -1,23 +1,23 @@
 import { Link, useNavigate } from "react-router-dom";
 import WhiteBackArrow from "../../assets/WhiteBackArrow.png";
-import "./back-header.css"; // Import the CSS file
+import "./blackback-header.css"; // Import the CSS file
 
-const BackHeader = () => {
+const BlackBackHeader = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="back-header">
-      <div className="logo">
+    <header className="black-back-header">
+      <div className="black-logo">
         <Link to="/">NeroFilm</Link>
       </div>
       <button
         onClick={() => navigate(-1)} // nav back one step in history
-        className="back-header-back"
+        className="black-back-header-back"
       >
-        <img src={WhiteBackArrow} alt="Back Arrow" className="icon" />
+        <img src={WhiteBackArrow} alt="Back Arrow" className="black-icon" />
       </button>
     </header>
   );
 };
 
-export default BackHeader;
+export default BlackBackHeader;

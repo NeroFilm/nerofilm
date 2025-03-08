@@ -21,23 +21,6 @@
   }
 }
 
-.back-button {
-  position: absolute;
-  top: 32px;
-  right: 48px;
-  cursor: pointer;
-  z-index: 10;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  box-shadow: none;
-}
-
-.back-arrow {
-  width: 40px;
-  height: auto;
-}
-
 /* Camera */
 .camera-container {
   display: flex;
@@ -48,6 +31,7 @@
   max-width: 1000px;
   flex-wrap: wrap;
   position: relative;
+  transform: translateY(-50px);
 }
 
 .camera-preview-screen {
@@ -167,8 +151,8 @@
 
 /* Responsive: Phones - iPhone */
 @media (max-width: 430px) {
-  .camera-preview-screen {
-    top: 50%;
+  .camera-container {
+    margin-top: -100px;
   }
 
   .original-mode .camera-preview-screen {
@@ -185,22 +169,19 @@
     max-height: calc(1000px * (158 / 104));
   }
 
-  .instructions {
-    margin-top: 0px;
-  }
-
   .count-display {
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: var(--heading-3);
   }
 
   .countdown-timer {
     font-size: var(--heading-3);
-    margin-bottom: 100px;
+    margin-bottom: 200px;
   }
 
   .shutter {
     margin-top: 10px;
+    margin-bottom: 140px;
   }
 
   .shutter-icon {

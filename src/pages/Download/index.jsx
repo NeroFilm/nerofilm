@@ -1,6 +1,6 @@
 import Frame from "../../components/Frame/Frame";
 import { useFrame } from "../../hooks/FrameContext";
-import WhiteBackHeader from "../../components/WhiteBackHeader/BackHeader";
+import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
 import "./index.css";
 import { toPng } from "html-to-image";
 import { useEffect, useRef, useState } from "react";

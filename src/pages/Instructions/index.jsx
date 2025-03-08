@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./index.css";
-import WhiteBackHeader from "../../components/WhiteBackHeader/BackHeader";
+import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
 import WatchIcon from "../../assets/WatchIcon.png";
 import CamIcon from "../../assets/CamIcon.png";
 import GalleryIcon from "../../assets/GalleryIcon.png";
