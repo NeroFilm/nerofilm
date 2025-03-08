@@ -1,6 +1,6 @@
 import Frame from "../../components/Frame/Frame";
 import { useFrame } from "../../hooks/FrameContext";
-import BackHeader from "../../components/BackHeader/BackHeader";
+import WhiteBackHeader from "../../components/WhiteBackHeader/BackHeader";
 import "./index.css";
 import { toPng } from "html-to-image";
 import { useEffect, useRef, useState } from "react";
@@ -107,7 +107,7 @@ function Download() {
 
   return (
     <div>
-      <BackHeader />
+      <WhiteBackHeader />
       <section className="options-c">
         <h1>Download & share</h1>
         <section className="options-r">
