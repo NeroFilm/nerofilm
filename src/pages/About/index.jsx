@@ -13,7 +13,6 @@ const About = () => {
       <Header />
       <div className="about-container">
         <div className="about-content-wrapper">
-          {/* Left content section */}
           <div className="about-text-section">
             <h1 className="about-heading">WHO ARE WE</h1>
 
