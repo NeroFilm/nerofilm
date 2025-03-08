@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import BlackBackHeader from "../../components/BlackBackHeader/BlackBackHeader";
-import CameraDefault from "../../assets/Camera.png";
-import CameraDisabled from "../../assets/CameraDisabled.png";
+import { VideoCameraIcon } from "@heroicons/react/24/outline";
+import { VideoCameraSlashIcon } from "@heroicons/react/24/outline";
 import Shutter from "../../assets/Shutter.png";
 import ShutterSound from "../../assets/sounds/CamShutter.wav";
 import "./index.css";
@@ -100,7 +100,7 @@ const Camera = () => {
         {/* camera permissions */}
         {cameraPermission === null && (
           <div className="camera-access-message">
-            <img src={CameraDefault} alt="Camera" className="camera-image" />
+            <VideoCameraIcon className="camera-image" />
             <h2>Allow Camera Access</h2>
             <p>To take your photo, allow camera access.</p>
           </div>
@@ -108,7 +108,7 @@ const Camera = () => {
         
         {cameraPermission === false && (
           <div className="camera-access-message">
-            <img src={CameraDisabled} alt="Camera Disabled" className="camera-image" />
+            <VideoCameraSlashIcon className="camera-image" />
             <h2>Camera Access Disabled</h2>
             <p>Please enable camera access in your browser settings.</p>
           </div>
