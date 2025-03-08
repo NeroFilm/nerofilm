@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./index.css";
 import BackHeader from "../../components/BackHeader/BackHeader";
 import WatchIcon from "../../assets/WatchIcon.png";
@@ -9,6 +9,22 @@ import SettingsIcon from "../../assets/SettingsIcon.png";
 
 const Instructions = () => {
   const [dontShowAgain, setDontShowAgain] = useState(false);
+  const navigate = useNavigate();
+
+  // do not show again
+  useEffect(() => {
+    const skipInstructions = localStorage.getItem("skipInstructions");
+    if (skipInstructions === "true") {
+      navigate("/camera", { replace: true });
+    }
+  }, [navigate]);
+
+  const checkboxClicked = () => {
+    if (dontShowAgain) {
+      localStorage.setItem("skipInstructions", "true"); 
+      navigate("/camera", { replace: true }); 
+    }
+  };
 
   return (
     <div>
@@ -48,7 +64,8 @@ const Instructions = () => {
             />
             <label htmlFor="dont-show-again">Do not show this page again</label>
           </div>
-          <Link className="btn btn-inverted" to="/camera">
+
+          <Link className="ready-btn" to="/camera" onClick={checkboxClicked}>
             I’m Ready!
           </Link>
         </div>
