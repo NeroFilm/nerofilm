@@ -4,7 +4,7 @@ import Frame from "../../components/Frame/Frame";
 import { useState } from "react";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
-import WhiteBackHeader from "../../components/WhiteBackHeader/BackHeader";
+import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 import { playClickSound } from "../../utils/soundUtils";
 

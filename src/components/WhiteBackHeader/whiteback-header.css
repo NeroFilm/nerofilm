@@ -1,22 +1,27 @@
-.back-header {
+.white-back-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 32px 48px;
   height: 100px;
   background-color: var(--gray-lightest);
-  color: black;
   box-sizing: border-box;
 }
 
-.back-header-back {
+.white-back-header-back {
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
 }
 
-.icon {
+.white-icon {
   width: 40px;
   height: 40px;
+}
+
+.white-logo a {
+  color: var(--black);
+  text-decoration: none;
+  font-size: 20px;
 }

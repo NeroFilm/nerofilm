@@ -1,7 +1,7 @@
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import Frame from "../../components/Frame/Frame";
 import { Link } from "react-router-dom";
-import WhiteBackHeader from "../../components/WhiteBackHeader/BackHeader";
+import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
 import dft from "../../assets/options/default.svg";
 import bw from "../../assets/options/bw.svg";
 import vintage from "../../assets/options/bw.svg"; // needs .svg

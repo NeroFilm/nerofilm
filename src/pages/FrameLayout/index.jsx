@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import Frame from "../../components/Frame/Frame";
-import WhiteBackHeader from "../../components/WhiteBackHeader/BackHeader";
+import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
 import "./index.css";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 import { playClickSound } from "../../utils/soundUtils";

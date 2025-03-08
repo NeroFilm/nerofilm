@@ -1,6 +1,6 @@
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import Frame from "../../components/Frame/Frame";
-import WhiteBackHeader from "../../components/WhiteBackHeader/BackHeader";
+import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
 import * as fabric from "fabric";
 import { useRef, useEffect, useCallback } from "react";
 import { frameSize } from "../../constants/frames";
