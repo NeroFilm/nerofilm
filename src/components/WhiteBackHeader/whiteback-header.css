@@ -20,8 +20,30 @@
   height: 40px;
 }
 
+.white-logo {
+  font-size: 24px;
+}
+
 .white-logo a {
   color: var(--black);
   text-decoration: none;
-  font-size: 20px;
+  font: var(--heading-font);
+}
+
+
+/* Responsive: Phones - iPhone */
+@media (max-width: 430px) {
+  .white-back-header {
+    padding: 20px 24px; 
+    height: 80px;
+  }
+
+  .white-logo {
+    font-size: 18px;
+  }
+
+  .white-icon {
+    width: 30px;
+    height: 30px;
+  }
 }
