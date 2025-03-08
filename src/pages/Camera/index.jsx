@@ -116,26 +116,30 @@ const Camera = () => {
 
         {cameraPermission === true && (
           <>
-            {!showPhotoCount && (
+            {/* instructions */}
+            {!isShooting && (
               <h2 className="instructions" style={{ fontSize: "28px", textAlign: "center" }}>
                 Click to start taking photos
               </h2>
             )}
 
-            {/* Countdown Timer */}
-            <div className={`countdown-timer ${countdown === null ? "hidden" : ""}`}>
-              {countdown !== null ? countdown : <span>&nbsp;</span>}
-            </div>
-
-            {/* camera container */}
-            <div className="camera-container">
-              <div className={`camera-preview-screen ${frame.layout}`}>
-                {flash && <div className="flash-overlay"></div>}
-                <Webcam className="webcam" ref={webcamRef} audio={false} screenshotFormat="image/png" mirrored={true} videoConstraints={{ facingMode: "user", aspectRatio: frame.layout === "wide" ? 9 / 16 : 16 / 9 }} />
+            {/* countdown timer */}
+            {isShooting && (
+              <div className={`countdown-timer ${countdown === null ? "hidden" : ""}`}>
+                {countdown !== null ? countdown : <span>&nbsp;</span>}
               </div>
-              <div className="count-display">{photoCount}/8</div>
+            )}
+
+            {/* camera screen */}
+            <div className={`camera-preview-screen ${frame.layout}`}>
+              {flash && <div className="flash-overlay"></div>}
+              <Webcam className="webcam" ref={webcamRef} audio={false} screenshotFormat="image/png" mirrored={true} />
             </div>
 
+            {/* count display */}
+            <div className="count-display">{photoCount}/8</div>
+
+            {/* shutter */}
             <div className="shutter">
               <button className="shutter-button" onClick={startPhotoSequence} disabled={isShooting}>
                 <img src={Shutter} alt="Shutter" className="shutter-icon" />
