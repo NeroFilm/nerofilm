@@ -7,7 +7,7 @@ import Filter from "../../assets/AddFilter.png";
 import Frame from "../../assets/FrameColor.png";
 import Download from "../../assets/DownloadShare.png";
 import HomePic1 from "../../assets/homepic1.png";
-import HomePic3 from "../../assets/homepic3.png";
+import HomePic2 from "../../assets/homepic2.png";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { useEffect } from "react";
@@ -43,7 +43,7 @@ const Home = () => {
           {/* Right Side Images */}
           <div className="home-right-content">
             <img src={HomePic1} alt="HomePic1" className="home-image1" />
-            <img src={HomePic3} alt="HomePic3" className="home-image3" />
+            <img src={HomePic2} alt="HomePic2" className="home-image2" />
           </div>
         </div>
 

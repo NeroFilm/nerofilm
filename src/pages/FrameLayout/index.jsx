@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import Frame from "../../components/Frame/Frame";
-import BackHeader from "../../components/BackHeader/BackHeader";
+import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
 import "./index.css";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 import { playClickSound } from "../../utils/soundUtils";
@@ -31,7 +31,7 @@ function FrameLayout() {
 
   return (
     <div>
-      <BackHeader />
+      <WhiteBackHeader />
       <section className="options-c">
         <h1>Select Frame Layout</h1>
         <div className="options-r">
