@@ -8,28 +8,31 @@
   overflow: hidden;
   background-color: black;
   color: white;
-  padding-top: 100px;
   box-sizing: border-box;
+  position: relative;
+  padding-top: 100px;
 }
 
-/* Camera image icon */
-.camera-image {
-  width: 40px;
-  height: 40px;
+.instructions {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  text-align: center;
+  color: white;
 }
 
 .countdown-timer {
-  margin-bottom: 20px;
-  transform: translate(-50%);
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: var(--heading-3);
   color: white;
-  text-align: center;
   animation: fadeIn 0.5s ease-in-out;
-  opacity: 1;  
+  opacity: 1;
   transition: opacity 0.2s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .countdown-timer.hidden {
   opacity: 0;
@@ -39,22 +42,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: min(80vw, 62.5vh); 
+  width: min(80vw, 62.5vh);
   height: calc(min(80vw, 62.5vh) * (9 / 16));
-  position: relative;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   overflow: hidden;
 }
 
 /* 4-cut original */
 .original-mode .camera-preview-screen {
-  width: min(60vw, 62.5vh);
-  height: calc(min(60vw, 62.5vh) * (78 / 104));
+  width: 35vw;
+  height: calc(35vw * (78 / 104));
 }
 
 /* 4-cut wide */
 .wide-mode .camera-preview-screen {
-  width: min(25vw, 62.5vh);
-  height: calc(min(25vw, 62.5vh) * (158 / 104));
+  width: 19vw;
+  height: calc(19vw * (158 / 104));
 }
 
 .webcam {
@@ -64,9 +69,8 @@
   position: absolute;
 }
 
-
 .flash-overlay {
-  position: absolute; 
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -81,39 +85,36 @@
     opacity: 0.8;
   }
   100% {
-    opacity: 0; 
+    opacity: 0;
   }
 }
 
+/* shutter and count display */
+.shutter-and-count {
+  position: absolute;
+  bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; 
+  width: 100%;
+}
+
+/* n/8 Counter */
 .count-display {
-  margin-top: 20px;
-  left: 50%;
-  transform: translateX(-50%,50%);
   font-size: var(--heading-3);
-  font-weight: bold;
   color: white;
   padding: 10px 20px;
-  border-radius: 10px;
-  z-index: 10;
+  text-align: center;
 }
 
 /* shutter */
-.shutter {
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .shutter-button {
   cursor: pointer;
   background: none;
   outline: none;
   border: none;
   box-shadow: none;
-  z-index: 15; 
-  position: relative;
 }
 
 .shutter-icon {
@@ -121,33 +122,24 @@
   height: 80px;
 }
 
-/* Responsive: Phones - iPhone */
+/* Responsive: Mobile */
 @media (max-width: 430px) {
   .original-mode .camera-preview-screen {
     width: 80vw;
-    height: calc(80vw * (78 / 104)); 
-    max-width: 1000px;
-    max-height: calc(1000px * (78 / 104));
+    height: calc(80vw * (78 / 104));
   }
 
   .wide-mode .camera-preview-screen {
-    width: 40vw;
-    height: calc(40vw * (158 / 104)); 
-    max-width: 1000px;
-    max-height: calc(1000px * (158 / 104));
-  }
-
-  .count-display {
-    margin-top: 10px;
-    font-size: var(--heading-3);
-  }
-
-  .countdown-timer {
-    font-size: var(--heading-3);
+    width: 60vw;
+    height: calc(60vw * (158 / 104));
   }
 
   .instructions {
     font-size: 20px;
+  }
+
+  .count-display {
+    font-size: var(--heading-3);
   }
 
   .shutter-icon {
@@ -155,4 +147,3 @@
     height: 60px;
   }
 }
-

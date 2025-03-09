@@ -118,7 +118,7 @@ const Camera = () => {
           <>
             {/* instructions */}
             {!isShooting && (
-              <h2 className="instructions" style={{ fontSize: "28px", textAlign: "center" }}>
+              <h2 className="instructions" style={{ fontSize: "25px", textAlign: "center" }}>
                 Click to start taking photos
               </h2>
             )}
@@ -136,15 +136,14 @@ const Camera = () => {
               <Webcam className="webcam" ref={webcamRef} audio={false} screenshotFormat="image/png" mirrored={true} />
             </div>
 
-            {/* count display */}
-            <div className="count-display">{photoCount}/8</div>
-
-            {/* shutter */}
-            <div className="shutter">
+            {/* shutter and count display */}
+            <div className="shutter-and-count">
+              <div className="count-display">{photoCount}/8</div>
               <button className="shutter-button" onClick={startPhotoSequence} disabled={isShooting}>
                 <img src={Shutter} alt="Shutter" className="shutter-icon" />
               </button>
             </div>
+
           </>
         )}
       </div>
