@@ -32,34 +32,42 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
 }
 
 .texts-box h2 {
-  font-size: 20px;
-  margin-bottom: 25px;
+  font-size: 22px;
+  margin-bottom: 250px;
 }
 
 /* instructions */
 .instructions {
   list-style: none;
-  padding: 12px;
+  padding: 0;
+  font-size: 16px;
   text-align: left;
-  font-size: 17px;
-  margin: 8px 0;
-  margin-bottom: 20px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  gap: 15px; 
+  margin-top: 80px;
 }
 
 .instructions li {
-  margin-bottom: 15px;
   display: flex;
   align-items: center;
-  gap: 20px;
-  color: white;
+  justify-content: left; 
+  width: 100%;
+  gap: 12px;
+  margin-left: 50px;
 }
 
 .icons {
   height: 25px;
   width: 25px;
+  margin-right: 10px;
 }
 
 /* checkbox */
@@ -68,7 +76,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .checkbox input {
@@ -108,8 +116,9 @@ body {
 
   .instructions {
     font-size: 12px;
-    margin-top: 20px;
+    margin-top: 70px;
     margin-bottom: 40px;
+    width: 80%
   }
 
   .instructions li {
@@ -117,6 +126,7 @@ body {
     display: flex;
     align-items: center;
     gap: 20px;
+    margin-left: 0px;
   }
 
   .icons {
