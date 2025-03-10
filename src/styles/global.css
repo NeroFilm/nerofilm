@@ -109,17 +109,6 @@ button:hover,
   transform: translateY(-2px); /* Subtle lift effect */
 }
 
-.search-bar {
-  display: flex;
-  width: 100%;
-  border: 1px solid var(--gray);
-  padding: 4px 8px;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-bottom: 16px;
-  font-size: 14px;
-}
-
 .options-c {
   display: flex;
   flex-direction: column;
@@ -154,7 +143,7 @@ button:hover,
   display: flex;
   flex-direction: row;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .tabs li {

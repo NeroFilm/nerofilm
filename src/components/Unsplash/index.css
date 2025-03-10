@@ -4,12 +4,29 @@
   overflow: scroll;
 }
 
+.unsplash-link {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.search-bar {
+  display: flex;
+  width: 100%;
+  border: 1px solid var(--gray);
+  padding: 4px 8px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
 .unsplash-logo {
   width: auto;
   height: 20px;
 }
 
 .unsplash-grid {
+  margin-top: 12px;
   max-width: 100%;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -20,7 +37,7 @@
 }
 
 .unsplash-img {
-  height: 64px;
+  height: 56px;
   max-width: 100%;
   object-fit: cover;
   border-radius: 4px;

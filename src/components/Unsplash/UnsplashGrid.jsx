@@ -31,7 +31,10 @@ function UnsplashGrid({ images, setSelected }) {
             />
             <p className="unsplash-attr">
               by{" "}
-              <a target="_blank" href={photo.links.html}>
+              <a
+                target="_blank"
+                href={`https://unsplash.com/@${photo.user.username}?utm_source=NeroFilm&utm_medium=referral`}
+              >
                 {photo.user.first_name && photo.user.first_name}
                 {photo.user.last_name && ` ${photo.user.last_name}`}{" "}
               </a>

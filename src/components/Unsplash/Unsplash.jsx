@@ -51,6 +51,15 @@ function Unsplash({ setSelected }) {
 
   return (
     <div className="unsplash">
+      <p className="unsplash-link">
+        Photos from {""}
+        <a
+          target="_blank"
+          href="https://unsplash.com/?utm_source=NeroFilm&utm_medium=referral"
+        >
+          Unsplash
+        </a>
+      </p>
       <form onSubmit={handleSearch}>
         <input
           className="search-bar"
