@@ -1,3 +1,4 @@
+
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import Frame from "../../components/Frame/Frame";
 import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
@@ -132,8 +133,8 @@ function Sticker() {
     const canvas = fabricCanvasRef.current;
     const scaleFactor = 8;
 
-    const originalWidth = canvas.width;
-    const originalHeight = canvas.height;
+    const originalWidth = frame.layout === "original" ? 122 : 244;
+    const originalHeight = 362;
 
     // set higher resolution
     canvas.setWidth(originalWidth * scaleFactor);
