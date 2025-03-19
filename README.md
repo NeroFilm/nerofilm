@@ -24,6 +24,9 @@ To get started, simply follow the link below, and click the "Try it" button
 
 [nerofilm.co](https://nerofilm.co)
 
+While in development stage, the website will be available at the link below
+[nerofilm.github.io](https://nerofilm.github.io/nerofilm/)
+
 ## Camera Access
 
 The application requires camera permissions to function. Please ensure your browser has permission to access your camera when prompted.
