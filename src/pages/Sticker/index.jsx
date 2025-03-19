@@ -43,9 +43,15 @@ function Sticker() {
 
   // Initialize fabric canvas
   useEffect(() => {
+    if (!canvasRef.current) return;
+    
     fabricCanvasRef.current = new fabric.Canvas(canvasRef.current);
+    fabricCanvasRef.current.setDimensions({ width: 122, height: 362 });
+  
     return () => fabricCanvasRef.current.dispose();
   }, []);
+  
+  
 
   // Handle delete object from canvas with backspace or delete key
   useEffect(() => {
