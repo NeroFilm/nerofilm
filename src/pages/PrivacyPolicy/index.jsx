@@ -13,7 +13,6 @@ const PrivacyPolicy = () => {
       <Header />
       <div className="privacy-container">
         <div className="privacy-content-wrapper">
-          {/* Left content section */}
           <div className="privacy-text-section">
             <h1 className="privacy-heading">Privacy Policy</h1>
 
