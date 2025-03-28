@@ -56,7 +56,7 @@ const Camera = () => {
   const startCountdown = (count, callback) => {
     if (count > 0) {
       setCountdown(count);
-      setTimeout(() => startCountdown(count - 1, callback), 1000);
+      setTimeout(() => startCountdown(count - 1, callback), 1);
     } else {
       setCountdown(null);
       callback();
@@ -88,15 +88,19 @@ const Camera = () => {
   };
 
   const handleBackClick = () => {
-    const skipInstructions = localStorage.getItem("skipInstructions") === "true";
+    const skipInstructions =
+      localStorage.getItem("skipInstructions") === "true";
     navigate(skipInstructions ? "/frame-layout" : "/instructions");
   };
 
   return (
     <div>
       <BlackBackHeader />
-      <div className={`camera-page ${frame.layout === "wide" ? "wide-mode" : "original-mode"}`}>
-
+      <div
+        className={`camera-page ${
+          frame.layout === "wide" ? "wide-mode" : "original-mode"
+        }`}
+      >
         {/* camera permissions */}
         {cameraPermission === null && (
           <div className="camera-access-message">
@@ -105,7 +109,7 @@ const Camera = () => {
             <p>To take your photo, allow camera access.</p>
           </div>
         )}
-        
+
         {cameraPermission === false && (
           <div className="camera-access-message">
             <VideoCameraSlashIcon className="camera-image" />
@@ -118,14 +122,21 @@ const Camera = () => {
           <>
             {/* instructions */}
             {!isShooting && (
-              <h2 className="instructions" style={{ fontSize: "25px", textAlign: "center" }}>
+              <h2
+                className="instructions"
+                style={{ fontSize: "25px", textAlign: "center" }}
+              >
                 Click to start taking photos
               </h2>
             )}
 
             {/* countdown timer */}
             {isShooting && (
-              <div className={`countdown-timer ${countdown === null ? "hidden" : ""}`}>
+              <div
+                className={`countdown-timer ${
+                  countdown === null ? "hidden" : ""
+                }`}
+              >
                 {countdown !== null ? countdown : <span>&nbsp;</span>}
               </div>
             )}
@@ -133,17 +144,26 @@ const Camera = () => {
             {/* camera screen */}
             <div className={`camera-preview-screen ${frame.layout}`}>
               {flash && <div className="flash-overlay"></div>}
-              <Webcam className="webcam" ref={webcamRef} audio={false} screenshotFormat="image/png" mirrored={true} />
+              <Webcam
+                className="webcam"
+                ref={webcamRef}
+                audio={false}
+                screenshotFormat="image/png"
+                mirrored={true}
+              />
             </div>
 
             {/* shutter and count display */}
             <div className="shutter-and-count">
               <div className="count-display">{photoCount}/8</div>
-              <button className="shutter-button" onClick={startPhotoSequence} disabled={isShooting}>
+              <button
+                className="shutter-button"
+                onClick={startPhotoSequence}
+                disabled={isShooting}
+              >
                 <img src={Shutter} alt="Shutter" className="shutter-icon" />
               </button>
             </div>
-
           </>
         )}
       </div>
