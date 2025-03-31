@@ -81,4 +81,11 @@ img {
     padding: 8px;
     box-sizing: border-box;
   }
+  .options-c {
+    gap: 24px !important;
+  }
+  .options-heading {
+    font-size: 28px;
+    text-align: center;
+  }
 }

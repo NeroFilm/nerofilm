@@ -33,7 +33,7 @@ function FrameLayout() {
     <div>
       <WhiteBackHeader />
       <section className="options-c">
-        <h1>Select Frame Layout</h1>
+        <h1 className="options-heading">Select Frame Layout</h1>
         <div className="options-r">
           <ul className="frame-options">
             {options.map((option, key) => (

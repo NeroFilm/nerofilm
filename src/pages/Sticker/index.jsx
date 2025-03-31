@@ -1,4 +1,3 @@
-
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import Frame from "../../components/Frame/Frame";
 import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
@@ -66,9 +65,8 @@ function Sticker() {
     fabricCanvasRef.current.getObjects().forEach((obj) => {
       obj.left = Math.min(obj.left, newSize.width - 10);
       obj.top = Math.min(obj.top, newSize.height - 10);
-    }); 
+    });
 
-  
     fabricCanvasRef.current.renderAll();
 
     return () => {
@@ -76,8 +74,6 @@ function Sticker() {
     };
   }, [frame.layout]); // Runs whenever `frame.layout` changes
 
-
-  
   // Handle delete object from canvas with backspace or delete key
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -114,13 +110,13 @@ function Sticker() {
         top: 0,
         scaleX: scaleX,
         scaleY: scaleY,
-        hasBorders: true,  
-        hasControls: true, 
-        lockScalingFlip: true, 
-        cornerSize: 12, 
-        cornerColor: "transparent", 
+        hasBorders: true,
+        hasControls: true,
+        lockScalingFlip: true,
+        cornerSize: 12,
+        cornerColor: "transparent",
         cornerStyle: "circle",
-        transparentCorners: true, 
+        transparentCorners: true,
         borderColor: "rgba(255, 255, 255, 0.5)",
       });
       canvas.add(image);
@@ -154,7 +150,6 @@ function Sticker() {
     // generate the PNG with higher quality
     const dataUrl = canvas.toDataURL({ format: "png", quality: 1 });
 
-    
     // reset the canvas resolution back to the original
     canvas.setWidth(originalWidth);
     canvas.setHeight(originalHeight);
@@ -171,7 +166,7 @@ function Sticker() {
     <div>
       <WhiteBackHeader />
       <section className="options-c">
-        <h1>Add sticker</h1>
+        <h1 className="options-heading">Add sticker</h1>
         <section className="options-r">
           <div className="frame-wrapper">
             <canvas
@@ -190,7 +185,7 @@ function Sticker() {
           {/* File input for custom stickers */}
           <section className="options-box">
             <section>
-              <p className="dropzone-label">Gallery</p>
+              <p className="options-box-label">Gallery</p>
               {stickers.map((sticker, idx) => (
                 <img
                   key={idx}
@@ -202,7 +197,7 @@ function Sticker() {
               ))}
             </section>
             <section>
-              <p className="dropzone-label">Upload</p>
+              <p className="options-box-label">Upload</p>
               <div className="dropzone" {...getRootProps()}>
                 <input {...getInputProps()} />
                 {isDragActive ? (

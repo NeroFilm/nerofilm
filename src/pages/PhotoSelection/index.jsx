@@ -39,7 +39,7 @@ function PhotoSelection() {
     <div>
       <WhiteBackHeader />
       <section className="options-c">
-        <h1>Select photos</h1>
+        <h1 className="options-heading">Select photos</h1>
         <div className="options-r">
           <Frame
             filter={frame.filter}

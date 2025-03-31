@@ -26,7 +26,7 @@ function Filter() {
     <div>
       <WhiteBackHeader />
       <section className="options-c">
-        <h1>Add filter</h1>
+        <h1 className="options-heading">Add filter</h1>
         <section className="options-r">
           <Frame
             layout={frame.layout}
@@ -35,7 +35,7 @@ function Filter() {
             design={frame.design}
           />
           <div className="options-box">
-            <p className="options-heading">Filters</p>
+            <p className="options-box-label">Filters</p>
             <Options
               options={options}
               onClick={(option) => setFrame({ ...frame, filter: option })}

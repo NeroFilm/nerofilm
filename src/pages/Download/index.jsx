@@ -108,7 +108,7 @@ function Download() {
     <div>
       <WhiteBackHeader />
       <section className="options-c">
-        <h1>Download & share</h1>
+        <h1 className="options-heading">Download & share</h1>
         <section className="options-r">
           <div ref={frameRef} style={{ display: "inline-block" }}>
             <Frame
