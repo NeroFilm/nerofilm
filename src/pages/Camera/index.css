@@ -5,61 +5,55 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
+  padding-top: 100px;
   overflow: hidden;
   background-color: black;
   color: white;
   box-sizing: border-box;
   position: relative;
-  padding-top: 100px;
+  padding-top: 0;
+}
+
+/* ALL TOGETHER */
+.all-together {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .instructions {
   position: absolute;
-  top: 10%;
+  top: 0%;
   left: 50%;
   transform: translateX(-50%);
   font-size: 28px;
-  text-align: center;
   color: white;
-}
-
-.countdown-timer {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: var(--heading-3);
-  color: white;
-  animation: fadeIn 0.5s ease-in-out;
-  opacity: 1;
-  transition: opacity 0.2s ease-in-out;
-}
-.countdown-timer.hidden {
-  opacity: 0;
+  z-index: 100;
 }
 
 .camera-preview-screen {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   width: min(80vw, 62.5vh);
   height: calc(min(80vw, 62.5vh) * (9 / 16));
-  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   overflow: hidden;
+  position: relative;
 }
 
 /* 4-cut original */
 .original-mode .camera-preview-screen {
-  width: 35vw;
-  height: calc(35vw * (78 / 104));
+  width: 60vw;
+  height: calc(60vw * (78 / 104));
 }
 
 /* 4-cut wide */
 .wide-mode .camera-preview-screen {
-  width: 19vw;
-  height: calc(19vw * (158 / 104));
+  width: 30vw;
+  height: calc(30vw * (158 / 104));
 }
 
 .webcam {
@@ -67,6 +61,7 @@
   height: 100%;
   object-fit: cover;
   position: absolute;
+  z-index: 0;
 }
 
 .flash-overlay {
@@ -89,32 +84,52 @@
   }
 }
 
-/* shutter and count display */
-.shutter-and-count {
-  position: absolute;
-  bottom: 5%;
+.camera-layer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px; 
-  width: 100%;
+  padding: 12px 0;
 }
 
 /* n/8 Counter */
 .count-display {
   font-size: var(--heading-3);
   color: white;
-  padding: 10px 20px;
   text-align: center;
+  z-index: 10;
+  position: relative;
 }
 
-/* shutter */
 .shutter-button {
+  position: relative;
   cursor: pointer;
   background: none;
   outline: none;
   border: none;
   box-shadow: none;
+  z-index: 10;
+}
+
+.countdown-timer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: gray;
+  animation: fadeIn 0.5s ease-in-out;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.countdown-timer.hidden {
+  opacity: 0;
 }
 
 .shutter-icon {
@@ -124,26 +139,30 @@
 
 /* Responsive: Mobile */
 @media (max-width: 430px) {
+  .camera-layer {
+    padding: -20px 0;
+  }
+  
   .original-mode .camera-preview-screen {
     width: 80vw;
     height: calc(80vw * (78 / 104));
   }
-
+  
   .wide-mode .camera-preview-screen {
     width: 60vw;
     height: calc(60vw * (158 / 104));
   }
 
-  .instructions {
+  .shutter-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .countdown-timer {
     font-size: 20px;
   }
 
   .count-display {
-    font-size: var(--heading-3);
-  }
-
-  .shutter-icon {
-    width: 60px;
-    height: 60px;
+    font-size: 25px;
   }
 }

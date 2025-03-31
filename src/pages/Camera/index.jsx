@@ -116,32 +116,37 @@ const Camera = () => {
 
         {cameraPermission === true && (
           <>
-            {/* instructions */}
-            {!isShooting && (
-              <h2 className="instructions" style={{ fontSize: "25px", textAlign: "center" }}>
-                Click to start taking photos
-              </h2>
-            )}
+            <div className="all-together">
 
-            {/* countdown timer */}
-            {isShooting && (
-              <div className={`countdown-timer ${countdown === null ? "hidden" : ""}`}>
-                {countdown !== null ? countdown : <span>&nbsp;</span>}
+              {/* instructions */}
+              {!isShooting && (
+                <h2 className="instructions" style={{ fontSize: "25px", textAlign: "center" }}>
+                  Click to start taking photos
+                </h2>
+              )}
+
+              {/* camera screen */}
+              <div className={`camera-preview-screen ${frame.layout}`}>
+
+                <Webcam className="webcam" ref={webcamRef} audio={false} screenshotFormat="image/png" mirrored={true} />
+                {flash && <div className="flash-overlay"></div>}
+
+                <div className="camera-layer">
+                  <div className="count-display">{photoCount}/8</div>
+
+                  <button className="shutter-button" onClick={startPhotoSequence} disabled={isShooting}>
+                    <img src={Shutter} alt="Shutter" className="shutter-icon" />
+                    {isShooting && (
+                      <div className={`countdown-timer ${countdown === null ? "hidden" : ""}`}>
+                        {countdown !== null ? countdown : <span>&nbsp;</span>}
+                      </div>
+                    )}
+                  </button>
+                </div>
+
               </div>
-            )}
 
-            {/* camera screen */}
-            <div className={`camera-preview-screen ${frame.layout}`}>
-              {flash && <div className="flash-overlay"></div>}
-              <Webcam className="webcam" ref={webcamRef} audio={false} screenshotFormat="image/png" mirrored={true} />
-            </div>
 
-            {/* shutter and count display */}
-            <div className="shutter-and-count">
-              <div className="count-display">{photoCount}/8</div>
-              <button className="shutter-button" onClick={startPhotoSequence} disabled={isShooting}>
-                <img src={Shutter} alt="Shutter" className="shutter-icon" />
-              </button>
             </div>
 
           </>

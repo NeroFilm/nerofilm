@@ -36,7 +36,7 @@ const Instructions = () => {
           <ul className="instructions">
             <li>
               <ClockIcon className="icons" />
-              The timer is set for 5 seconds
+              The timer is set for 3 seconds
             </li>
 
             <li>
