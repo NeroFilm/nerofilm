@@ -7,7 +7,7 @@
     minmax(80px, 1fr)
   ); /* Adjusts dynamically */
   grid-auto-rows: auto;
-  gap: 10px;
+  gap: 8px;
   justify-content: center;
 }
 
@@ -20,13 +20,17 @@
 }
 
 .image-original {
-  width: 104px;
-  height: 76px;
+  aspect-ratio: 104 / 76;
+  width: auto;
+  height: auto;
+  max-width: 100%;
 }
 
 .image-wide {
-  width: 104px;
-  height: 158px;
+  aspect-ratio: 104 / 158;
+  width: auto;
+  height: auto;
+  max-width: 100%;
 }
 
 img {
@@ -72,9 +76,9 @@ img {
 
 @media (max-width: 480px) {
   .image-options {
-    grid-template-columns: repeat(
-      4,
-      1fr
-    ); /* Further adjusts for very small screens */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    padding: 8px;
+    box-sizing: border-box;
   }
 }
