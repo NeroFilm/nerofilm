@@ -77,7 +77,7 @@ img {
 @media (max-width: 480px) {
   .image-options {
     grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
+    gap: 4px;
     padding: 8px;
     box-sizing: border-box;
   }
