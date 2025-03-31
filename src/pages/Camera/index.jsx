@@ -121,35 +121,45 @@ const Camera = () => {
         {cameraPermission === true && (
           <>
             <div className="all-together">
-
               {/* instructions */}
-              {!isShooting && (
-                <h2 className="instructions" style={{ fontSize: "25px", textAlign: "center" }}>
+              {!isShooting ? (
+                <h2 className="camera-instructions">
                   Click to start taking photos
                 </h2>
+              ) : (
+                <h2 className="count-display">{photoCount}/8</h2>
               )}
 
               {/* camera screen */}
               <div className={`camera-preview-screen ${frame.layout}`}>
-
-                <Webcam className="webcam" ref={webcamRef} audio={false} screenshotFormat="image/png" mirrored={true} />
+                <Webcam
+                  className="webcam"
+                  ref={webcamRef}
+                  audio={false}
+                  screenshotFormat="image/png"
+                  mirrored={true}
+                />
                 {flash && <div className="flash-overlay"></div>}
 
                 <div className="camera-layer">
-                  <div className="count-display">{photoCount}/8</div>
-
-                  <button className="shutter-button" onClick={startPhotoSequence} disabled={isShooting}>
+                  <button
+                    className="shutter-button"
+                    onClick={startPhotoSequence}
+                    disabled={isShooting}
+                  >
                     <img src={Shutter} alt="Shutter" className="shutter-icon" />
                     {isShooting && (
-                      <div className={`countdown-timer ${countdown === null ? "hidden" : ""}`}>
+                      <div
+                        className={`countdown-timer ${
+                          countdown === null ? "hidden" : ""
+                        }`}
+                      >
                         {countdown !== null ? countdown : <span>&nbsp;</span>}
                       </div>
                     )}
                   </button>
                 </div>
-
               </div>
-
             </div>
           </>
         )}

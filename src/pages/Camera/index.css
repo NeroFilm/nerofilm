@@ -21,12 +21,24 @@
   justify-content: center;
 }
 
-.instructions {
+.camera-instructions {
+  font-size: var(--heading-3);
   position: absolute;
-  top: 0%;
+  top: 32px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 28px;
+  color: white;
+  z-index: 100;
+  text-align: center;
+}
+
+/* n/8 Counter */
+.count-display {
+  font-size: var(--heading-3);
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
   color: white;
   z-index: 100;
 }
@@ -97,17 +109,9 @@
   padding: 12px 0;
 }
 
-/* n/8 Counter */
-.count-display {
-  font-size: var(--heading-3);
-  color: white;
-  text-align: center;
-  z-index: 10;
-  position: relative;
-}
-
 .shutter-button {
-  position: relative;
+  position: absolute;
+  bottom: 0;
   cursor: pointer;
   background: none;
   outline: none;
@@ -122,7 +126,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 30px;
-  color: gray;
+  color: var(--black);
   animation: fadeIn 0.5s ease-in-out;
   opacity: 1;
   pointer-events: none;
@@ -139,15 +143,20 @@
 
 /* Responsive: Mobile */
 @media (max-width: 430px) {
+  .camera-instructions,
+  .count-display {
+    top: 80px;
+  }
+
   .camera-layer {
     padding: -20px 0;
   }
-  
+
   .original-mode .camera-preview-screen {
     width: 80vw;
     height: calc(80vw * (78 / 104));
   }
-  
+
   .wide-mode .camera-preview-screen {
     width: 60vw;
     height: calc(60vw * (158 / 104));
