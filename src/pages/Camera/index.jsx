@@ -56,7 +56,7 @@ const Camera = () => {
   const startCountdown = (count, callback) => {
     if (count > 0) {
       setCountdown(count);
-      setTimeout(() => startCountdown(count - 1, callback), 1000);
+      setTimeout(() => startCountdown(count - 1, callback), 1);
     } else {
       setCountdown(null);
       callback();
@@ -88,15 +88,19 @@ const Camera = () => {
   };
 
   const handleBackClick = () => {
-    const skipInstructions = localStorage.getItem("skipInstructions") === "true";
+    const skipInstructions =
+      localStorage.getItem("skipInstructions") === "true";
     navigate(skipInstructions ? "/frame-layout" : "/instructions");
   };
 
   return (
     <div>
       <BlackBackHeader />
-      <div className={`camera-page ${frame.layout === "wide" ? "wide-mode" : "original-mode"}`}>
-
+      <div
+        className={`camera-page ${
+          frame.layout === "wide" ? "wide-mode" : "original-mode"
+        }`}
+      >
         {/* camera permissions */}
         {cameraPermission === null && (
           <div className="camera-access-message">
@@ -105,7 +109,7 @@ const Camera = () => {
             <p>To take your photo, allow camera access.</p>
           </div>
         )}
-        
+
         {cameraPermission === false && (
           <div className="camera-access-message">
             <VideoCameraSlashIcon className="camera-image" />
@@ -146,9 +150,7 @@ const Camera = () => {
 
               </div>
 
-
             </div>
-
           </>
         )}
       </div>

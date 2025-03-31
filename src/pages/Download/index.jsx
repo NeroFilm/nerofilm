@@ -4,7 +4,6 @@ import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
 import "./index.css";
 import { toPng } from "html-to-image";
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 import Options from "../../components/Options/Options";
 
@@ -130,9 +129,16 @@ function Download() {
           <button className="btn" onClick={() => downloadImage()}>
             Download image
           </button>
-          <Link className="btn btn-secondary" role="button" to={"/"}>
+          <a
+            href={`https://buy.stripe.com/test_dR6eVV79J8X33pS3cc?client_reference_id=${"test"}`}
+            className="btn btn-secondary"
+            target="_blank"
+          >
+            Buy photo strip
+          </a>
+          {/* <Link className="btn btn-secondary" role="button" to={"/"}>
             Return home
-          </Link>
+          </Link> */}
         </section>
       </section>
     </div>

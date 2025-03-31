@@ -1,3 +1,4 @@
+
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import Frame from "../../components/Frame/Frame";
 import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
@@ -42,17 +43,41 @@ function Sticker() {
   });
 
   // Initialize fabric canvas
+  // Initialize fabric canvas and update dimensions dynamically
   useEffect(() => {
     if (!canvasRef.current) return;
-    
-    fabricCanvasRef.current = new fabric.Canvas(canvasRef.current);
-    fabricCanvasRef.current.setDimensions({ width: 122, height: 362 });
-  
-    return () => fabricCanvasRef.current.dispose();
-  }, []);
-  
-  
 
+    if (!fabricCanvasRef.current) {
+      fabricCanvasRef.current = new fabric.Canvas(canvasRef.current);
+    }
+
+    // Determine new dimensions based on the selected frame layout
+    const newSize =
+      frame.layout === "original"
+        ? { width: 122, height: 362 } // 4 Cut Original
+        : { width: 244, height: 362 }; // 4 Cut Wide
+
+    // Update both the Fabric canvas and the HTML canvas dimensions
+    fabricCanvasRef.current.setDimensions(newSize);
+    canvasRef.current.width = newSize.width;
+    canvasRef.current.height = newSize.height;
+
+    // Ensure all objects fit within new size
+    fabricCanvasRef.current.getObjects().forEach((obj) => {
+      obj.left = Math.min(obj.left, newSize.width - 10);
+      obj.top = Math.min(obj.top, newSize.height - 10);
+    }); 
+
+  
+    fabricCanvasRef.current.renderAll();
+
+    return () => {
+      fabricCanvasRef.current.dispose();
+    };
+  }, [frame.layout]); // Runs whenever `frame.layout` changes
+
+
+  
   // Handle delete object from canvas with backspace or delete key
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -89,6 +114,14 @@ function Sticker() {
         top: 0,
         scaleX: scaleX,
         scaleY: scaleY,
+        hasBorders: true,  
+        hasControls: true, 
+        lockScalingFlip: true, 
+        cornerSize: 12, 
+        cornerColor: "transparent", 
+        cornerStyle: "circle",
+        transparentCorners: true, 
+        borderColor: "rgba(255, 255, 255, 0.5)",
       });
       canvas.add(image);
       canvas.centerObject(image);
@@ -100,8 +133,8 @@ function Sticker() {
     const canvas = fabricCanvasRef.current;
     const scaleFactor = 8;
 
-    const originalWidth = canvas.width;
-    const originalHeight = canvas.height;
+    const originalWidth = frame.layout === "original" ? 122 : 244;
+    const originalHeight = 362;
 
     // set higher resolution
     canvas.setWidth(originalWidth * scaleFactor);
@@ -121,6 +154,7 @@ function Sticker() {
     // generate the PNG with higher quality
     const dataUrl = canvas.toDataURL({ format: "png", quality: 1 });
 
+    
     // reset the canvas resolution back to the original
     canvas.setWidth(originalWidth);
     canvas.setHeight(originalHeight);
