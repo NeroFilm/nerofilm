@@ -56,7 +56,7 @@ const Camera = () => {
   const startCountdown = (count, callback) => {
     if (count > 0) {
       setCountdown(count);
-      setTimeout(() => startCountdown(count - 1, callback), 1);
+      setTimeout(() => startCountdown(count - 1, callback), 1000);
     } else {
       setCountdown(null);
       callback();
