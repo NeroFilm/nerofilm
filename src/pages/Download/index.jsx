@@ -1,3 +1,4 @@
+
 import Frame from "../../components/Frame/Frame";
 import { useFrame } from "../../hooks/FrameContext";
 import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
@@ -7,8 +8,6 @@ import { useEffect, useRef, useState } from "react";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 import Options from "../../components/Options/Options";
 
-import TikTok from "../../assets/logos/TikTok.svg";
-import Instagram from "../../assets/logos/Instagram.svg";
 import print from "../../assets/logos/print.svg";
 
 function Download() {
@@ -18,10 +17,8 @@ function Download() {
   const frameRef = useRef(null);
   const [frameImage, setFrameimage] = useState("");
 
-  // update print and share icon designs
+  // Only include print in the options now
   const options = [
-    { name: "Instagram", image: Instagram },
-    { name: "TikTok", image: TikTok },
     { name: "print", image: print },
   ];
 
@@ -57,47 +54,89 @@ function Download() {
     const doc = iframe.contentWindow.document;
     doc.open();
     doc.write(`
-    <html>
-      <head>
-        <title>Print Image</title>
-        <style>
-          @page {
-            size: letter;
-            margin: 0;
-          }
-          body {
-            margin: 0;
-            padding: 0;
-          }
-          img {
-            width: ${frame.layout === "original" ? "2" : "4"}in;
-            height: 6in;
-            position: absolute;
-            top: 0;
-            left: 0;
-          }
-        </style>
-      </head>
-      <body>
-        <img src="${frameImage}" alt="Printable" />
-      </body>
-    </html>
-  `);
+      <html>
+        <head>
+          <title>Print Image</title>
+          <style>
+            @page {
+              size: letter;
+              margin: 0;
+            }
+            body {
+              margin: 0;
+              padding: 0;
+            }
+            img {
+              width: ${frame.layout === "original" ? "2" : "4"}in;
+              height: 6in;
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
+          </style>
+        </head>
+        <body>
+          <img src="${frameImage}" alt="Printable" />
+        </body>
+      </html>
+    `);
     doc.close();
 
     iframe.contentWindow.focus();
     iframe.contentWindow.print();
   };
 
-  // todo : handle ig / tiktok share
+  const dataURLtoFile = (dataurl, filename) => {
+    const arr = dataurl.split(",");
+    const mime = arr[0].match(/:(.*?);/)[1];
+    const bstr = atob(arr[1]);
+    let n = bstr.length;
+    const u8arr = new Uint8Array(n);
+    while (n--) u8arr[n] = bstr.charCodeAt(n);
+    return new File([u8arr], filename, { type: mime });
+  };
+
+  const shareImage = async () => {
+    if (!frameRef.current) return;
+  
+    try {
+      const dataUrl = await toPng(frameRef.current, {
+        cacheBust: true,
+        width: frameRef.current.offsetWidth * 4,
+        height: frameRef.current.offsetHeight * 4,
+        style: {
+          transform: "scale(4)",
+          transformOrigin: "top left",
+        },
+      });
+  
+      const response = await fetch(dataUrl);
+      const blob = await response.blob();
+      const file = new File([blob], "nerofilm.png", { type: blob.type });
+  
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          title: "NeroFilm",
+          text: "Check out my photo strip!",
+          files: [file],
+        });
+      } else {
+        // fallback: download
+        const link = document.createElement("a");
+        link.download = "nerofilm.png";
+        link.href = dataUrl;
+        link.click();
+        alert("Sharing not supported — image downloaded instead.");
+      }
+    } catch (error) {
+      console.error("Sharing failed:", error);
+      alert("Something went wrong. Please try again.");
+    }
+  };
+  
+
   const handleShare = (option) => {
     switch (option) {
-      // sharing should upload film to story
-      case "Instagram":
-        break;
-      // sharing should upload timelapse
-      case "TikTok":
-        break;
       case "print":
         printImage();
         break;
@@ -125,20 +164,22 @@ function Download() {
             selected={frame.filter}
           />
         </section>
+
         <section className="btns">
-          <button className="btn" onClick={() => downloadImage()}>
+          <button className="btn" onClick={shareImage}>
+            Share
+          </button>
+          <button className="btn" onClick={downloadImage}>
             Download image
           </button>
           <a
-            href={`https://buy.stripe.com/test_dR6eVV79J8X33pS3cc?client_reference_id=${"test"}`}
+            href={`https://buy.stripe.com/test_dR6eVV79J8X33pS3cc?client_reference_id=test`}
             className="btn btn-secondary"
             target="_blank"
+            rel="noreferrer"
           >
             Buy photo strip
           </a>
-          {/* <Link className="btn btn-secondary" role="button" to={"/"}>
-            Return home
-          </Link> */}
         </section>
       </section>
     </div>
