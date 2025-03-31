@@ -56,7 +56,13 @@ function PhotoSelection() {
                     selected.includes(image)
                       ? "image-option image-selected"
                       : "image-option"
-                  }`}
+                  }
+                    ${
+                      frame.layout === "original"
+                        ? "image-original"
+                        : "image-wide"
+                    }
+                  `}
                   onClick={() => toggleSelect(image)}
                 >
                   <p

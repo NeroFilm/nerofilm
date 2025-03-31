@@ -111,7 +111,7 @@
 
 .shutter-button {
   position: absolute;
-  bottom: 0;
+  bottom: 16px;
   cursor: pointer;
   background: none;
   outline: none;

@@ -22,7 +22,6 @@ const Camera = () => {
   const [cameraPermission, setCameraPermission] = useState(null);
   const [isShooting, setIsShooting] = useState(false);
   const [photoCount, setPhotoCount] = useState(0);
-  const [showPhotoCount, setShowPhotoCount] = useState(false);
   const [flash, setFlash] = useState(false);
   const [countdown, setCountdown] = useState(null);
 
@@ -67,7 +66,6 @@ const Camera = () => {
     if (isShooting) return;
     setIsShooting(true);
     setPhotoCount(0);
-    setShowPhotoCount(true);
     let count = 8;
 
     const takeNextPhoto = () => {
@@ -85,12 +83,6 @@ const Camera = () => {
     };
 
     takeNextPhoto();
-  };
-
-  const handleBackClick = () => {
-    const skipInstructions =
-      localStorage.getItem("skipInstructions") === "true";
-    navigate(skipInstructions ? "/frame-layout" : "/instructions");
   };
 
   return (
