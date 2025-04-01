@@ -8,6 +8,7 @@ import useRefreshWarning from "../../hooks/useRefreshWarning";
 import Frame from "../../components/Frame/Frame";
 import print from "../../assets/logos/print.svg";
 import share from "../../assets/logos/share.svg";
+import { generateAndDownloadTimelapse } from "../../utils/generateTimelapse";
 import "./index.css";
 
 function Download() {
@@ -15,15 +16,15 @@ function Download() {
 
   const frame = useFrame();
   const frameRef = useRef(null);
-  const navigate = useNavigate();
+  const canvasRef = useRef(null); 
   const [frameImage, setFrameimage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const options = [
     { name: "share", image: share },
     { name: "print", image: print },
-
   ];
-  
+
   useEffect(() => {
     toPng(frameRef.current, {
       cacheBust: false,
@@ -88,16 +89,6 @@ function Download() {
     iframe.contentWindow.print();
   };
 
-  const dataURLtoFile = (dataurl, filename) => {
-    const arr = dataurl.split(",");
-    const mime = arr[0].match(/:(.*?);/)[1];
-    const bstr = atob(arr[1]);
-    let n = bstr.length;
-    const u8arr = new Uint8Array(n);
-    while (n--) u8arr[n] = bstr.charCodeAt(n);
-    return new File([u8arr], filename, { type: mime });
-  };
-
   const shareImage = async () => {
     if (!frameRef.current) return;
 
@@ -145,11 +136,11 @@ function Download() {
         break;
     }
   };
-  
 
   return (
     <div>
       <WhiteBackHeader />
+      <canvas ref={canvasRef} style={{ display: "none" }}></canvas> {/* Hidden canvas */}
       <section className="options-c">
         <h1 className="options-heading">Download & share</h1>
         <section className="options-r">
@@ -171,13 +162,19 @@ function Download() {
 
         <section className="btns">
           <button className="btn" onClick={downloadImage}>
-            Download image
+            Download Image
           </button>
-          <button className="btn" onClick={() => navigate("/timelapse")}>
-            Try Timelapse
+          <button
+            className="btn"
+            onClick={() =>
+              generateAndDownloadTimelapse(frame.allImages || frame.images, canvasRef, setLoading)
+            }
+            disabled={loading}
+          >
+            {loading ? "Generating Timelapse..." : "Download Timelapse"}
           </button>
           <a
-            href={`https://buy.stripe.com/test_dR6eVV79J8X33pS3cc?client_reference_id=test`}
+            href="https://buy.stripe.com/test_dR6eVV79J8X33pS3cc?client_reference_id=test"
             className="btn btn-secondary"
             target="_blank"
             rel="noreferrer"
