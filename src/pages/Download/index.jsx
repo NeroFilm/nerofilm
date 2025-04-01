@@ -1,26 +1,23 @@
-
-import Frame from "../../components/Frame/Frame";
+import { useState, useEffect, useRef } from "react";
+import { toPng } from "html-to-image";
+import { useNavigate } from "react-router-dom";
 import { useFrame } from "../../hooks/FrameContext";
 import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
-import "./index.css";
-import { toPng } from "html-to-image";
-import { useEffect, useRef, useState } from "react";
-import useRefreshWarning from "../../hooks/useRefreshWarning";
 import Options from "../../components/Options/Options";
-
+import useRefreshWarning from "../../hooks/useRefreshWarning";
+import Frame from "../../components/Frame/Frame";
 import print from "../../assets/logos/print.svg";
+import "./index.css";
 
 function Download() {
   useRefreshWarning();
 
   const frame = useFrame();
   const frameRef = useRef(null);
+  const navigate = useNavigate();
   const [frameImage, setFrameimage] = useState("");
 
-  // Only include print in the options now
-  const options = [
-    { name: "print", image: print },
-  ];
+  const options = [{ name: "print", image: print }];
 
   useEffect(() => {
     toPng(frameRef.current, {
@@ -98,7 +95,7 @@ function Download() {
 
   const shareImage = async () => {
     if (!frameRef.current) return;
-  
+
     try {
       const dataUrl = await toPng(frameRef.current, {
         cacheBust: true,
@@ -109,11 +106,11 @@ function Download() {
           transformOrigin: "top left",
         },
       });
-  
+
       const response = await fetch(dataUrl);
       const blob = await response.blob();
       const file = new File([blob], "nerofilm.png", { type: blob.type });
-  
+
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           title: "NeroFilm",
@@ -121,7 +118,6 @@ function Download() {
           files: [file],
         });
       } else {
-        // fallback: download
         const link = document.createElement("a");
         link.download = "nerofilm.png";
         link.href = dataUrl;
@@ -133,7 +129,6 @@ function Download() {
       alert("Something went wrong. Please try again.");
     }
   };
-  
 
   const handleShare = (option) => {
     switch (option) {
@@ -171,6 +166,9 @@ function Download() {
           </button>
           <button className="btn" onClick={downloadImage}>
             Download image
+          </button>
+          <button className="btn" onClick={() => navigate("/timelapse")}>
+            Try Timelapse
           </button>
           <a
             href={`https://buy.stripe.com/test_dR6eVV79J8X33pS3cc?client_reference_id=test`}
