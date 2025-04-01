@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import BlackBackHeader from "../../components/BlackBackHeader/BlackBackHeader";
-import { VideoCameraIcon } from "@heroicons/react/24/outline";
-import { VideoCameraSlashIcon } from "@heroicons/react/24/outline";
+import { VideoCameraIcon, VideoCameraSlashIcon } from "@heroicons/react/24/outline";
 import Shutter from "../../assets/Shutter.png";
 import ShutterSound from "../../assets/sounds/CamShutter.wav";
 import "./index.css";
@@ -31,31 +30,31 @@ const Camera = () => {
     setCameraPermission(true);
   }, []);
 
-  const takePhoto = () => {
+  const takePhoto = (silent = false) => {
     if (webcamRef.current) {
       const imageSrc = webcamRef.current.getScreenshot();
 
-      shutterAudio.current.currentTime = 0;
-      shutterAudio.current
-        .play()
-        .catch((error) => console.log("Audio play failed:", error));
+      if (!silent) {
+        shutterAudio.current.currentTime = 0;
+        shutterAudio.current
+          .play()
+          .catch((error) => console.log("Audio play failed:", error));
 
-      setFlash(true);
-      setTimeout(() => setFlash(false), 200);
+        setFlash(true);
+        setTimeout(() => setFlash(false), 200);
+      }
 
       setFrame((prevFrame) => {
-        const updatedPhotos = [...prevFrame.allImages, imageSrc].slice(-8);
+        const updatedPhotos = [...prevFrame.allImages, imageSrc].slice(-16);
         return { ...prevFrame, allImages: updatedPhotos };
       });
-
-      setPhotoCount((prevCount) => prevCount + 1);
     }
   };
 
   const startCountdown = (count, callback) => {
     if (count > 0) {
       setCountdown(count);
-      setTimeout(() => startCountdown(count - 1, callback), 1);
+      setTimeout(() => startCountdown(count - 1, callback), 1000);
     } else {
       setCountdown(null);
       callback();
@@ -66,7 +65,7 @@ const Camera = () => {
     if (isShooting) return;
     setIsShooting(true);
     setPhotoCount(0);
-    let count = 8;
+    let count = 8; // User thinks only 8 photos are taken
 
     const takeNextPhoto = () => {
       if (count === 0) {
@@ -75,10 +74,16 @@ const Camera = () => {
         navigate("/photo-selection");
         return;
       }
+
       startCountdown(3, () => {
-        takePhoto();
-        count--;
-        setTimeout(takeNextPhoto, 500);
+        takePhoto(); // visible photo (with sound/flash)
+        setPhotoCount((prevCount) => prevCount + 1);
+
+        setTimeout(() => {
+          takePhoto(true); // hidden photo (silent)
+          count--;
+          setTimeout(takeNextPhoto, 500);
+        }, 500);
       });
     };
 
@@ -113,7 +118,6 @@ const Camera = () => {
         {cameraPermission === true && (
           <>
             <div className="all-together">
-              {/* instructions */}
               {!isShooting ? (
                 <h2 className="camera-instructions">
                   Click to start taking photos
@@ -122,7 +126,6 @@ const Camera = () => {
                 <h2 className="count-display">{photoCount}/8</h2>
               )}
 
-              {/* camera screen */}
               <div className={`camera-preview-screen ${frame.layout}`}>
                 <Webcam
                   className="webcam"

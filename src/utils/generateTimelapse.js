@@ -33,9 +33,10 @@ export const generateAndDownloadTimelapse = async (images, canvasRef, setLoading
 
     recorder.start();
 
-    for (let i = 0; i < images.length; i++) {
+    const selectedImages = images.slice(0, 16); 
+    for (let i = 0; i < selectedImages.length; i++) {
       const img = new Image();
-      img.src = images[i];
+      img.src = selectedImages[i];
       await new Promise((resolve) => {
         img.onload = () => {
           ctx.clearRect(0, 0, canvas.width, canvas.height);
