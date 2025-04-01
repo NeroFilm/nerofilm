@@ -7,6 +7,7 @@ import Options from "../../components/Options/Options";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 import Frame from "../../components/Frame/Frame";
 import print from "../../assets/logos/print.svg";
+import share from "../../assets/logos/share.svg";
 import "./index.css";
 
 function Download() {
@@ -17,8 +18,12 @@ function Download() {
   const navigate = useNavigate();
   const [frameImage, setFrameimage] = useState("");
 
-  const options = [{ name: "print", image: print }];
+  const options = [
+    { name: "share", image: share },
+    { name: "print", image: print },
 
+  ];
+  
   useEffect(() => {
     toPng(frameRef.current, {
       cacheBust: false,
@@ -132,11 +137,15 @@ function Download() {
 
   const handleShare = (option) => {
     switch (option) {
+      case "share":
+        shareImage();
+        break;
       case "print":
         printImage();
         break;
     }
   };
+  
 
   return (
     <div>
@@ -161,9 +170,6 @@ function Download() {
         </section>
 
         <section className="btns">
-          <button className="btn" onClick={shareImage}>
-            Share
-          </button>
           <button className="btn" onClick={downloadImage}>
             Download image
           </button>

@@ -1,0 +1,12 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circle background -->
+  <circle cx="32" cy="32" r="31.5" fill="#FEFEFE" stroke="#DADADA" />
+
+  <!-- Smaller, centered Share icon -->
+  <circle cx="42" cy="22" r="3" stroke="#6E6E6E" stroke-width="2" fill="none"/>
+  <circle cx="22" cy="32" r="3" stroke="#6E6E6E" stroke-width="2" fill="none"/>
+  <circle cx="42" cy="42" r="3" stroke="#6E6E6E" stroke-width="2" fill="none"/>
+
+  <path d="M24.5 30.5L39.5 23.5" stroke="#6E6E6E" stroke-width="2" stroke-linecap="round" />
+  <path d="M24.5 33.5L39.5 40.5" stroke="#6E6E6E" stroke-width="2" stroke-linecap="round" />
+</svg>
