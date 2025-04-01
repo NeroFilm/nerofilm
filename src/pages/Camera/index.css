@@ -126,7 +126,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 30px;
-  color: var(--black);
+  color: var(--gray-dark);
   animation: fadeIn 0.5s ease-in-out;
   opacity: 1;
   pointer-events: none;

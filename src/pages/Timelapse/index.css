@@ -12,10 +12,3 @@
 .video-container {
   margin-top: 20px;
 }
-
-video {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 12px;
-  margin-bottom: 12px;
-}
