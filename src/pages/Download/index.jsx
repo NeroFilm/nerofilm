@@ -8,7 +8,7 @@ import useRefreshWarning from "../../hooks/useRefreshWarning";
 import Frame from "../../components/Frame/Frame";
 import print from "../../assets/logos/print.svg";
 import share from "../../assets/logos/share.svg";
-import { generateAndDownloadTimelapse } from "../../utils/generateTimelapse"; // 👈 import here
+import { generateAndDownloadTimelapse } from "../../utils/generateTimelapse";
 import "./index.css";
 
 function Download() {
@@ -16,7 +16,7 @@ function Download() {
 
   const frame = useFrame();
   const frameRef = useRef(null);
-  const canvasRef = useRef(null); // 👈 canvas for video rendering
+  const canvasRef = useRef(null); 
   const [frameImage, setFrameimage] = useState("");
   const [loading, setLoading] = useState(false);
 
