@@ -82,7 +82,7 @@ const Camera = () => {
       }
 
       //countdown
-      startCountdown(1, () => {
+      startCountdown(3, () => {
         takePhoto();
         setPhotoCount((prevCount) => prevCount + 1);
 
