@@ -117,8 +117,8 @@ function Download() {
 
       const shareData = {
         title: "NeroFilm",
-        text: `Check out my photo strip! ✨\nTake your own at https://nerofilm.co 📸`,
         files: [file],
+        text: "Check out my photo strip! ✨ Take your own at https://nerofilm.co 📸",
       };
       
 
