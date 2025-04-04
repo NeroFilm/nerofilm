@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
 import dft from "../../assets/options/default.svg";
 import bw from "../../assets/options/bw.svg";
-import vintage from "../../assets/options/bw.svg"; // needs .svg
-import beauty from "../../assets/options/bw.svg"; // needs .svg
+import vintage from "../../assets/options/vintage.svg"; 
+import beauty from "../../assets/options/beauty.svg";
 import Options from "../../components/Options/Options";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 
