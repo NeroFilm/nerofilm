@@ -1,0 +1,14 @@
+.timelapse-container {
+  padding: 24px;
+  text-align: center;
+}
+
+.timelapse-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.video-container {
+  margin-top: 20px;
+}

@@ -24,7 +24,7 @@
   --color-white: #ffffff;
   --color-black: #000000;
 
-  --heading-1: 54px;
+  --heading-1: 56px;
   --heading-2: 48px;
   --heading-3: 28px;
   --paragraph: 18px;
@@ -93,6 +93,8 @@ h1 {
   background-color: var(--white);
   border: 1px solid var(--gray-dark);
   color: var(--black);
+  align-items: center;
+  text-align: center;
 }
 
 .btn-inverted {
@@ -161,5 +163,14 @@ button:hover,
   .options-r {
     gap: 24px;
     flex-direction: column;
+  }
+  :root {
+    --heading-1: 36px;
+    --heading-2: 28px;
+    --heading-3: 20px;
+    --paragraph: 16px;
+  }
+  .frame-options {
+    gap: 24px;
   }
 }

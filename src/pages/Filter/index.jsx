@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
 import dft from "../../assets/options/default.svg";
 import bw from "../../assets/options/bw.svg";
-import vintage from "../../assets/options/bw.svg"; // needs .svg
-import beauty from "../../assets/options/bw.svg"; // needs .svg
+import vintage from "../../assets/options/vintage.svg"; 
+import beauty from "../../assets/options/beauty.svg";
 import Options from "../../components/Options/Options";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 
@@ -26,7 +26,7 @@ function Filter() {
     <div>
       <WhiteBackHeader />
       <section className="options-c">
-        <h1>Add filter</h1>
+        <h1 className="options-heading">Add filter</h1>
         <section className="options-r">
           <Frame
             layout={frame.layout}
@@ -35,7 +35,7 @@ function Filter() {
             design={frame.design}
           />
           <div className="options-box">
-            <p className="options-heading">Filters</p>
+            <p className="options-box-label">Filters</p>
             <Options
               options={options}
               onClick={(option) => setFrame({ ...frame, filter: option })}

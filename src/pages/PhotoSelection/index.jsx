@@ -39,7 +39,7 @@ function PhotoSelection() {
     <div>
       <WhiteBackHeader />
       <section className="options-c">
-        <h1>Select photos</h1>
+        <h1 className="options-heading">Select photos</h1>
         <div className="options-r">
           <Frame
             filter={frame.filter}
@@ -48,29 +48,38 @@ function PhotoSelection() {
             design={frame.design}
           />
           <ul className="image-options">
-            {frame.allImages.map((image, key) => {
-              return (
-                <li
-                  key={key}
-                  className={`${
-                    selected.includes(image)
-                      ? "image-option image-selected"
-                      : "image-option"
-                  }`}
-                  onClick={() => toggleSelect(image)}
-                >
-                  <p
-                    className={
-                      selected.includes(image) ? "selected-num num" : "num"
+            {frame.allImages
+              .filter((_, index) => index % 2 === 0)
+              .map((image, key) => {
+                return (
+                  <li
+                    key={key}
+                    className={`${
+                      selected.includes(image)
+                        ? "image-option image-selected"
+                        : "image-option"
                     }
+                      ${
+                        frame.layout === "original"
+                          ? "image-original"
+                          : "image-wide"
+                      }
+                    `}
+                    onClick={() => toggleSelect(image)}
                   >
-                    {selected.indexOf(image) + 1}
-                  </p>
-                  <img src={image} alt={`image ${key}`} />
-                </li>
-              );
-            })}
+                    <p
+                      className={
+                        selected.includes(image) ? "selected-num num" : "num"
+                      }
+                    >
+                      {selected.indexOf(image) + 1}
+                    </p>
+                    <img src={image} alt={`image ${key}`} />
+                  </li>
+                );
+              })}
           </ul>
+
         </div>
         <button className="btn" onClick={() => onClick()}>
           Continue
