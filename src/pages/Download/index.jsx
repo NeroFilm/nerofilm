@@ -48,12 +48,14 @@ function Download() {
 
   const printImage = () => {
     const iframe = document.createElement("iframe");
-    iframe.style.position = "absolute";
+    iframe.style.position = "fixed";
+    iframe.style.right = "0";
+    iframe.style.bottom = "0";
     iframe.style.width = "0";
     iframe.style.height = "0";
-    iframe.style.border = "none";
+    iframe.style.border = "0";
     document.body.appendChild(iframe);
-
+  
     const doc = iframe.contentWindow.document;
     doc.open();
     doc.write(`
@@ -79,16 +81,22 @@ function Download() {
           </style>
         </head>
         <body>
-          <img src="${frameImage}" alt="Printable" />
+          <img id="printImage" src="${frameImage}" alt="Printable" />
+          <script>
+            const image = document.getElementById('printImage');
+            image.onload = function () {
+              setTimeout(() => {
+                window.focus();
+                window.print();
+              }, 250);
+            };
+          </script>
         </body>
       </html>
     `);
     doc.close();
-
-    iframe.contentWindow.focus();
-    iframe.contentWindow.print();
   };
-
+  
   const shareImage = async () => {
     if (!frameRef.current) return;
 
@@ -107,12 +115,15 @@ function Download() {
       const blob = await response.blob();
       const file = new File([blob], "nerofilm.png", { type: blob.type });
 
-      if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        await navigator.share({
-          title: "NeroFilm",
-          text: "Check out my photo strip!",
-          files: [file],
-        });
+      const shareData = {
+        title: "NeroFilm",
+        text: `Check out my photo strip! ✨\nTake your own at https://nerofilm.co 📸`,
+        files: [file],
+      };
+      
+
+      if (navigator.canShare && navigator.canShare(shareData)) {
+        await navigator.share(shareData);
       } else {
         const link = document.createElement("a");
         link.download = "nerofilm.png";

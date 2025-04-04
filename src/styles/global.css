@@ -93,6 +93,8 @@ h1 {
   background-color: var(--white);
   border: 1px solid var(--gray-dark);
   color: var(--black);
+  align-items: center;
+  text-align: center;
 }
 
 .btn-inverted {
