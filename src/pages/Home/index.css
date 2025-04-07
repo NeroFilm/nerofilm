@@ -1,177 +1,305 @@
-/* === General Styles === */
+
+/* index.css */
 .home-container {
+  background-image: url('../../assets/background.png');
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  padding: 40px 40px;
   text-align: center;
-  padding: 40px;
-  background-color: var(--gray-lightest);
-  color: var(--black);
+}
+
+/* Header */
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: 40px;
-  min-height: 100vh;
-  height: auto;
-  overflow-y: auto;
-}
-
-/* === Typography (Fixed Style Across All Devices) === */
-.home-heading-1 {
-  font-size: clamp(2rem, 6vw, var(--heading-1)); /* Responsive but fixed */
-  font-weight: bold;
-}
-
-.home-heading-2 {
-  font-size: clamp(1.8rem, 3vw, var(--heading-2));
-  margin-top: 100px;
-}
-
-.home-heading-3 {
-  font-size: clamp(1.5rem, 4vw, var(--heading-3));
-  margin-top: 24px;
-  margin-bottom: 32px;
-}
-
-.home-slogan {
-  font-size: clamp(1.5rem, 4vw, var(--heading-3));
-  color: var(--gray-dark);
-  margin-bottom: 32px;
-}
-
-.home-paragraph {
-  font-size: clamp(1rem, 3vw, var(--paragraph));
-  color: var(--color-black);
-  margin-top: 60px;
-}
-
-/* === Layout (Fixed but Scalable) === */
-.home-main-content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1200px;
-  flex-wrap: wrap; /* Ensures content doesn’t break on smaller screens */
-}
-
-.home-left-content {
-  text-align: center;
-  flex: 1;
-  min-width: 300px; /* Prevents excessive shrinking */
-}
-
-.home-right-content {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-/* === Logo & Text === */
-.home-logo-text {
-  font-size: clamp(50px, 8vw, 100px);
-  font-weight: bold;
-  color: var(--color-black);
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.home-subtitle {
-  font-size: clamp(1.5rem, 3vw, var(--heading-3));
-  margin-bottom: 20px;
-}
-
-/* === Image Styling (Scales with Screen Size) === */
-.home-image1 {
-  width: 100%;
-  max-width: 200px;
-  margin-top: 120px;
-}
-
-.home-image2 {
-  width: 100%;
-  max-width: 200px;
-  margin-top: 40px;
-}
-
-.home-large-image {
-  width: 100%;
-  max-width: 1000px;
-  margin-top: 30px;
-}
-
-.home-paw {
-  width: 100%;
-  max-width: 1200px;
-  opacity: 0.8;
-  margin-top: 60px;
   margin-bottom: 60px;
+  position: relative;
 }
 
-/* === Buttons === */
-.home-button {
-  display: inline-block;
-  padding: 12px 24px;
-  font-size: clamp(16px, 2vw, 20px);
+.header-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.logo-small {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.get-started-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #2E2E2E;
   color: white;
-  background-color: var(--primary-color);
-  border-radius: 8px;
-  text-decoration: none;
-  transition: 0.3s ease-in-out;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.global-button {
-  margin-top: 40px;
+.header-center {
+  text-align: center;
+  margin-top: 50px;
 }
 
-.home-button:hover {
-  background-color: var(--primary-color-dark);
+.logo-large {
+  font-size: 32px;
+  font-weight: bold;
 }
 
-/* Responsive: Phones - iPhone */
-@media (max-width: 430px) {
-  .home-container {
-    padding: 5vw;
-    margin-top: 100px;
-  }
+.subtitle {
+  font-size: 16px;
+  color: #555;
+  margin-top: 5px;
+}
 
-  .home-main-content {
+/* Content Container */
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Photobooth Section */
+.photobooth-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 200px;
+  gap: 60px;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.key-lock-row {
+  display: flex;
+  gap: 8px; /* spacing between icons */
+  justify-content: center;
+  align-items: center;
+}
+
+.photobooth-left,
+.photobooth-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.booth img {
+  width: 320px;
+  margin-top: 80px;
+  margin-left: 10px;
+}
+
+.about-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-left: 60px;
+}
+
+.about-label {
+  position: absolute;
+  top: -90px;
+  left: 50px;
+  width: 100px;
+  z-index: 3;
+}
+
+.about-homepic1 {
+  width: 100px;
+  position: relative;
+  left: -10px;
+  z-index: 2;
+}
+
+.about-homepic2 {
+  width: 100px;
+  position: relative;
+  left: 10px;
+  z-index: 1;
+}
+
+/* Fridge Section */
+.fridge-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 240px;
+  margin-bottom: 120px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.fridge-text {
+  font-size: 24px;
+  line-height: 2.2;
+  max-width: 260px;
+  text-align: center;
+  margin-top: 180px;
+}
+
+.fridge-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.fridge-photo-stack {
+  position: absolute;
+  top: 240px;
+  left: 70px;
+  display: flex;
+  gap: 46px;
+  z-index: 2;
+}
+
+.fridge-homepic1,
+.fridge-homepic2 {
+  width: 50px;
+}
+
+.fridge-image {
+  width: 475px;
+}
+
+/* Perfume Section */
+.perfume-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+  flex-wrap: wrap;
+  text-align: left;
+  width: 100%;
+}
+
+.perfume-left-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.perfume-top-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-left: 100px;
+}
+
+.perfume-item1 {
+  width: 150px;
+}
+
+.perfume-item1-homepic1 {
+  width: 70px;
+  position: relative;
+  left: -10px;
+  z-index: 2;
+}
+
+.perfume-item1-homepic2 {
+  width: 70px;
+  position: relative;
+  left: 10px;
+  z-index: 1;
+}
+
+.perfume-item2 {
+  margin-top: -100px;
+  margin-left: 70px;
+  width: 400px;
+}
+
+.perfume-item3 {
+  margin-top: -190px;
+  width: 550px;
+  align-items: center;
+}
+
+.perfume-right-text {
+  font-size: 22px;
+  line-height: 1.8;
+  max-width: 500px;
+}
+
+/* Footer Buttons */
+.bottom-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: 60px;
+  margin-bottom: 100px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .photobooth-section {
     flex-direction: column;
+    gap: 40px;
   }
 
-  .home-heading-1 {
-    font-size: clamp(2rem, 6vw, var(--heading-1));
+  .booth img {
+    width: 260px;
   }
 
-  .home-heading-2 {
-    margin-top: 50px;
+  .about-homepic1,
+  .about-homepic2 {
+    width: 100px;
   }
 
-  .home-logo-text {
-    font-size: clamp(50px, 8vw, 100px);
+  .about-label {
+    width: 50px;
   }
 
-  .home-paragraph {
-    font-size: clamp(1rem, 3vw, var(--paragraph));
+  .fridge-image {
+    width: 220px;
   }
 
-  .home-image1,
-  .home-image2 {
-    max-width: 160px;
-  }
-
-  .home-large-image {
-    max-width: 90vw;
-  }
-
-  .home-button {
-    font-size: clamp(16px, 2.5vw, 20px);
-    padding: 2vw 5vw;
-  }
-
-  .global-button {
-    margin-bottom: 30px;
+  .perfume-center img {
+    width: 280px;
   }
 }
 
+
+.scroll-pic {
+  position: relative;
+  opacity: 0;
+  transform: translateY(60px) scale(0.95) rotate(0deg);
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.scroll-pic.in-view[data-rotate='-10'] {
+  transform: translateY(0) scale(1) rotate(-10deg);
+  opacity: 1;
+}
+
+
+.scroll-pic.in-view[data-rotate='10'] {
+  transform: translateY(0) scale(1) rotate(10deg);
+  opacity: 1;
+}
+
+
+
+/* Smooth hover animation for clickable icons */
+.icon-hover {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.icon-hover:hover {
+  transform: translateY(-6px) scale(1.05);
+}
