@@ -7,7 +7,7 @@ import {
   VideoCameraIcon,
   VideoCameraSlashIcon,
 } from "@heroicons/react/24/outline";
-import Shutter from "../../assets/Shutter.png";
+import Shutter from "../../assets/shutter.svg";
 import ShutterSound from "../../assets/sounds/CamShutter.wav";
 import "./index.css";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
