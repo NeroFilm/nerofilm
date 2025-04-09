@@ -85,7 +85,7 @@ const Home = () => {
               <img src={lock} alt="Lock Icon" />
             </div>
 
-            <Link to="/instructions">
+            <Link to="/frame-layout">
               <img
                 src={enterPhotobooth}
                 alt="Enter Photobooth"
@@ -189,7 +189,7 @@ const Home = () => {
         </section>
 
         <div className="bottom-button">
-          <Link to="/instructions">
+          <Link to="/frame-layout">
             <img
               src={enterPhotobooth}
               alt="Enter Photobooth"
