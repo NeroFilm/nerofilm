@@ -59,7 +59,7 @@ const Home = () => {
     <div className="home-container">
       <div className="header-top">
         <div className="logo-small">NeroFilm</div>
-        <Link to="/instructions">
+        <Link to="/frame-layout">
           <button className="get-started-btn">Enter Photobooth</button>
         </Link>
       </div>
