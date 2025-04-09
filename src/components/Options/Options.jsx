@@ -14,13 +14,17 @@ function Options({ options, onClick, selected, isFilter }) {
             playClickSound();
           }}
         >
-          <img
-            className={`option-img 
-              ${selected === option.name ? "option-img-selected" : ""} 
+          <div
+            className={`option-img-wrapper
+              ${selected === option.name ? "option-img-selected" : ""}`}
+          >
+            <img
+              className={`option-img 
               ${isFilter ? `frame-${option.name}` : ""}`}
-            src={option.image}
-            alt={option.name}
-          />
+              src={option.image}
+              alt={option.name}
+            />
+          </div>
           <p>{option.name}</p>
         </li>
       ))}

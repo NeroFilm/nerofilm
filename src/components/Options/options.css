@@ -9,13 +9,22 @@
   cursor: pointer;
 }
 
+.option-img-wrapper {
+  padding: 2px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-bottom: 4px;
+  border: 2px solid transparent;
+}
+
 .option-img-selected {
   border: 2px solid var(--accent);
-  border-radius: 8px;
 }
 
 .option-img {
   width: 64px;
   height: 64px;
   border-radius: 8px;
+  object-fit: cover;
+  display: block;
 }
