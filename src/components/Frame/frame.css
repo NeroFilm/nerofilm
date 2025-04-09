@@ -46,29 +46,6 @@
   object-fit: cover;
 }
 
-.frame-black {
-  background-color: black;
-}
-
-.frame-white {
-  background-color: white;
-  outline: 1px solid var(--gray-dark);
-}
-
-.frame-white .frame-logo,
-.frame-blue .frame-logo,
-.frame-pink .frame-logo {
-  color: var(--black);
-}
-
-.frame-pink {
-  background-color: rgb(251, 208, 215);
-}
-
-.frame-blue {
-  background-color: rgb(193, 233, 246);
-}
-
 .frame-bw {
   -webkit-filter: grayscale(100%) contrast(140%);
   filter: grayscale(100%) contrast(140%);

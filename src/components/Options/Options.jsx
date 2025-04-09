@@ -10,7 +10,7 @@ function Options({ options, onClick, selected, isFilter }) {
           key={index}
           className="option"
           onClick={() => {
-            onClick(option.name);
+            onClick(option);
             playClickSound();
           }}
         >

@@ -8,9 +8,20 @@ import white from "../../assets/options/white.svg";
 import pink from "../../assets/options/pink.svg";
 import blue from "../../assets/options/blue.svg";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
-import Unsplash from "../../components/Unsplash/Unsplash";
 import { useEffect, useState } from "react";
-import unsplashLogo from "../../assets/logos/Unsplash.svg";
+
+import frame1 from "../../assets/frames/1.png";
+import frame2 from "../../assets/frames/2.png";
+import frame3 from "../../assets/frames/3.png";
+import frame4 from "../../assets/frames/4.png";
+import frame5 from "../../assets/frames/5.png";
+import frame6 from "../../assets/frames/6.png";
+import frame7 from "../../assets/frames/7.png";
+import frame8 from "../../assets/frames/8.png";
+import frame9 from "../../assets/frames/9.png";
+import frame10 from "../../assets/frames/10.png";
+import frame11 from "../../assets/frames/11.png";
+import frame12 from "../../assets/frames/12.png";
 
 function FrameDesign() {
   useRefreshWarning();
@@ -22,10 +33,18 @@ function FrameDesign() {
   const setFrame = useFrameUpdate();
 
   const options = [
-    { name: "black", image: black },
-    { name: "white", image: white },
-    { name: "pink", image: pink },
-    { name: "blue", image: blue },
+    { name: "frame1", image: frame1 },
+    { name: "frame2", image: frame2 },
+    { name: "frame3", image: frame3 },
+    { name: "frame4", image: frame4 },
+    { name: "frame5", image: frame5 },
+    { name: "frame6", image: frame6 },
+    { name: "frame7", image: frame7 },
+    { name: "frame8", image: frame8 },
+    { name: "frame9", image: frame9 },
+    { name: "frame10", image: frame10 },
+    { name: "frame11", image: frame11 },
+    { name: "frame11", image: frame12 },
   ];
 
   useEffect(() => {
@@ -57,28 +76,12 @@ function FrameDesign() {
               >
                 Gallery
               </li>
-              <li
-                className={tab == "unsplash" && "selected-tab"}
-                onClick={() => {
-                  setTab("unsplash");
-                }}
-              >
-                <img
-                  className="unsplash-logo"
-                  src={unsplashLogo}
-                  alt="Unsplash"
-                />
-              </li>
             </ul>
-            {tab == "gallery" ? (
-              <Options
-                options={options}
-                onClick={(option) => setFrameDesign(option)}
-                selected={frame.design}
-              />
-            ) : (
-              <Unsplash setSelected={setFrameDesign} />
-            )}
+            <Options
+              options={options}
+              onClick={(option) => setFrameDesign(option.image)}
+              selected={frame.design}
+            />
           </div>
         </section>
         <Link className="btn" to="/filter" role="btn">
