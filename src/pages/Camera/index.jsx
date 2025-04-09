@@ -130,7 +130,7 @@ const Camera = () => {
             <div className="all-together">
               {!isShooting ? (
                 <h2 className="camera-instructions">
-                  Click to start taking photos
+                  Click shutter to start taking photos
                 </h2>
               ) : (
                 <h2 className="count-display">{photoCount}/8</h2>
