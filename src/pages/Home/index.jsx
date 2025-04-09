@@ -95,9 +95,11 @@ const Home = () => {
             <img src={oneway} alt="One Way" />
           </div>
 
-          <div className="booth">
-            <img src={photobooth} alt="Photobooth" />
-          </div>
+          <Link to="/frame-layout">
+            <div className="booth">
+              <img src={photobooth} alt="Photobooth" />
+            </div>
+          </Link>
 
           <div className="photobooth-right">
             <div className="about-section">

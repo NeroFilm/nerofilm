@@ -110,6 +110,10 @@
   margin-left: 10px;
 }
 
+.booth:hover {
+  opacity: 88%;
+}
+
 .about-section {
   position: relative;
   display: flex;

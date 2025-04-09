@@ -23,7 +23,6 @@ function FrameDesign() {
   useRefreshWarning();
 
   const [frameDesign, setFrameDesign] = useState("");
-  const [tab, setTab] = useState("gallery");
 
   const frame = useFrame();
   const setFrame = useFrameUpdate();
@@ -64,14 +63,7 @@ function FrameDesign() {
           />
           <div className="options-box">
             <ul className="tabs">
-              <li
-                className={tab == "gallery" && "selected-tab"}
-                onClick={() => {
-                  setTab("gallery");
-                }}
-              >
-                Gallery
-              </li>
+              <li className={"gallery"}>Gallery</li>
             </ul>
             <Options
               options={options}
