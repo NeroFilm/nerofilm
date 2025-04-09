@@ -3,10 +3,6 @@ import Frame from "../../components/Frame/Frame";
 import { Link } from "react-router-dom";
 import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
 import Options from "../../components/Options/Options";
-import black from "../../assets/options/black.svg";
-import white from "../../assets/options/white.svg";
-import pink from "../../assets/options/pink.svg";
-import blue from "../../assets/options/blue.svg";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 import { useEffect, useState } from "react";
 

@@ -21,8 +21,8 @@ const Instructions = () => {
 
   const checkboxClicked = () => {
     if (dontShowAgain) {
-      localStorage.setItem("skipInstructions", "true"); 
-      navigate("/camera", { replace: true }); 
+      localStorage.setItem("skipInstructions", "true");
+      navigate("/camera", { replace: true });
     }
   };
 
