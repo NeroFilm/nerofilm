@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 48px;
+  height: 100px;
+  width: 100%;
+  background-color: var(--beige);
+  color: var(--black);
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.header-nav {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+}
+
+.header-nav li a {
+  text-decoration: none;
+  color: var(--black);
+  font-size: 20px;
+}
+
+/* Responsive: Phones - iPhone */
+@media (max-width: 430px) {
+  .header {
+    padding: 20px 24px;
+    height: 80px;
+  }
+
+  .header-nav {
+    gap: 16px;
+  }
+
+  .logo a {
+    font-size: 18px;
+  }
+
+  .header-nav li a {
+    font-size: 14px;
+  }
+}
