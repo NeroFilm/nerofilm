@@ -1,6 +1,6 @@
 .frame {
   position: relative;
-  background-color: var(--gray-lightest);
+  background-color: var(--beige);
   display: grid;
   box-sizing: border-box;
   position: relative;

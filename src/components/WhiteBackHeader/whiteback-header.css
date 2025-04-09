@@ -4,7 +4,7 @@
   align-items: center;
   padding: 32px 48px;
   height: 100px;
-  background-color: var(--gray-lightest);
+  background-color: var(--beige);
   box-sizing: border-box;
 }
 
@@ -30,11 +30,10 @@
   font: var(--heading-font);
 }
 
-
 /* Responsive: Phones - iPhone */
 @media (max-width: 430px) {
   .white-back-header {
-    padding: 20px 24px; 
+    padding: 20px 24px;
     height: 80px;
   }
 

@@ -3,12 +3,14 @@ import { useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
 import BlackBackHeader from "../../components/BlackBackHeader/BlackBackHeader";
-import { VideoCameraIcon, VideoCameraSlashIcon } from "@heroicons/react/24/outline";
+import {
+  VideoCameraIcon,
+  VideoCameraSlashIcon,
+} from "@heroicons/react/24/outline";
 import Shutter from "../../assets/Shutter.png";
 import ShutterSound from "../../assets/sounds/CamShutter.wav";
 import "./index.css";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
-
 
 const Camera = () => {
   useRefreshWarning();
@@ -33,7 +35,7 @@ const Camera = () => {
   const takePhoto = (silent = false) => {
     const video = webcamRef.current.video;
     const canvas = document.createElement("canvas");
-    
+
     canvas.width = 1920;
     canvas.height = 1080; //THIS IS THE ISSUE, THE WIDTH AND HEIGHT ARE DIFF...
     const ctx = canvas.getContext("2d");
@@ -46,7 +48,9 @@ const Camera = () => {
 
     if (!silent) {
       shutterAudio.current.currentTime = 0;
-      shutterAudio.current.play().catch((error) => console.log("Audio play failed:", error));
+      shutterAudio.current
+        .play()
+        .catch((error) => console.log("Audio play failed:", error));
       setFlash(true);
       setTimeout(() => setFlash(false), 200);
     }
@@ -60,7 +64,7 @@ const Camera = () => {
   const startCountdown = (count, callback) => {
     if (count > 0) {
       setCountdown(count);
-      setTimeout(() => startCountdown(count - 1, callback), 1000);
+      setTimeout(() => startCountdown(count - 1, callback), 1);
     } else {
       setCountdown(null);
       callback();
@@ -100,7 +104,11 @@ const Camera = () => {
   return (
     <div>
       <BlackBackHeader />
-      <div className={`camera-page ${frame.layout === "wide" ? "wide-mode" : "original-mode"}`}>
+      <div
+        className={`camera-page ${
+          frame.layout === "wide" ? "wide-mode" : "original-mode"
+        }`}
+      >
         {cameraPermission === null && (
           <div className="camera-access-message">
             <VideoCameraIcon className="camera-image" />
@@ -121,7 +129,9 @@ const Camera = () => {
           <>
             <div className="all-together">
               {!isShooting ? (
-                <h2 className="camera-instructions">Click to start taking photos</h2>
+                <h2 className="camera-instructions">
+                  Click to start taking photos
+                </h2>
               ) : (
                 <h2 className="count-display">{photoCount}/8</h2>
               )}
@@ -133,15 +143,27 @@ const Camera = () => {
                   audio={false}
                   mirrored={true}
                   screenshotFormat="image/png"
-                  videoConstraints={{ width: { ideal: 1920 }, height: { ideal: 1080 }, facingMode: "user" }}
+                  videoConstraints={{
+                    width: { ideal: 1920 },
+                    height: { ideal: 1080 },
+                    facingMode: "user",
+                  }}
                 />
                 {flash && <div className="flash-overlay"></div>}
 
                 <div className="camera-layer">
-                  <button className="shutter-button" onClick={startPhotoSequence} disabled={isShooting}>
+                  <button
+                    className="shutter-button"
+                    onClick={startPhotoSequence}
+                    disabled={isShooting}
+                  >
                     <img src={Shutter} alt="Shutter" className="shutter-icon" />
                     {isShooting && (
-                      <div className={`countdown-timer ${countdown === null ? "hidden" : ""}`}>
+                      <div
+                        className={`countdown-timer ${
+                          countdown === null ? "hidden" : ""
+                        }`}
+                      >
                         {countdown !== null ? countdown : <span>&nbsp;</span>}
                       </div>
                     )}

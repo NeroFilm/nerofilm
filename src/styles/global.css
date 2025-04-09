@@ -6,12 +6,13 @@
   --default-font: "Lato", sans-serif;
   --white: #ffffff;
   --black: #000000;
-  --gray-lightest: #f7f7f7;
+  --beige: #f7f7f7;
   --gray-light: #ececec;
   --gray: #d9d9d9;
   --gray-dark: #4a4a4a;
   --text-color: rgb(255, 255, 255);
   --accent: pink;
+  --beige: #f6f3f2;
 
   line-height: 1.5;
   font-weight: 400;
@@ -39,7 +40,7 @@
 body {
   min-height: 100vh;
   font-family: var(--heading-font);
-  background-color: var(--gray-lightest);
+  background-color: var(--beige);
 }
 
 p,
