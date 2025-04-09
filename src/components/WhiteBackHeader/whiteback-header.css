@@ -27,7 +27,7 @@
 .white-logo a {
   color: var(--black);
   text-decoration: none;
-  font: var(--heading-font);
+  font: var(--default-font);
 }
 
 /* Responsive: Phones - iPhone */

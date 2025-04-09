@@ -13,7 +13,7 @@
   color: var(--white);
   top: 8px;
   font-size: 8px;
-  font-family: var(--heading-font);
+  font-family: var(--default-font);
 }
 
 .frame-original {
