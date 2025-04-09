@@ -11,10 +11,11 @@
 
 .option-img-selected {
   border: 2px solid var(--accent);
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .option-img {
   width: 64px;
   height: 64px;
+  border-radius: 8px;
 }

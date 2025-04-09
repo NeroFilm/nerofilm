@@ -70,14 +70,14 @@
 }
 
 .frame-bw {
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%) contrast(140%);
+  filter: grayscale(100%) contrast(140%);
 }
 
 .frame-vintage {
-  -webkit-filter: grayscale(100%) hue-rotate(10deg) contrast(110%)
+  -webkit-filter: grayscale(100%) hue-rotate(10deg) contrast(120%)
     brightness(110%) sepia(20%) blur(0.1px);
-  filter: grayscale(100%) hue-rotate(10deg) contrast(110%) brightness(110%)
+  filter: grayscale(100%) hue-rotate(10deg) contrast(120%) brightness(110%)
     sepia(20%) blur(0.1px);
 }
 
