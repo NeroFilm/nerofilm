@@ -5,7 +5,7 @@
   box-sizing: border-box;
   position: relative;
   place-items: center;
-  border: 1px solid var(--brown);
+  outline: 1px solid var(--brown);
 }
 
 .frame-logo {
@@ -51,9 +51,13 @@
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   z-index: 2;
 }
 
