@@ -20,7 +20,7 @@ function Options({ options, onClick, selected, isFilter }) {
           >
             <img
               className={`option-img 
-              ${isFilter ? `frame-${option.name}` : ""}`}
+              ${isFilter ? `filter-${option.name}` : ""}`}
               src={option.image}
               alt={option.name}
             />

@@ -88,13 +88,18 @@ h1 {
 .global-button {
   background-color: var(--black);
   color: var(--white);
-  padding: 16px 48px; /* Increased size */
-  font-size: var(--body-large);
+  padding: 12px 40px; /* Increased size */
+  font-size: var(--body-xlarge);
   border-radius: 8px; /* Creates rounded edges */
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
   text-decoration: none;
+  height: 64px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-secondary {
