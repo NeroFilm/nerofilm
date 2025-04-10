@@ -46,6 +46,7 @@
 }
 
 .get-started-btn {
+  height: 44px;
   padding: 10px 20px;
   font-size: var(--body-medium);
   background-color: var(--black);
@@ -91,10 +92,7 @@
 }
 
 .key-lock-row {
-  display: flex;
-  gap: 8px; /* spacing between icons */
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 8px;
 }
 
 .photobooth-left,
@@ -108,6 +106,7 @@
 .booth img {
   width: 320px;
   margin-top: 48px;
+  margin-left: 8px;
 }
 
 .booth:hover {
@@ -158,7 +157,6 @@
 
 .fridge-text {
   font-size: var(--body-xlarge);
-  line-height: 2.2;
   max-width: 260px;
   text-align: center;
   margin-top: 180px;
@@ -244,8 +242,7 @@
 }
 
 .perfume-right-text {
-  font-size: var(--body-medium);
-  line-height: 1.8;
+  font-size: var(--body-xlarge);
   max-width: 500px;
 }
 

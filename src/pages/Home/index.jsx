@@ -132,13 +132,7 @@ const Home = () => {
 
         <section className="fridge-section">
           <div className="fridge-text">
-            Decorate
-            <br />
-            your place
-            <br />
-            with
-            <br />
-            special moments
+            Decorate your place with special moments
           </div>
 
           <div className="fridge-container">
