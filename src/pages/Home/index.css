@@ -1,9 +1,10 @@
 /* index.css */
 .home-container {
-  padding: 32px 48px;
+  margin-top: 80px;
   text-align: center;
 }
 
+/* home background image */
 .home-container::before {
   content: "";
   position: fixed;
@@ -21,53 +22,19 @@
   z-index: -1;
 }
 
-.hero-header {
-  font-size: var(--heading-1);
-}
+/* hero */
 
-/* Header */
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 60px;
-  position: relative;
-}
-
-.header-top {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo-small {
-  font-size: var(--body-medium);
-}
-
-.get-started-btn {
-  height: 44px;
-  padding: 10px 20px;
-  font-size: var(--body-medium);
-  background-color: var(--black);
-  color: var(--white);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.header-center {
+.hero {
   text-align: center;
 }
 
-.logo-large {
-  font-size: var(--body-xlarge);
+.hero-heading {
+  font-size: var(--heading-1);
 }
 
-.subtitle {
-  font-size: var(--body-medium);
+.hero-subheading {
+  font-size: var(--body-large);
   color: var(--gray-dark);
-  margin-top: 5px;
 }
 
 /* Content Container */
@@ -105,8 +72,8 @@
 
 .booth img {
   width: 320px;
-  margin-top: 48px;
-  margin-left: 8px;
+  margin-top: 32px;
+  margin-left: 24px;
 }
 
 .booth:hover {
@@ -126,7 +93,6 @@
   position: absolute;
   top: -90px;
   left: 50px;
-  width: 100px;
   z-index: 3;
 }
 
@@ -270,10 +236,6 @@
   .about-homepic1,
   .about-homepic2 {
     width: 100px;
-  }
-
-  .about-label {
-    width: 50px;
   }
 
   .fridge-image {

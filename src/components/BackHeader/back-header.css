@@ -2,13 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 48px;
-  height: 100px;
+  padding: 24px 48px;
+  height: 88px;
   box-sizing: border-box;
-}
-
-.back-header-white {
-  background-color: var(--beige);
 }
 
 .back-header-black {
@@ -27,30 +23,14 @@
   padding: 0;
 }
 
-.white-icon {
-  width: 30px;
-  height: 30px;
+.back-icon {
+  width: 32px;
+  height: 32px;
   color: var(--black);
 }
 
-.black-icon {
-  width: 30px;
-  height: 30px;
+.white-back-icon {
   color: var(--white);
-}
-
-.white-logo a {
-  color: var(--black);
-  text-decoration: none;
-  font: var(--default-font);
-  font-size: var(--body-xlarge);
-}
-
-.black-logo a {
-  color: var(--white);
-  text-decoration: none;
-  font: var(--default-font);
-  font-size: var(--body-xlarge);
 }
 
 /* Responsive: Phones - iPhone */
@@ -59,15 +39,9 @@
     padding: 20px 24px;
     height: 80px;
   }
-
-  .white-logo a,
-  .black-logo a {
-    font-size: var(--body-large);
-  }
-
   .white-icon,
   .black-icon {
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 24px;
   }
 }

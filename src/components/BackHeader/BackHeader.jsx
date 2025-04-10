@@ -7,14 +7,8 @@ const BackHeader = ({ isBlack = false }) => {
   const navigate = useNavigate();
 
   return (
-    <header
-      className={`back-header ${
-        isBlack ? "back-header-black" : "back-header-white"
-      }`}
-    >
-      <div
-        className={`back-header-logo ${isBlack ? "black-logo" : "white-logo"}`}
-      >
+    <header className={`back-header ${isBlack && "back-header-black"}`}>
+      <div className={`logo ${isBlack && "white-logo"}`}>
         <Link to="/">NeroFilm</Link>
       </div>
       <button
@@ -22,7 +16,7 @@ const BackHeader = ({ isBlack = false }) => {
         className="back-header-back"
       >
         <ArrowUturnLeftIcon
-          className={`back-icon ${isBlack ? "black-icon" : "white-icon"}`}
+          className={`back-icon ${isBlack && "white-back-icon"}`}
         />
       </button>
     </header>

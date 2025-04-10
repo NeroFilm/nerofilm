@@ -26,12 +26,6 @@
   gap: 4px;
 }
 
-.img-wrapper {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
 .frame-design {
   position: absolute;
   top: 0;

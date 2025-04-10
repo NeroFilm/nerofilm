@@ -17,6 +17,9 @@ import about from "../../assets/about.svg";
 import bags from "../../assets/bags.svg";
 import cattodolist from "../../assets/cattodolist.svg";
 
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+
 const Home = () => {
   const aboutPic1Ref = useRef(null);
   const aboutPic2Ref = useRef(null);
@@ -57,18 +60,11 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <div className="header-top">
-        <div className="white-logo">
-          <Link to="/">NeroFilm</Link>
-        </div>
-        <Link to="/frame-layout">
-          <button className="get-started-btn">Enter Photobooth</button>
-        </Link>
-      </div>
+      <Header />
 
-      <div className="header-center">
-        <div className="hero-header">NeroFilm</div>
-        <div className="subtitle">Cherish memories, relive moments</div>
+      <div className="hero">
+        <div className="hero-heading">NeroFilm</div>
+        <div className="hero-subheading">Cherish memories, relive moments</div>
       </div>
 
       <main className="content-container">
@@ -197,6 +193,7 @@ const Home = () => {
           <img src={oneway} alt="One Way" />
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

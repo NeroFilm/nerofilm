@@ -8,7 +8,6 @@ import FrameDesign from "./pages/FrameDesign";
 import Download from "./pages/Download";
 import Camera from "./pages/Camera";
 import PhotoSelection from "./pages/PhotoSelection";
-import Instructions from "./pages/Instructions";
 import "./styles/global.css";
 import Sticker from "./pages/Sticker";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -21,7 +20,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/instructions" element={<Instructions />} />
           <Route path="/frame-layout" element={<FrameLayout />} />
           <Route path="/camera" element={<Camera />} />
           <Route path="/photo-selection" element={<PhotoSelection />} />

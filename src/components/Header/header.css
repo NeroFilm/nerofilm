@@ -1,15 +1,13 @@
 .header {
+  position: fixed;
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 48px;
-  height: 100px;
+  padding: 24px 48px;
+  height: 88px;
   width: 100%;
-  background-color: var(--beige);
-  color: var(--black);
-  box-sizing: border-box;
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -19,8 +17,7 @@
 .header-nav {
   list-style: none;
   display: flex;
-  gap: 32px;
-  height: 44px;
+  gap: 24px;
   align-items: center;
 }
 
@@ -28,6 +25,15 @@
   text-decoration: none;
   color: var(--black);
   font-size: var(--body-large);
+}
+
+.btn-small {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 8px 16px;
+  font-size: var(--body-medium);
+  border-radius: 4px;
+  border: none;
 }
 
 /* Responsive: Phones - iPhone */
@@ -41,11 +47,7 @@
     gap: 16px;
   }
 
-  .logo a {
-    font-size: var(--body-large);
-  }
-
   .header-nav li a {
-    font-size: var(--body-xsmall);
+    font-size: var(--body-small);
   }
 }

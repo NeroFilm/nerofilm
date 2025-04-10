@@ -18,6 +18,7 @@
   overflow: hidden;
   cursor: pointer;
   background: black;
+  border-radius: 4px;
 }
 
 .image-original {

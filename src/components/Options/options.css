@@ -1,9 +1,11 @@
 .options {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  max-width: 520px;
+}
+
+.options:not(:has(:nth-child(4))) {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .option {
@@ -13,7 +15,7 @@
 
 .option-img-wrapper {
   padding: 2px;
-  border-radius: 10px;
+  border-radius: 6px;
   box-sizing: border-box;
   margin-bottom: 4px;
   border: 2px solid transparent;
@@ -26,7 +28,7 @@
 .option-img {
   width: 64px;
   height: 64px;
-  border-radius: 8px;
+  border-radius: 4px;
   object-fit: cover;
   display: block;
 }
