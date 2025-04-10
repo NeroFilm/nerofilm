@@ -149,24 +149,6 @@ button:hover,
   cursor: pointer;
 }
 
-.tabs {
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.tabs li {
-  cursor: pointer;
-  color: var(--gray-dark);
-  padding: 8px 0px;
-}
-
-.selected-tab {
-  color: var(--black);
-  border-bottom: 1px solid var(--black);
-}
-
 @media (max-width: 600px) {
   .options-r {
     gap: 24px;

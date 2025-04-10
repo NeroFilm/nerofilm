@@ -35,9 +35,6 @@ function FrameDesign() {
             design={frame.design}
           />
           <div className="options-box">
-            <ul className="tabs">
-              <li className={"gallery"}>Gallery</li>
-            </ul>
             <Options
               options={frameDesigns}
               onClick={(option) =>

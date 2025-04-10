@@ -1,7 +1,9 @@
 .options {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 12px;
+  max-width: 500px;
 }
 
 .option {

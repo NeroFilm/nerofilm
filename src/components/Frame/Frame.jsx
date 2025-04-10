@@ -15,14 +15,8 @@ function Frame({ layout, images = [], filter, design, stickers }) {
   }, [images]);
 
   return (
-    <div
-      className={`frame frame-${layout} frame-${design}`}
-      style={{
-        backgroundImage: `url(${design})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <div className={`frame frame-${layout}`}>
+      <img className="frame-design" src={design} alt="" />
       {imgArr.map((img, index) => (
         <div key={index} className="img-wrapper">
           <img

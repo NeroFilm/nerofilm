@@ -90,13 +90,13 @@ const frameDesigns = [
     wide: wideSwan,
   },
   {
-    name: "cherry blossoms",
+    name: "sakura",
     image: optionCherryBlossoms,
     original: originalCherryBlossoms,
     wide: wideCherryBlossoms,
   },
   {
-    name: "flower field",
+    name: "field",
     image: optionFlowerField,
     original: originalFlowerField,
     wide: wideFlowerField,

@@ -32,10 +32,9 @@ function Filter() {
             design={frame.design}
           />
           <div className="options-box">
-            <p className="options-box-label">Filters</p>
             <Options
               options={options}
-              onClick={(option) => setFrame({ ...frame, filter: option })}
+              onClick={(option) => setFrame({ ...frame, filter: option.name })}
               selected={frame.filter}
               isFilter={true}
             />
