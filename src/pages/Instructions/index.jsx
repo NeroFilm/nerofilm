@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./index.css";
-import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
+import BackHeader from "../../components/BackHeader/BackHeader";
 import { ClockIcon } from "@heroicons/react/24/outline";
 import { CameraIcon } from "@heroicons/react/24/outline";
 import { PhotoIcon } from "@heroicons/react/24/outline";
@@ -28,7 +28,7 @@ const Instructions = () => {
 
   return (
     <div>
-      <WhiteBackHeader />
+      <BackHeader />
       <div className="instruction-box">
         <div className="texts-box">
           <h2>Before Taking Your Photos</h2>

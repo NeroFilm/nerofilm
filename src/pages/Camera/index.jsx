@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import { useFrame, useFrameUpdate } from "../../hooks/useFrame";
-import BlackBackHeader from "../../components/BlackBackHeader/BlackBackHeader";
+import BackHeader from "../../components/BackHeader/BackHeader";
 import {
   VideoCameraIcon,
   VideoCameraSlashIcon,
@@ -103,7 +103,7 @@ const Camera = () => {
 
   return (
     <div>
-      <BlackBackHeader />
+      <BackHeader isBlack />
       <div
         className={`camera-page ${
           frame.layout === "wide" ? "wide-mode" : "original-mode"

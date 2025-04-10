@@ -1,6 +1,6 @@
 import { useFrame } from "../../hooks/useFrame";
 import { useRef, useState } from "react";
-import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
+import BackHeader from "../../components/BackHeader/BackHeader";
 import { generateAndDownloadTimelapse } from "../../utils/generateTimelapse";
 import "./index.css";
 
@@ -19,7 +19,7 @@ function Timelapse() {
 
   return (
     <div className="timelapse-container">
-      <WhiteBackHeader />
+      <BackHeader />
       <h1 className="timelapse-title">Download Timelapse</h1>
 
       {/* Hidden canvas used for rendering the video */}

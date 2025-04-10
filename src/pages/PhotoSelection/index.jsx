@@ -4,7 +4,7 @@ import Frame from "../../components/Frame/Frame";
 import { useState } from "react";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
-import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
+import BackHeader from "../../components/BackHeader/BackHeader";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 import { playClickSound } from "../../utils/soundUtils";
 
@@ -37,7 +37,7 @@ function PhotoSelection() {
 
   return (
     <div>
-      <WhiteBackHeader />
+      <BackHeader />
       <section className="options-c">
         <h1 className="options-heading">Select photos</h1>
         <div className="options-r">

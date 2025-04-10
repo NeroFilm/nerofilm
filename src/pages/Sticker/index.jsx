@@ -1,6 +1,6 @@
 import { useFrame, useFrameUpdate } from "../../hooks/useFrame";
 import Frame from "../../components/Frame/Frame";
-import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
+import BackHeader from "../../components/BackHeader/BackHeader";
 import * as fabric from "fabric";
 import { useRef, useEffect, useCallback } from "react";
 import { frameSize } from "../../constants/frames";
@@ -164,7 +164,7 @@ function Sticker() {
 
   return (
     <div>
-      <WhiteBackHeader />
+      <BackHeader />
       <section className="options-c">
         <h1 className="options-heading">Add sticker</h1>
         <section className="options-r">

@@ -1,31 +1,48 @@
-.black-back-header {
+.back-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 32px 48px;
   height: 100px;
-  background-color: var(--black);
   box-sizing: border-box;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
 }
 
-.black-back-header-back {
+.back-header-white {
+  background-color: var(--beige);
+}
+
+.back-header-black {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--black);
+  z-index: 1;
+}
+
+.back-header-back {
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0;
+}
+
+.white-icon {
+  width: 30px;
+  height: 30px;
+  color: var(--black);
 }
 
 .black-icon {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   color: var(--white);
 }
 
-.black-logo {
+.white-logo a {
+  color: var(--black);
+  text-decoration: none;
+  font: var(--default-font);
   font-size: 24px;
 }
 
@@ -33,19 +50,22 @@
   color: var(--white);
   text-decoration: none;
   font: var(--default-font);
+  font-size: 24px;
 }
 
 /* Responsive: Phones - iPhone */
 @media (max-width: 430px) {
-  .black-back-header {
+  .back-header {
     padding: 20px 24px;
     height: 80px;
   }
 
-  .black-logo {
+  .white-logo a,
+  .black-logo a {
     font-size: 18px;
   }
 
+  .white-icon,
   .black-icon {
     width: 25px;
     height: 25px;

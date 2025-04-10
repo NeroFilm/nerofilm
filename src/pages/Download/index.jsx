@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { toPng } from "html-to-image";
 import { useFrame } from "../../hooks/useFrame";
-import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
+import BackHeader from "../../components/BackHeader/BackHeader";
 import Options from "../../components/Options/Options";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 import Frame from "../../components/Frame/Frame";
@@ -148,7 +148,7 @@ function Download() {
 
   return (
     <div>
-      <WhiteBackHeader />
+      <BackHeader />
       <canvas ref={canvasRef} style={{ display: "none" }}></canvas>{" "}
       {/* Hidden canvas */}
       <section className="options-c">
