@@ -43,12 +43,15 @@
   height: 16px;
   text-align: center;
   border-radius: 100%;
-  background-color: gray;
-  color: gray;
+  background-color: var(--gray-dark);
+  color: var(--gray-dark);
+  font-size: 10px;
+  line-height: 16px;
 }
 
 .selected-num {
   background-color: var(--white);
+  color: var(--black);
 }
 
 /* Media Query for Small Screens */
