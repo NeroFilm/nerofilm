@@ -93,8 +93,8 @@ const Camera = () => {
         setTimeout(() => {
           takePhoto(true);
           count--;
-          setTimeout(takeNextPhoto, 1); // TODO CHANGE BACK TO 500
-        }, 1); // TODO CHANGE BACK TO 500
+          setTimeout(takeNextPhoto, 500);
+        }, 500);
       });
     };
 

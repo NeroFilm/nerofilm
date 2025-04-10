@@ -8,6 +8,8 @@ import { playClickSound } from "../../utils/soundUtils";
 import { useEffect } from "react";
 import { defaultFrame } from "../../constants/frames";
 import { useRef } from "react";
+import originalBlack from "../../assets/frames/original-black.png";
+import wideBlack from "../../assets/frames/wide-black.png";
 
 function FrameLayout() {
   const options = ["original", "wide"];
@@ -47,7 +49,7 @@ function FrameLayout() {
                     images={frame.images}
                     filter={frame.filter}
                     layout={option}
-                    design={frame.design}
+                    design={option == "original" ? originalBlack : wideBlack}
                   />
                 </div>
                 <p className="frame-desc">
