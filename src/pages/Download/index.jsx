@@ -152,7 +152,7 @@ function Download() {
       <canvas ref={canvasRef} style={{ display: "none" }}></canvas>{" "}
       {/* Hidden canvas */}
       <section className="options-c">
-        <h1 className="options-heading">Download & share</h1>
+        <h1 className="options-heading">Download & Share</h1>
         <section className="options-r">
           <div ref={frameRef} style={{ display: "inline-block" }}>
             <Frame

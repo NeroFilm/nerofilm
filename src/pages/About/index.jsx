@@ -13,7 +13,7 @@ const About = () => {
       <div className="about-privacy-container">
         <div className="about-privacy-wrapper">
           <div className="about-privacy-text-section">
-            <h1 className="about-privacy-heading">ABOUT US</h1>
+            <h1 className="about-privacy-heading">About Us</h1>
 
             <div className="about-privacy-text-container">
               <p className="about-privacy-paragraph">

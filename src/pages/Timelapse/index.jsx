@@ -26,7 +26,7 @@ function Timelapse() {
       <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
 
       <button className="btn" onClick={handleDownload} disabled={loading}>
-        {loading ? "Generating..." : "Download Timelapse"}
+        {loading ? "Generating Timelapse..." : "Download Timelapse"}
       </button>
     </div>
   );

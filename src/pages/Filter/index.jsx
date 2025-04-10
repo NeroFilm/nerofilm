@@ -23,7 +23,7 @@ function Filter() {
     <div>
       <BackHeader />
       <section className="options-c">
-        <h1 className="options-heading">Add filter</h1>
+        <h1 className="options-heading">Add Filter</h1>
         <section className="options-r">
           <Frame
             layout={frame.layout}

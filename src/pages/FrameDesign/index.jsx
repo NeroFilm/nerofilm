@@ -19,7 +19,7 @@ function FrameDesign() {
     <div>
       <BackHeader />
       <section className="options-c">
-        <h1 className="options-heading">Choose frame</h1>
+        <h1 className="options-heading">Choose Frame</h1>
         <section className="options-r">
           <Frame
             images={frame.images}
