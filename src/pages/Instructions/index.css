@@ -58,7 +58,7 @@ body {
   align-items: center;
   justify-content: left;
   width: 100%;
-  gap: 12px;
+  gap: var(--body-xsmall);
   margin-left: 50px;
   margin-bottom: 7px;
 }
@@ -115,7 +115,7 @@ body {
   }
 
   .instructions {
-    font-size: 12px;
+    font-size: var(--body-xsmall);
     margin-bottom: 10px;
     width: 80%;
   }
@@ -134,13 +134,13 @@ body {
   }
 
   .checkbox {
-    font-size: 12px;
+    font-size: var(--body-xsmall);
   }
 
   .ready-btn {
-    padding: 12px 35px;
+    padding: var(--body-xsmall) 35px;
     border-radius: 7px;
-    font-size: 12px;
+    font-size: var(--body-xsmall);
     transition: 0.3s;
   }
 }

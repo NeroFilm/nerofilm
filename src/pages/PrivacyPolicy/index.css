@@ -26,7 +26,7 @@
 }
 
 .privacy-heading {
-  font-size: 32px;
+  font-size: var(--body-xlarge);
   margin-bottom: 20px;
   color: var(--black);
   text-align: center;
@@ -39,7 +39,7 @@
 }
 
 .privacy-paragraph {
-  font-size: 16px;
+  font-size: var(--body-medium);
   line-height: 1.6;
   color: var(--black);
   margin: 0;
@@ -53,12 +53,12 @@
   }
 
   .privacy-heading {
-    font-size: 38px;
+    font-size: var(--body-xlarge);
     text-align: left;
   }
 
   .privacy-paragraph {
-    font-size: 18px;
+    font-size: var(--body-large);
     text-align: left;
     line-height: 1.7;
   }
@@ -81,12 +81,12 @@
   }
 
   .privacy-heading {
-    font-size: 42px;
+    font-size: var(--heading-1);
     margin-bottom: 25px;
   }
 
   .privacy-paragraph {
-    font-size: 19px;
+    font-size: var(--body-xlarge);
   }
 }
 
@@ -101,12 +101,12 @@
   }
 
   .privacy-heading {
-    font-size: 48px;
+    font-size: var(--heading-1);
     margin-bottom: 30px;
   }
 
   .privacy-paragraph {
-    font-size: 20px;
+    font-size: var(--body-xlarge);
     line-height: 1.8;
   }
 }

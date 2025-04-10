@@ -4,7 +4,7 @@
 }
 
 .timelapse-title {
-  font-size: 24px;
+  font-size: var(--body-xlarge);
   font-weight: 600;
   margin-bottom: 16px;
 }

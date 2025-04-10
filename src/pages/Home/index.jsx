@@ -67,7 +67,7 @@ const Home = () => {
       </div>
 
       <div className="header-center">
-        <div className="logo-large">NeroFilm</div>
+        <div className="hero-header">NeroFilm</div>
         <div className="subtitle">Cherish memories, relive moments</div>
       </div>
 

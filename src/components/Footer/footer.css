@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 12px 0px;
+  padding: var(--body-xsmall) 0px;
   background-color: var(--beige);
   width: 100%;
   height: 80px;
@@ -13,7 +13,7 @@
 }
 
 .logo-small {
-  font-size: 1.2rem;
+  font-size: var(--body-xlarge);
 }
 
 .footer-right {
@@ -26,7 +26,7 @@
 .footer-email {
   color: var(--black);
   text-decoration: none;
-  font-size: 12px;
+  font-size: var(--body-xsmall);
 }
 
 .footer-email:hover {
@@ -36,7 +36,7 @@
 .privacy-policy-link {
   color: var(--black);
   text-decoration: none;
-  font-size: 12px;
+  font-size: var(--body-xsmall);
 }
 
 .privacy-policy-link:hover {
@@ -54,7 +54,7 @@
   }
 
   .logo-small {
-    font-size: 1.3rem;
+    font-size: var(--body-large);
   }
 
   .footer-right {
@@ -64,7 +64,7 @@
 
   .footer-email,
   .privacy-policy-link {
-    font-size: 16px;
+    font-size: var(--body-medium);
   }
 }
 
@@ -76,7 +76,7 @@
   }
 
   .logo-small {
-    font-size: 1.5rem;
+    font-size: var(--body-medium);
     margin-top: -4px;
   }
 

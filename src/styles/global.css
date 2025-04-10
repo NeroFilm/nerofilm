@@ -21,10 +21,13 @@
   --color-white: #ffffff;
   --color-black: #000000;
 
-  --heading-1: 56px;
-  --heading-2: 48px;
-  --heading-3: 28px;
-  --paragraph: 18px;
+  --heading-1: 40px;
+  --heading-2: 32px;
+  --body-xlarge: 24px;
+  --body-large: 18px;
+  --body-medium: 16px;
+  --body-small: 14px;
+  --body-xsmall: var(--body-xsmall);
 }
 
 * {
@@ -68,17 +71,17 @@ ul {
 
 .logo a {
   text-decoration: none;
-  font-size: 24px;
+  font-size: var(--body-xlarge);
   font-family: var(--default-font);
   color: var(--black);
 }
 
 .logo-small {
-  font-size: 24px;
+  font-size: var(--body-xlarge);
 }
 
 h1 {
-  font-size: 2.4em;
+  font-size: var(--heading-1);
   line-height: 1.1;
 }
 
@@ -87,7 +90,7 @@ h1 {
   background-color: var(--black);
   color: var(--white);
   padding: 16px 48px; /* Increased size */
-  font-size: 20px; /* Ensure text size is applied */
+  font-size: var(--body-large);
   border-radius: 8px; /* Creates rounded edges */
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -107,7 +110,7 @@ h1 {
   background-color: var(--white);
   color: var(--black);
   padding: 12px 28px;
-  font-size: 20px;
+  font-size: var(--body-large);
   margin-top: 8px;
 }
 
@@ -139,7 +142,7 @@ button:hover,
 }
 
 .options-heading {
-  margin-bottom: 12px;
+  margin-bottom: var(--body-xsmall);
 }
 
 .underline {
@@ -155,7 +158,7 @@ button:hover,
   :root {
     --heading-1: 36px;
     --heading-2: 28px;
-    --heading-3: 20px;
+    --body-xlarge: 20px;
     --paragraph: 16px;
   }
   .frame-options {

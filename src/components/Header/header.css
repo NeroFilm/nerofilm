@@ -24,7 +24,7 @@
 .header-nav li a {
   text-decoration: none;
   color: var(--black);
-  font-size: 20px;
+  font-size: var(--body-large);
 }
 
 /* Responsive: Phones - iPhone */
@@ -39,10 +39,10 @@
   }
 
   .logo a {
-    font-size: 18px;
+    font-size: var(--body-large);
   }
 
   .header-nav li a {
-    font-size: 14px;
+    font-size: var(--body-xsmall);
   }
 }

@@ -43,14 +43,14 @@
   color: var(--black);
   text-decoration: none;
   font: var(--default-font);
-  font-size: 24px;
+  font-size: var(--body-xlarge);
 }
 
 .black-logo a {
   color: var(--white);
   text-decoration: none;
   font: var(--default-font);
-  font-size: 24px;
+  font-size: var(--body-xlarge);
 }
 
 /* Responsive: Phones - iPhone */
@@ -62,7 +62,7 @@
 
   .white-logo a,
   .black-logo a {
-    font-size: 18px;
+    font-size: var(--body-large);
   }
 
   .white-icon,
