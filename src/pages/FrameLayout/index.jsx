@@ -21,7 +21,11 @@ function FrameLayout() {
 
   const handleSelectLayout = (layout) => {
     playClickSound();
-    setFrame({ ...frame, layout });
+    setFrame({
+      ...frame,
+      layout,
+      design: layout == "original" ? originalBlack : wideBlack,
+    });
   };
 
   useEffect(() => {
