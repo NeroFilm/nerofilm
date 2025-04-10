@@ -8,9 +8,10 @@
   --gray-light: #ececec;
   --gray: #d9d9d9;
   --gray-dark: #4a4a4a;
-  --text-color: rgb(255, 255, 255);
-  --accent: rgb(156, 35, 35);
+  --text-color: #ffffff;
+  --accent: #A53131;
   --beige: #f6f3f2;
+  --burgundy: #A53131
 
   line-height: 1.5;
   font-weight: 400;
