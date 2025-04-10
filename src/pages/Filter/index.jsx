@@ -1,4 +1,4 @@
-import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
+import { useFrame, useFrameUpdate } from "../../hooks/useFrame";
 import Frame from "../../components/Frame/Frame";
 import { Link } from "react-router-dom";
 import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";

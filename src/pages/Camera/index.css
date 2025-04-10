@@ -7,8 +7,8 @@
   height: 100vh;
   padding-top: 100px;
   overflow: hidden;
-  background-color: black;
-  color: white;
+  background-color: var(--black);
+  color: var(--white);
   box-sizing: border-box;
   position: relative;
   padding-top: 0;
@@ -27,7 +27,7 @@
   top: 32px;
   left: 50%;
   transform: translateX(-50%);
-  color: white;
+  color: var(--white);
   z-index: 100;
   text-align: center;
 }
@@ -39,7 +39,7 @@
   top: 32px;
   left: 50%;
   transform: translateX(-50%);
-  color: white;
+  color: var(--white);
   z-index: 100;
 }
 

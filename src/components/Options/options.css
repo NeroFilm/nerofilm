@@ -20,7 +20,7 @@
 }
 
 .option-img-selected {
-  border: 2px solid var(--brown);
+  border: 2px solid var(--burgundy);
 }
 
 .option-img {
@@ -29,5 +29,4 @@
   border-radius: 8px;
   object-fit: cover;
   display: block;
-  border: 1px solid var(--brown);
 }

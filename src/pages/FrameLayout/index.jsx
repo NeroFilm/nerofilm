@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
+import { useFrame, useFrameUpdate } from "../../hooks/useFrame";
 import Frame from "../../components/Frame/Frame";
 import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
 import "./index.css";
@@ -46,7 +46,9 @@ function FrameLayout() {
               <li key={key} onClick={() => handleSelectLayout(option)}>
                 <div
                   className={
-                    frame.layout === option ? "frame-selected" : "frame"
+                    frame.layout === option
+                      ? "frame-selected frame-select-wrapper"
+                      : "frame-select-wrapper"
                   }
                 >
                   <Frame

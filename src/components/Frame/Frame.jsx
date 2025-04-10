@@ -18,9 +18,9 @@ function Frame({ layout, images = [], filter, design, stickers }) {
     <div className={`frame frame-${layout}`}>
       <img className="frame-design" src={design} alt="" />
       {imgArr.map((img, index) => (
-        <div key={index} className="img-wrapper">
+        <div key={index} className="frame-img-wrapper">
           <img
-            className={`img frame-${filter}`}
+            className={`frame-img filter-${filter}`}
             src={img}
             alt={`image ${index + 1}`}
           />

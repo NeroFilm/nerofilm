@@ -1,26 +1,19 @@
-import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
+import { useFrame, useFrameUpdate } from "../../hooks/useFrame";
 import Frame from "../../components/Frame/Frame";
 import { Link } from "react-router-dom";
 import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
 import Options from "../../components/Options/Options";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
-import { useEffect, useState } from "react";
 import frameDesigns from "../../constants/frameDesigns";
+import { useState } from "react";
 
 function FrameDesign() {
   useRefreshWarning();
 
-  const [frameDesign, setFrameDesign] = useState("");
-
   const frame = useFrame();
   const setFrame = useFrameUpdate();
 
-  useEffect(() => {
-    if (frameDesign && frameDesign !== frame.design) {
-      console.log("updating frame");
-      setFrame((prevFrame) => ({ ...prevFrame, design: frameDesign }));
-    }
-  }, [setFrame, frame.design, frameDesign]);
+  const [selectedDesign, setSelectedDesign] = useState("black");
 
   return (
     <div>
@@ -37,12 +30,15 @@ function FrameDesign() {
           <div className="options-box">
             <Options
               options={frameDesigns}
-              onClick={(option) =>
-                setFrameDesign(
-                  frame.layout === "original" ? option.original : option.wide
-                )
-              }
-              selected={frame.design}
+              onClick={(option) => {
+                setSelectedDesign(option.name);
+                setFrame((prevFrame) => ({
+                  ...prevFrame,
+                  design:
+                    frame.layout === "original" ? option.original : option.wide,
+                }));
+              }}
+              selected={selectedDesign}
             />
           </div>
         </section>

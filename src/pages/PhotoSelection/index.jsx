@@ -1,5 +1,5 @@
 // TURN OFF CAMERA HERE
-import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
+import { useFrame, useFrameUpdate } from "../../hooks/useFrame";
 import Frame from "../../components/Frame/Frame";
 import { useState } from "react";
 import "./index.css";
@@ -79,7 +79,6 @@ function PhotoSelection() {
                 );
               })}
           </ul>
-
         </div>
         <button className="btn" onClick={() => onClick()}>
           Continue

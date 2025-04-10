@@ -1,4 +1,4 @@
-import { useFrame } from "../../hooks/FrameContext";
+import { useFrame } from "../../hooks/useFrame";
 import { useRef, useState } from "react";
 import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
 import { generateAndDownloadTimelapse } from "../../utils/generateTimelapse";
@@ -10,7 +10,11 @@ function Timelapse() {
   const [loading, setLoading] = useState(false);
 
   const handleDownload = () => {
-    generateAndDownloadTimelapse(frame.allImages || frame.images, canvasRef, setLoading);
+    generateAndDownloadTimelapse(
+      frame.allImages || frame.images,
+      canvasRef,
+      setLoading
+    );
   };
 
   return (

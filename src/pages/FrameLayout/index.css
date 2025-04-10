@@ -5,12 +5,15 @@
   text-align: center;
 }
 
-.frame {
+.frame-select-wrapper {
   cursor: pointer;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  padding: 2px;
 }
 
 .frame-selected {
-  outline: 4px solid var(--brown);
+  border: 2px solid var(--burgundy);
   cursor: pointer;
   place-items: center;
 }

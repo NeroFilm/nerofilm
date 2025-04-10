@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
-import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
+import { useFrame, useFrameUpdate } from "../../hooks/useFrame";
 import BlackBackHeader from "../../components/BlackBackHeader/BlackBackHeader";
 import {
   VideoCameraIcon,

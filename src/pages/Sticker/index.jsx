@@ -1,4 +1,4 @@
-import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
+import { useFrame, useFrameUpdate } from "../../hooks/useFrame";
 import Frame from "../../components/Frame/Frame";
 import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
 import * as fabric from "fabric";

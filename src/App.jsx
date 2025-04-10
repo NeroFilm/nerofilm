@@ -1,6 +1,6 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import { FrameProvider } from "./hooks/FrameContext";
+import { FrameProvider } from "./context/FrameProvider";
 import About from "./pages/About";
 import FrameLayout from "./pages/FrameLayout";
 import Filter from "./pages/Filter";
@@ -11,9 +11,8 @@ import PhotoSelection from "./pages/PhotoSelection";
 import Instructions from "./pages/Instructions";
 import "./styles/global.css";
 import Sticker from "./pages/Sticker";
-import PrivacyPolicy from "./pages/PrivacyPolicy"
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Timelapse from "./pages/Timelapse";
-
 
 const App = () => {
   return (
@@ -32,7 +31,6 @@ const App = () => {
           <Route path="/download" element={<Download />} />
           <Route path="/timelapse" element={<Timelapse />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-
         </Routes>
       </HashRouter>
     </FrameProvider>

@@ -24,7 +24,7 @@
 }
 
 .footer-email {
-  color: black;
+  color: var(--black);
   text-decoration: none;
   font-size: 12px;
 }
@@ -34,7 +34,7 @@
 }
 
 .privacy-policy-link {
-  color: black;
+  color: var(--black);
   text-decoration: none;
   font-size: 12px;
 }

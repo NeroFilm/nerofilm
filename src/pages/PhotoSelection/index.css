@@ -13,7 +13,7 @@
 
 .image-option {
   position: relative;
-  aspect-ratio: var(--aspect-ratio); 
+  aspect-ratio: var(--aspect-ratio);
   width: 100%;
   overflow: hidden;
   cursor: pointer;
@@ -21,7 +21,7 @@
 }
 
 .image-original {
-  --aspect-ratio: calc(104/76);
+  --aspect-ratio: calc(104 / 76);
 }
 
 .image-wide {
@@ -49,7 +49,7 @@
 }
 
 .selected-num {
-  background-color: white;
+  background-color: var(--white);
 }
 
 /* Media Query for Small Screens */

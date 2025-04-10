@@ -58,7 +58,9 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="header-top">
-        <div className="logo-small">NeroFilm</div>
+        <div className="white-logo">
+          <Link to="/">NeroFilm</Link>
+        </div>
         <Link to="/frame-layout">
           <button className="get-started-btn">Enter Photobooth</button>
         </Link>
