@@ -5,6 +5,7 @@
   box-sizing: border-box;
   position: relative;
   place-items: center;
+  border: 1px solid var(--brown);
 }
 
 .frame-logo {

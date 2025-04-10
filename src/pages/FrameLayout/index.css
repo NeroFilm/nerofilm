@@ -10,7 +10,7 @@
 }
 
 .frame-selected {
-  outline: 4px solid var(--accent);
+  outline: 4px solid var(--brown);
   cursor: pointer;
   place-items: center;
 }
@@ -22,7 +22,6 @@
 /* Responsive: Phones - iPhone */
 @media (max-width: 430px) {
   .frame-options {
-    
     gap: 50px;
   }
 }

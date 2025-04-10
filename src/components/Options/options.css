@@ -3,7 +3,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 12px;
-  max-width: 500px;
+  max-width: 520px;
 }
 
 .option {
@@ -20,7 +20,7 @@
 }
 
 .option-img-selected {
-  border: 2px solid var(--accent);
+  border: 2px solid var(--brown);
 }
 
 .option-img {
@@ -29,4 +29,5 @@
   border-radius: 8px;
   object-fit: cover;
   display: block;
+  border: 1px solid var(--brown);
 }
