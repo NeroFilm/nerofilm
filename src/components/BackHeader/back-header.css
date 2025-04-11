@@ -1,0 +1,47 @@
+.back-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  height: 88px;
+  box-sizing: border-box;
+}
+
+.back-header-black {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--black);
+  z-index: 1;
+}
+
+.back-header-back {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.back-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--black);
+}
+
+.white-back-icon {
+  color: var(--white);
+}
+
+/* Responsive: Phones - iPhone */
+@media (max-width: 430px) {
+  .back-header {
+    padding: 20px 24px;
+    height: 80px;
+  }
+  .white-icon,
+  .black-icon {
+    width: 24px;
+    height: 24px;
+  }
+}

@@ -20,11 +20,6 @@ canvas {
   padding: 8px;
 }
 
-.options-box-label {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
 .dropzone {
   width: 100%;
   padding: 48px;
@@ -32,7 +27,7 @@ canvas {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--gray-lightest);
+  background-color: var(--beige);
   border: 1px solid var(--gray);
   border-radius: 4px;
 }

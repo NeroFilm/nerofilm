@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
-import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
+import { useFrame, useFrameUpdate } from "../../hooks/useFrame";
 import Frame from "../../components/Frame/Frame";
-import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
+import BackHeader from "../../components/BackHeader/BackHeader";
 import "./index.css";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 import { playClickSound } from "../../utils/soundUtils";
 import { useEffect } from "react";
 import { defaultFrame } from "../../constants/frames";
 import { useRef } from "react";
+import originalBlack from "../../assets/frames/original-black.png";
+import wideBlack from "../../assets/frames/wide-black.png";
 
 function FrameLayout() {
   const options = ["original", "wide"];
@@ -19,7 +21,11 @@ function FrameLayout() {
 
   const handleSelectLayout = (layout) => {
     playClickSound();
-    setFrame({ ...frame, layout });
+    setFrame({
+      ...frame,
+      layout,
+      design: layout == "original" ? originalBlack : wideBlack,
+    });
   };
 
   useEffect(() => {
@@ -31,7 +37,7 @@ function FrameLayout() {
 
   return (
     <div>
-      <WhiteBackHeader />
+      <BackHeader />
       <section className="options-c">
         <h1 className="options-heading">Select Frame Layout</h1>
         <div className="options-r">
@@ -40,14 +46,16 @@ function FrameLayout() {
               <li key={key} onClick={() => handleSelectLayout(option)}>
                 <div
                   className={
-                    frame.layout === option ? "frame-selected" : "frame"
+                    frame.layout === option
+                      ? "frame-selected frame-select-wrapper"
+                      : "frame-select-wrapper"
                   }
                 >
                   <Frame
                     images={frame.images}
                     filter={frame.filter}
                     layout={option}
-                    design={frame.design}
+                    design={option == "original" ? originalBlack : wideBlack}
                   />
                 </div>
                 <p className="frame-desc">
@@ -57,7 +65,7 @@ function FrameLayout() {
             ))}
           </ul>
         </div>
-        <Link className="btn" to="/instructions" role="button">
+        <Link className="btn" to="/camera" role="button">
           Continue
         </Link>
       </section>

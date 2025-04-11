@@ -1,45 +1,25 @@
-import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
+import { useFrame, useFrameUpdate } from "../../hooks/useFrame";
 import Frame from "../../components/Frame/Frame";
 import { Link } from "react-router-dom";
-import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
+import BackHeader from "../../components/BackHeader/BackHeader";
 import Options from "../../components/Options/Options";
-import black from "../../assets/options/black.svg";
-import white from "../../assets/options/white.svg";
-import pink from "../../assets/options/pink.svg";
-import blue from "../../assets/options/blue.svg";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
-import Unsplash from "../../components/Unsplash/Unsplash";
-import { useEffect, useState } from "react";
-import unsplashLogo from "../../assets/logos/Unsplash.svg";
+import frameDesigns from "../../constants/frameDesigns";
+import { useState } from "react";
 
 function FrameDesign() {
   useRefreshWarning();
 
-  const [frameDesign, setFrameDesign] = useState("");
-  const [tab, setTab] = useState("gallery");
-
   const frame = useFrame();
   const setFrame = useFrameUpdate();
 
-  const options = [
-    { name: "black", image: black },
-    { name: "white", image: white },
-    { name: "pink", image: pink },
-    { name: "blue", image: blue },
-  ];
-
-  useEffect(() => {
-    if (frameDesign && frameDesign !== frame.design) {
-      console.log("updating frame");
-      setFrame((prevFrame) => ({ ...prevFrame, design: frameDesign }));
-    }
-  }, [setFrame, frame.design, frameDesign]);
+  const [selectedDesign, setSelectedDesign] = useState("black");
 
   return (
     <div>
-      <WhiteBackHeader />
+      <BackHeader />
       <section className="options-c">
-        <h1 className="options-heading">Choose frame</h1>
+        <h1 className="options-heading">Choose Frame</h1>
         <section className="options-r">
           <Frame
             images={frame.images}
@@ -48,37 +28,18 @@ function FrameDesign() {
             design={frame.design}
           />
           <div className="options-box">
-            <ul className="tabs">
-              <li
-                className={tab == "gallery" && "selected-tab"}
-                onClick={() => {
-                  setTab("gallery");
-                }}
-              >
-                Gallery
-              </li>
-              <li
-                className={tab == "unsplash" && "selected-tab"}
-                onClick={() => {
-                  setTab("unsplash");
-                }}
-              >
-                <img
-                  className="unsplash-logo"
-                  src={unsplashLogo}
-                  alt="Unsplash"
-                />
-              </li>
-            </ul>
-            {tab == "gallery" ? (
-              <Options
-                options={options}
-                onClick={(option) => setFrameDesign(option)}
-                selected={frame.design}
-              />
-            ) : (
-              <Unsplash setSelected={setFrameDesign} />
-            )}
+            <Options
+              options={frameDesigns}
+              onClick={(option) => {
+                setSelectedDesign(option.name);
+                setFrame((prevFrame) => ({
+                  ...prevFrame,
+                  design:
+                    frame.layout === "original" ? option.original : option.wide,
+                }));
+              }}
+              selected={selectedDesign}
+            />
           </div>
         </section>
         <Link className="btn" to="/filter" role="btn">

@@ -1,10 +1,10 @@
 // TURN OFF CAMERA HERE
-import { useFrame, useFrameUpdate } from "../../hooks/FrameContext";
+import { useFrame, useFrameUpdate } from "../../hooks/useFrame";
 import Frame from "../../components/Frame/Frame";
 import { useState } from "react";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
-import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
+import BackHeader from "../../components/BackHeader/BackHeader";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 import { playClickSound } from "../../utils/soundUtils";
 
@@ -37,9 +37,9 @@ function PhotoSelection() {
 
   return (
     <div>
-      <WhiteBackHeader />
+      <BackHeader />
       <section className="options-c">
-        <h1 className="options-heading">Select photos</h1>
+        <h1 className="options-heading">Select Photos</h1>
         <div className="options-r">
           <Frame
             filter={frame.filter}
@@ -79,7 +79,6 @@ function PhotoSelection() {
                 );
               })}
           </ul>
-
         </div>
         <button className="btn" onClick={() => onClick()}>
           Continue

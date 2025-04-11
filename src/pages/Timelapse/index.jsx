@@ -1,6 +1,6 @@
-import { useFrame } from "../../hooks/FrameContext";
+import { useFrame } from "../../hooks/useFrame";
 import { useRef, useState } from "react";
-import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
+import BackHeader from "../../components/BackHeader/BackHeader";
 import { generateAndDownloadTimelapse } from "../../utils/generateTimelapse";
 import "./index.css";
 
@@ -10,19 +10,23 @@ function Timelapse() {
   const [loading, setLoading] = useState(false);
 
   const handleDownload = () => {
-    generateAndDownloadTimelapse(frame.allImages || frame.images, canvasRef, setLoading);
+    generateAndDownloadTimelapse(
+      frame.allImages || frame.images,
+      canvasRef,
+      setLoading
+    );
   };
 
   return (
     <div className="timelapse-container">
-      <WhiteBackHeader />
+      <BackHeader />
       <h1 className="timelapse-title">Download Timelapse</h1>
 
       {/* Hidden canvas used for rendering the video */}
       <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
 
       <button className="btn" onClick={handleDownload} disabled={loading}>
-        {loading ? "Generating..." : "Download Timelapse"}
+        {loading ? "Generating Timelapse..." : "Download Timelapse"}
       </button>
     </div>
   );

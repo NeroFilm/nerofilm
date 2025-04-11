@@ -13,15 +13,16 @@
 
 .image-option {
   position: relative;
-  aspect-ratio: var(--aspect-ratio); 
+  aspect-ratio: var(--aspect-ratio);
   width: 100%;
   overflow: hidden;
   cursor: pointer;
   background: black;
+  border-radius: 4px;
 }
 
 .image-original {
-  --aspect-ratio: calc(104/76);
+  --aspect-ratio: calc(104 / 76);
 }
 
 .image-wide {
@@ -37,19 +38,21 @@
 
 .num {
   position: absolute;
-  top: 12px;
+  top: 8px;
   left: 8px;
   width: 16px;
   height: 16px;
   text-align: center;
-  line-height: 16px;
   border-radius: 100%;
-  background-color: gray;
-  color: gray;
+  background-color: var(--gray-dark);
+  color: var(--gray-dark);
+  font-size: 10px;
+  line-height: 16px;
 }
 
 .selected-num {
-  background-color: white;
+  background-color: var(--white);
+  color: var(--black);
 }
 
 /* Media Query for Small Screens */
@@ -82,7 +85,7 @@
     gap: 24px !important;
   }
   .options-heading {
-    font-size: 28px;
+    font-size: var(--body-xlarge);
     text-align: center;
   }
 }

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-function useRefreshWarning(){
+function useRefreshWarning() {
   useEffect(() => {
     window.onbeforeunload = () => true;
     return () => {

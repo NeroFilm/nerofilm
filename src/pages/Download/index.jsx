@@ -1,13 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { toPng } from "html-to-image";
-import { useNavigate } from "react-router-dom";
-import { useFrame } from "../../hooks/FrameContext";
-import WhiteBackHeader from "../../components/WhiteBackHeader/WhiteBackHeader";
+import { useFrame } from "../../hooks/useFrame";
+import BackHeader from "../../components/BackHeader/BackHeader";
 import Options from "../../components/Options/Options";
 import useRefreshWarning from "../../hooks/useRefreshWarning";
 import Frame from "../../components/Frame/Frame";
-import print from "../../assets/logos/print.svg";
-import share from "../../assets/logos/share.svg";
+import print from "../../assets/options/print.svg";
+import share from "../../assets/options/share.svg";
 import { generateAndDownloadTimelapse } from "../../utils/generateTimelapse";
 import "./index.css";
 
@@ -16,7 +15,7 @@ function Download() {
 
   const frame = useFrame();
   const frameRef = useRef(null);
-  const canvasRef = useRef(null); 
+  const canvasRef = useRef(null);
   const [frameImage, setFrameimage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -55,7 +54,7 @@ function Download() {
     iframe.style.height = "0";
     iframe.style.border = "0";
     document.body.appendChild(iframe);
-  
+
     const doc = iframe.contentWindow.document;
     doc.open();
     doc.write(`
@@ -96,7 +95,7 @@ function Download() {
     `);
     doc.close();
   };
-  
+
   const shareImage = async () => {
     if (!frameRef.current) return;
 
@@ -120,7 +119,6 @@ function Download() {
         files: [file],
         text: "Check out my photo strip! ✨ Take your own at https://nerofilm.co 📸",
       };
-      
 
       if (navigator.canShare && navigator.canShare(shareData)) {
         await navigator.share(shareData);
@@ -150,10 +148,11 @@ function Download() {
 
   return (
     <div>
-      <WhiteBackHeader />
-      <canvas ref={canvasRef} style={{ display: "none" }}></canvas> {/* Hidden canvas */}
+      <BackHeader />
+      <canvas ref={canvasRef} style={{ display: "none" }}></canvas>{" "}
+      {/* Hidden canvas */}
       <section className="options-c">
-        <h1 className="options-heading">Download & share</h1>
+        <h1 className="options-heading">Download & Share</h1>
         <section className="options-r">
           <div ref={frameRef} style={{ display: "inline-block" }}>
             <Frame
@@ -166,7 +165,7 @@ function Download() {
           </div>
           <Options
             options={options}
-            onClick={(option) => handleShare(option)}
+            onClick={(option) => handleShare(option.name)}
             selected={frame.filter}
           />
         </section>
@@ -176,22 +175,18 @@ function Download() {
             Download Image
           </button>
           <button
-            className="btn"
+            className="btn btn-secondary"
             onClick={() =>
-              generateAndDownloadTimelapse(frame.allImages || frame.images, canvasRef, setLoading)
+              generateAndDownloadTimelapse(
+                frame.allImages || frame.images,
+                canvasRef,
+                setLoading
+              )
             }
             disabled={loading}
           >
             {loading ? "Generating Timelapse..." : "Download Timelapse"}
           </button>
-          <a
-            href="https://buy.stripe.com/test_dR6eVV79J8X33pS3cc?client_reference_id=test"
-            className="btn btn-secondary"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Buy photo strip
-          </a>
         </section>
       </section>
     </div>
