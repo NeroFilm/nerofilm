@@ -43,11 +43,11 @@ function Download() {
   // Once the frame is rendered, generate the image
   useEffect(() => {
     if (!frameRendered || !frameRef.current) return;
-    
+
     const generateImage = async () => {
       setLoading(true);
       setStatusMessage("Preparing images...");
-      
+
       try {
         // For Safari/iOS, use a different approach
         if (isSafari || isiOS) {
@@ -67,12 +67,12 @@ function Download() {
           });
           setFrameimage(dataUrl);
         }
-        
+
         setStatusMessage("Ready to download!");
       } catch (error) {
         console.error("Error generating image:", error);
         setStatusMessage("Error: Could not generate image. Try again.");
-        
+
         // Fallback for any browser if main method fails
         try {
           setStatusMessage("Trying alternative method...");
@@ -85,10 +85,10 @@ function Download() {
         setLoading(false);
       }
     };
-    
+
     generateImage();
   }, [frameRendered]);
-  
+
   // Special method for Safari to capture frames
   const captureFrameForSafari = async () => {
     return new Promise((resolve, reject) => {
@@ -99,43 +99,43 @@ function Download() {
             reject(new Error("Frame reference not available"));
             return;
           }
-          
+
           // Get frame dimensions and position
           const frameEl = frameRef.current;
           const rect = frameEl.getBoundingClientRect();
-          
+
           // Create a canvas for rendering
-          const canvas = document.createElement('canvas');
+          const canvas = document.createElement("canvas");
           const scale = 2; // Scale factor for higher quality
           canvas.width = rect.width * scale;
           canvas.height = rect.height * scale;
-          
-          const ctx = canvas.getContext('2d');
-          
+
+          const ctx = canvas.getContext("2d");
+
           // Fill with white background
-          ctx.fillStyle = 'white';
+          ctx.fillStyle = "white";
           ctx.fillRect(0, 0, canvas.width, canvas.height);
-          
+
           // Draw all images manually
           const drawImagesDirectly = async () => {
             // Set scale
             ctx.scale(scale, scale);
-            
+
             // Get all images including the frame background, photos, and stickers
-            const allImages = Array.from(frameEl.querySelectorAll('img'));
-            
+            const allImages = Array.from(frameEl.querySelectorAll("img"));
+
             // Process each image
             for (const imgEl of allImages) {
               try {
                 const imgRect = imgEl.getBoundingClientRect();
-                
+
                 // Calculate position relative to frame
                 const relativeX = imgRect.left - rect.left;
                 const relativeY = imgRect.top - rect.top;
-                
+
                 // Create a new image to ensure it's loaded
                 const img = new Image();
-                
+
                 // Wait for the image to load
                 await new Promise((imgResolve, imgReject) => {
                   img.onload = imgResolve;
@@ -143,7 +143,7 @@ function Download() {
                   img.crossOrigin = "anonymous"; // Try to avoid CORS issues
                   img.src = imgEl.src;
                 });
-                
+
                 // Draw the image at its position
                 ctx.drawImage(
                   img,
@@ -157,36 +157,38 @@ function Download() {
                 // Continue with other images even if one fails
               }
             }
-            
+
             // Add any text elements
-            const textElements = Array.from(frameEl.querySelectorAll('p, h1, h2, h3, span'));
+            const textElements = Array.from(
+              frameEl.querySelectorAll("p, h1, h2, h3, span")
+            );
             for (const textEl of textElements) {
               try {
                 const textRect = textEl.getBoundingClientRect();
-                
+
                 // Calculate position relative to frame
                 const relativeX = textRect.left - rect.left;
                 const relativeY = textRect.top - rect.top;
-                
+
                 // Get text styles
                 const computedStyle = window.getComputedStyle(textEl);
                 ctx.font = `${computedStyle.fontWeight} ${computedStyle.fontSize} ${computedStyle.fontFamily}`;
                 ctx.fillStyle = computedStyle.color;
-                ctx.textBaseline = 'top';
-                
+                ctx.textBaseline = "top";
+
                 // Draw the text
                 ctx.fillText(textEl.textContent, relativeX, relativeY);
               } catch (textError) {
                 console.warn("Failed to draw text:", textError);
               }
             }
-            
+
             // Convert to data URL and set state
-            const dataUrl = canvas.toDataURL('image/png');
+            const dataUrl = canvas.toDataURL("image/png");
             setFrameimage(dataUrl);
             resolve(dataUrl);
           };
-          
+
           drawImagesDirectly().catch(reject);
         }, 1000); // Longer delay for Safari
       } catch (error) {
@@ -198,7 +200,7 @@ function Download() {
   const downloadImage = () => {
     if (!frameImage) {
       setStatusMessage("Image not ready yet. Please wait...");
-      
+
       // If the image isn't ready yet, try to generate it immediately
       if (frameRendered && !loading) {
         setLoading(true);
@@ -206,7 +208,7 @@ function Download() {
           .then(() => {
             setLoading(false);
           })
-          .catch(error => {
+          .catch((error) => {
             console.error("Failed to generate image on demand:", error);
             setLoading(false);
             setStatusMessage("Failed to generate image. Please try again.");
@@ -214,13 +216,13 @@ function Download() {
       }
       return;
     }
-    
+
     // Download the image
     try {
       // For iOS Safari, we need a different approach
       if (isiOS) {
         // Open the image in a new tab
-        window.open(frameImage, '_blank');
+        window.open(frameImage, "_blank");
         setStatusMessage("Image opened in new tab. Long-press to save.");
       } else {
         // Normal download for other browsers
@@ -233,9 +235,9 @@ function Download() {
     } catch (error) {
       console.error("Download failed:", error);
       setStatusMessage("Download failed. Try opening in new tab.");
-      
+
       // Fallback: open in new tab
-      window.open(frameImage, '_blank');
+      window.open(frameImage, "_blank");
     }
   };
 
@@ -244,10 +246,10 @@ function Download() {
       setStatusMessage("Image not ready yet. Please wait...");
       return;
     }
-    
+
     try {
       setStatusMessage("Preparing for print...");
-      
+
       const iframe = document.createElement("iframe");
       iframe.style.position = "fixed";
       iframe.style.right = "0";
@@ -299,7 +301,7 @@ function Download() {
         </html>
       `);
       doc.close();
-      
+
       setStatusMessage("Print dialog should open soon...");
     } catch (error) {
       console.error("Print failed:", error);
@@ -316,7 +318,7 @@ function Download() {
     try {
       setStatusMessage("Preparing to share...");
       setLoading(true);
-      
+
       // Get blob from data URL
       const fetchResponse = await fetch(frameImage);
       const blob = await fetchResponse.blob();
@@ -381,22 +383,21 @@ function Download() {
           />
         </section>
 
-        {statusMessage && (
-          <p className="status-message" style={{ 
-            textAlign: 'center', 
-            margin: '10px 0',
-            color: statusMessage.includes('Error') ? 'red' : 'green' 
-          }}>
+        {statusMessage === "Download failed. Try opening in new tab." && (
+          <p
+            className="status-message"
+            style={{
+              textAlign: "center",
+              margin: "10px 0",
+              color: statusMessage.includes("Error") ? "red" : "green",
+            }}
+          >
             {statusMessage}
           </p>
         )}
 
         <section className="btns">
-          <button 
-            className="btn" 
-            onClick={downloadImage}
-            disabled={loading}
-          >
+          <button className="btn" onClick={downloadImage} disabled={loading}>
             {loading ? "Preparing Image..." : "Download Image"}
           </button>
           <button
@@ -413,14 +414,16 @@ function Download() {
             {loading ? "Generating..." : "Download Timelapse"}
           </button>
         </section>
-        
+
         {isSafari && (
-          <p style={{ 
-            textAlign: 'center', 
-            margin: '10px 0',
-            fontSize: '0.9em',
-            opacity: 0.8 
-          }}>
+          <p
+            style={{
+              textAlign: "center",
+              margin: "10px 0",
+              fontSize: "0.9em",
+              opacity: 0.8,
+            }}
+          >
             Safari detected: Using optimized rendering mode
           </p>
         )}
