@@ -98,29 +98,32 @@ function Download() {
             reject(new Error("Frame reference not available"));
             return;
           }
-
+  
           const frameEl = frameRef.current;
           const rect = frameEl.getBoundingClientRect();
-
+  
           const canvas = document.createElement("canvas");
           const scale = 10;
           canvas.width = rect.width * scale;
           canvas.height = rect.height * scale;
-
+  
           const ctx = canvas.getContext("2d");
           ctx.fillStyle = "white";
           ctx.fillRect(0, 0, canvas.width, canvas.height);
           ctx.scale(scale, scale);
-
+  
           const drawImagesDirectly = async () => {
             const allImages = Array.from(frameEl.querySelectorAll("img"));
-
-            for (const imgEl of allImages) {
+            const photoImages = allImages.filter(img => !img.className.includes("frame-design"));
+            const frameDesignImg = allImages.find(img => img.className.includes("frame-design"));
+  
+            //draw photo images
+            for (const imgEl of photoImages) {
               try {
                 const imgRect = imgEl.getBoundingClientRect();
                 const relativeX = imgRect.left - rect.left;
                 const relativeY = imgRect.top - rect.top;
-
+  
                 const img = new Image();
                 await new Promise((res, rej) => {
                   img.onload = res;
@@ -128,12 +131,12 @@ function Download() {
                   img.crossOrigin = "anonymous";
                   img.src = imgEl.src;
                 });
-
+  
                 const aspectCanvas = imgRect.width / imgRect.height;
                 const aspectImage = img.naturalWidth / img.naturalHeight;
-
+  
                 let sx = 0, sy = 0, sWidth = img.naturalWidth, sHeight = img.naturalHeight;
-
+  
                 if (aspectImage > aspectCanvas) {
                   sWidth = img.naturalHeight * aspectCanvas;
                   sx = (img.naturalWidth - sWidth) / 2;
@@ -141,6 +144,26 @@ function Download() {
                   sHeight = img.naturalWidth / aspectCanvas;
                   sy = (img.naturalHeight - sHeight) / 2;
                 }
+  
+                //draw filter over images
+                const filterClass = imgEl.className;
+
+                if (filterClass.includes("filter-bw")) {
+                  ctx.filter = "grayscale(100%) contrast(140%)";
+                } 
+                else if (filterClass.includes("filter-vintage")) {
+                  ctx.filter = "grayscale(100%) hue-rotate(10deg) contrast(120%) brightness(110%) sepia(20%) blur(0.1px)";
+                } 
+                else if (filterClass.includes("filter-beauty")) {
+                  ctx.filter = "brightness(110%) contrast(110%) saturate(85%) blur(0.1px)";
+                } 
+                else {
+                  ctx.filter = "none";
+                }
+
+                //DEBUGGGGG
+                console.log("Filter class applied:", filterClass);
+                console.log("Drawing photo image with filter:", ctx.filter, "→", img.src);
 
                 ctx.drawImage(
                   img,
@@ -153,8 +176,44 @@ function Download() {
                   imgRect.width,
                   imgRect.height
                 );
-              } catch (imgError) {
+  
+               ctx.filter = "none";
+              } 
+              catch (imgError) {
                 console.warn("Failed to draw image:", imgError);
+              }
+            }
+  
+            //draw the frame design LAST 
+            if (frameDesignImg) {
+              try {
+                const imgRect = frameDesignImg.getBoundingClientRect();
+                const relativeX = imgRect.left - rect.left;
+                const relativeY = imgRect.top - rect.top;
+  
+                const img = new Image();
+                await new Promise((res, rej) => {
+                  img.onload = res;
+                  img.onerror = rej;
+                  img.crossOrigin = "anonymous";
+                  img.src = frameDesignImg.src;
+                });
+  
+                ctx.filter = "none";
+                ctx.drawImage(
+                  img,
+                  0,
+                  0,
+                  img.naturalWidth,
+                  img.naturalHeight,
+                  relativeX,
+                  relativeY,
+                  imgRect.width,
+                  imgRect.height
+                );
+              } 
+              catch (frameError) {
+                console.warn("Failed to draw frame overlay:", frameError);
               }
             }
 
@@ -169,16 +228,17 @@ function Download() {
                 ctx.fillStyle = computedStyle.color;
                 ctx.textBaseline = "top";
                 ctx.fillText(textEl.textContent, relativeX, relativeY);
-              } catch (textError) {
+              } 
+              catch (textError) {
                 console.warn("Failed to draw text:", textError);
               }
             }
-
+  
             const dataUrl = canvas.toDataURL("image/png");
             setFrameimage(dataUrl);
             resolve(dataUrl);
           };
-
+  
           drawImagesDirectly().catch(reject);
         }, 1000);
       } catch (error) {
@@ -186,6 +246,7 @@ function Download() {
       }
     });
   };
+  
 
   const downloadImage = () => {
     if (!frameImage) {
