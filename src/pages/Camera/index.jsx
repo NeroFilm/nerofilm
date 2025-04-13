@@ -56,7 +56,7 @@ const Camera = () => {
     }
 
     setFrame((prevFrame) => {
-      const updatedPhotos = [...prevFrame.allImages, imageSrc].slice(-64);
+      const updatedPhotos = [...prevFrame.allImages, imageSrc].slice(-32);
       return { ...prevFrame, allImages: updatedPhotos };
     });
   };
@@ -84,18 +84,23 @@ const Camera = () => {
         navigate("/photo-selection");
         return;
       }
-
-      //countdown
-      startCountdown(3, () => { // <<ALTER THIS TO 1 IF WANT ONE SEC TIMER FOR TEST)
-        takePhoto();
+    
+      // Start countdown for this round
+      startCountdown(3, () => {
+        takePhoto(); // visible photo
         setPhotoCount((prevCount) => prevCount + 1);
+        count--;
+        setTimeout(takeNextPhoto, 500);
+      });
 
+      // Take 3 hidden photos immediately when countdown starts
+      takePhoto(true);
+      setTimeout(() => {
+        takePhoto(true);
         setTimeout(() => {
           takePhoto(true);
-          count--;
-          setTimeout(takeNextPhoto, 500); // todo change back to 500
         }, 500);
-      });
+      }, 500);
     };
 
     takeNextPhoto();
