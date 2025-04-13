@@ -273,7 +273,13 @@ function Download() {
       // For iOS Safari, we need a different approach
       if (isiOS) {
         // Open the image in a new tab
-        window.open(frameImage, "_blank");
+        const link = document.createElement("a");
+        link.href = frameImage;
+        link.download = "nerofilm.png";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
         setStatusMessage("Image opened in new tab. Long-press to save.");
       } else {
         // Normal download for other browsers
