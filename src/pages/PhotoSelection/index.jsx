@@ -49,7 +49,7 @@ function PhotoSelection() {
           />
           <ul className="image-options">
             {frame.allImages
-              .filter((_, index) => index % 2 === 0)
+              .filter((_, index) => index % 4 === 0)
               .map((image, key) => {
                 return (
                   <li
