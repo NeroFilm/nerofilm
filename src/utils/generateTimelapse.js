@@ -12,8 +12,10 @@ export const generateAndDownloadTimelapse = async (images, canvasRef, setLoading
   firstImage.src = images[0];
 
   firstImage.onload = async () => {
-    canvas.width = firstImage.width;
-    canvas.height = firstImage.height;
+    const scale = 2;
+    canvas.width = firstImage.width * scale;
+    canvas.height = firstImage.height * scale;
+    ctx.scale(scale, scale)
 
     const stream = canvas.captureStream();
     const recorder = new MediaRecorder(stream, { mimeType: "video/webm" });
@@ -33,14 +35,14 @@ export const generateAndDownloadTimelapse = async (images, canvasRef, setLoading
 
     recorder.start();
 
-    const selectedImages = images.slice(0, 16); 
+    const selectedImages = images.slice(0, 32); 
     for (let i = 0; i < selectedImages.length; i++) {
       const img = new Image();
       img.src = selectedImages[i];
       await new Promise((resolve) => {
         img.onload = () => {
           ctx.clearRect(0, 0, canvas.width, canvas.height);
-          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0, firstImage.width, firstImage.height);
           setTimeout(resolve, 300);
         };
       });
