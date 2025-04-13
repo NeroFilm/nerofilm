@@ -93,60 +93,61 @@ function Download() {
   const captureFrameForSafari = async () => {
     return new Promise((resolve, reject) => {
       try {
-        // Wait a bit longer for Safari
         setTimeout(() => {
           if (!frameRef.current) {
             reject(new Error("Frame reference not available"));
             return;
           }
 
-          // Get frame dimensions and position
           const frameEl = frameRef.current;
           const rect = frameEl.getBoundingClientRect();
 
-          // Create a canvas for rendering
           const canvas = document.createElement("canvas");
-          const scale = 2; // Scale factor for higher quality
+          const scale = 10;
           canvas.width = rect.width * scale;
           canvas.height = rect.height * scale;
 
           const ctx = canvas.getContext("2d");
-
-          // Fill with white background
           ctx.fillStyle = "white";
           ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.scale(scale, scale);
 
-          // Draw all images manually
           const drawImagesDirectly = async () => {
-            // Set scale
-            ctx.scale(scale, scale);
-
-            // Get all images including the frame background, photos, and stickers
             const allImages = Array.from(frameEl.querySelectorAll("img"));
 
-            // Process each image
             for (const imgEl of allImages) {
               try {
                 const imgRect = imgEl.getBoundingClientRect();
-
-                // Calculate position relative to frame
                 const relativeX = imgRect.left - rect.left;
                 const relativeY = imgRect.top - rect.top;
 
-                // Create a new image to ensure it's loaded
                 const img = new Image();
-
-                // Wait for the image to load
-                await new Promise((imgResolve, imgReject) => {
-                  img.onload = imgResolve;
-                  img.onerror = imgReject;
-                  img.crossOrigin = "anonymous"; // Try to avoid CORS issues
+                await new Promise((res, rej) => {
+                  img.onload = res;
+                  img.onerror = rej;
+                  img.crossOrigin = "anonymous";
                   img.src = imgEl.src;
                 });
 
-                // Draw the image at its position
+                const aspectCanvas = imgRect.width / imgRect.height;
+                const aspectImage = img.naturalWidth / img.naturalHeight;
+
+                let sx = 0, sy = 0, sWidth = img.naturalWidth, sHeight = img.naturalHeight;
+
+                if (aspectImage > aspectCanvas) {
+                  sWidth = img.naturalHeight * aspectCanvas;
+                  sx = (img.naturalWidth - sWidth) / 2;
+                } else {
+                  sHeight = img.naturalWidth / aspectCanvas;
+                  sy = (img.naturalHeight - sHeight) / 2;
+                }
+
                 ctx.drawImage(
                   img,
+                  sx,
+                  sy,
+                  sWidth,
+                  sHeight,
                   relativeX,
                   relativeY,
                   imgRect.width,
@@ -154,43 +155,32 @@ function Download() {
                 );
               } catch (imgError) {
                 console.warn("Failed to draw image:", imgError);
-                // Continue with other images even if one fails
               }
             }
 
-            // Add any text elements
-            const textElements = Array.from(
-              frameEl.querySelectorAll("p, h1, h2, h3, span")
-            );
+            const textElements = Array.from(frameEl.querySelectorAll("p, h1, h2, h3, span"));
             for (const textEl of textElements) {
               try {
                 const textRect = textEl.getBoundingClientRect();
-
-                // Calculate position relative to frame
                 const relativeX = textRect.left - rect.left;
                 const relativeY = textRect.top - rect.top;
-
-                // Get text styles
                 const computedStyle = window.getComputedStyle(textEl);
                 ctx.font = `${computedStyle.fontWeight} ${computedStyle.fontSize} ${computedStyle.fontFamily}`;
                 ctx.fillStyle = computedStyle.color;
                 ctx.textBaseline = "top";
-
-                // Draw the text
                 ctx.fillText(textEl.textContent, relativeX, relativeY);
               } catch (textError) {
                 console.warn("Failed to draw text:", textError);
               }
             }
 
-            // Convert to data URL and set state
             const dataUrl = canvas.toDataURL("image/png");
             setFrameimage(dataUrl);
             resolve(dataUrl);
           };
 
           drawImagesDirectly().catch(reject);
-        }, 1000); // Longer delay for Safari
+        }, 1000);
       } catch (error) {
         reject(error);
       }
@@ -415,18 +405,6 @@ function Download() {
           </button>
         </section>
 
-        {isSafari && (
-          <p
-            style={{
-              textAlign: "center",
-              margin: "10px 0",
-              fontSize: "0.9em",
-              opacity: 0.8,
-            }}
-          >
-            Safari detected: Using optimized rendering mode
-          </p>
-        )}
       </section>
     </div>
   );

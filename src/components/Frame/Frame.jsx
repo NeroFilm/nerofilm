@@ -6,6 +6,9 @@ import "./frame.css";
 function Frame({ layout, images = [], filter, design, stickers }) {
   const [imgArr, setImgArr] = useState([]);
 
+  // Detect Safari
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
   useEffect(() => {
     const newImages = [];
     for (let i = 0; i < 4; i++) {
@@ -15,7 +18,7 @@ function Frame({ layout, images = [], filter, design, stickers }) {
   }, [images]);
 
   return (
-    <div className={`frame frame-${layout}`}>
+    <div className={`frame frame-${layout} ${isSafari ? "safari" : ""}`}>
       <img className="frame-design" src={design} alt="" />
       {imgArr.map((img, index) => (
         <div key={index} className="frame-img-wrapper">
@@ -26,7 +29,7 @@ function Frame({ layout, images = [], filter, design, stickers }) {
           />
         </div>
       ))}
-      {stickers && <img className="frame-stickers" src={stickers} />}
+      {stickers && <img className="frame-stickers" src={stickers} alt="" />}
     </div>
   );
 }

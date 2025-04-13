@@ -37,7 +37,7 @@ const Camera = () => {
     const canvas = document.createElement("canvas");
 
     canvas.width = 1920;
-    canvas.height = 1080; //THIS IS THE ISSUE, THE WIDTH AND HEIGHT ARE DIFF...
+    canvas.height = 1080;
     const ctx = canvas.getContext("2d");
 
     ctx.translate(canvas.width, 0);
@@ -56,7 +56,7 @@ const Camera = () => {
     }
 
     setFrame((prevFrame) => {
-      const updatedPhotos = [...prevFrame.allImages, imageSrc].slice(-16);
+      const updatedPhotos = [...prevFrame.allImages, imageSrc].slice(-64);
       return { ...prevFrame, allImages: updatedPhotos };
     });
   };
@@ -64,7 +64,7 @@ const Camera = () => {
   const startCountdown = (count, callback) => {
     if (count > 0) {
       setCountdown(count);
-      setTimeout(() => startCountdown(count - 1, callback), 1);
+      setTimeout(() => startCountdown(count - 1, callback), 1000); // DONT MODIFY.
     } else {
       setCountdown(null);
       callback();
@@ -86,7 +86,7 @@ const Camera = () => {
       }
 
       //countdown
-      startCountdown(3, () => {
+      startCountdown(3, () => { // <<ALTER THIS TO 1 IF WANT ONE SEC TIMER FOR TEST)
         takePhoto();
         setPhotoCount((prevCount) => prevCount + 1);
 
