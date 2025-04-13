@@ -3,7 +3,6 @@
   background-color: var(--beige);
   display: grid;
   box-sizing: border-box;
-  position: relative;
   place-items: center;
   outline: 1px solid var(--gray);
 }
@@ -77,9 +76,10 @@
 .frame-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* This ensures cropping instead of stretching */
 }
 
+/* Responsive layout */
 @media (max-width: 600px) {
   .frame-options {
     gap: 24px;
@@ -103,4 +103,16 @@
     grid-template-rows: repeat(2, 1fr);
     gap: 6.6px;
   }
+}
+
+/* Safari-specific — same behavior, just ensures layout consistency */
+.safari .frame-img-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.safari .frame-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
