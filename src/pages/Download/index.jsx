@@ -116,6 +116,7 @@ function Download() {
             const allImages = Array.from(frameEl.querySelectorAll("img"));
             const photoImages = allImages.filter(img => !img.className.includes("frame-design"));
             const frameDesignImg = allImages.find(img => img.className.includes("frame-design"));
+            const stickerImg = allImages.find(img => img.className.includes("frame-stickers"));
   
             //draw photo images
             for (const imgEl of photoImages) {
@@ -184,7 +185,7 @@ function Download() {
               }
             }
   
-            //draw the frame design LAST 
+            //draw the frame design
             if (frameDesignImg) {
               try {
                 const imgRect = frameDesignImg.getBoundingClientRect();
@@ -214,6 +215,32 @@ function Download() {
               } 
               catch (frameError) {
                 console.warn("Failed to draw frame overlay:", frameError);
+              }
+            }
+
+            //draw the stickers LAST
+            if (stickerImg) {
+              try {
+                const imgRect = stickerImg.getBoundingClientRect();
+                const relativeX = imgRect.left - rect.left;
+                const relativeY = imgRect.top - rect.top;
+
+                const img = new Image();
+                await new Promise((res, rej) => {
+                  img.onload = res;
+                  img.onerror = rej;
+                  img.crossOrigin = "anonymous";
+                  img.src = stickerImg.src;
+                });
+
+                ctx.filter = "none";
+                ctx.drawImage(
+                  img,
+                  0, 0, img.naturalWidth, img.naturalHeight,
+                  relativeX, relativeY, imgRect.width, imgRect.height
+                );
+              } catch (e) {
+                console.warn("Failed to draw sticker:", e);
               }
             }
 
