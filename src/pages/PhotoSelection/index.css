@@ -65,7 +65,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 720px) {
   .image-options {
     grid-template-columns: repeat(
       4,

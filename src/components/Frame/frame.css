@@ -80,7 +80,7 @@
 }
 
 /* Responsive layout */
-@media (max-width: 350px) {
+@media (max-width: 480px) {
   .frame-options {
     gap: 24px;
   }

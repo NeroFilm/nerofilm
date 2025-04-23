@@ -223,7 +223,7 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 720px) {
   .photobooth-section {
     flex-direction: column;
     gap: 40px;
@@ -255,4 +255,10 @@
 
 .icon-hover:hover {
   transform: translateY(-6px) scale(1.05);
+}
+
+@media (max-width: 480px) {
+  .home-container img {
+    max-width: 420px;
+  }
 }

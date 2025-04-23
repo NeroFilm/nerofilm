@@ -141,7 +141,7 @@
 }
 
 /* Responsive: Mobile */
-@media (max-width: 430px) {
+@media (max-width: 480px) {
   .camera-instructions,
   .count-display {
     top: 80px;

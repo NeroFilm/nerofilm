@@ -127,7 +127,7 @@ button:hover,
   cursor: pointer;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   :root {
     --heading-1: 28px;
   }
