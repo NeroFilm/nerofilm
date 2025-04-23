@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import "./index.css";
@@ -21,43 +20,6 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
-  const aboutPic1Ref = useRef(null);
-  const aboutPic2Ref = useRef(null);
-  const fridgePic1Ref = useRef(null);
-  const fridgePic2Ref = useRef(null);
-  const perfumePic1Ref = useRef(null);
-  const perfumePic2Ref = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const refs = [
-        aboutPic1Ref.current,
-        aboutPic2Ref.current,
-        fridgePic1Ref.current,
-        fridgePic2Ref.current,
-        perfumePic1Ref.current,
-        perfumePic2Ref.current,
-      ];
-
-      refs.forEach((ref) => {
-        if (!ref) return;
-        const rect = ref.getBoundingClientRect();
-        const isVisible =
-          rect.top < window.innerHeight * 0.85 && rect.bottom > 0;
-
-        if (isVisible) {
-          ref.classList.add("in-view");
-        } else {
-          ref.classList.remove("in-view");
-        }
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // initial check
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <div className="home-container">
       <Header />
@@ -108,20 +70,8 @@ const Home = () => {
                   className="about-label icon-hover"
                 />
               </Link>
-              <img
-                src={homepic1}
-                alt="homepic1"
-                ref={aboutPic1Ref}
-                className="about-homepic1 scroll-pic"
-                data-rotate="-10"
-              />
-              <img
-                src={homepic2}
-                alt="homepic2"
-                ref={aboutPic2Ref}
-                className="about-homepic2 scroll-pic"
-                data-rotate="10"
-              />
+              <img src={homepic1} alt="homepic1" className="about-homepic1" />
+              <img src={homepic2} alt="homepic2" className="about-homepic2" />
             </div>
           </div>
         </section>
@@ -136,16 +86,12 @@ const Home = () => {
               <img
                 src={homepic1}
                 alt="Homepic 1"
-                ref={fridgePic1Ref}
                 className="scroll-pic fridge-homepic1"
-                data-rotate="-10"
               />
               <img
                 src={homepic2}
                 alt="Homepic 2"
-                ref={fridgePic2Ref}
                 className="scroll-pic fridge-homepic2"
-                data-rotate="10"
               />
             </div>
             <img src={fridge} alt="Fridge" className="fridge-image" />
@@ -163,16 +109,12 @@ const Home = () => {
               <img
                 src={homepic1}
                 alt="Homepic 1"
-                ref={perfumePic1Ref}
                 className="scroll-pic perfume-item1-homepic1"
-                data-rotate="-10"
               />
               <img
                 src={homepic2}
                 alt="Homepic 2"
-                ref={perfumePic2Ref}
                 className="scroll-pic perfume-item1-homepic2"
-                data-rotate="10"
               />
             </div>
             <img src={perfume} alt="Perfume Shelf" className="perfume-item2" />

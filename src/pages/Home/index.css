@@ -247,23 +247,6 @@
   }
 }
 
-.scroll-pic {
-  position: relative;
-  opacity: 0;
-  transform: translateY(60px) scale(0.95) rotate(0deg);
-  transition: transform 0.8s ease, opacity 0.8s ease;
-}
-
-.scroll-pic.in-view[data-rotate="-10"] {
-  transform: translateY(0) scale(1) rotate(-10deg);
-  opacity: 1;
-}
-
-.scroll-pic.in-view[data-rotate="10"] {
-  transform: translateY(0) scale(1) rotate(10deg);
-  opacity: 1;
-}
-
 /* Smooth hover animation for clickable icons */
 .icon-hover {
   transition: transform 0.3s ease;
