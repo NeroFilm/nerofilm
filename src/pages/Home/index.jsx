@@ -15,47 +15,72 @@ import Footer from "../../components/Footer/Footer";
 const Home = () => {
   return (
     <div className="home-container">
-      <header>
-        <nav>
+      <header className="home-header">
+        <nav className="home-nav">
           <Link to="/">NeroFilm</Link>
           <Link to="/frame-layout">
             <button className="btn-small">Enter Photobooth</button>
           </Link>
         </nav>
-        <p>NeroFilm</p>
-        <p>Cherish memories, relive moments</p>
+        <div className="home-header-text">
+          <p className="home-header-name">NeroFilm</p>
+          <p className="home-header-desc">Cherish memories, relive moments</p>
+        </div>
       </header>
-      <section className="hero">
-        <Link to="frame-layout">
-          <img src={photobooth} alt="photobooth" />
-        </Link>
-        <Link to="frame-layout">
-          <img src={enterPhotobooth} alt="enter photobooth" />
-        </Link>
-        <Link to="privacy-policy">
-          <img src={privacyPolicy} alt="privacy policy" />
-        </Link>
-        <Link to="about">
-          <img src={aboutUs} alt="photobooth" />
-        </Link>
-      </section>
-      <section className="home-section">
-        <p>Decorate your place with special moments</p>
-        <Link to="/frame-layout">
-          <button className="btn-small">Enter Photobooth</button>
-        </Link>
-        <img src={fridge} alt="fridge with photobooth strip" />
-      </section>
-      <section className="home-section">
-        <p>A wall full of your memories</p>
-        <Link to="/frame-layout">
-          <button className="btn-small">Enter Photobooth</button>
-        </Link>
-        <img src={wall} alt="wall with photobooth strip" />
-      </section>
-
+      <main className="home-main">
+        <section className="home-hero">
+          <Link to="frame-layout">
+            <img
+              className="hero-img home-photobooth"
+              src={photobooth}
+              alt="photobooth"
+            />
+          </Link>
+          <Link to="frame-layout">
+            <img
+              className="hero-img home-enter-photobooth"
+              src={enterPhotobooth}
+              alt="enter photobooth"
+            />
+          </Link>
+          <Link to="privacy-policy">
+            <img
+              className="hero-img home-privacy-policy"
+              src={privacyPolicy}
+              alt="privacy policy"
+            />
+          </Link>
+          <Link to="about">
+            <img
+              className="hero-img home-about-us"
+              src={aboutUs}
+              alt="photobooth"
+            />
+          </Link>
+        </section>
+        <section className="home-section">
+          <div>
+            <p className="home-section-text">
+              Decorate your place with special moments
+            </p>
+            <Link to="/frame-layout">
+              <button className="btn-small">Enter Photobooth</button>
+            </Link>
+          </div>
+          <img src={fridge} alt="fridge with photobooth strip" />
+        </section>
+        <section className="home-section">
+          <img src={wall} alt="wall with photobooth strip" />
+          <div>
+            <p className="home-section-text">A wall full of your memories</p>
+            <Link to="/frame-layout">
+              <button className="btn-small">Enter Photobooth</button>
+            </Link>
+          </div>
+        </section>
+      </main>
       <Footer />
-      <img className="letter" src={letter} alt="letter" />
+      <img className="home-letter" src={letter} alt="letter" />
     </div>
   );
 };

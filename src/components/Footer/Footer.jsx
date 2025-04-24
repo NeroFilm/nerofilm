@@ -5,12 +5,15 @@ const Footer = () => {
   return (
     <footer className="footer">
       <p>© NeroFilm 2025</p>
-      <div className="footer-right">
-        <Link to="/privacy-policy" className="privacy-policy-link">
+      <nav className="footer-right">
+        <Link to="/about-us" className="footer-link">
+          About Us
+        </Link>
+        <Link to="/privacy-policy" className="footer-link">
           Privacy Policy
         </Link>
         <a href="mailto:contact.nerofilm@gmail.com">Contact Us</a>
-      </div>
+      </nav>
     </footer>
   );
 };
