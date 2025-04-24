@@ -84,7 +84,7 @@ const Camera = () => {
         navigate("/photo-selection");
         return;
       }
-    
+
       // Start countdown for this round
       startCountdown(3, () => {
         takePhoto(); // visible photo

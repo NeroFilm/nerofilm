@@ -48,12 +48,28 @@
   height: 640px;
 }
 
+.hero-cursor-label {
+  position: fixed;
+  pointer-events: none;
+  background-color: var(--white);
+  color: var(--black);
+  border: 2px solid var(--burgundy);
+  font-size: var(--body-small);
+  padding: 4px 8px;
+  border-radius: 2px;
+  white-space: nowrap;
+  z-index: 10000;
+  opacity: 0;
+  transform: translate(0, -50%);
+  transition: opacity 0.2s ease-in-out;
+}
+
 .hero-img {
   cursor: pointer;
 }
 
 .hero-img:hover {
-  opacity: 0.8;
+  opacity: 0.72;
 }
 
 .hero-photobooth-container {
@@ -71,32 +87,15 @@
   left: 24px;
 }
 
-.hero-photobooth:hover,
-.hero-photobooth:focus,
-.hero-enter-photobooth:hover,
-.hero-enter-photobooth:focus {
-  cursor: url("../../assets/cursors/enter-photobooth-cursor.svg") 16 2, pointer;
-}
-
 .hero-privacy-policy {
   position: absolute;
   top: 400px;
-}
-
-.hero-privacy-policy:hover,
-.hero-privacy-policy:focus {
-  cursor: url("../../assets/cursors/privacy-policy-cursor.svg") 16 2, pointer;
 }
 
 .hero-about-us {
   position: absolute;
   top: 160px;
   right: 0;
-}
-
-.hero-about-us:hover,
-.hero-about-us:focus {
-  cursor: url("../../assets/cursors/about-us-cursor.svg") 16 2, pointer;
 }
 
 .home-section {
