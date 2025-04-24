@@ -20,6 +20,11 @@ canvas {
   padding: 8px;
 }
 
+.sticker:hover {
+  cursor: pointer;
+  opacity: 0.72;
+}
+
 .dropzone {
   width: 100%;
   padding: 48px;

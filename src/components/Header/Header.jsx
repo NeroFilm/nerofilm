@@ -11,14 +11,9 @@ const Header = () => {
 
       {/* Navigation */}
       <nav>
-        <ul className="header-nav">
-          <li>
-            <Link to="/about-us">About</Link>
-          </li>
-          <Link to="/frame-layout">
-            <button className="btn-small">Enter Photobooth</button>
-          </Link>
-        </ul>
+        <Link to="/frame-layout" role="button">
+          <button className="btn-small">Enter Photobooth</button>
+        </Link>
       </nav>
     </header>
   );

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import "./options.css";
 import { playClickSound } from "../../utils/soundUtils";
 
-function Options({ options, onClick, selected, isFilter }) {
+function Options({ options, onClick, selected, isFilter, rounded }) {
   return (
     <ul className="options">
       {options.map((option, index) => (
@@ -20,7 +20,8 @@ function Options({ options, onClick, selected, isFilter }) {
           >
             <img
               className={`option-img 
-              ${isFilter ? `filter-${option.name}` : ""}`}
+              ${isFilter ? `filter-${option.name}` : ""}
+              ${rounded ? `rounded` : ""}`}
               src={option.image}
               alt={option.name}
             />
@@ -42,6 +43,7 @@ Options.propTypes = {
   onClick: PropTypes.func.isRequired,
   selected: PropTypes.string.isRequired,
   isFilter: PropTypes.bool,
+  rounded: PropTypes.bool,
 };
 
 export default Options;

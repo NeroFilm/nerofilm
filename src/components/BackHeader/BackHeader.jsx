@@ -13,7 +13,7 @@ const BackHeader = ({ isBlack = false }) => {
       </div>
       <button
         onClick={() => navigate(-1)} // Navigate back one step in history
-        className="back-header-back"
+        className="back-button"
       >
         <ArrowUturnLeftIcon
           className={`back-icon ${isBlack && "white-back-icon"}`}

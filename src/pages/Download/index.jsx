@@ -481,6 +481,7 @@ function Download() {
             options={options}
             onClick={(option) => handleShare(option.name)}
             selected={frame.filter}
+            rounded
           />
         </section>
 
@@ -512,7 +513,7 @@ function Download() {
             }
             disabled={loading}
           >
-            Download Tipmelapse
+            Download Timelapse
           </button>
         </section>
       </section>

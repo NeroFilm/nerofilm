@@ -4,7 +4,7 @@
   --font: "PT Serif", serif;
   --white: #fefefe;
   --gray-light: #f5f5f5;
-  --gray: #d4d4d4;
+  --gray: #c6c6c6;
   --gray-dark: #444444;
   --black: #111111;
   --beige: #f6f3f2;
@@ -82,7 +82,6 @@ img {
   font-size: var(--body-xlarge);
   border-radius: 2px;
   cursor: pointer;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -144,6 +143,10 @@ button:hover,
 .options-box-label {
   font-size: var(--body-medium);
   margin-bottom: 8px;
+}
+
+.rounded {
+  border-radius: 100%;
 }
 
 .underline {
@@ -212,6 +215,6 @@ button:hover,
 
 .about-privacy-paragraph {
   font-size: var(--body-medium);
-  color: var(--black);
+  color: var(--gray-dark);
   max-width: 720px;
 }

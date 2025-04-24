@@ -16,11 +16,13 @@
   z-index: 1;
 }
 
-.back-header-back {
-  background: none;
+.back-button {
+  background-color: transparent;
   border: none;
-  cursor: pointer;
-  padding: 0;
+}
+
+.back-button:hover {
+  transform: translateY(-4);
 }
 
 .back-icon {
