@@ -19,7 +19,7 @@ const App = () => {
       <HashRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about-us" element={<About />} />
           <Route path="/frame-layout" element={<FrameLayout />} />
           <Route path="/camera" element={<Camera />} />
           <Route path="/photo-selection" element={<PhotoSelection />} />

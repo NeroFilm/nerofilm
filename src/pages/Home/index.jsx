@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import "./index.css";
 
-import photobooth from "../../assets/photobooth.png";
+import photobooth from "../../assets/photobooth.svg";
 import fridge from "../../assets/fridge.svg";
 import privacyPolicy from "../../assets/privacy-policy.svg";
 import enterPhotobooth from "../../assets/enter-photobooth.svg";
@@ -29,30 +29,32 @@ const Home = () => {
       </header>
       <main className="home-main">
         <section className="home-hero">
+          <div className="hero-photobooth-container">
+            <Link to="frame-layout">
+              <img
+                className="hero-img hero-photobooth"
+                src={photobooth}
+                alt="photobooth"
+              />
+            </Link>
+          </div>
           <Link to="frame-layout">
             <img
-              className="hero-img home-photobooth"
-              src={photobooth}
-              alt="photobooth"
-            />
-          </Link>
-          <Link to="frame-layout">
-            <img
-              className="hero-img home-enter-photobooth"
+              className="hero-img hero-enter-photobooth"
               src={enterPhotobooth}
               alt="enter photobooth"
             />
           </Link>
           <Link to="privacy-policy">
             <img
-              className="hero-img home-privacy-policy"
+              className="hero-img hero-privacy-policy"
               src={privacyPolicy}
               alt="privacy policy"
             />
           </Link>
-          <Link to="about">
+          <Link to="about-us">
             <img
-              className="hero-img home-about-us"
+              className="hero-img hero-about-us"
               src={aboutUs}
               alt="photobooth"
             />

@@ -1,5 +1,5 @@
 .home-main {
-  padding: 16px 160px 160px;
+  padding: 0 160px 160px;
   display: flex;
   flex-direction: column;
   gap: 200px;
@@ -56,29 +56,47 @@
   opacity: 0.8;
 }
 
-.home-photobooth {
+.hero-photobooth-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 0;
+  box-sizing: border-box;
+  padding: 16px 56px 20px 32px;
 }
 
-.home-enter-photobooth {
+.hero-enter-photobooth {
   position: absolute;
   top: 140px;
-  left: 4px;
+  left: 24px;
 }
 
-.home-privacy-policy {
+.hero-photobooth:hover,
+.hero-photobooth:focus,
+.hero-enter-photobooth:hover,
+.hero-enter-photobooth:focus {
+  cursor: url("../../assets/cursors/enter-photobooth-cursor.svg") 16 2, pointer;
+}
+
+.hero-privacy-policy {
   position: absolute;
   top: 400px;
 }
 
-.home-about-us {
+.hero-privacy-policy:hover,
+.hero-privacy-policy:focus {
+  cursor: url("../../assets/cursors/privacy-policy-cursor.svg") 16 2, pointer;
+}
+
+.hero-about-us {
   position: absolute;
   top: 160px;
   right: 0;
+}
+
+.hero-about-us:hover,
+.hero-about-us:focus {
+  cursor: url("../../assets/cursors/about-us-cursor.svg") 16 2, pointer;
 }
 
 .home-section {
