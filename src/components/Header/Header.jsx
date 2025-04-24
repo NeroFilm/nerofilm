@@ -13,7 +13,7 @@ const Header = () => {
       <nav>
         <ul className="header-nav">
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/about-us">About</Link>
           </li>
           <Link to="/frame-layout">
             <button className="btn-small">Enter Photobooth</button>
