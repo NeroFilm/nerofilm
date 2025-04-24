@@ -164,13 +164,13 @@ const Camera = () => {
                   >
                     <img src={Shutter} alt="Shutter" className="shutter-icon" />
                     {isShooting && (
-                      <div
+                      <p
                         className={`countdown-timer ${
                           countdown === null ? "hidden" : ""
                         }`}
                       >
                         {countdown !== null ? countdown : <span>&nbsp;</span>}
-                      </div>
+                      </p>
                     )}
                   </button>
                 </div>

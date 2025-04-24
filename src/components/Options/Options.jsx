@@ -25,7 +25,7 @@ function Options({ options, onClick, selected, isFilter }) {
               alt={option.name}
             />
           </div>
-          <p>{option.name}</p>
+          <p className="option-label">{option.name}</p>
         </li>
       ))}
     </ul>

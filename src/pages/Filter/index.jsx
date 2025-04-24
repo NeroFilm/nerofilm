@@ -32,6 +32,7 @@ function Filter() {
             design={frame.design}
           />
           <div className="options-box">
+            <p className="options-box-label">Filter</p>
             <Options
               options={options}
               onClick={(option) => setFrame({ ...frame, filter: option.name })}
@@ -40,8 +41,8 @@ function Filter() {
             />
           </div>
         </section>
-        <Link className="btn" to="/sticker" role="button">
-          Continue
+        <Link to="/sticker" role="button">
+          <button className="btn">Continue</button>
         </Link>
       </section>
     </div>

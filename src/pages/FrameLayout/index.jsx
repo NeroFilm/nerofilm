@@ -65,8 +65,8 @@ function FrameLayout() {
             ))}
           </ul>
         </div>
-        <Link className="btn" to="/camera" role="button">
-          Continue
+        <Link to="/camera" role="button">
+          <button className="btn">Continue</button>
         </Link>
       </section>
     </div>

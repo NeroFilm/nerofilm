@@ -29,5 +29,9 @@ canvas {
   justify-content: center;
   background-color: var(--beige);
   border: 1px solid var(--gray);
-  border-radius: 4px;
+  border-radius: 2px;
+}
+
+.dropzone p {
+  font-size: var(--body-medium);
 }

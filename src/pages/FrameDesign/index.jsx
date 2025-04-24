@@ -28,6 +28,7 @@ function FrameDesign() {
             design={frame.design}
           />
           <div className="options-box">
+            <p className="options-box-label">Frame</p>
             <Options
               options={frameDesigns}
               onClick={(option) => {
@@ -42,8 +43,8 @@ function FrameDesign() {
             />
           </div>
         </section>
-        <Link className="btn" to="/filter" role="btn">
-          Continue
+        <Link to="/filter" role="btn">
+          <button className="btn">Continue</button>
         </Link>
       </section>
     </div>

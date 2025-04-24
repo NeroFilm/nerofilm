@@ -11,57 +11,15 @@ import wall from "../../assets/wall.svg";
 import letter from "../../assets/letter.png";
 
 import Footer from "../../components/Footer/Footer";
+
 import { useEffect } from "react";
+import useCursorLabel from "../../hooks/useCursorLabel";
 
 const Home = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  // cursor label
-  useEffect(() => {
-    const label = document.createElement("div");
-    label.className = "hero-cursor-label";
-    document.body.appendChild(label);
-
-    let mouseX = 0,
-      mouseY = 0;
-    let labelX = 0,
-      labelY = 0;
-
-    const moveHandler = (e) => {
-      const target = e.target.closest(".hero-img");
-      if (target && target.dataset.label) {
-        label.textContent = target.dataset.label;
-        mouseX = e.clientX + 24;
-        mouseY = e.clientY + 16;
-        label.style.opacity = "1";
-      } else {
-        label.style.opacity = "0";
-      }
-    };
-
-    const updateLabelPosition = () => {
-      const dx = mouseX - labelX;
-      const dy = mouseY - labelY;
-      const smoothing = 8;
-      labelX += dx / smoothing;
-      labelY += dy / smoothing;
-
-      label.style.left = `${labelX}px`;
-      label.style.top = `${labelY}px`;
-
-      requestAnimationFrame(updateLabelPosition);
-    };
-
-    document.addEventListener("mousemove", moveHandler);
-    updateLabelPosition();
-
-    return () => {
-      document.removeEventListener("mousemove", moveHandler);
-      document.body.removeChild(label);
-    };
-  }, []);
+  useCursorLabel();
 
   return (
     <div className="home-container">
@@ -120,7 +78,7 @@ const Home = () => {
               Decorate your place with special moments
             </p>
             <Link to="/frame-layout">
-              <button className="btn-small">Enter Photobooth</button>
+              <button className="btn">Enter Photobooth</button>
             </Link>
           </div>
           <img src={fridge} alt="fridge with photobooth strip" />
@@ -130,7 +88,7 @@ const Home = () => {
           <div>
             <p className="home-section-text">A wall full of your memories</p>
             <Link to="/frame-layout">
-              <button className="btn-small">Enter Photobooth</button>
+              <button className="btn">Enter Photobooth</button>
             </Link>
           </div>
         </section>
