@@ -21,10 +21,6 @@
   border: none;
 }
 
-.back-button:hover {
-  transform: translateY(-4);
-}
-
 .back-icon {
   width: 32px;
   height: 32px;
