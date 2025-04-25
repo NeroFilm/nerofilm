@@ -83,7 +83,7 @@ const Home = () => {
           </div>
           <img src={fridge} alt="fridge with photobooth strip" />
         </section>
-        <section className="home-section">
+        <section className="home-section home-section-2">
           <img src={wall} alt="wall with photobooth strip" />
           <div>
             <p className="home-section-text">A wall full of your memories</p>

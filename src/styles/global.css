@@ -101,6 +101,7 @@ button,
 .btn {
   transition: all 0.2s ease-in;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .btn-secondary {
@@ -151,9 +152,13 @@ button:hover,
   cursor: pointer;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   :root {
     --heading-1: 28px;
+    --body-xlarge: 20px;
+    --body-large: 18px;
+    --body-medium: 16px;
+    --body-small: 14px;
   }
   .btn {
     padding: 12px 24px;
@@ -214,4 +219,12 @@ button:hover,
   font-size: var(--body-medium);
   color: var(--gray-dark);
   max-width: 720px;
+}
+
+@media (max-width: 768px) {
+  .about-privacy-container {
+    margin-top: 80px;
+    margin-bottom: 40px;
+    height: auto;
+  }
 }

@@ -22,3 +22,14 @@
 .footer-right a:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 640px) {
+  .footer {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .footer-right {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
